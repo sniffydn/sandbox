@@ -43,6 +43,8 @@ public class NewJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/test.png"))); // NOI18N
         getContentPane().add(jLabel1);
 
         pack();
@@ -100,11 +102,11 @@ public class NewJFrame extends javax.swing.JFrame {
             g2d.drawImage(i, 0, -400, null);
             g2d.drawImage(i, 0, -600, null);
             
-            f = new File("src\\main\\resources\\test1.png");
-            System.out.println(f.getAbsoluteFile());
-            ImageIO.write(bi, "png", f);
+//            f = new File("src\\main\\resources\\test1.png");
+//            System.out.println(f.getAbsoluteFile());
+//            ImageIO.write(bi, "png", f);
             
-            
+            jLabel1.setIcon(new javax.swing.ImageIcon(bi));
             
         } catch (IOException ex) {
             Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
