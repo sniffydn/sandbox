@@ -44,7 +44,7 @@ public class NewJFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/test.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/test/test.png"))); // NOI18N
         getContentPane().add(jLabel1);
 
         pack();
@@ -91,7 +91,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void postInitComponents() {
         try {
-            File f = new File(getClass().getResource("/test.png").getPath());
+            File f = new File(getClass().getResource("/test/test.png").getPath());
             System.out.println(f.getAbsoluteFile());
             Image i = ImageIO.read(f);
 
