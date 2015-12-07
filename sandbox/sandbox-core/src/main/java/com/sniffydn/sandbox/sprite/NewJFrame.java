@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.sniffydn.sandbox.sprite;
 
 import java.awt.Graphics2D;
@@ -44,7 +39,7 @@ public class NewJFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/test/test.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/test/Temp/test.png"))); // NOI18N
         getContentPane().add(jLabel1);
 
         pack();
@@ -91,16 +86,18 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void postInitComponents() {
         try {
-            File f = new File(getClass().getResource("/test/test.png").getPath());
+            File f = new File(getClass().getResource("/test/Temp/test.png").getPath());
             System.out.println(f.getAbsoluteFile());
             Image i = ImageIO.read(f);
 
             BufferedImage bi = new BufferedImage(i.getWidth(null), 200, BufferedImage.TYPE_INT_ARGB);
             Graphics2D g2d = (Graphics2D) bi.getGraphics();
             
-            g2d.drawImage(i, 0, -200, null);
-            g2d.drawImage(i, 0, -400, null);
-            g2d.drawImage(i, 0, -600, null);
+            g2d.drawImage(i, 0, 0, null);
+            g2d.drawImage(i, 0, -216, null);
+            g2d.drawImage(i, 0, -432, null);
+            g2d.drawImage(i, 0, -648, null);
+            g2d.drawImage(i, 0, -864, null);
             
 //            f = new File("src\\main\\resources\\test1.png");
 //            System.out.println(f.getAbsoluteFile());
