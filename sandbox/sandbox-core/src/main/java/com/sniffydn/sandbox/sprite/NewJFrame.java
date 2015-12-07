@@ -37,9 +37,7 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel1 = new SpriteLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new java.awt.GridLayout());
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/test/Temp/test.png"))); // NOI18N
+        getContentPane().setLayout(new java.awt.GridLayout(1, 0));
         getContentPane().add(jLabel1);
 
         pack();
@@ -86,25 +84,30 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void postInitComponents() {
         try {
-            File f = new File(getClass().getResource("/test/Temp/test.png").getPath());
+            File f = new File(getClass().getResource("/test/Temp/test.p").getPath());
             System.out.println(f.getAbsoluteFile());
             Image i = ImageIO.read(f);
 
-            BufferedImage bi = new BufferedImage(i.getWidth(null), 200, BufferedImage.TYPE_INT_ARGB);
+            BufferedImage bi = new BufferedImage(216, 216, BufferedImage.TYPE_INT_ARGB);
             Graphics2D g2d = (Graphics2D) bi.getGraphics();
-            
-            g2d.drawImage(i, 0, 0, null);
-            g2d.drawImage(i, 0, -216, null);
-            g2d.drawImage(i, 0, -432, null);
-            g2d.drawImage(i, 0, -648, null);
-            g2d.drawImage(i, 0, -864, null);
-            
+
+//            g2d.drawImage(i, 0, 0, null);
+//            g2d.drawImage(i, 0, -216, null);
+//            g2d.drawImage(i, 0, -432, null);
+//            g2d.drawImage(i, 0, -648, null);
+//            g2d.drawImage(i, 0, -864, null);
+
+            g2d.drawImage(i, -432, 0, null);
+            g2d.drawImage(i, -432, -216, null);
+            g2d.drawImage(i, -432, -432, null);
+            g2d.drawImage(i, -432, -648, null);
+            g2d.drawImage(i, -432, -864, null);
+
 //            f = new File("src\\main\\resources\\test1.png");
 //            System.out.println(f.getAbsoluteFile());
 //            ImageIO.write(bi, "png", f);
-            
             jLabel1.setIcon(new javax.swing.ImageIcon(bi));
-            
+
         } catch (IOException ex) {
             Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
