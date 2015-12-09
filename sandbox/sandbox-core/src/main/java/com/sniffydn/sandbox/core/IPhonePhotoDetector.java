@@ -16,7 +16,7 @@ public class IPhonePhotoDetector {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        File file = new File("C:\\Users\\dnyffeler\\Documents\\NetBeansProjects\\sandbox\\sandbox\\sandbox-core\\src\\main\\java\\com\\sniffydn\\sandbox\\core\\resources\\turnedRight.JPG");
+        File file = new File("C:\\TEMP\\gmi\\image1.jpg");
         try {
             Metadata metadata = ImageMetadataReader.readMetadata(file);
             printImageTags(metadata);
@@ -31,6 +31,7 @@ public class IPhonePhotoDetector {
         // iterate over the exif data and print to System.out
         for (Directory directory : metadata.getDirectories()) {
             for (Tag tag : directory.getTags()) {
+                System.out.println(tag.getTagName() + "    " + tag.getDescription());
                 if(tag.getTagName().equals("Orientation")) {
                     if(tag.getDescription().contains("90")) {
                         System.out.println("contains 90");
