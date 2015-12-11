@@ -1,13 +1,9 @@
 package com.sniffydn.sandbox.sprite;
 
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.image.BufferedImage;
+import com.sniffydn.sandbox.sprite.model.Accessory;
+import com.sniffydn.sandbox.sprite.model.Action;
+import com.sniffydn.sandbox.sprite.service.SpriteFS;
 import java.io.File;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 
 /**
  *
@@ -81,34 +77,45 @@ public class NewJFrame extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void postInitComponents() {
-        try {
-            File f = new File(getClass().getResource("/test/Temp/test.p").getPath());
-            System.out.println(f.getAbsoluteFile());
-            Image i = ImageIO.read(f);
-
-            BufferedImage bi = new BufferedImage(216, 216, BufferedImage.TYPE_INT_ARGB);
-            Graphics2D g2d = (Graphics2D) bi.getGraphics();
-
-//            g2d.drawImage(i, 0, 0, null);
-//            g2d.drawImage(i, 0, -216, null);
-//            g2d.drawImage(i, 0, -432, null);
-//            g2d.drawImage(i, 0, -648, null);
-//            g2d.drawImage(i, 0, -864, null);
-
-            g2d.drawImage(i, -432, 0, null);
-            g2d.drawImage(i, -432, -216, null);
-            g2d.drawImage(i, -432, -432, null);
-            g2d.drawImage(i, -432, -648, null);
-            g2d.drawImage(i, -432, -864, null);
-
-//            f = new File("src\\main\\resources\\test1.png");
+//        try {
+//            File f = new File(getClass().getResource("/test/Temp/test.p").getPath());
 //            System.out.println(f.getAbsoluteFile());
-//            ImageIO.write(bi, "png", f);
-            jLabel1.setIcon(new javax.swing.ImageIcon(bi));
+//            Image i = ImageIO.read(f);
+//
+//            BufferedImage bi = new BufferedImage(216, 216, BufferedImage.TYPE_INT_ARGB);
+//            Graphics2D g2d = (Graphics2D) bi.getGraphics();
+//
+////            g2d.drawImage(i, 0, 0, null);
+////            g2d.drawImage(i, 0, -216, null);
+////            g2d.drawImage(i, 0, -432, null);
+////            g2d.drawImage(i, 0, -648, null);
+////            g2d.drawImage(i, 0, -864, null);
+//
+//            g2d.drawImage(i, -432, 0, null);
+//            g2d.drawImage(i, -432, -216, null);
+//            g2d.drawImage(i, -432, -432, null);
+//            g2d.drawImage(i, -432, -648, null);
+//            g2d.drawImage(i, -432, -864, null);
+//
+////            f = new File("src\\main\\resources\\test1.png");
+////            System.out.println(f.getAbsoluteFile());
+////            ImageIO.write(bi, "png", f);
+//            jLabel1.setIcon(new javax.swing.ImageIcon(bi));
+//
+//        } catch (IOException ex) {
+//            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+//        }
 
-        } catch (IOException ex) {
-            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+
+        Accessory acc = new Accessory();
+        acc.getActions().add(new Action());
+        File f = new File(getClass().getResource("/test/Temp").getPath());
+        File f2 = new File(f.getAbsolutePath() + "/acc/1/desc.xml");
+        System.out.println(f.getAbsolutePath());
+        try {
+            SpriteFS.writeAccessory(f2, acc);
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
-
     }
 }
