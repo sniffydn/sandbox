@@ -1,6 +1,6 @@
 package com.sniffydn.sandbox.sprite;
 
-import com.sniffydn.sandbox.sprite.model.Accessory;
+import com.sniffydn.sandbox.sprite.model.her.Accessory;
 import com.sniffydn.sandbox.sprite.model.Action;
 import com.sniffydn.sandbox.sprite.service.SpriteFS;
 import java.io.File;

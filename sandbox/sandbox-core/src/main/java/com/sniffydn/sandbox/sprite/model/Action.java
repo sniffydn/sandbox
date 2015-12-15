@@ -1,5 +1,6 @@
 package com.sniffydn.sandbox.sprite.model;
 
+import com.sniffydn.sandbox.sprite.model.her.Mood;
 import java.util.ArrayList;
 import java.util.List;
 

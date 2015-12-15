@@ -1,5 +1,5 @@
 
-package com.sniffydn.sandbox.sprite.model;
+package com.sniffydn.sandbox.sprite.model.her;
 
 /**
  *

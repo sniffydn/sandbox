@@ -1,9 +1,11 @@
 package com.sniffydn.sandbox.core;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +50,8 @@ public class JSONLogConverter {
         StringBuilder fullJSONString = new StringBuilder();
         FileReader fr = null;
         try {
-            File f = new File("C:\\TEMP\\gmi\\GMIS172-16-7-122-20151204200715.log");
+            BufferedWriter bw = new BufferedWriter(new FileWriter("C:\\TEMP\\gmi\\log.txt", true));
+            File f = new File("C:\\TEMP\\gmi\\" + "GMIS172-16-7-122-20151213000003" + ".log");
             fr = new FileReader(f);
             BufferedReader br = new BufferedReader(fr);
             // Process lines from file
@@ -62,12 +65,15 @@ public class JSONLogConverter {
                         for (String s : keys) {
                             try {
                                 System.out.print(json.getString(s) + DELIMITER);
+                                bw.append(json.getString(s) + DELIMITER);
                             } catch (Exception e) {
                                 try {
                                     System.out.print(json.getInt(s) + DELIMITER);
+                                    bw.append(json.getInt(s) + DELIMITER);
                                 } catch (Exception e1) {
                                     try {
                                         System.out.print(json.getJSONObject(s).toString().replaceAll(Pattern.quote(DELIMITER), "|") + DELIMITER);
+                                        bw.append(json.getJSONObject(s).toString().replaceAll(Pattern.quote(DELIMITER), "|") + DELIMITER);
                                     } catch (Exception e2) {
                                         System.out.print(e2);
                                     }
@@ -75,6 +81,7 @@ public class JSONLogConverter {
                             }
                         }
                         System.out.println();
+                        bw.newLine();
                         fullJSONString = new StringBuilder();
                     } catch (Exception e) {
                     }

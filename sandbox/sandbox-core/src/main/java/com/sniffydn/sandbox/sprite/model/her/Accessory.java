@@ -1,5 +1,8 @@
-package com.sniffydn.sandbox.sprite.model;
+package com.sniffydn.sandbox.sprite.model.her;
 
+import com.sniffydn.sandbox.sprite.model.Action;
+import com.sniffydn.sandbox.sprite.model.Actionable;
+import com.sniffydn.sandbox.sprite.model.Item;
 import java.util.ArrayList;
 import java.util.List;
 
