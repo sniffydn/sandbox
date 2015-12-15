@@ -6,7 +6,6 @@
 package com.sniffydn.sandbox.core;
 
 import java.util.Random;
-import java.util.StringTokenizer;
 
 /**
  *
@@ -731,13 +730,18 @@ public class Sandbox {
 //            }
 //        }
 
-        for (int i = 0; i < 300; i++) {
-            System.out.println(i + "    " + (char) i);
-        }
-
+//        for (int i = 0; i < 300; i++) {
+//            System.out.println(i + "    " + (char) i);
+//        }
+//
+//        Random random = new Random();
+//        for (int i = 0; i < 32; i++) {
+//            System.out.println();
+//        }
         Random random = new Random();
-        for (int i = 0; i < 32; i++) {
-            System.out.println();
+        for (int i = 0; i < 300; i++) {
+            char c = (char) ('A' + random.nextDouble() * ('Z' + 1 - 'A'));
+                System.out.print(c);
         }
     }
 }
