@@ -1,9 +1,6 @@
 package com.sniffydn.sandbox.sprite;
 
-import com.sniffydn.sandbox.sprite.model.her.Accessory;
-import com.sniffydn.sandbox.sprite.model.Action;
-import com.sniffydn.sandbox.sprite.service.SpriteFS;
-import java.io.File;
+import com.sniffydn.sandbox.sprite.model.me.Me;
 
 /**
  *
@@ -107,15 +104,18 @@ public class NewJFrame extends javax.swing.JFrame {
 //        }
 
 
-        Accessory acc = new Accessory();
-        acc.getActions().add(new Action());
-        File f = new File(getClass().getResource("/test/Temp").getPath());
-        File f2 = new File(f.getAbsolutePath() + "/acc/1/desc.xml");
-        System.out.println(f.getAbsolutePath());
-        try {
-            SpriteFS.writeAccessory(f2, acc);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+//        Accessory acc = new Accessory();
+//        acc.getActions().add(new Action());
+//        File f = new File(getClass().getResource("/test/Temp").getPath());
+//        File f2 = new File(f.getAbsolutePath() + "/acc/1/desc.xml");
+//        System.out.println(f.getAbsolutePath());
+//        try {
+//            SpriteFS.writeAccessory(f2, acc);
+//        } catch (Exception ex) {
+//            ex.printStackTrace();
+//        }
+
+        Me me = new Me();
+        System.out.println(me.getParts().size());
     }
 }
