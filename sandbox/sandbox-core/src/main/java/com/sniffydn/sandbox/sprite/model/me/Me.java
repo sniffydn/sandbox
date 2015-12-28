@@ -113,12 +113,122 @@ public class Me {
         Foot rightFoot = new Foot("right foot");
         parts.add(rightFoot);
 
+        hair.getDown().add(head);
+
+        head.getUp().add(hair);
+        head.getAround().add(leftEar);
+        head.getAround().add(rightEar);
+        head.getAround().add(nose);
+        head.getAround().add(mouth);
+        leftEar.getAround().add(head);
+        rightEar.getAround().add(head);
+        nose.getAround().add(head);
+        mouth.getAround().add(head);
+        head.getDown().add(neck);
+
+        neck.getUp().add(head);
+        neck.getDown().add(shoulders);
+
+        shoulders.getUp().add(neck);
+        shoulders.getDown().add(leftArm);
+        shoulders.getDown().add(rightArm);
+        shoulders.getDown().add(back);
+        shoulders.getDown().add(chest);
+
+        leftArm.getUp().add(shoulders);
+        rightArm.getUp().add(shoulders);
+        leftArm.getDown().add(leftElbow);
+        rightArm.getDown().add(rightElbow);
+
+        leftElbow.getUp().add(leftArm);
+        rightElbow.getUp().add(rightArm);
+        leftElbow.getDown().add(leftForearm);
+        rightElbow.getDown().add(rightForearm);
+
+        leftForearm.getUp().add(leftElbow);
+        rightForearm.getUp().add(rightElbow);
+        leftForearm.getDown().add(leftWrist);
+        rightForearm.getDown().add(rightWrist);
+
+        leftWrist.getUp().add(leftForearm);
+        rightWrist.getUp().add(rightForearm);
+        leftWrist.getDown().add(leftHand);
+        rightWrist.getDown().add(rightHand);
+
+        leftHand.getUp().add(leftWrist);
+        rightHand.getUp().add(rightWrist);
+
+        back.getUp().add(shoulders);
+        back.getAround().add(chest);
+        back.getAround().add(stomach);
+        back.getDown().add(butt);
+
+        chest.getUp().add(shoulders);
+        chest.getAround().add(back);
+        chest.getAround().add(leftNp);
+        chest.getAround().add(rightNp);
+        leftNp.getAround().add(chest);
+        rightNp.getAround().add(chest);
+        chest.getDown().add(stomach);
+
+        stomach.getAround().add(back);
+        stomach.getUp().add(chest);
+        stomach.getDown().add(hips);
+
+        hips.getUp().add(stomach);
+        hips.getAround().add(sc);
+        hips.getAround().add(pn);
+        sc.getAround().add(hips);
+        sc.getDown().add(pn);
+        pn.getUp().add(sc);
+        hips.getAround().add(butt);
+        hips.getDown().add(leftThigh);
+        hips.getDown().add(rightThigh);
+
+        butt.getUp().add(back);
+        butt.getAround().add(hips);
+        butt.getDown().add(leftThigh);
+        butt.getDown().add(rightThigh);
+
+        leftThigh.getUp().add(hips);
+        rightThigh.getUp().add(hips);
+        leftThigh.getUp().add(butt);
+        rightThigh.getUp().add(butt);
+        leftThigh.getDown().add(leftKnee);
+        rightThigh.getDown().add(rightKnee);
+
+        leftKnee.getUp().add(leftThigh);
+        rightKnee.getUp().add(rightThigh);
+        leftKnee.getDown().add(leftCalf);
+        rightKnee.getDown().add(rightCalf);
+
+        leftCalf.getUp().add(leftKnee);
+        rightCalf.getUp().add(rightKnee);
+        leftCalf.getDown().add(leftShin);
+        rightCalf.getDown().add(rightShin);
+
+        leftShin.getUp().add(leftCalf);
+        rightShin.getUp().add(rightCalf);
+        leftShin.getDown().add(leftAnkle);
+        rightShin.getDown().add(rightAnkle);
+
+        leftAnkle.getUp().add(leftShin);
+        rightAnkle.getUp().add(rightShin);
+        leftAnkle.getDown().add(leftFoot);
+        rightAnkle.getDown().add(rightFoot);
+
+        leftFoot.getUp().add(leftAnkle);
+        rightFoot.getUp().add(rightAnkle);
     }
 
-    /**
-     * @return the parts
-     */
-    public List<Part> getParts() {
-        return parts;
+//    /**
+//     * @return the parts
+//     */
+//    public List<Part> getParts() {
+//        return parts;
+//    }
+    public Part pickAPart() {
+        int index = (int) (Math.random() * parts.size());
+        return parts.get(index);
     }
 }

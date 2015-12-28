@@ -1,6 +1,8 @@
 package com.sniffydn.sandbox.sprite;
 
 import com.sniffydn.sandbox.sprite.model.me.Me;
+import com.sniffydn.sandbox.sprite.model.me.Part;
+import java.util.List;
 
 /**
  *
@@ -103,7 +105,6 @@ public class NewJFrame extends javax.swing.JFrame {
 //            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 
-
 //        Accessory acc = new Accessory();
 //        acc.getActions().add(new Action());
 //        File f = new File(getClass().getResource("/test/Temp").getPath());
@@ -114,8 +115,22 @@ public class NewJFrame extends javax.swing.JFrame {
 //        } catch (Exception ex) {
 //            ex.printStackTrace();
 //        }
-
         Me me = new Me();
-        System.out.println(me.getParts().size());
+
+        Part p = me.pickAPart();
+        Part p2 = me.pickAPart();
+        for (int i = 0; i < 10; i++) {
+            System.out.println(p.getName());
+            System.out.println("    to " + p2.getName());
+
+            List<Part> path = p.roamToward(p2);
+//            System.out.println("\n\n\n\n");
+            for(Part prt: path) {
+                System.out.println("          -" + prt.getName());
+            }
+
+            p = me.pickAPart();
+            p2 = me.pickAPart();
+        }
     }
 }
