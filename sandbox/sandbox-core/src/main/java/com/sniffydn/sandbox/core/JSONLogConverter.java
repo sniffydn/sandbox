@@ -49,9 +49,10 @@ public class JSONLogConverter {
         System.out.println();
         StringBuilder fullJSONString = new StringBuilder();
         FileReader fr = null;
+        BufferedWriter bw = null;
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter("C:\\TEMP\\gmi\\log.csv", true));
-            File f = new File("C:\\TEMP\\gmi\\" + "GMIS172-16-7-122-20151228000000" + ".log");
+            bw = new BufferedWriter(new FileWriter("C:\\TEMP\\gmi\\log.csv", true));
+            File f = new File("C:\\TEMP\\gmi\\" + "GMIS172-16-4-135-20151227214037" + ".log");
             fr = new FileReader(f);
             BufferedReader br = new BufferedReader(fr);
             // Process lines from file
@@ -64,23 +65,23 @@ public class JSONLogConverter {
 
                         for (String s : keys) {
                             try {
-                                System.out.print(json.getString(s) + DELIMITER);
+//                                System.out.print(json.getString(s) + DELIMITER);
                                 bw.append(json.getString(s) + DELIMITER);
                             } catch (Exception e) {
                                 try {
-                                    System.out.print(json.getInt(s) + DELIMITER);
+//                                    System.out.print(json.getInt(s) + DELIMITER);
                                     bw.append(json.getInt(s) + DELIMITER);
                                 } catch (Exception e1) {
                                     try {
-                                        System.out.print(json.getJSONObject(s).toString().replaceAll(Pattern.quote(DELIMITER), "|") + DELIMITER);
+//                                        System.out.print(json.getJSONObject(s).toString().replaceAll(Pattern.quote(DELIMITER), "|") + DELIMITER);
                                         bw.append(json.getJSONObject(s).toString().replaceAll(Pattern.quote(DELIMITER), "|") + DELIMITER);
                                     } catch (Exception e2) {
-                                        System.out.print(e2);
+//                                        System.out.print(e2);
                                     }
                                 }
                             }
                         }
-                        System.out.println();
+//                        System.out.println();
                         bw.newLine();
                         fullJSONString = new StringBuilder();
                     } catch (Exception e) {
@@ -93,6 +94,8 @@ public class JSONLogConverter {
             Logger.getLogger(JSONLogConverter.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
+                bw.flush();
+                bw.close();
                 fr.close();
             } catch (IOException ex) {
                 Logger.getLogger(JSONLogConverter.class.getName()).log(Level.SEVERE, null, ex);
