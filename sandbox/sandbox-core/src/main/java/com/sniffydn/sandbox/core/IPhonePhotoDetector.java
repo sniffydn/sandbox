@@ -7,6 +7,7 @@ import com.drew.metadata.Metadata;
 import com.drew.metadata.Tag;
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 
 public class IPhonePhotoDetector {
 
@@ -17,6 +18,7 @@ public class IPhonePhotoDetector {
      */
     public static void main(String[] args) {
         File file = new File("C:\\TEMP\\gmi\\image1.jpg");
+        System.out.println(new Date(file.lastModified()));
         try {
             Metadata metadata = ImageMetadataReader.readMetadata(file);
             printImageTags(metadata);

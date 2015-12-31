@@ -1,5 +1,9 @@
 package com.sniffydn.sandbox.sprite.model.me;
 
+import com.sniffydn.sandbox.sprite.model.me.parts.types.Clampable;
+import com.sniffydn.sandbox.sprite.model.me.parts.types.Grabable;
+import com.sniffydn.sandbox.sprite.model.me.parts.types.Lashable;
+import com.sniffydn.sandbox.sprite.model.me.parts.types.Restrainable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,9 +15,22 @@ public abstract class Part {
     private List<Part> around = new ArrayList<>();
     protected boolean occupied = false;
     private static Part lastRoam = null;
+    private List<PartType> types = new ArrayList<>();
 
     public Part(String name) {
         this.name = name;
+        if(this instanceof Grabable) {
+            types.add(PartType.GRABABLE);
+        }
+        if(this instanceof Lashable) {
+            types.add(PartType.LASHABLE);
+        }
+        if(this instanceof Clampable) {
+            types.add(PartType.CLAMPABLE);
+        }
+        if(this instanceof Restrainable) {
+            types.add(PartType.RESTRAINABLE);
+        }
     }
 
     /**
@@ -49,6 +66,13 @@ public abstract class Part {
      */
     public List<Part> getAround() {
         return around;
+    }
+
+    /**
+     * @return the types
+     */
+    public List<PartType> getTypes() {
+        return types;
     }
 
     @Override

@@ -32,6 +32,7 @@ import java.util.List;
 public class Me {
 
     private List<Part> parts = new ArrayList<>();
+    private PState state = PState.STANDING;
 
     public Me() {
         Hair hair = new Hair();
@@ -230,5 +231,19 @@ public class Me {
     public Part pickAPart() {
         int index = (int) (Math.random() * parts.size());
         return parts.get(index);
+    }
+
+    /**
+     * @return the state
+     */
+    public PState getState() {
+        return state;
+    }
+
+    /**
+     * @param state the state to set
+     */
+    public void setState(PState state) {
+        this.state = state;
     }
 }
