@@ -1,6 +1,5 @@
 package com.sniffydn.sandbox.sprite.model.her.clts;
 
-import com.sniffydn.sandbox.sprite.model.Action;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
@@ -16,7 +15,6 @@ public abstract class SuperC {
     private List<CMasterType> excludeMasterTypes = new ArrayList<>();
 
     private List<CType> cType = new ArrayList<>();
-    private List<Action> actions = new ArrayList<>();
 
     public abstract void paintVeryBack(int offsetX, int offsetY, Graphics2D g2d);
 

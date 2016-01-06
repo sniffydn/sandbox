@@ -1,13 +1,7 @@
 package com.sniffydn.sandbox.sprite;
 
-import com.sniffydn.sandbox.sprite.model.Action;
-import com.sniffydn.sandbox.sprite.model.her.Accessory;
-import com.sniffydn.sandbox.sprite.model.her.AccessoryType;
-import com.sniffydn.sandbox.sprite.model.her.Her;
-import com.sniffydn.sandbox.sprite.model.her.Mood;
 import com.sniffydn.sandbox.sprite.model.me.Me;
 import com.sniffydn.sandbox.sprite.model.me.Part;
-import com.sniffydn.sandbox.sprite.model.me.PartType;
 import java.util.List;
 
 /**
@@ -139,20 +133,5 @@ public class NewJFrame extends javax.swing.JFrame {
             p2 = me.pickAPart();
         }
 
-        Accessory a = new Accessory();
-        a.setType(AccessoryType.LH);
-        a.getMoodList().clear();
-        a.getMoodList().add(Mood.DOMI);
-        a.setName("crop");
-        a.setLongDescription("long crop description");
-        Action action = new Action();
-        action.getMoods().clear();
-        action.getMoods().add(Mood.DOMI);
-        action.setDescription("lash");
-        action.getValidPartTypes().add(PartType.LASHABLE);
-        a.getActions().add(action);
-
-
-        a.getActions().get(0).perform(me, new Her());
     }
 }

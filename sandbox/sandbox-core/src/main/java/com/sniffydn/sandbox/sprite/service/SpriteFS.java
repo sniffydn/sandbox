@@ -1,6 +1,6 @@
 package com.sniffydn.sandbox.sprite.service;
 
-import com.sniffydn.sandbox.sprite.model.her.Accessory;
+import com.sniffydn.sandbox.sprite.model.her.clts.Accessory;
 import com.sniffydn.sandbox.sprite.model.Scene;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
