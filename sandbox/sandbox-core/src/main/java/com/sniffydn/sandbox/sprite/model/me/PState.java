@@ -7,5 +7,6 @@ public enum PState {
     LAYING_ON_BACK,
     LAYING_ON_FRONT,
     KNEELING,
-    SUSPENDED
+    SUSPENDED,
+    WALKING
 }

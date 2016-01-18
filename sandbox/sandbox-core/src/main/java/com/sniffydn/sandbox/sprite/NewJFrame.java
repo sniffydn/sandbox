@@ -1,7 +1,13 @@
 package com.sniffydn.sandbox.sprite;
 
+import com.sniffydn.sandbox.sprite.model.Action;
+import com.sniffydn.sandbox.sprite.model.Room;
+import com.sniffydn.sandbox.sprite.model.her.Her;
+import com.sniffydn.sandbox.sprite.model.her.clts.Accessory;
+import com.sniffydn.sandbox.sprite.model.her.clts.AccessoryType;
 import com.sniffydn.sandbox.sprite.model.me.Me;
 import com.sniffydn.sandbox.sprite.model.me.Part;
+import com.sniffydn.sandbox.sprite.model.me.PartType;
 import java.util.List;
 
 /**
@@ -115,23 +121,64 @@ public class NewJFrame extends javax.swing.JFrame {
 //        } catch (Exception ex) {
 //            ex.printStackTrace();
 //        }
+
+
+
         Me me = new Me();
+        Her her = new Her();
 
         Part p = me.pickAPart();
         Part p2 = me.pickAPart();
-        for (int i = 0; i < 10; i++) {
-            System.out.println(p.getName());
-            System.out.println("    to " + p2.getName());
+//        for (int i = 0; i < 10; i++) {
+//            System.out.println(p.getName());
+//            System.out.println("    to " + p2.getName());
+//
+//            List<Part> path = p.roamToward(p2);
+////            System.out.println("\n\n\n\n");
+//            for(Part prt: path) {
+//                System.out.println("          -" + prt.getName());
+//            }
+//
+//            p = me.pickAPart();
+//            p2 = me.pickAPart();
+//        }
 
-            List<Part> path = p.roamToward(p2);
-//            System.out.println("\n\n\n\n");
-            for(Part prt: path) {
-                System.out.println("          -" + prt.getName());
-            }
+        //hue to indicate rotation (% of 360?) if using a pattern
+        //saturation to indicate scale (75 baseline?)
+        //brightness to indicate separation of color (75 baseline?)
+        //opacity?
+//        try {
+//            File f = new File(getClass().getResource("/test/Temp/M.p").getPath());
+//            System.out.println(f.getAbsoluteFile());
+//            Image i = ImageIO.read(f);
+//
+//            BufferedImage bi = new BufferedImage(216, 216, BufferedImage.TYPE_INT_ARGB);
+//            Graphics2D g2d = (Graphics2D) bi.getGraphics();
+//
+//            g2d.drawImage(i, -MPosition.BALANCED.getX(), 0, null);
+//
+//            jLabel1.setIcon(new javax.swing.ImageIcon(bi));
+//
+//        } catch (IOException ex) {
+//            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+//        }
 
-            p = me.pickAPart();
-            p2 = me.pickAPart();
-        }
+        Accessory accessory = new Accessory();
+        accessory.setName("name");
+        accessory.setLongDescription("long desc");
+        accessory.setType(AccessoryType.RH);
+
+        List<Action> accActions = accessory.getActions();
+        Action action = new Action();
+        action.getValidPartTypes().add(PartType.GRABABLE);
+        action.setDescription("Action Description");
+
+        boolean success = her.addAccessory(accessory);
+
+
+
+        Room room = new Room("Room");
+
 
     }
 }
