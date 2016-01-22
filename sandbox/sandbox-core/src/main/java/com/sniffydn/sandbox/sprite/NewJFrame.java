@@ -8,6 +8,7 @@ import com.sniffydn.sandbox.sprite.model.her.clts.AccessoryType;
 import com.sniffydn.sandbox.sprite.model.me.Me;
 import com.sniffydn.sandbox.sprite.model.me.Part;
 import com.sniffydn.sandbox.sprite.model.me.PartType;
+import com.sniffydn.sandbox.sprite.service.SpriteService;
 import java.util.List;
 
 /**
@@ -175,10 +176,11 @@ public class NewJFrame extends javax.swing.JFrame {
 
         boolean success = her.addAccessory(accessory);
 
-
-
         Room room = new Room("Room");
+        room.getAccessories().add(accessory);
 
+        SpriteService ss = SpriteService.getInstance();
+        ss.initiateScenario(room, her, me);
 
     }
 }
