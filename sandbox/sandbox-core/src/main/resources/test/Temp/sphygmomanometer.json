@@ -1,3 +1,6 @@
 {
-    "name": "dnyffeler"
+    "short": "sphygmomanometer"
+    "long": "an air bladder and pump, like one to measure blood pressure, with a collar attached"
+    "attachAction": "attach the collar around my c and b"
+    "detachAction": ""
 }
