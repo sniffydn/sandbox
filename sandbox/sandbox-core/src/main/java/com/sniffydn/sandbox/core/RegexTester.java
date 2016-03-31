@@ -27,11 +27,20 @@ public class RegexTester {
         String regex = "[A-Z]{16}\\d{14}-\\w{1,}-\\w{1,}";//16 capital characters A-Z, 14 digits for the date/time, -, a campaign name so 1 or more word characters, -,  a template name so 1 or more word characters
 //        String regex = "KFTXXJIKADTEOBGF20151027135301-boiseSt-template1";
         
+//        System.out.println(Pattern.matches(regex, s));
+//        System.out.println(Pattern.matches(regex, s1));
+//        System.out.println(Pattern.matches(regex, s2));
+//        System.out.println(Pattern.matches(regex, s3));
+//        System.out.println(Pattern.matches(regex, s4));
+
+
+        s = "14617 Road 35 1/2";
+        s1 = "Bonadelle Ranchos-Madera Ranchos";
+
+        regex = "(^[a-zA-Z]+$)|(^[a-zA-Z]+(-|\\s)[-a-zA-Z\\s]+$)";
         System.out.println(Pattern.matches(regex, s));
         System.out.println(Pattern.matches(regex, s1));
-        System.out.println(Pattern.matches(regex, s2));
-        System.out.println(Pattern.matches(regex, s3));
-        System.out.println(Pattern.matches(regex, s4));
+
     }
     
 }
