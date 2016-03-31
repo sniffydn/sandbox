@@ -1,8 +1,17 @@
 {
     "short": "sphygmomanometer"
     "long": "a cuff with an air bladder and pump, like one to measure blood pressure"
-    "attachAction": "attach the cuff around my c and b"
-    "detachAction": "open up the valve and let all the air out of the bladder, unvelcro the cuff"
-    "attachedAction": "with the pump on the floor, you step on the pump, over and over again"
+    "attachAction": {   "meCondition": ""
+                        "herCondition": ""
+                        "action": "attach the cuff around my c and b"
+                    }
+    "detachAction": {   "meCondition": ""
+                        "herCondition": ""
+                        "action": "open up the valve and let all the air out of the bladder, unvelcro the cuff"
+                    }
+    "attachedAction": {   "meCondition": ""
+                        "herCondition": ""
+                        "action": "with the pump on the floor, you step on the pump, over and over again"
+                    }
     
 }
