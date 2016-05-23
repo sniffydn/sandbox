@@ -5,7 +5,11 @@
  */
 package com.sniffydn.sandbox.core;
 
-import java.util.Random;
+import java.io.BufferedReader;
+import java.io.FileWriter;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
 
 /**
  *
@@ -738,10 +742,30 @@ public class Sandbox {
 //        for (int i = 0; i < 32; i++) {
 //            System.out.println();
 //        }
-        Random random = new Random();
-        for (int i = 0; i < 300; i++) {
-            char c = (char) ('A' + random.nextDouble() * ('Z' + 1 - 'A'));
-                System.out.print(c);
+//        Random random = new Random();
+//        for (int i = 0; i < 300; i++) {
+//            char c = (char) ('A' + random.nextDouble() * ('Z' + 1 - 'A'));
+//                System.out.print(c);
+//        }
+        String urlString = "http://localhost:8084/mail-services/apiV1/getList?listId=5C1D3E94807FD3F912E697F937488E5E&secureKey=SOMETHING1234&format=TAB";
+        String destination = "C:\\TEMP\\mail-services\\temp.txt";
+        URL url;
+        try {
+            url = new URL(urlString);
+            InputStream in = url.openConnection().getInputStream();
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+            FileWriter fr = new FileWriter(destination, false);
+
+            String s;
+            while ((s = br.readLine()) != null) {
+                System.out.println(s);
+                fr.write(s);
+            }
+
+            in.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
