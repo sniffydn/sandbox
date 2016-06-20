@@ -1,0 +1,118 @@
+package com.sniffydn.sandbox.core;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.regex.Pattern;
+import org.json.JSONObject;
+
+/**
+ *
+ * @author dnyffeler
+ */
+public class MailServicesJSONLogConverter {
+
+    private static final List<String> keys;
+    private static final String DELIMITER = ",";
+
+    static {
+        List<String> temp = new ArrayList<>();
+        temp.add("method");
+        temp.add("returnCode");
+        temp.add("docId");
+        temp.add("startTime");
+        temp.add("finishTime");
+        temp.add("elapseTime");
+        temp.add("timeWithExternalWebService");
+        temp.add("returnMessage");
+        temp.add("sessionId");
+        temp.add("parameterData");
+        temp.add("memoryStats");
+        temp.add("currentlyRunningServlets");
+        temp.add("remoteAddr");
+
+        keys = temp;
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        for (String s : keys) {
+            System.out.print(s + DELIMITER);
+        }
+        System.out.println();
+        StringBuilder fullJSONString = new StringBuilder();
+        FileReader fr = null;
+        BufferedWriter bw = null;
+        try {
+            bw = new BufferedWriter(new FileWriter("C:\\TEMP\\mail-services\\log.csv", true));
+            for (String s : keys) {
+                bw.append(s + DELIMITER);
+            }
+            bw.newLine();
+            File[] listOfFiles = new File("C:\\TEMP\\mail-services\\TEMP").listFiles();
+            for (int i = 0; i < listOfFiles.length; i++) {
+                File f = listOfFiles[i];
+                System.out.println(f.getAbsolutePath());
+                fr = new FileReader(f);
+                BufferedReader br = new BufferedReader(fr);
+                // Process lines from file
+                String line;
+                while ((line = br.readLine()) != null) {
+                    fullJSONString.append(line);
+                    if (line.trim().equals("}")) {
+                        try {
+                            JSONObject json = new JSONObject(fullJSONString.toString());
+
+                            for (String s : keys) {
+                                try {
+//                                System.out.print(json.getString(s) + DELIMITER);
+                                    bw.append(json.getString(s) + DELIMITER);
+                                } catch (Exception e) {
+                                    try {
+//                                    System.out.print(json.getInt(s) + DELIMITER);
+                                        bw.append(json.getInt(s) + DELIMITER);
+                                    } catch (Exception e1) {
+                                        try {
+//                                        System.out.print(json.getJSONObject(s).toString().replaceAll(Pattern.quote(DELIMITER), "|") + DELIMITER);
+                                            bw.append(json.getJSONObject(s).toString().replaceAll(Pattern.quote(DELIMITER), "|") + DELIMITER);
+                                        } catch (Exception e2) {
+                                            bw.append(e2.getMessage().replaceAll(Pattern.quote(DELIMITER), "|") + DELIMITER);
+                                            System.out.print(e2);
+                                        }
+                                    }
+                                }
+                            }
+//                        System.out.println();
+                            bw.newLine();
+                            fullJSONString = new StringBuilder();
+                        } catch (Exception e) {
+                        }
+                    }
+                }
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(MailServicesJSONLogConverter.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(MailServicesJSONLogConverter.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                bw.flush();
+                bw.close();
+                fr.close();
+            } catch (IOException ex) {
+                Logger.getLogger(MailServicesJSONLogConverter.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
+}
