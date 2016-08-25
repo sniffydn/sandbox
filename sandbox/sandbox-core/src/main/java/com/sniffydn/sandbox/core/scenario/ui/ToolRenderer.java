@@ -1,6 +1,6 @@
 package com.sniffydn.sandbox.core.scenario.ui;
 
-import com.sniffydn.sandbox.core.scenario.FurniturePositions;
+import com.sniffydn.sandbox.core.scenario.furniture.FurniturePositions;
 import com.sniffydn.sandbox.core.scenario.Tool;
 
 public class ToolRenderer extends javax.swing.JPanel {

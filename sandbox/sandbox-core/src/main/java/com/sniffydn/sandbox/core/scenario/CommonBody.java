@@ -1,6 +1,9 @@
 package com.sniffydn.sandbox.core.scenario;
 
 import com.sniffydn.sandbox.core.scenario.b.Body;
+import com.sniffydn.sandbox.core.scenario.clothes.Clothes;
+import com.sniffydn.sandbox.core.scenario.furniture.Furniture;
+import com.sniffydn.sandbox.core.scenario.furniture.FurniturePositions;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +31,7 @@ public class CommonBody {
     private Furniture currentFurniture;
     private FurniturePositions currentFurniturePosition;
     private Body body = new Body();
+    private List<Clothes> clothes = new ArrayList<>();
 
     public CommonBody() {
         availableActionTypes.addAll(DEFAULT_ACTION_TYPES);
@@ -222,5 +226,23 @@ public class CommonBody {
      */
     public Body getBody() {
         return body;
+    }
+
+    public boolean canAdd(Clothes piece) {
+        System.out.println("canAdd Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return true;
+    }
+
+    public void addClothes(Clothes t) {
+        if(canAdd(t)) {
+            clothes.add(t);
+        }
+    }
+
+    /**
+     * @return the clothes
+     */
+    public List<Clothes> getClothes() {
+        return clothes;
     }
 }

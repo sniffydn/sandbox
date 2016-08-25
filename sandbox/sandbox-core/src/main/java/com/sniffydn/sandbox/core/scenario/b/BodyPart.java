@@ -1,11 +1,9 @@
 package com.sniffydn.sandbox.core.scenario.b;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-class BodyPart {
+public class BodyPart {
 
     private List<BodyPart> down = new ArrayList<>();
     private List<BodyPart> up = new ArrayList<>();
@@ -85,25 +83,65 @@ class BodyPart {
         return around;
     }
 
-    private Set<BodyPart> checkedParts = new HashSet<BodyPart>();
+    private List<BodyPart> checkedParts = new ArrayList<>();
+    private BodyPart foundPart = null;
+
     public BodyPart find(Class c) {
         checkedParts.clear();
-        return internalFind(c);
+        foundPart = null;
+        internalFind(c, this);
+        return foundPart;
     }
 
-    private BodyPart internalFind(Class c) {
-        if(c.isInstance(this)) {
-            return this;
+    private void internalFind(Class c, BodyPart toCheck) {
+        if (foundPart != null) {
+            return;
+        }
+        if (c.isInstance(toCheck)) {
+            foundPart = toCheck;
+            return;
         } else {
-            if(getPartOf() != null) {
-                getPartOf().internalFind(c);
-            } else {
-                
-                //TODO
+            if (checkedParts.contains(toCheck)) {
+                return;
             }
+            System.out.println(toCheck);
+            checkedParts.add(toCheck);
+            if (toCheck.getPartOf() != null) {
+                if (!checkedParts.contains(toCheck.getPartOf())) {
+                    toCheck.getPartOf().internalFind(c, toCheck);
+                }
+            }
+            if (toCheck.getAround().size() > 0) {
+                for (BodyPart bp : toCheck.getAround()) {
+                    if (!checkedParts.contains(bp)) {
+                        internalFind(c, bp);
+                    }
+                }
+            }
+            if (toCheck.getComposedOf().size() > 0) {
+                for (BodyPart bp : toCheck.getComposedOf()) {
+                    if (!checkedParts.contains(bp)) {
+                        internalFind(c, bp);
+                    }
+                }
+            }
+            if (toCheck.getUp().size() > 0) {
+                for (BodyPart bp : toCheck.getUp()) {
+                    if (!checkedParts.contains(bp)) {
+                        internalFind(c, bp);
+                    }
+                }
+            }
+            if (toCheck.getDown().size() > 0) {
+                for (BodyPart bp : toCheck.getDown()) {
+                    if (!checkedParts.contains(bp)) {
+                        internalFind(c, bp);
+                    }
+                }
+            }
+
         }
 
-
-        return null;
+        return;
     }
 }

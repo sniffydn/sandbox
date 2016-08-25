@@ -1,5 +1,6 @@
 package com.sniffydn.sandbox.core.scenario;
 
+import com.sniffydn.sandbox.core.scenario.furniture.FurniturePositions;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;

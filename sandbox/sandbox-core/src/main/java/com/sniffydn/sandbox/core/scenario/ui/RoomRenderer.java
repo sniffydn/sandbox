@@ -2,10 +2,10 @@ package com.sniffydn.sandbox.core.scenario.ui;
 
 import com.sniffydn.sandbox.core.scenario.CommonBody;
 import com.sniffydn.sandbox.core.scenario.Doorway;
-import com.sniffydn.sandbox.core.scenario.Furniture;
 import com.sniffydn.sandbox.core.scenario.Room;
 import com.sniffydn.sandbox.core.scenario.ScenarioActionListener;
 import com.sniffydn.sandbox.core.scenario.ScenarioListener;
+import com.sniffydn.sandbox.core.scenario.furniture.Furniture;
 import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 
@@ -110,6 +110,7 @@ public class RoomRenderer extends javax.swing.JPanel {
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(60, 0), new java.awt.Dimension(80, 0), new java.awt.Dimension(60, 32767));
         bodiesPanel = new javax.swing.JPanel();
 
+        setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         setLayout(new java.awt.BorderLayout());
 
         furnPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Furniture:"));
