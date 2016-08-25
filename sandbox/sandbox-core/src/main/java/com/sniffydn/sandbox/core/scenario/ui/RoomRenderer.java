@@ -1,11 +1,14 @@
 package com.sniffydn.sandbox.core.scenario.ui;
 
+import com.sniffydn.sandbox.core.scenario.Action;
+import com.sniffydn.sandbox.core.scenario.ActionType;
 import com.sniffydn.sandbox.core.scenario.CommonBody;
 import com.sniffydn.sandbox.core.scenario.Doorway;
 import com.sniffydn.sandbox.core.scenario.Room;
 import com.sniffydn.sandbox.core.scenario.ScenarioActionListener;
 import com.sniffydn.sandbox.core.scenario.ScenarioListener;
 import com.sniffydn.sandbox.core.scenario.furniture.Furniture;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 
@@ -70,7 +73,7 @@ public class RoomRenderer extends javax.swing.JPanel {
             doorwaysPanel.add(new JLabel(r.getShortDescription() + closed + locked + oneWay));
         }
 
-        for(CommonBody body: room.getBodies()) {
+        for (CommonBody body : room.getBodies()) {
             bodiesPanel.add(new JLabel(body.getName()));
         }
 
@@ -109,6 +112,7 @@ public class RoomRenderer extends javax.swing.JPanel {
         doorwaysPanel = new javax.swing.JPanel();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(60, 0), new java.awt.Dimension(80, 0), new java.awt.Dimension(60, 32767));
         bodiesPanel = new javax.swing.JPanel();
+        roomActionsPanel = new javax.swing.JPanel();
 
         setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         setLayout(new java.awt.BorderLayout());
@@ -170,6 +174,7 @@ public class RoomRenderer extends javax.swing.JPanel {
         jPanel2.add(bodiesPanel, java.awt.BorderLayout.WEST);
 
         add(jPanel2, java.awt.BorderLayout.NORTH);
+        add(roomActionsPanel, java.awt.BorderLayout.PAGE_END);
 
         bindingGroup.bind();
     }// </editor-fold>//GEN-END:initComponents
@@ -192,6 +197,7 @@ public class RoomRenderer extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JPanel roomActionsPanel;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 
@@ -200,6 +206,14 @@ public class RoomRenderer extends javax.swing.JPanel {
      */
     public Room getRoom() {
         return room;
+    }
+
+    public void addAction(Action a) {
+        if (a.getActionType().equals(ActionType.ROOM)) {
+            JButton button = new JButton(a.getActionDescription());
+            button.addActionListener(a.getActionListener());
+            roomActionsPanel.add(button);
+        }
     }
 
 }

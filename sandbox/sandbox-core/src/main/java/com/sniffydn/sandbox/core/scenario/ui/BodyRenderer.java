@@ -1,6 +1,7 @@
 package com.sniffydn.sandbox.core.scenario.ui;
 
 import com.sniffydn.sandbox.core.scenario.Action;
+import com.sniffydn.sandbox.core.scenario.ActionType;
 import com.sniffydn.sandbox.core.scenario.CommonBody;
 import com.sniffydn.sandbox.core.scenario.ScenarioActionListener;
 import com.sniffydn.sandbox.core.scenario.ScenarioListener;
@@ -38,12 +39,19 @@ public class BodyRenderer extends javax.swing.JPanel {
         roomPanel.removeAll();
         actionsPanel.removeAll();
         toolsPanel.removeAll();
+        RoomRenderer roomRenderer = new RoomRenderer(body.getCurrentRoom());
 
-        roomPanel.add(new RoomRenderer(body.getCurrentRoom()));
+        roomPanel.add(roomRenderer);
         for (Action a : body.getAvailableActions()) {
-            JButton button = new JButton(a.getActionDescription());
-            button.addActionListener(a.getActionListener());
-            actionsPanel.add(button);
+
+            if (a.getActionType().equals(ActionType.ROOM)) {
+                roomRenderer.addAction(a);
+            } else {
+                JButton button = new JButton(a.getActionDescription());
+                button.addActionListener(a.getActionListener());
+                actionsPanel.add(button);
+            }
+
         }
 
         for (Tool t : body.getTools()) {
