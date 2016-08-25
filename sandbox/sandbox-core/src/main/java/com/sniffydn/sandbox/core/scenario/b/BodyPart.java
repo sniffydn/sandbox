@@ -104,7 +104,6 @@ public class BodyPart {
             if (checkedParts.contains(toCheck)) {
                 return;
             }
-            System.out.println(toCheck);
             checkedParts.add(toCheck);
             if (toCheck.getPartOf() != null) {
                 if (!checkedParts.contains(toCheck.getPartOf())) {

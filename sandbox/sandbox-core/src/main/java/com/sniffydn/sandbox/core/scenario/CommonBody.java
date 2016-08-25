@@ -191,7 +191,17 @@ public class CommonBody {
      * @return the maxToolCapacity
      */
     public int getMaxToolCapacity() {
-        return maxToolCapacity;
+        int mtc = maxToolCapacity;
+
+        for(Clothes c:getClothes()) {
+            mtc += c.getToolCapacity();
+        }
+
+        for(Tool t: getTools()) {
+            mtc += t.getToolCapacity();
+        }
+
+        return mtc;
     }
 
     /**

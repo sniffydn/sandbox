@@ -8,6 +8,7 @@ import java.util.List;
 public class Tool extends CommonObject {
 
     private int weight = 1;
+    private int toolCapacity = 0;
 
     public List<Action> getAvailableActions(final CommonBody holder) {
         List<Action> actions = new ArrayList<>();
@@ -72,6 +73,20 @@ public class Tool extends CommonObject {
      */
     public void setWeight(int weight) {
         this.weight = weight;
+    }
+
+    /**
+     * @return the toolCapacity
+     */
+    public int getToolCapacity() {
+        return toolCapacity;
+    }
+
+    /**
+     * @param toolCapacity the toolCapacity to set
+     */
+    public void setToolCapacity(int toolCapacity) {
+        this.toolCapacity = toolCapacity;
     }
 
 }

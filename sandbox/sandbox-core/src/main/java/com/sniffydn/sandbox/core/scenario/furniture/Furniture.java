@@ -71,7 +71,7 @@ public class Furniture extends CommonObject {
                     for (Clothes piece : clothes) {
                         if (body.canAdd(piece)) {
                             final Clothes c = piece;
-                            Action a = new Action(ActionType.FURNITURE, "Get " + piece.getShortDescription() + " " + position + " " + getShortDescription(),
+                            Action a = new Action(ActionType.FURNITURE, "Put on " + piece.getShortDescription() + " " + position + " " + getShortDescription(),
                                     new ScenarioActionListener() {
 
                                         @Override
@@ -134,8 +134,8 @@ public class Furniture extends CommonObject {
 
     public void addClothes(FurniturePositions position, Clothes t) {
         if (availableClothesPositions.contains(position)) {
-            if (!toolMap.containsKey(position)) {
-                getToolMap().put(position, new ArrayList<Tool>());
+            if (!getClothesMap().containsKey(position)) {
+                getClothesMap().put(position, new ArrayList<Clothes>());
             }
             List<Clothes> clothes = getClothesMap().get(position);
             clothes.add(t);

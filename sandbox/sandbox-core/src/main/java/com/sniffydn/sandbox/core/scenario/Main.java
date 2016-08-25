@@ -1,5 +1,6 @@
 package com.sniffydn.sandbox.core.scenario;
 
+import com.sniffydn.sandbox.core.scenario.clothes.Clothes;
 import com.sniffydn.sandbox.core.scenario.furniture.Furniture;
 import com.sniffydn.sandbox.core.scenario.furniture.FurniturePositions;
 import com.sniffydn.sandbox.core.scenario.ui.Scenario;
@@ -29,20 +30,38 @@ public class Main {
         key3.setShortDescription("key3");
         key3.setLongDescription("key to the room door");
 
-        Tool crop = new Tool();
-        crop.setShortDescription("crop");
-        crop.setLongDescription("crop description");
+        Tool tool = new Tool();
+        tool.setShortDescription("tool");
+        tool.setLongDescription("tool description");
+
+        Tool tool2 = new Tool();
+        tool2.setShortDescription("tool2");
+        tool2.setLongDescription("tool2 description");
+
+        Clothes clothes = new Clothes();
+        clothes.setToolCapacity(1);
+        clothes.setShortDescription("clothes");
+        clothes.setLongDescription("clothes description");
+
+        Clothes clothes2 = new Clothes();
+        clothes2.setToolCapacity(1);
+        clothes2.setShortDescription("clothes2");
+        clothes2.setLongDescription("clothes2 description");
 
         Furniture dresser = new Furniture();
         dresser.setLongDescription("large dresser");
         dresser.setShortDescription("dresser");
         dresser.getAvailableToolPositions().add(FurniturePositions.IN);
         dresser.getAvailableToolPositions().add(FurniturePositions.ON);
+        dresser.getAvailableClothesPositions().add(FurniturePositions.IN);
 
         dresser.addTool(FurniturePositions.IN, key);
         dresser.addTool(FurniturePositions.IN, key2);
         dresser.addTool(FurniturePositions.IN, key3);
-        dresser.addTool(FurniturePositions.ON, crop);
+        dresser.addTool(FurniturePositions.ON, tool);
+        dresser.addTool(FurniturePositions.ON, tool2);
+        dresser.addClothes(FurniturePositions.BY, clothes);
+        dresser.addClothes(FurniturePositions.IN, clothes2);
 
         closet.getFurniture().add(dresser);
 
