@@ -19,7 +19,6 @@ public class Furniture extends CommonObject {
     private List<FurniturePositions> availableToolPositions = new ArrayList<>();
     private Map<FurniturePositions, List<Tool>> toolMap = new HashMap<>();
 
-
     private List<FurniturePositions> availableClothesPositions = new ArrayList<>();
     private Map<FurniturePositions, List<Clothes>> clothesMap = new HashMap<>();
 
@@ -70,23 +69,23 @@ public class Furniture extends CommonObject {
                 } else {
                     final List<Clothes> clothes = getClothesMap().get(position);
                     for (Clothes piece : clothes) {
-                        if (body.canAdd(piece)) {
-                            final Clothes c = piece;
-                            Action a = new Action(ActionType.FURNITURE, "Put on " + piece.getShortDescription() + " " + position + " " + getShortDescription(),
-                                    new ScenarioActionListener() {
+                            if (body.canAdd(piece)) {
+                                final Clothes c = piece;
+                                Action a = new Action(ActionType.FURNITURE, "Put on " + piece.getShortDescription() + " " + position + " " + getShortDescription(),
+                                        new ScenarioActionListener() {
 
-                                        @Override
-                                        protected void scenarioActionPerformed(ActionEvent e) {
-                                            body.addClothes(c);
-                                            clothes.remove(c);
-                                        }
-                                    });
-                            a.setCurrentFurniture(this);
-                            actions.add(a);
+                                            @Override
+                                            protected void scenarioActionPerformed(ActionEvent e) {
+                                                body.addClothes(c);
+                                                clothes.remove(c);
+                                            }
+                                        });
+                                a.setCurrentFurniture(this);
+                                actions.add(a);
+                            }
                         }
                     }
                 }
-            }
         } else {
             System.out.println("Deal with " + body.getCurrentFurniturePosition());
         }

@@ -1,4 +1,3 @@
-
 package com.sniffydn.sandbox.core.scenario.clothes;
 
 import com.sniffydn.sandbox.core.scenario.Action;
@@ -13,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Clothes extends CommonObject {
+
     private List<BodyPart> covers = new ArrayList<>();
     private int toolCapacity = 0;
 
@@ -55,35 +55,24 @@ public class Clothes extends CommonObject {
             }
         }
 
-//        if (holder.getCurrentRoom().getBodies().size() > 1) {
-//            for (final CommonBody b : holder.getCurrentRoom().getBodies()) {
-//                if (b != holder && b.getCurrentClothesCarry() + weight <= b.getMaxClothesCapacity()) {
-//                    Action a = new Action(ActionType.TOOL, "Give " + getShortDescription() + " to " + b.getName(), new ScenarioActionListener() {
-//
-//                        @Override
-//                        protected void scenarioActionPerformed(ActionEvent e) {
-//                            holder.getClothes().remove(Clothes.this);
-//                            holder.setCurrentClothesCarry(holder.getCurrentClothesCarry() - getWeight());
-//                            b.getClothes().add(Clothes.this);
-//                            b.setCurrentClothesCarry(b.getCurrentClothesCarry() + getWeight());
-//                        }
-//                    });
-//                    actions.add(a);
-//
-//                    Action a1 = new Action(ActionType.STEAL, "Take " + getShortDescription() + " from " + holder.getName(), new ScenarioActionListener() {
-//
-//                        @Override
-//                        protected void scenarioActionPerformed(ActionEvent e) {
-//                            holder.getClothes().remove(Clothes.this);
-//                            holder.setCurrentClothesCarry(holder.getCurrentClothesCarry() - getWeight());
-//                            b.getClothes().add(Clothes.this);
-//                            b.setCurrentClothesCarry(b.getCurrentClothesCarry() + getWeight());
-//                        }
-//                    });
-//                    b.addAction(a1);
-//                }
-//            }
-//        }
+        if (holder.getCurrentRoom().getBodies().size() > 1) {
+            for (final CommonBody b : holder.getCurrentRoom().getBodies()) {
+                if (b != holder) {
+                    for (final FurniturePositions position : holder.getCurrentFurniture().getAvailableClothesPositions()) {
+                        Action a1 = new Action(ActionType.STEAL, "Take " + getShortDescription() + " off of " + holder.getName() + " and put " + " " + position + " " + holder.getCurrentFurniture().getShortDescription(), new ScenarioActionListener() {
+
+                            @Override
+                            protected void scenarioActionPerformed(ActionEvent e) {
+                                holder.getClothes().remove(Clothes.this);
+                                holder.getCurrentFurniture().addClothes(position, Clothes.this);
+                            }
+                        });
+                        a1.setCurrentFurniture(holder.getCurrentFurniture());
+                        b.addAction(a1);
+                    }
+                }
+            }
+        }
 
         return actions;
     }
