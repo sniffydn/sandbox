@@ -1,9 +1,13 @@
 package com.sniffydn.sandbox.core.scenario.ui;
 
+import com.sniffydn.sandbox.core.scenario.Action;
+import com.sniffydn.sandbox.core.scenario.ActionType;
+import com.sniffydn.sandbox.core.scenario.Tool;
+import com.sniffydn.sandbox.core.scenario.clothes.Clothes;
 import com.sniffydn.sandbox.core.scenario.furniture.Furniture;
 import com.sniffydn.sandbox.core.scenario.furniture.FurniturePositions;
-import com.sniffydn.sandbox.core.scenario.Tool;
 import java.util.List;
+import javax.swing.JButton;
 
 public class FurnitureRenderer extends javax.swing.JPanel {
 
@@ -11,6 +15,7 @@ public class FurnitureRenderer extends javax.swing.JPanel {
 
     /**
      * Creates new form BodyRenderer
+     * @param furniture
      */
     public FurnitureRenderer(Furniture furniture) {
         this.furniture = furniture;
@@ -23,6 +28,17 @@ public class FurnitureRenderer extends javax.swing.JPanel {
                     ToolRenderer toolRenderer = new ToolRenderer(t);
                     toolRenderer.setPosition(pos);
                     toolsInPanel.add(toolRenderer);
+                }
+            }
+        }
+
+        for (FurniturePositions pos : furniture.getAvailableClothesPositions()) {
+            List<Clothes> clothesList = furniture.getClothesMap().get(pos);
+            if (clothesList != null) {
+                for (Clothes t : clothesList) {
+                    ClothesRenderer clothesRenderer = new ClothesRenderer(t);
+                    clothesRenderer.setPosition(pos);
+                    clothesInPanel.add(clothesRenderer);
                 }
             }
         }
@@ -40,8 +56,10 @@ public class FurnitureRenderer extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         toolsInPanel = new javax.swing.JPanel();
+        clothesInPanel = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
+        actionsPanel = new javax.swing.JPanel();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -50,6 +68,10 @@ public class FurnitureRenderer extends javax.swing.JPanel {
         toolsInPanel.setBackground(new java.awt.Color(204, 204, 204));
         toolsInPanel.setLayout(new java.awt.GridLayout(0, 1));
         jPanel1.add(toolsInPanel, java.awt.BorderLayout.CENTER);
+
+        clothesInPanel.setBackground(new java.awt.Color(102, 102, 102));
+        clothesInPanel.setLayout(new java.awt.GridLayout(0, 1));
+        jPanel1.add(clothesInPanel, java.awt.BorderLayout.SOUTH);
 
         add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -62,11 +84,16 @@ public class FurnitureRenderer extends javax.swing.JPanel {
 
         add(jPanel2, java.awt.BorderLayout.NORTH);
 
+        actionsPanel.setLayout(new java.awt.GridLayout(0, 1));
+        add(actionsPanel, java.awt.BorderLayout.EAST);
+
         bindingGroup.bind();
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel actionsPanel;
+    private javax.swing.JPanel clothesInPanel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
@@ -79,6 +106,16 @@ public class FurnitureRenderer extends javax.swing.JPanel {
      */
     public Furniture getFurniture() {
         return furniture;
+    }
+
+    public void addAction(Action a) {
+        if (a.getActionType().equals(ActionType.FURNITURE)) {
+            JButton button = new JButton(a.getActionDescription());
+            button.addActionListener(a.getActionListener());
+            actionsPanel.add(button);
+        } else {
+            System.out.println(this.getClass().getSimpleName() + " deal with " + a);
+        }
     }
 
 }

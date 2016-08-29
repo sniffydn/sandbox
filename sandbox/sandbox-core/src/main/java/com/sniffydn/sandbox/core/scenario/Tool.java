@@ -15,7 +15,7 @@ public class Tool extends CommonObject {
 
         if (holder.getCurrentFurniture() != null && holder.getCurrentFurniturePosition() == FurniturePositions.BY) {
             for (final FurniturePositions position : holder.getCurrentFurniture().getAvailableToolPositions()) {
-                Action a = new Action(ActionType.TOOL, "Put " + getShortDescription() + " " + position + " " + holder.getCurrentFurniture().getShortDescription(), new ScenarioActionListener() {
+                Action a = new Action(ActionType.FURNITURE, "Put " + getShortDescription() + " " + position + " " + holder.getCurrentFurniture().getShortDescription(), new ScenarioActionListener() {
 
                     @Override
                     protected void scenarioActionPerformed(ActionEvent e) {

@@ -19,15 +19,15 @@ public class Main {
         closet.setShortDescription("closet");
 
         DoorKey key = new DoorKey();
-        key.setShortDescription("key");
+        key.setShortDescription("room key");
         key.setLongDescription("key to the room door");
 
         DoorKey key2 = new DoorKey();
-        key2.setShortDescription("key2");
+        key2.setShortDescription("closet key2");
         key2.setLongDescription("key to the small closet door");
 
         DoorKey key3 = new DoorKey();
-        key3.setShortDescription("key3");
+        key3.setShortDescription("room key3");
         key3.setLongDescription("key to the room door");
 
         Tool tool = new Tool();

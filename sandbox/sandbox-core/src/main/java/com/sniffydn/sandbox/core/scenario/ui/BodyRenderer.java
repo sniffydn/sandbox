@@ -6,6 +6,7 @@ import com.sniffydn.sandbox.core.scenario.CommonBody;
 import com.sniffydn.sandbox.core.scenario.ScenarioActionListener;
 import com.sniffydn.sandbox.core.scenario.ScenarioListener;
 import com.sniffydn.sandbox.core.scenario.Tool;
+import com.sniffydn.sandbox.core.scenario.clothes.Clothes;
 import javax.swing.JButton;
 import javax.swing.SwingUtilities;
 
@@ -39,15 +40,17 @@ public class BodyRenderer extends javax.swing.JPanel {
         roomPanel.removeAll();
         actionsPanel.removeAll();
         toolsPanel.removeAll();
+        wornPanel.removeAll();
         RoomRenderer roomRenderer = new RoomRenderer(body.getCurrentRoom());
 
         roomPanel.add(roomRenderer);
         for (Action a : body.getAvailableActions()) {
 
-            if (a.getActionType().equals(ActionType.ROOM)) {
+            if (a.getActionType().equals(ActionType.ROOM) || a.getActionType().equals(ActionType.CHANGE_ROOMS)) {
                 roomRenderer.addAction(a);
             } else {
                 JButton button = new JButton(a.getActionDescription());
+                button.setToolTipText(a.getActionType().toString());
                 button.addActionListener(a.getActionListener());
                 actionsPanel.add(button);
             }
@@ -56,6 +59,10 @@ public class BodyRenderer extends javax.swing.JPanel {
 
         for (Tool t : body.getTools()) {
             toolsPanel.add(new ToolRenderer(t));
+        }
+
+        for(Clothes c: body.getClothes()) {
+            wornPanel.add(new ClothesRenderer(c));
         }
 
         if (body.getCurrentFurniture() == null) {
@@ -99,6 +106,7 @@ public class BodyRenderer extends javax.swing.JPanel {
         jPanel6 = new javax.swing.JPanel();
         toolCarryLabel = new javax.swing.JLabel();
         toolCapLabel = new javax.swing.JLabel();
+        wornPanel = new javax.swing.JPanel();
         toolsPanel = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -132,11 +140,16 @@ public class BodyRenderer extends javax.swing.JPanel {
         jPanel5.add(jPanel4);
         jPanel5.add(furnPosLabel);
 
+        jPanel6.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
         toolCarryLabel.setText("jLabel1");
         jPanel6.add(toolCarryLabel);
 
         toolCapLabel.setText("jLabel1");
         jPanel6.add(toolCapLabel);
+
+        wornPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
+        jPanel6.add(wornPanel);
 
         jPanel5.add(jPanel6);
 
@@ -183,6 +196,7 @@ public class BodyRenderer extends javax.swing.JPanel {
     private javax.swing.JLabel toolCapLabel;
     private javax.swing.JLabel toolCarryLabel;
     private javax.swing.JPanel toolsPanel;
+    private javax.swing.JPanel wornPanel;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 

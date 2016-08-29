@@ -1,10 +1,14 @@
 
 package com.sniffydn.sandbox.core.scenario;
 
+import com.sniffydn.sandbox.core.scenario.furniture.Furniture;
+
 public class Action {
     private ActionType actionType;
     private String actionDescription;
     private ScenarioActionListener actionListener;
+
+    private Furniture currentFurniture = null;
 
     public Action(ActionType actionType, String actionDescription, ScenarioActionListener actionListener) {
         this.actionType = actionType;
@@ -53,5 +57,19 @@ public class Action {
      */
     public void setActionListener(ScenarioActionListener actionListener) {
         this.actionListener = actionListener;
+    }
+
+    /**
+     * @return the currentFurniture
+     */
+    public Furniture getCurrentFurniture() {
+        return currentFurniture;
+    }
+
+    /**
+     * @param currentFurniture the currentFurniture to set
+     */
+    public void setCurrentFurniture(Furniture currentFurniture) {
+        this.currentFurniture = currentFurniture;
     }
 }

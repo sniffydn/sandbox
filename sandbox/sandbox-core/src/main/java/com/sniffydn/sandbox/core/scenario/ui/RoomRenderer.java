@@ -43,6 +43,7 @@ public class RoomRenderer extends javax.swing.JPanel {
             };
             ScenarioActionListener.addListener(sl);
         }
+        jPanel5.setVisible(false);
     }
 
     private void updatePanel() {
@@ -104,6 +105,7 @@ public class RoomRenderer extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -111,6 +113,7 @@ public class RoomRenderer extends javax.swing.JPanel {
         jPanel4 = new javax.swing.JPanel();
         doorwaysPanel = new javax.swing.JPanel();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(60, 0), new java.awt.Dimension(80, 0), new java.awt.Dimension(60, 32767));
+        roomChangeActionsPanel = new javax.swing.JPanel();
         bodiesPanel = new javax.swing.JPanel();
         roomActionsPanel = new javax.swing.JPanel();
 
@@ -140,6 +143,14 @@ public class RoomRenderer extends javax.swing.JPanel {
 
         jPanel1.add(jTextField1);
 
+        jButton1.setText("...");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+
         jPanel3.add(jPanel1, java.awt.BorderLayout.NORTH);
 
         jLabel2.setText("Long:");
@@ -168,6 +179,9 @@ public class RoomRenderer extends javax.swing.JPanel {
         jPanel4.add(doorwaysPanel, java.awt.BorderLayout.CENTER);
         jPanel4.add(filler1, java.awt.BorderLayout.PAGE_START);
 
+        roomChangeActionsPanel.setLayout(new java.awt.GridLayout(0, 1));
+        jPanel4.add(roomChangeActionsPanel, java.awt.BorderLayout.PAGE_END);
+
         jPanel2.add(jPanel4, java.awt.BorderLayout.EAST);
 
         bodiesPanel.setLayout(new java.awt.GridLayout(0, 1));
@@ -179,6 +193,17 @@ public class RoomRenderer extends javax.swing.JPanel {
         bindingGroup.bind();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        jPanel5.setVisible(!jPanel5.isVisible());
+        SwingUtilities.invokeLater(new Runnable() {
+
+            @Override
+            public void run() {
+                revalidate();
+            }
+        });
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bodiesPanel;
@@ -186,6 +211,7 @@ public class RoomRenderer extends javax.swing.JPanel {
     private javax.swing.Box.Filler filler1;
     private javax.swing.JPanel furnPanel;
     private javax.swing.JPanel furniturePanel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
@@ -198,6 +224,7 @@ public class RoomRenderer extends javax.swing.JPanel {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel roomActionsPanel;
+    private javax.swing.JPanel roomChangeActionsPanel;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 
@@ -213,6 +240,12 @@ public class RoomRenderer extends javax.swing.JPanel {
             JButton button = new JButton(a.getActionDescription());
             button.addActionListener(a.getActionListener());
             roomActionsPanel.add(button);
+        } else if (a.getActionType().equals(ActionType.CHANGE_ROOMS)) {
+            JButton button = new JButton(a.getActionDescription());
+            button.addActionListener(a.getActionListener());
+            roomChangeActionsPanel.add(button);
+        } else {
+            System.out.println(this.getClass().getSimpleName() + " deal with " + a);
         }
     }
 

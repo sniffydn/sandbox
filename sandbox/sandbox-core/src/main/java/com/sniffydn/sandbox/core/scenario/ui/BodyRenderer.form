@@ -101,7 +101,9 @@
                     </Component>
                     <Container class="javax.swing.JPanel" name="jPanel6">
 
-                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout">
+                        <Property name="alignment" type="int" value="0"/>
+                      </Layout>
                       <SubComponents>
                         <Component class="javax.swing.JLabel" name="toolCarryLabel">
                           <Properties>
@@ -113,6 +115,12 @@
                             <Property name="text" type="java.lang.String" value="jLabel1"/>
                           </Properties>
                         </Component>
+                        <Container class="javax.swing.JPanel" name="wornPanel">
+
+                          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout">
+                            <Property name="verticalGap" type="int" value="0"/>
+                          </Layout>
+                        </Container>
                       </SubComponents>
                     </Container>
                   </SubComponents>
