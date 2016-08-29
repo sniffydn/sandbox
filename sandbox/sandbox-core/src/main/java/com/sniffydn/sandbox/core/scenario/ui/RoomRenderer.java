@@ -8,6 +8,7 @@ import com.sniffydn.sandbox.core.scenario.Room;
 import com.sniffydn.sandbox.core.scenario.ScenarioActionListener;
 import com.sniffydn.sandbox.core.scenario.ScenarioListener;
 import com.sniffydn.sandbox.core.scenario.furniture.Furniture;
+import java.awt.Component;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
@@ -244,6 +245,21 @@ public class RoomRenderer extends javax.swing.JPanel {
             JButton button = new JButton(a.getActionDescription());
             button.addActionListener(a.getActionListener());
             roomChangeActionsPanel.add(button);
+        } else if (a.getActionType().equals(ActionType.FURNITURE)) {
+            boolean found = false;
+            for (Component c : furniturePanel.getComponents()) {
+                if(c instanceof FurnitureRenderer) {
+                    FurnitureRenderer fr = (FurnitureRenderer) c;
+                    if(fr.getFurniture() == a.getCurrentFurniture()) {
+                        found = true;
+                        fr.addAction(a);
+                        break;
+                    }
+                }
+            }
+            if(!found) {
+                System.out.println("NOT FOUND: " + a.getActionType() + "  " + a.getActionDescription());
+            }
         } else {
             System.out.println(this.getClass().getSimpleName() + " deal with " + a);
         }

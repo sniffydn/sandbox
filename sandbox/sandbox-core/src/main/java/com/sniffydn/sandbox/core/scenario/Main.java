@@ -103,6 +103,7 @@ public class Main {
         FBody fBody = new FBody();
         fBody.setName("fBody");
         fBody.setCurrentRoom(closet);
+        fBody.getAvailableActionTypes().add(ActionType.STEAL);
 
         FBody fBody2 = new FBody();
         fBody2.setName("fBody2");

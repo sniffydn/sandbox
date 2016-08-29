@@ -24,6 +24,7 @@ public class Tool extends CommonObject {
                         holder.getCurrentFurniture().addTool(position, Tool.this);
                     }
                 });
+                a.setCurrentFurniture(holder.getCurrentFurniture());
                 actions.add(a);
             }
         }

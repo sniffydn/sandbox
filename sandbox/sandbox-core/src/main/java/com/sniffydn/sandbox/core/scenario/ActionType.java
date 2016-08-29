@@ -8,5 +8,5 @@ public enum ActionType {
     FURNITURE,
     TOOL, 
     STEAL,
-
+    CLOTHES
 }
