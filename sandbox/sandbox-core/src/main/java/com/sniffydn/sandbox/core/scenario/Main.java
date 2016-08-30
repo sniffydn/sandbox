@@ -34,10 +34,12 @@ public class Main {
         Tool tool = new CommonTool();
         tool.setShortDescription("tool");
         tool.setLongDescription("tool description");
+        tool.getAvailableActionTypes().add(ActionType.STEAL);
 
         Tool tool2 = new CommonTool();
         tool2.setShortDescription("tool2");
         tool2.setLongDescription("tool2 description");
+        tool.getAvailableActionTypes().add(ActionType.COMPEL);
 
         Clothes clothes = new Clothes();
         clothes.setBodyType(BodyType.F);
@@ -130,17 +132,19 @@ public class Main {
         fBody.setCurrentRoom(closet);
         fBody.setCurrentFurniture(dresser);
         fBody.setCurrentFurniturePosition(FurniturePositions.BY);
-        fBody.getAvailableActionTypes().add(ActionType.STEAL);
 
         FBody fBody2 = new FBody();
         fBody2.setName("fBody2");
         fBody2.setCurrentRoom(closet2);
-        fBody2.getAvailableActionTypes().add(ActionType.COMPEL);
 
         List<CommonBody> bodies = new ArrayList<>();
         bodies.add(mBody);
         bodies.add(fBody);
         bodies.add(fBody2);
+
+        mBody.updateAvailableActionTypes();
+        fBody.updateAvailableActionTypes();
+        fBody2.updateAvailableActionTypes();
 
         mBody.updateAvailableActions();
         fBody.updateAvailableActions();

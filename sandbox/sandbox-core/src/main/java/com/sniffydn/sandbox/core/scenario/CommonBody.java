@@ -27,6 +27,7 @@ public class CommonBody {
     private String name;
     private Room currentRoom;
     private Set<ActionType> availableActionTypes = new HashSet<>();
+    private Set<ActionType> initialActionTypes = new HashSet<>();
     private List<Action> availableActions = new ArrayList<>();
     private List<Tool> tools = new ArrayList<>();
     private int currentToolCarry = 0;
@@ -39,16 +40,17 @@ public class CommonBody {
     private Map<Mood, Integer> moodMap = new HashMap<>();
 
     public CommonBody() {
-        for(Mood m: Mood.values()) {
+        for (Mood m : Mood.values()) {
             moodMap.put(m, 0);
         }
 
-        availableActionTypes.addAll(DEFAULT_ACTION_TYPES);
+        initialActionTypes.addAll(DEFAULT_ACTION_TYPES);
         ScenarioListener sl = new ScenarioListener() {
 
             @Override
             public void eventFired() {
                 availableActions.clear();
+                updateAvailableActionTypes();
             }
 
             @Override
@@ -105,6 +107,17 @@ public class CommonBody {
             }
         }
         return false;
+    }
+
+    public void updateAvailableActionTypes() {
+        availableActionTypes.addAll(initialActionTypes);
+
+        for (Tool tool : tools) {
+            availableActionTypes.addAll(tool.getAvailableActionTypes());
+        }
+
+//        for (Clothes c : clothes) {
+//        }
     }
 
     public void updateAvailableActions() {
@@ -262,7 +275,7 @@ public class CommonBody {
     }
 
     public void addTool(Tool t) {
-        if(canAdd(t)) {
+        if (canAdd(t)) {
             tools.add(t);
         }
     }

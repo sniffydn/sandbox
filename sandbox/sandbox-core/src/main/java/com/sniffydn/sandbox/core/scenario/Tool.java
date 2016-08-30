@@ -10,6 +10,8 @@ public abstract class Tool extends CommonObject {
     private int weight = 1;
     private int toolCapacity = 0;
 
+    private List<ActionType> availableActionTypes = new ArrayList<>();
+
     public abstract List<Action> getAvailableActions(final CommonBody holder);
 
     protected List<Action> getCommonActions(final CommonBody holder) {
@@ -90,6 +92,13 @@ public abstract class Tool extends CommonObject {
      */
     public void setToolCapacity(int toolCapacity) {
         this.toolCapacity = toolCapacity;
+    }
+
+    /**
+     * @return the availableActionTypes
+     */
+    public List<ActionType> getAvailableActionTypes() {
+        return availableActionTypes;
     }
 
 }
