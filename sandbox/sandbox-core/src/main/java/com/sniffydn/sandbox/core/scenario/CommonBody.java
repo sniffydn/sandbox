@@ -5,8 +5,10 @@ import com.sniffydn.sandbox.core.scenario.clothes.Clothes;
 import com.sniffydn.sandbox.core.scenario.furniture.Furniture;
 import com.sniffydn.sandbox.core.scenario.furniture.FurniturePositions;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class CommonBody {
@@ -34,7 +36,13 @@ public class CommonBody {
     private Body body = new Body();
     private List<Clothes> clothes = new ArrayList<>();
 
+    private Map<Mood, Integer> moodMap = new HashMap<>();
+
     public CommonBody() {
+        for(Mood m: Mood.values()) {
+            moodMap.put(m, 0);
+        }
+
         availableActionTypes.addAll(DEFAULT_ACTION_TYPES);
         ScenarioListener sl = new ScenarioListener() {
 

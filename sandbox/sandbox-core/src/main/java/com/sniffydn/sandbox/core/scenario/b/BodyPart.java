@@ -11,6 +11,8 @@ public class BodyPart {
     private List<BodyPart> composedOf = new ArrayList<>();
     private BodyPart partOf = null;
     private Boolean rightSide = null;
+    private int plsrScale = 0;
+    private List<PartState> states = new ArrayList<>();
 
     @Override
     public String toString() {
@@ -142,5 +144,26 @@ public class BodyPart {
         }
 
         return;
+    }
+
+    /**
+     * @return the plsrScale
+     */
+    public int getPlsrScale() {
+        return plsrScale;
+    }
+
+    /**
+     * @param plsrScale the plsrScale to set
+     */
+    public void setPlsrScale(int plsrScale) {
+        this.plsrScale = plsrScale;
+    }
+
+    /**
+     * @return the states
+     */
+    public List<PartState> getStates() {
+        return states;
     }
 }
