@@ -42,4 +42,9 @@ public class CommonObject {
             return getLongDescription();
         }
     }
+
+    @Override
+    public String toString() {
+        return getDescription();
+    }
 }

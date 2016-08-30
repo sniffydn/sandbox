@@ -131,8 +131,18 @@ public class CommonBody {
                             }
                         }
                     }
+
                 }
-            } else if (at.equals(ActionType.GENERAL) || at.equals(ActionType.STEAL)) {
+                if (clothes.size() > 0) {
+                    for (Clothes c : clothes) {
+                        for (Action a : c.getAvailableActions(this)) {
+                            if (getAvailableActionTypes().contains(a.getActionType())) {
+                                getAvailableActions().add(a);
+                            }
+                        }
+                    }
+                }
+            } else if (at.equals(ActionType.GENERAL) || at.equals(ActionType.STEAL) || at.equals(ActionType.COMPEL)) {
             } else {
                 System.out.println("Deal with " + at);
             }
@@ -192,11 +202,11 @@ public class CommonBody {
     public int getMaxToolCapacity() {
         int mtc = maxToolCapacity;
 
-        for(Clothes c:getClothes()) {
+        for (Clothes c : getClothes()) {
             mtc += c.getToolCapacity();
         }
 
-        for(Tool t: getTools()) {
+        for (Tool t : getTools()) {
             mtc += t.getToolCapacity();
         }
 
@@ -225,7 +235,7 @@ public class CommonBody {
     }
 
     public void addAction(Action a) {
-        if(availableActionTypes.contains(a.getActionType())) {
+        if (availableActionTypes.contains(a.getActionType())) {
             getAvailableActions().add(a);
         }
     }
@@ -243,7 +253,7 @@ public class CommonBody {
     }
 
     public void addClothes(Clothes t) {
-        if(canAdd(t)) {
+        if (canAdd(t)) {
             clothes.add(t);
         }
     }

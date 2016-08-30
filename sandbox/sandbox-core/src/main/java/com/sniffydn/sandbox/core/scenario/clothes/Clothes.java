@@ -14,6 +14,7 @@ import java.util.List;
 public class Clothes extends Tool {
 
     private List<BodyPart> covers = new ArrayList<>();
+//    private CommonBody bodyType = new CommonBody();
 
     /**
      * @return the covers
@@ -42,7 +43,7 @@ public class Clothes extends Tool {
 
             if (holder.getCurrentRoom().getBodies().size() > 1) {
                 for (final CommonBody b : holder.getCurrentRoom().getBodies()) {
-                    if (b != holder) {
+                    if (b != holder && b.getCurrentFurniture() != null) {
                         for (final FurniturePositions position : holder.getCurrentFurniture().getAvailableToolPositions()) {
                             Action a1 = new Action(ActionType.STEAL, "Take " + getShortDescription() + " off of " + holder.getName() + " and put " + " " + position + " " + holder.getCurrentFurniture().getShortDescription(), new ScenarioActionListener() {
 
@@ -68,12 +69,11 @@ public class Clothes extends Tool {
 
                             @Override
                             protected void scenarioActionPerformed(ActionEvent e) {
-                                holder.getClothes().remove(Clothes.this);
+                                holder.getTools().remove(Clothes.this);
                                 b.addClothes(Clothes.this);
                             }
                         });
-                        a1.setCurrentFurniture(holder.getCurrentFurniture());
-                        b.addAction(a1);
+                        holder.addAction(a1);
                     }
                 }
             }
@@ -81,4 +81,18 @@ public class Clothes extends Tool {
 
         return actions;
     }
+
+//    /**
+//     * @return the bodyType
+//     */
+//    public CommonBody getBodyType() {
+//        return bodyType;
+//    }
+//
+//    /**
+//     * @param bodyType the bodyType to set
+//     */
+//    public void setBodyType(CommonBody bodyType) {
+//        this.bodyType = bodyType;
+//    }
 }

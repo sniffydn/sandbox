@@ -39,11 +39,13 @@ public class Main {
         tool2.setLongDescription("tool2 description");
 
         Clothes clothes = new Clothes();
+//        clothes.setBodyType(new FBody());
         clothes.setToolCapacity(1);
         clothes.setShortDescription("clothes");
         clothes.setLongDescription("clothes description");
 
         Clothes clothes2 = new Clothes();
+//        clothes2.setBodyType(new FBody());
         clothes2.setToolCapacity(1);
         clothes2.setShortDescription("clothes2");
         clothes2.setLongDescription("clothes2 description");
@@ -69,10 +71,30 @@ public class Main {
         bed.setShortDescription("bed");
         bed.getAvailablePositions().add(FurniturePositions.ON);
 
+        Clothes clothes3 = new Clothes();
+//        clothes3.setBodyType(new MBody());
+        clothes3.setShortDescription("clothes3");
+        clothes3.setLongDescription("clothes3 description");
+
+
+        Clothes clothes4 = new Clothes();
+//        clothes4.setBodyType(new MBody());
+        clothes4.setShortDescription("clothes4");
+        clothes4.setLongDescription("clothes4 description");
+
+        Furniture sdresser = new Furniture();
+        sdresser.setLongDescription("small dresser");
+        sdresser.setShortDescription("sdresser");
+        sdresser.getAvailableToolPositions().add(FurniturePositions.IN);
+        sdresser.getAvailableToolPositions().add(FurniturePositions.ON);
+
+        sdresser.addTool(FurniturePositions.IN, clothes3);
+
         Room room = new Room();
         room.setLongDescription("large room");
         room.setShortDescription("room");
         room.getFurniture().add(bed);
+        room.getFurniture().add(sdresser);
 
         Doorway dw = new Doorway();
         dw.setRoom1(room);
@@ -81,7 +103,7 @@ public class Main {
         dw.setDoorOpen(false);
         dw.getDoorKeys().add(key);
         dw.getDoorKeys().add(key3);
-        
+
         room.getDoorways().add(dw);
         closet.getDoorways().add(dw);
 
@@ -98,10 +120,15 @@ public class Main {
         MBody mBody = new MBody();
         mBody.setName("mBody");
         mBody.setCurrentRoom(room);
+        mBody.setCurrentFurniture(bed);
+        mBody.setCurrentFurniturePosition(FurniturePositions.BY);
+        mBody.addClothes(clothes4);
 
         FBody fBody = new FBody();
         fBody.setName("fBody");
         fBody.setCurrentRoom(closet);
+        fBody.setCurrentFurniture(dresser);
+        fBody.setCurrentFurniturePosition(FurniturePositions.BY);
         fBody.getAvailableActionTypes().add(ActionType.STEAL);
 
         FBody fBody2 = new FBody();
