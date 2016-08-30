@@ -21,7 +21,7 @@ public abstract class Tool extends CommonObject {
 
                     @Override
                     protected void scenarioActionPerformed(ActionEvent e) {
-                        holder.getTools().remove(Tool.this);
+                        holder.removeTool(Tool.this);
                         holder.setCurrentToolCarry(holder.getCurrentToolCarry() - getWeight());
                         holder.getCurrentFurniture().addTool(position, Tool.this);
                     }
@@ -38,9 +38,9 @@ public abstract class Tool extends CommonObject {
 
                         @Override
                         protected void scenarioActionPerformed(ActionEvent e) {
-                            holder.getTools().remove(Tool.this);
+                            holder.removeTool(Tool.this);
                             holder.setCurrentToolCarry(holder.getCurrentToolCarry() - getWeight());
-                            b.getTools().add(Tool.this);
+                            b.addTool(Tool.this);
                             b.setCurrentToolCarry(b.getCurrentToolCarry() + getWeight());
                         }
                     });
@@ -50,9 +50,9 @@ public abstract class Tool extends CommonObject {
 
                         @Override
                         protected void scenarioActionPerformed(ActionEvent e) {
-                            holder.getTools().remove(Tool.this);
+                            holder.removeTool(Tool.this);
                             holder.setCurrentToolCarry(holder.getCurrentToolCarry() - getWeight());
-                            b.getTools().add(Tool.this);
+                            b.addTool(Tool.this);
                             b.setCurrentToolCarry(b.getCurrentToolCarry() + getWeight());
                         }
                     });

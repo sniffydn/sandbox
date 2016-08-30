@@ -25,14 +25,14 @@ public class Clothes extends Tool {
 
     public List<Action> getAvailableActions(final CommonBody holder) {
         List<Action> actions = new ArrayList<>();
-        if (holder.getClothes().contains(this)) {
+        if (holder.hasClothes(this)) {
             if (holder.getCurrentFurniture() != null && holder.getCurrentFurniturePosition() == FurniturePositions.BY) {
                 for (final FurniturePositions position : holder.getCurrentFurniture().getAvailableToolPositions()) {
                     Action a = new Action(ActionType.FURNITURE, "Put " + getShortDescription() + " " + position + " " + holder.getCurrentFurniture().getShortDescription(), new ScenarioActionListener() {
 
                         @Override
                         protected void scenarioActionPerformed(ActionEvent e) {
-                            holder.getClothes().remove(Clothes.this);
+                            holder.removeClothes(Clothes.this);
                             holder.getCurrentFurniture().addTool(position, Clothes.this);
                         }
                     });
@@ -48,8 +48,8 @@ public class Clothes extends Tool {
 
                             @Override
                             protected void scenarioActionPerformed(ActionEvent e) {
-                                holder.getClothes().remove(Clothes.this);
-                                b.getTools().add(Clothes.this);
+                                holder.removeClothes(Clothes.this);
+                                b.addTool(Clothes.this);
                             }
                         });
                         a1.setCurrentFurniture(holder.getCurrentFurniture());
@@ -65,7 +65,7 @@ public class Clothes extends Tool {
 
                     @Override
                     protected void scenarioActionPerformed(ActionEvent e) {
-                        holder.getTools().remove(Clothes.this);
+                        holder.removeTool(Clothes.this);
                         holder.addClothes(Clothes.this);
                     }
                 });
@@ -79,7 +79,7 @@ public class Clothes extends Tool {
 
                             @Override
                             protected void scenarioActionPerformed(ActionEvent e) {
-                                holder.getTools().remove(Clothes.this);
+                                holder.removeTool(Clothes.this);
                                 b.addClothes(Clothes.this);
                             }
                         });

@@ -5,7 +5,9 @@ import com.sniffydn.sandbox.core.scenario.clothes.Clothes;
 import com.sniffydn.sandbox.core.scenario.furniture.Furniture;
 import com.sniffydn.sandbox.core.scenario.furniture.FurniturePositions;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class CommonBody {
 
@@ -22,7 +24,7 @@ public class CommonBody {
 
     private String name;
     private Room currentRoom;
-    private List<ActionType> availableActionTypes = new ArrayList<>();
+    private Set<ActionType> availableActionTypes = new HashSet<>();
     private List<Action> availableActions = new ArrayList<>();
     private List<Tool> tools = new ArrayList<>();
     private int currentToolCarry = 0;
@@ -84,7 +86,7 @@ public class CommonBody {
     /**
      * @return the availableActionTypes
      */
-    public List<ActionType> getAvailableActionTypes() {
+    public Set<ActionType> getAvailableActionTypes() {
         return availableActionTypes;
     }
 
@@ -202,11 +204,11 @@ public class CommonBody {
     public int getMaxToolCapacity() {
         int mtc = maxToolCapacity;
 
-        for (Clothes c : getClothes()) {
+        for (Clothes c : clothes) {
             mtc += c.getToolCapacity();
         }
 
-        for (Tool t : getTools()) {
+        for (Tool t : tools) {
             mtc += t.getToolCapacity();
         }
 
@@ -247,6 +249,20 @@ public class CommonBody {
         return body;
     }
 
+    public boolean canAdd(Tool tool) {
+        return tool.getWeight() + getCurrentToolCarry() <= getMaxToolCapacity();
+    }
+
+    public void addTool(Tool t) {
+        if(canAdd(t)) {
+            tools.add(t);
+        }
+    }
+
+    public void removeTool(Tool t) {
+        tools.remove(t);
+    }
+
     public boolean canAdd(Clothes piece) {
         System.out.println("canAdd Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         return piece.getBodyType().isType(this);
@@ -263,5 +279,13 @@ public class CommonBody {
      */
     public List<Clothes> getClothes() {
         return clothes;
+    }
+
+    public boolean hasClothes(Clothes c) {
+        return clothes.contains(c);
+    }
+
+    public void removeClothes(Clothes c) {
+        clothes.remove(c);
     }
 }
