@@ -19,13 +19,9 @@ public class Furniture extends CommonObject {
     private List<FurniturePositions> availableToolPositions = new ArrayList<>();
     private Map<FurniturePositions, List<Tool>> toolMap = new HashMap<>();
 
-    private List<FurniturePositions> availableClothesPositions = new ArrayList<>();
-    private Map<FurniturePositions, List<Clothes>> clothesMap = new HashMap<>();
-
     public Furniture() {
         availablePositions.add(FurniturePositions.BY);
         availableToolPositions.add(FurniturePositions.BY);
-        availableClothesPositions.add(FurniturePositions.BY);
     }
 
     /**
@@ -59,33 +55,23 @@ public class Furniture extends CommonObject {
                             a.setCurrentFurniture(this);
                             actions.add(a);
                         }
-                    }
-                }
-            }
+                        if (tool instanceof Clothes && body.canAdd((Clothes) tool)) {
+                            final Clothes c = (Clothes) tool;
+                            Action a = new Action(ActionType.FURNITURE, "Put on " + c.getShortDescription() + " " + position + " " + getShortDescription(),
+                                    new ScenarioActionListener() {
 
-            for (FurniturePositions position : availableClothesPositions) {
-                if (!clothesMap.containsKey(position)) {
-                    getClothesMap().put(position, new ArrayList<Clothes>());
-                } else {
-                    final List<Clothes> clothes = getClothesMap().get(position);
-                    for (Clothes piece : clothes) {
-                            if (body.canAdd(piece)) {
-                                final Clothes c = piece;
-                                Action a = new Action(ActionType.FURNITURE, "Put on " + piece.getShortDescription() + " " + position + " " + getShortDescription(),
-                                        new ScenarioActionListener() {
-
-                                            @Override
-                                            protected void scenarioActionPerformed(ActionEvent e) {
-                                                body.addClothes(c);
-                                                clothes.remove(c);
-                                            }
-                                        });
-                                a.setCurrentFurniture(this);
-                                actions.add(a);
-                            }
+                                        @Override
+                                        protected void scenarioActionPerformed(ActionEvent e) {
+                                            body.addClothes(c);
+                                            tools.remove(c);
+                                        }
+                                    });
+                            a.setCurrentFurniture(this);
+                            actions.add(a);
                         }
                     }
                 }
+            }
         } else {
             System.out.println("Deal with " + body.getCurrentFurniturePosition());
         }
@@ -116,32 +102,6 @@ public class Furniture extends CommonObject {
             tools.add(t);
         } else {
             throw new RuntimeException(getShortDescription() + " does not contain t " + position);
-        }
-    }
-
-    /**
-     * @return the availableClothesPositions
-     */
-    public List<FurniturePositions> getAvailableClothesPositions() {
-        return availableClothesPositions;
-    }
-
-    /**
-     * @return the clothesMap
-     */
-    public Map<FurniturePositions, List<Clothes>> getClothesMap() {
-        return clothesMap;
-    }
-
-    public void addClothes(FurniturePositions position, Clothes t) {
-        if (availableClothesPositions.contains(position)) {
-            if (!getClothesMap().containsKey(position)) {
-                getClothesMap().put(position, new ArrayList<Clothes>());
-            }
-            List<Clothes> clothes = getClothesMap().get(position);
-            clothes.add(t);
-        } else {
-            throw new RuntimeException(getShortDescription() + " does not contain c " + position);
         }
     }
 }

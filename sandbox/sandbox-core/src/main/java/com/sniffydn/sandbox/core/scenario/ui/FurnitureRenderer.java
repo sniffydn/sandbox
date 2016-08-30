@@ -15,6 +15,7 @@ public class FurnitureRenderer extends javax.swing.JPanel {
 
     /**
      * Creates new form BodyRenderer
+     *
      * @param furniture
      */
     public FurnitureRenderer(Furniture furniture) {
@@ -25,20 +26,15 @@ public class FurnitureRenderer extends javax.swing.JPanel {
             List<Tool> toolList = furniture.getToolMap().get(pos);
             if (toolList != null) {
                 for (Tool t : toolList) {
-                    ToolRenderer toolRenderer = new ToolRenderer(t);
-                    toolRenderer.setPosition(pos);
-                    toolsInPanel.add(toolRenderer);
-                }
-            }
-        }
-
-        for (FurniturePositions pos : furniture.getAvailableClothesPositions()) {
-            List<Clothes> clothesList = furniture.getClothesMap().get(pos);
-            if (clothesList != null) {
-                for (Clothes t : clothesList) {
-                    ClothesRenderer clothesRenderer = new ClothesRenderer(t);
-                    clothesRenderer.setPosition(pos);
-                    clothesInPanel.add(clothesRenderer);
+                    if (t instanceof Clothes) {
+                        ClothesRenderer clothesRenderer = new ClothesRenderer((Clothes) t);
+                        clothesRenderer.setPosition(pos);
+                        clothesInPanel.add(clothesRenderer);
+                    } else {
+                        ToolRenderer toolRenderer = new ToolRenderer(t);
+                        toolRenderer.setPosition(pos);
+                        toolsInPanel.add(toolRenderer);
+                    }
                 }
             }
         }
@@ -111,6 +107,7 @@ public class FurnitureRenderer extends javax.swing.JPanel {
     public void addAction(Action a) {
         if (a.getActionType().equals(ActionType.FURNITURE)) {
             JButton button = new JButton(a.getActionDescription());
+            button.setToolTipText(a.getActionType().toString());
             button.addActionListener(a.getActionListener());
             actionsPanel.add(button);
         } else {

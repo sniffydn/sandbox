@@ -30,11 +30,11 @@ public class Main {
         key3.setShortDescription("room key3");
         key3.setLongDescription("key to the room door");
 
-        Tool tool = new Tool();
+        Tool tool = new CommonTool();
         tool.setShortDescription("tool");
         tool.setLongDescription("tool description");
 
-        Tool tool2 = new Tool();
+        Tool tool2 = new CommonTool();
         tool2.setShortDescription("tool2");
         tool2.setLongDescription("tool2 description");
 
@@ -53,15 +53,14 @@ public class Main {
         dresser.setShortDescription("dresser");
         dresser.getAvailableToolPositions().add(FurniturePositions.IN);
         dresser.getAvailableToolPositions().add(FurniturePositions.ON);
-        dresser.getAvailableClothesPositions().add(FurniturePositions.IN);
 
         dresser.addTool(FurniturePositions.IN, key);
         dresser.addTool(FurniturePositions.IN, key2);
         dresser.addTool(FurniturePositions.IN, key3);
         dresser.addTool(FurniturePositions.ON, tool);
         dresser.addTool(FurniturePositions.ON, tool2);
-        dresser.addClothes(FurniturePositions.BY, clothes);
-        dresser.addClothes(FurniturePositions.IN, clothes2);
+        dresser.addTool(FurniturePositions.BY, clothes);
+        dresser.addTool(FurniturePositions.IN, clothes2);
 
         closet.getFurniture().add(dresser);
 
@@ -108,6 +107,7 @@ public class Main {
         FBody fBody2 = new FBody();
         fBody2.setName("fBody2");
         fBody2.setCurrentRoom(closet2);
+        fBody2.getAvailableActionTypes().add(ActionType.COMPEL);
 
         List<CommonBody> bodies = new ArrayList<>();
         bodies.add(mBody);

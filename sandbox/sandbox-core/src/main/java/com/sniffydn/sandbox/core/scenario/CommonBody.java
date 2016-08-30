@@ -18,7 +18,6 @@ public class CommonBody {
         DEFAULT_ACTION_TYPES.add(ActionType.ROOM);
         DEFAULT_ACTION_TYPES.add(ActionType.FURNITURE);
         DEFAULT_ACTION_TYPES.add(ActionType.TOOL);
-        DEFAULT_ACTION_TYPES.add(ActionType.CLOTHES);
     }
 
     private String name;
@@ -127,16 +126,6 @@ public class CommonBody {
                 if (tools.size() > 0) {
                     for (Tool tool : tools) {
                         for (Action a : tool.getAvailableActions(this)) {
-                            if (getAvailableActionTypes().contains(a.getActionType())) {
-                                getAvailableActions().add(a);
-                            }
-                        }
-                    }
-                }
-            } else if (at.equals(ActionType.CLOTHES)) {
-                if (clothes.size() > 0) {
-                    for (Clothes clothes : clothes) {
-                        for (Action a : clothes.getAvailableActions(this)) {
                             if (getAvailableActionTypes().contains(a.getActionType())) {
                                 getAvailableActions().add(a);
                             }

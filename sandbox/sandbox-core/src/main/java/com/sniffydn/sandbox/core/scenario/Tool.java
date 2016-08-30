@@ -5,12 +5,14 @@ import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Tool extends CommonObject {
+public abstract class Tool extends CommonObject {
 
     private int weight = 1;
     private int toolCapacity = 0;
 
-    public List<Action> getAvailableActions(final CommonBody holder) {
+    public abstract List<Action> getAvailableActions(final CommonBody holder);
+
+    protected List<Action> getCommonActions(final CommonBody holder) {
         List<Action> actions = new ArrayList<>();
 
         if (holder.getCurrentFurniture() != null && holder.getCurrentFurniturePosition() == FurniturePositions.BY) {

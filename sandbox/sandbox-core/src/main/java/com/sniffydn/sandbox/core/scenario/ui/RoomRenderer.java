@@ -239,25 +239,27 @@ public class RoomRenderer extends javax.swing.JPanel {
     public void addAction(Action a) {
         if (a.getActionType().equals(ActionType.ROOM)) {
             JButton button = new JButton(a.getActionDescription());
+            button.setToolTipText(a.getActionType().toString());
             button.addActionListener(a.getActionListener());
             roomActionsPanel.add(button);
         } else if (a.getActionType().equals(ActionType.CHANGE_ROOMS)) {
             JButton button = new JButton(a.getActionDescription());
+            button.setToolTipText(a.getActionType().toString());
             button.addActionListener(a.getActionListener());
             roomChangeActionsPanel.add(button);
         } else if (a.getActionType().equals(ActionType.FURNITURE)) {
             boolean found = false;
             for (Component c : furniturePanel.getComponents()) {
-                if(c instanceof FurnitureRenderer) {
+                if (c instanceof FurnitureRenderer) {
                     FurnitureRenderer fr = (FurnitureRenderer) c;
-                    if(fr.getFurniture() == a.getCurrentFurniture()) {
+                    if (fr.getFurniture() == a.getCurrentFurniture()) {
                         found = true;
                         fr.addAction(a);
                         break;
                     }
                 }
             }
-            if(!found) {
+            if (!found) {
                 System.out.println("NOT FOUND: " + a.getActionType() + "  " + a.getActionDescription());
             }
         } else {
