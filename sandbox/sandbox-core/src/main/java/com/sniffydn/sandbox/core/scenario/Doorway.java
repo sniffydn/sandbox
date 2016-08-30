@@ -94,7 +94,7 @@ public class Doorway {
                         setDoorLocked(false);
                     }
                 };
-                getActions().add(new Action(ActionType.GENERAL, actionText, al));
+                getActions().add(new Action(ActionType.DOORWAY, actionText, al));
 
                 checkOpenStateAndAddActions(body, forward);
 
@@ -110,7 +110,7 @@ public class Doorway {
                                 body.setCurrentFurniturePosition(null);
                             }
                         };
-                        getActions().add(new Action(ActionType.CHANGE_ROOMS, actionText1, al1));
+                        getActions().add(new Action(ActionType.DOORWAY, actionText1, al1));
                     } else {
                         String actionText1 = "Move to " + room1.getShortDescription() + " and keep the " + door + " locked";
                         ScenarioActionListener al1 = new ScenarioActionListener() {
@@ -122,7 +122,7 @@ public class Doorway {
                                 body.setCurrentFurniturePosition(null);
                             }
                         };
-                        getActions().add(new Action(ActionType.CHANGE_ROOMS, actionText1, al1));
+                        getActions().add(new Action(ActionType.DOORWAY, actionText1, al1));
                     }
                 }
             }
@@ -139,7 +139,7 @@ public class Doorway {
                         setDoorLocked(true);
                     }
                 };
-                getActions().add(new Action(ActionType.GENERAL, actionText, al));
+                getActions().add(new Action(ActionType.DOORWAY, actionText, al));
             }
             checkOpenStateAndAddActions(body, forward);
         }
@@ -159,7 +159,7 @@ public class Doorway {
                         body.setCurrentFurniturePosition(null);
                     }
                 };
-                getActions().add(new Action(ActionType.CHANGE_ROOMS, actionText, al));
+                getActions().add(new Action(ActionType.DOORWAY, actionText, al));
             } else {
                 String actionText = "Move to " + room1.getShortDescription();
                 ScenarioActionListener al = new ScenarioActionListener() {
@@ -171,7 +171,7 @@ public class Doorway {
                         body.setCurrentFurniturePosition(null);
                     }
                 };
-                getActions().add(new Action(ActionType.CHANGE_ROOMS, actionText, al));
+                getActions().add(new Action(ActionType.DOORWAY, actionText, al));
             }
         } else {
             if (!doorLocked) {
@@ -184,7 +184,7 @@ public class Doorway {
                             setDoorOpen(true);
                         }
                     };
-                    getActions().add(new Action(ActionType.GENERAL, actionText, al));
+                    getActions().add(new Action(ActionType.DOORWAY, actionText, al));
                 } else {
                     String actionText = "Open " + getDoor() + " to " + room1.getShortDescription();
                     ScenarioActionListener al = new ScenarioActionListener() {
@@ -194,7 +194,7 @@ public class Doorway {
                             setDoorOpen(true);
                         }
                     };
-                    getActions().add(new Action(ActionType.GENERAL, actionText, al));
+                    getActions().add(new Action(ActionType.DOORWAY, actionText, al));
                 }
             }
         }

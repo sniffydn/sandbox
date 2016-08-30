@@ -13,7 +13,7 @@ public class CommonBody {
 
     static {
         DEFAULT_ACTION_TYPES = new ArrayList<>();
-        DEFAULT_ACTION_TYPES.add(ActionType.CHANGE_ROOMS);
+        DEFAULT_ACTION_TYPES.add(ActionType.DOORWAY);
         DEFAULT_ACTION_TYPES.add(ActionType.GENERAL);
         DEFAULT_ACTION_TYPES.add(ActionType.ROOM);
         DEFAULT_ACTION_TYPES.add(ActionType.FURNITURE);
@@ -99,7 +99,7 @@ public class CommonBody {
 
     public void updateAvailableActions() {
         for (ActionType at : getAvailableActionTypes()) {
-            if (at.equals(ActionType.CHANGE_ROOMS)) {
+            if (at.equals(ActionType.DOORWAY)) {
                 for (Doorway dw : getCurrentRoom().getDoorways()) {
                     dw.updateAvailableActions(this);
                     for (Action a : dw.getActions()) {
@@ -249,7 +249,7 @@ public class CommonBody {
 
     public boolean canAdd(Clothes piece) {
         System.out.println("canAdd Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        return true;
+        return piece.getBodyType().isType(this);
     }
 
     public void addClothes(Clothes t) {

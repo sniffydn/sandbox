@@ -242,7 +242,7 @@ public class RoomRenderer extends javax.swing.JPanel {
             button.setToolTipText(a.getActionType().toString());
             button.addActionListener(a.getActionListener());
             roomActionsPanel.add(button);
-        } else if (a.getActionType().equals(ActionType.CHANGE_ROOMS)) {
+        } else if (a.getActionType().equals(ActionType.DOORWAY)) {
             JButton button = new JButton(a.getActionDescription());
             button.setToolTipText(a.getActionType().toString());
             button.addActionListener(a.getActionListener());

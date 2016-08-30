@@ -1,5 +1,6 @@
 package com.sniffydn.sandbox.core.scenario;
 
+import com.sniffydn.sandbox.core.scenario.clothes.BodyType;
 import com.sniffydn.sandbox.core.scenario.clothes.Clothes;
 import com.sniffydn.sandbox.core.scenario.furniture.Furniture;
 import com.sniffydn.sandbox.core.scenario.furniture.FurniturePositions;
@@ -39,13 +40,13 @@ public class Main {
         tool2.setLongDescription("tool2 description");
 
         Clothes clothes = new Clothes();
-//        clothes.setBodyType(new FBody());
+        clothes.setBodyType(BodyType.F);
         clothes.setToolCapacity(1);
         clothes.setShortDescription("clothes");
         clothes.setLongDescription("clothes description");
 
         Clothes clothes2 = new Clothes();
-//        clothes2.setBodyType(new FBody());
+        clothes2.setBodyType(BodyType.F);
         clothes2.setToolCapacity(1);
         clothes2.setShortDescription("clothes2");
         clothes2.setLongDescription("clothes2 description");
@@ -72,13 +73,13 @@ public class Main {
         bed.getAvailablePositions().add(FurniturePositions.ON);
 
         Clothes clothes3 = new Clothes();
-//        clothes3.setBodyType(new MBody());
+        clothes3.setBodyType(BodyType.M);
         clothes3.setShortDescription("clothes3");
         clothes3.setLongDescription("clothes3 description");
 
 
         Clothes clothes4 = new Clothes();
-//        clothes4.setBodyType(new MBody());
+        clothes4.setBodyType(BodyType.M);
         clothes4.setShortDescription("clothes4");
         clothes4.setLongDescription("clothes4 description");
 

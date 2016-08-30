@@ -46,7 +46,7 @@ public class BodyRenderer extends javax.swing.JPanel {
         roomPanel.add(roomRenderer);
         for (Action a : body.getAvailableActions()) {
 
-            if (a.getActionType().equals(ActionType.ROOM) || a.getActionType().equals(ActionType.CHANGE_ROOMS) || a.getActionType().equals(ActionType.FURNITURE)) {
+            if (a.getActionType().equals(ActionType.ROOM) || a.getActionType().equals(ActionType.DOORWAY) || a.getActionType().equals(ActionType.FURNITURE)) {
                 roomRenderer.addAction(a);
             } else {
                 JButton button = new JButton(a.getActionDescription());

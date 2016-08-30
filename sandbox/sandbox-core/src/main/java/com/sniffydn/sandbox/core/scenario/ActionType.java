@@ -2,7 +2,7 @@ package com.sniffydn.sandbox.core.scenario;
 
 public enum ActionType {
 
-    CHANGE_ROOMS,
+    DOORWAY,
     GENERAL,
     ROOM,
     FURNITURE,

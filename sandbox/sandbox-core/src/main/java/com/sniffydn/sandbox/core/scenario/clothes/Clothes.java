@@ -14,7 +14,7 @@ import java.util.List;
 public class Clothes extends Tool {
 
     private List<BodyPart> covers = new ArrayList<>();
-//    private CommonBody bodyType = new CommonBody();
+    private BodyType bodyType = BodyType.B;
 
     /**
      * @return the covers
@@ -43,24 +43,34 @@ public class Clothes extends Tool {
 
             if (holder.getCurrentRoom().getBodies().size() > 1) {
                 for (final CommonBody b : holder.getCurrentRoom().getBodies()) {
-                    if (b != holder && b.getCurrentFurniture() != null) {
-                        for (final FurniturePositions position : holder.getCurrentFurniture().getAvailableToolPositions()) {
-                            Action a1 = new Action(ActionType.STEAL, "Take " + getShortDescription() + " off of " + holder.getName() + " and put " + " " + position + " " + holder.getCurrentFurniture().getShortDescription(), new ScenarioActionListener() {
+                    if (b != holder) {
+                        Action a1 = new Action(ActionType.STEAL, "Take " + getShortDescription() + " off of " + holder.getName(), new ScenarioActionListener() {
 
-                                @Override
-                                protected void scenarioActionPerformed(ActionEvent e) {
-                                    holder.getClothes().remove(Clothes.this);
-                                    holder.getCurrentFurniture().addTool(position, Clothes.this);
-                                }
-                            });
-                            a1.setCurrentFurniture(holder.getCurrentFurniture());
-                            b.addAction(a1);
-                        }
+                            @Override
+                            protected void scenarioActionPerformed(ActionEvent e) {
+                                holder.getClothes().remove(Clothes.this);
+                                b.getTools().add(Clothes.this);
+                            }
+                        });
+                        a1.setCurrentFurniture(holder.getCurrentFurniture());
+                        b.addAction(a1);
                     }
                 }
             }
         } else {
             actions = getCommonActions(holder);
+
+            if (holder.canAdd(this)) {
+                Action a1 = new Action(ActionType.GENERAL, "Put " + getShortDescription() + " on", new ScenarioActionListener() {
+
+                    @Override
+                    protected void scenarioActionPerformed(ActionEvent e) {
+                        holder.getTools().remove(Clothes.this);
+                        holder.addClothes(Clothes.this);
+                    }
+                });
+                holder.addAction(a1);
+            }
 
             if (holder.getCurrentRoom().getBodies().size() > 1) {
                 for (final CommonBody b : holder.getCurrentRoom().getBodies()) {
@@ -82,17 +92,17 @@ public class Clothes extends Tool {
         return actions;
     }
 
-//    /**
-//     * @return the bodyType
-//     */
-//    public CommonBody getBodyType() {
-//        return bodyType;
-//    }
-//
-//    /**
-//     * @param bodyType the bodyType to set
-//     */
-//    public void setBodyType(CommonBody bodyType) {
-//        this.bodyType = bodyType;
-//    }
+    /**
+     * @return the bodyType
+     */
+    public BodyType getBodyType() {
+        return bodyType;
+    }
+
+    /**
+     * @param bodyType the bodyType to set
+     */
+    public void setBodyType(BodyType bodyType) {
+        this.bodyType = bodyType;
+    }
 }
