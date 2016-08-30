@@ -43,7 +43,7 @@ public class Clothes extends Tool {
 
             if (holder.getCurrentRoom().getBodies().size() > 1) {
                 for (final CommonBody b : holder.getCurrentRoom().getBodies()) {
-                    if (b != holder) {
+                    if (b != holder && b.getCurrentFurniture() == holder.getCurrentFurniture()) {
                         Action a1 = new Action(ActionType.STEAL, "Take " + getShortDescription() + " off of " + holder.getName(), new ScenarioActionListener() {
 
                             @Override
@@ -74,7 +74,7 @@ public class Clothes extends Tool {
 
             if (holder.getCurrentRoom().getBodies().size() > 1) {
                 for (final CommonBody b : holder.getCurrentRoom().getBodies()) {
-                    if (b != holder && b.canAdd(this)) {
+                    if (b != holder && b.canAdd(this) && b.getCurrentFurniture() == holder.getCurrentFurniture()) {
                         Action a1 = new Action(ActionType.COMPEL, "Put " + getShortDescription() + " on " + b.getName(), new ScenarioActionListener() {
 
                             @Override
