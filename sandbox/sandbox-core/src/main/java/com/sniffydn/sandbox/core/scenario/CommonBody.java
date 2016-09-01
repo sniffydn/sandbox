@@ -292,7 +292,6 @@ public class CommonBody {
     }
 
     public boolean canAdd(Clothes piece) {
-        System.out.println("canAdd Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         return piece.getBodyType().isType(this);
     }
 
