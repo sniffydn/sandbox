@@ -41,6 +41,8 @@ public class Main {
         tool2.setLongDescription("tool2 description");
         tool2.getAvailableActionTypes().add(ActionType.COMPEL);
 
+        
+
         Clothes clothes = new Clothes();
         clothes.setBodyType(BodyType.F);
         clothes.setToolCapacity(1);

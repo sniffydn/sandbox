@@ -262,6 +262,7 @@ public class CommonBody {
     }
 
     public void addAction(Action a) {
+        a.setActionTaker(this);
         if (availableActionTypes.contains(a.getActionType())) {
             getAvailableActions().add(a);
         }

@@ -44,6 +44,7 @@ public abstract class Tool extends CommonObject {
                             b.addTool(Tool.this);
                         }
                     });
+                    a.setActionReciever(b);
                     a.setActionShortDescription("Give to " + b.getName());
                     actions.add(a);
 
@@ -56,6 +57,7 @@ public abstract class Tool extends CommonObject {
                                 b.addTool(Tool.this);
                             }
                         });
+                        a1.setActionReciever(b);
                         a1.setActionShortDescription("Take");
                         b.addAction(a1);
                     }

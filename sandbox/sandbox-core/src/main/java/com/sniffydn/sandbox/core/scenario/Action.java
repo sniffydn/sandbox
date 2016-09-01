@@ -11,6 +11,8 @@ public class Action {
 
     private Furniture currentFurniture = null;
     private Tool currentTool = null;
+    private CommonBody actionTaker;
+    private CommonBody actionReciever;
 
     public Action(ActionType actionType, String actionDescription, ScenarioActionListener actionListener) {
         this.actionType = actionType;
@@ -106,5 +108,33 @@ public class Action {
     @Override
     public String toString() {
         return getActionDescription() + " " + getActionType() + " " + getCurrentFurniture() + " " + getCurrentTool();
+    }
+
+    /**
+     * @return the actionTaker
+     */
+    public CommonBody getActionTaker() {
+        return actionTaker;
+    }
+
+    /**
+     * @param actionTaker the actionTaker to set
+     */
+    public void setActionTaker(CommonBody actionTaker) {
+        this.actionTaker = actionTaker;
+    }
+
+    /**
+     * @return the actionReciever
+     */
+    public CommonBody getActionReciever() {
+        return actionReciever;
+    }
+
+    /**
+     * @param actionReciever the actionReciever to set
+     */
+    public void setActionReciever(CommonBody actionReciever) {
+        this.actionReciever = actionReciever;
     }
 }

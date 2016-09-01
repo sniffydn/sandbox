@@ -54,6 +54,7 @@ public class Clothes extends Tool {
                                     b.addTool(Clothes.this);
                                 }
                             });
+                            a1.setActionReciever(holder);
                             a1.setActionShortDescription("Take");
                             a1.setCurrentFurniture(holder.getCurrentFurniture());
                             b.addAction(a1);
@@ -67,6 +68,7 @@ public class Clothes extends Tool {
                                     holder.addTool(Clothes.this);
                                 }
                             });
+                            a1.setActionReciever(holder);
                             b.addAction(a1);
                         }
                     }
@@ -101,6 +103,7 @@ public class Clothes extends Tool {
                                     b.addClothes(Clothes.this);
                                 }
                             });
+                            a1.setActionReciever(holder);
                             a1.setActionShortDescription("Put on");
                             holder.addAction(a1);
                         }
