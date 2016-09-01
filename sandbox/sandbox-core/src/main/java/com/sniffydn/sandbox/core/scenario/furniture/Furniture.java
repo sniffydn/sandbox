@@ -48,7 +48,6 @@ public class Furniture extends CommonObject {
                                         @Override
                                         protected void scenarioActionPerformed(ActionEvent e) {
                                             body.addTool(t);
-                                            body.setCurrentToolCarry(body.getCurrentToolCarry() + t.getWeight());
                                             tools.remove(t);
                                         }
                                     });

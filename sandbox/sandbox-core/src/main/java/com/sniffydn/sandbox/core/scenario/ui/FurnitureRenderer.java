@@ -124,7 +124,7 @@ public class FurnitureRenderer extends javax.swing.JPanel {
                 for (Component c : toolsInPanel.getComponents()) {
                     if (c instanceof ToolRenderer) {
                         ToolRenderer tr = (ToolRenderer) c;
-                        if (tr.getTool()== a.getCurrentTool()) {
+                        if (tr.getTool() == a.getCurrentTool()) {
                             found = true;
                             tr.addAction(a);
                             break;
@@ -139,6 +139,11 @@ public class FurnitureRenderer extends javax.swing.JPanel {
                     actionsPanel.add(button);
                 }
             }
+        } else if (a.getActionType().equals(ActionType.ROOM)) {
+            JButton button = new JButton(a.getActionShortDescription());
+            button.setToolTipText(a.toString());
+            button.addActionListener(a.getActionListener());
+            jPanel2.add(button);
         } else {
             System.out.println(this.getClass().getSimpleName() + " deal with " + a);
         }

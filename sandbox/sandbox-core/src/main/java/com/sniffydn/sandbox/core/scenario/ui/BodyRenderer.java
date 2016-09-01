@@ -7,6 +7,7 @@ import com.sniffydn.sandbox.core.scenario.ScenarioActionListener;
 import com.sniffydn.sandbox.core.scenario.ScenarioListener;
 import com.sniffydn.sandbox.core.scenario.Tool;
 import com.sniffydn.sandbox.core.scenario.clothes.Clothes;
+import java.awt.Component;
 import javax.swing.JButton;
 import javax.swing.SwingUtilities;
 
@@ -44,18 +45,6 @@ public class BodyRenderer extends javax.swing.JPanel {
         RoomRenderer roomRenderer = new RoomRenderer(body.getCurrentRoom());
 
         roomPanel.add(roomRenderer);
-        for (Action a : body.getAvailableActions()) {
-
-            if (a.getActionType().equals(ActionType.ROOM) || a.getActionType().equals(ActionType.DOORWAY) || a.getActionType().equals(ActionType.FURNITURE)) {
-                roomRenderer.addAction(a);
-            } else {
-                JButton button = new JButton(a.getActionDescription());
-                button.setToolTipText(a.getActionType().toString());
-                button.addActionListener(a.getActionListener());
-                actionsPanel.add(button);
-            }
-
-        }
 
         for (Tool t : body.getTools()) {
             toolsPanel.add(new ToolRenderer(t));
@@ -69,6 +58,50 @@ public class BodyRenderer extends javax.swing.JPanel {
             furnPosLabel.setText("");
         } else {
             furnPosLabel.setText(body.getCurrentFurniturePosition() + " " + body.getCurrentFurniture().getShortDescription());
+        }
+
+        for (Action a : body.getAvailableActions()) {
+
+            if (a.getActionType().equals(ActionType.ROOM) || a.getActionType().equals(ActionType.DOORWAY) || a.getActionType().equals(ActionType.FURNITURE)) {
+                roomRenderer.addAction(a);
+            } else if (a.getActionType().equals(ActionType.TOOL)) {
+                boolean found = false;
+                for (Component c : toolsPanel.getComponents()) {
+                    if (c instanceof ToolRenderer) {
+                        ToolRenderer tr = (ToolRenderer) c;
+                        if (tr.getTool() == a.getCurrentTool()) {
+                            found = true;
+                            tr.addAction(a);
+                            break;
+                        }
+                    }
+                }
+
+                if (!found) {
+                    for (Component c : wornPanel.getComponents()) {
+                        if (c instanceof ClothesRenderer) {
+                            ClothesRenderer tr = (ClothesRenderer) c;
+                            if (tr.getClothes()== a.getCurrentTool()) {
+                                found = true;
+                                tr.addAction(a);
+                                break;
+                            }
+                        }
+                    }
+                    if (!found) {
+                        JButton button = new JButton(a.getActionDescription());
+                        button.setToolTipText(a.getActionType().toString());
+                        button.addActionListener(a.getActionListener());
+                        actionsPanel.add(button);
+                    }
+                }
+            } else {
+                JButton button = new JButton(a.getActionDescription());
+                button.setToolTipText(a.getActionType().toString());
+                button.addActionListener(a.getActionListener());
+                actionsPanel.add(button);
+            }
+
         }
 
         toolCarryLabel.setText(body.getCurrentToolCarry() + "");

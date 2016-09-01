@@ -28,7 +28,7 @@ public class Clothes extends Tool {
         if (holder.hasClothes(this)) {
             if (holder.getCurrentFurniture() != null && holder.getCurrentFurniturePosition() == FurniturePositions.BY) {
                 for (final FurniturePositions position : holder.getCurrentFurniture().getAvailableToolPositions()) {
-                    Action a = new Action(ActionType.FURNITURE, "Put " + getShortDescription() + " " + position + " " + holder.getCurrentFurniture().getShortDescription(), new ScenarioActionListener() {
+                    Action a = new Action(ActionType.TOOL, "Put " + getShortDescription() + " " + position + " " + holder.getCurrentFurniture().getShortDescription(), new ScenarioActionListener() {
 
                         @Override
                         protected void scenarioActionPerformed(ActionEvent e) {
@@ -36,7 +36,7 @@ public class Clothes extends Tool {
                             holder.getCurrentFurniture().addTool(position, Clothes.this);
                         }
                     });
-                    a.setActionShortDescription("Put");
+                    a.setActionShortDescription("Put " + position + " " + holder.getCurrentFurniture().getShortDescription());
                     a.setCurrentFurniture(holder.getCurrentFurniture());
                     actions.add(a);
                 }
@@ -76,7 +76,7 @@ public class Clothes extends Tool {
             actions = getCommonActions(holder);
 
             if (holder.canAdd(this)) {
-                Action a1 = new Action(ActionType.GENERAL, "Put " + getShortDescription() + " on", new ScenarioActionListener() {
+                Action a1 = new Action(ActionType.TOOL, "Put " + getShortDescription() + " on", new ScenarioActionListener() {
 
                     @Override
                     protected void scenarioActionPerformed(ActionEvent e) {
@@ -84,6 +84,7 @@ public class Clothes extends Tool {
                         holder.addClothes(Clothes.this);
                     }
                 });
+                a1.setCurrentTool(this);
                 a1.setActionShortDescription("Put on");
                 holder.addAction(a1);
             }

@@ -16,7 +16,7 @@ public class ToolRenderer extends javax.swing.JPanel {
         this.tool = tool;
         initComponents();
 
-        
+        setBorder(javax.swing.BorderFactory.createTitledBorder(tool.getShortDescription()));
     }
 
     /**
@@ -27,38 +27,20 @@ public class ToolRenderer extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         actionsPanel = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
 
+        setBorder(javax.swing.BorderFactory.createTitledBorder("Title"));
         setLayout(new java.awt.BorderLayout());
 
-        actionsPanel.setLayout(new java.awt.GridLayout(0, 1));
-        add(actionsPanel, java.awt.BorderLayout.EAST);
-
-        jTextField1.setColumns(20);
-
-        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${tool.shortDescription}"), jTextField1, org.jdesktop.beansbinding.BeanProperty.create("text"));
-        bindingGroup.addBinding(binding);
-
-        jPanel2.add(jTextField1);
-        jPanel2.add(jLabel1);
-
-        add(jPanel2, java.awt.BorderLayout.CENTER);
-
-        bindingGroup.bind();
+        actionsPanel.setOpaque(false);
+        actionsPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        add(actionsPanel, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel actionsPanel;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 
     /**
@@ -69,7 +51,7 @@ public class ToolRenderer extends javax.swing.JPanel {
     }
 
     public void setPosition(FurniturePositions pos) {
-        jLabel1.setText(pos.toString());
+        setBorder(javax.swing.BorderFactory.createTitledBorder(tool.getShortDescription() + " " + pos.toString()));
     }
 
     public void addAction(Action a) {

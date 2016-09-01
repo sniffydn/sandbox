@@ -102,4 +102,9 @@ public class Action {
     public void setActionShortDescription(String actionShortDescription) {
         this.actionShortDescription = actionShortDescription;
     }
+
+    @Override
+    public String toString() {
+        return getActionDescription() + " " + getActionType() + " " + getCurrentFurniture() + " " + getCurrentTool();
+    }
 }

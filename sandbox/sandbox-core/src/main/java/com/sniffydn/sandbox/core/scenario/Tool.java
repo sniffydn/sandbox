@@ -19,16 +19,15 @@ public abstract class Tool extends CommonObject {
 
         if (holder.getCurrentFurniture() != null && holder.getCurrentFurniturePosition() == FurniturePositions.BY) {
             for (final FurniturePositions position : holder.getCurrentFurniture().getAvailableToolPositions()) {
-                Action a = new Action(ActionType.FURNITURE, "Put " + getShortDescription() + " " + position + " " + holder.getCurrentFurniture().getShortDescription(), new ScenarioActionListener() {
+                Action a = new Action(ActionType.TOOL, "Put " + getShortDescription() + " " + position + " " + holder.getCurrentFurniture().getShortDescription(), new ScenarioActionListener() {
 
                     @Override
                     protected void scenarioActionPerformed(ActionEvent e) {
                         holder.removeTool(Tool.this);
-                        holder.setCurrentToolCarry(holder.getCurrentToolCarry() - getWeight());
                         holder.getCurrentFurniture().addTool(position, Tool.this);
                     }
                 });
-                a.setActionShortDescription("Put");
+                a.setActionShortDescription("Put " + position + " " + holder.getCurrentFurniture().getShortDescription());
                 a.setCurrentFurniture(holder.getCurrentFurniture());
                 actions.add(a);
             }
@@ -42,12 +41,10 @@ public abstract class Tool extends CommonObject {
                         @Override
                         protected void scenarioActionPerformed(ActionEvent e) {
                             holder.removeTool(Tool.this);
-                            holder.setCurrentToolCarry(holder.getCurrentToolCarry() - getWeight());
                             b.addTool(Tool.this);
-                            b.setCurrentToolCarry(b.getCurrentToolCarry() + getWeight());
                         }
                     });
-                    a.setActionShortDescription("Give");
+                    a.setActionShortDescription("Give to " + b.getName());
                     actions.add(a);
 
                     if (!holder.getAvailableActionTypes().contains(ActionType.RESIST_STEAL)) {
@@ -56,9 +53,7 @@ public abstract class Tool extends CommonObject {
                             @Override
                             protected void scenarioActionPerformed(ActionEvent e) {
                                 holder.removeTool(Tool.this);
-                                holder.setCurrentToolCarry(holder.getCurrentToolCarry() - getWeight());
                                 b.addTool(Tool.this);
-                                b.setCurrentToolCarry(b.getCurrentToolCarry() + getWeight());
                             }
                         });
                         a1.setActionShortDescription("Take");

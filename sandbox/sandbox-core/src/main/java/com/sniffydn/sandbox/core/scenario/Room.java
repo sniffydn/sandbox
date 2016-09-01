@@ -1,7 +1,7 @@
 package com.sniffydn.sandbox.core.scenario;
 
-import com.sniffydn.sandbox.core.scenario.furniture.FurniturePositions;
 import com.sniffydn.sandbox.core.scenario.furniture.Furniture;
+import com.sniffydn.sandbox.core.scenario.furniture.FurniturePositions;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +46,8 @@ public class Room extends CommonObject {
                         body.setRoomPosition(f, p);
                     }
                 });
+                a.setActionShortDescription("Move " + pos);
+                a.setCurrentFurniture(furn);
                 if (body.getCurrentFurniture() == furn && body.getCurrentFurniturePosition() == pos) {
                     //don't add
                 } else {

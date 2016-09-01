@@ -279,13 +279,16 @@ public class CommonBody {
     }
 
     public void addTool(Tool t) {
-        if (canAdd(t)) {
-            tools.add(t);
+        if (!canAdd(t)) {
+            throw new RuntimeException("Can't add " + t);
         }
+        tools.add(t);
+        setCurrentToolCarry(getCurrentToolCarry() + t.getWeight());
     }
 
     public void removeTool(Tool t) {
         tools.remove(t);
+        setCurrentToolCarry(getCurrentToolCarry() - t.getWeight());
     }
 
     public boolean canAdd(Clothes piece) {
@@ -294,9 +297,10 @@ public class CommonBody {
     }
 
     public void addClothes(Clothes t) {
-        if (canAdd(t)) {
-            clothes.add(t);
+        if (!canAdd(t)) {
+            throw new RuntimeException("Can't add " + t);
         }
+        clothes.add(t);
     }
 
     /**
