@@ -2,8 +2,9 @@ package com.sniffydn.sandbox.core.scenario;
 
 public enum ActionType {
 
-    DOORWAY,
     GENERAL,
+    INVOLUNTARY,
+    DOORWAY,
     ROOM,
     FURNITURE,
     TOOL, 

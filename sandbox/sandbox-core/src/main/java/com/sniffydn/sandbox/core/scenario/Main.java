@@ -31,17 +31,40 @@ public class Main {
         key3.setShortDescription("room key3");
         key3.setLongDescription("key to the room door");
 
-        Tool tool = new CommonTool();
+        final Tool tool = new CommonTool();
         tool.setShortDescription("tool");
         tool.setLongDescription("tool description");
         tool.getAvailableActionTypes().add(ActionType.STEAL);
+        tool.getToolActions().add(new CustomAction(ActionType.TOOL, "Tool") {
+            MBody mBody;
+            @Override
+            protected boolean canPerformActionCheck(CommonBody holder) {
+                if (holder instanceof FBody && holder.getCurrentRoom().getBodies().size() > 1) {
+                    for (final CommonBody b : holder.getCurrentRoom().getBodies()) {
+                        if (b != holder && b instanceof MBody) {
+                            mBody = (MBody) b;
+                            getAction().setActionDescription("Perform Action on " + mBody.getName());
+                            getAction().setActionReciever(mBody);
+                            getAction().setActionTaker(holder);
+                            getAction().setActionShortDescription("On " + mBody.getName());
+                            getAction().setCurrentTool(tool);
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            }
+
+            @Override
+            protected void performAction(CommonBody holder) {
+                mBody.getMoodMap().put(Mood.HAPPINESS, mBody.getMoodMap().get(Mood.HAPPINESS) + 1);
+            }
+        });
 
         Tool tool2 = new CommonTool();
         tool2.setShortDescription("tool2");
         tool2.setLongDescription("tool2 description");
         tool2.getAvailableActionTypes().add(ActionType.COMPEL);
-
-        
 
         Clothes clothes = new Clothes();
         clothes.setBodyType(BodyType.F);
@@ -82,7 +105,6 @@ public class Main {
         clothes3.setBodyType(BodyType.M);
         clothes3.setShortDescription("clothes3");
         clothes3.setLongDescription("clothes3 description");
-
 
         Clothes clothes4 = new Clothes();
         clothes4.setBodyType(BodyType.M);

@@ -11,11 +11,18 @@ public abstract class Tool extends CommonObject {
     private int toolCapacity = 0;
 
     private List<ActionType> availableActionTypes = new ArrayList<>();
+    private List<CustomAction> toolActions = new ArrayList<>();
 
     public abstract List<Action> getAvailableActions(final CommonBody holder);
 
     protected List<Action> getCommonActions(final CommonBody holder) {
         List<Action> actions = new ArrayList<>();
+
+        for(CustomAction ta: toolActions) {
+            if(ta.canPerformAction(holder)) {
+                actions.add(ta.getAction());
+            }
+        }
 
         if (holder.getCurrentFurniture() != null && holder.getCurrentFurniturePosition() == FurniturePositions.BY) {
             for (final FurniturePositions position : holder.getCurrentFurniture().getAvailableToolPositions()) {
@@ -105,6 +112,13 @@ public abstract class Tool extends CommonObject {
      */
     public List<ActionType> getAvailableActionTypes() {
         return availableActionTypes;
+    }
+
+    /**
+     * @return the toolActions
+     */
+    public List<CustomAction> getToolActions() {
+        return toolActions;
     }
 
 }

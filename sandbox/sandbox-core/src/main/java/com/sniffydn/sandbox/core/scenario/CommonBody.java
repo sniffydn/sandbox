@@ -19,6 +19,7 @@ public class CommonBody {
         DEFAULT_ACTION_TYPES = new ArrayList<>();
         DEFAULT_ACTION_TYPES.add(ActionType.DOORWAY);
         DEFAULT_ACTION_TYPES.add(ActionType.GENERAL);
+        DEFAULT_ACTION_TYPES.add(ActionType.INVOLUNTARY);
         DEFAULT_ACTION_TYPES.add(ActionType.ROOM);
         DEFAULT_ACTION_TYPES.add(ActionType.FURNITURE);
         DEFAULT_ACTION_TYPES.add(ActionType.TOOL);
@@ -38,6 +39,7 @@ public class CommonBody {
     private List<Clothes> clothes = new ArrayList<>();
 
     private Map<Mood, Integer> moodMap = new HashMap<>();
+    private List<CustomAction> customActions = new ArrayList<>();
 
     public CommonBody() {
         for (Mood m : Mood.values()) {
@@ -125,6 +127,13 @@ public class CommonBody {
     }
 
     public void updateAvailableActions() {
+
+        for(CustomAction ca: getCustomActions()) {
+            if(ca.canPerformAction(this) && availableActionTypes.contains(ca.getAction().getActionType())) {
+                availableActions.add(ca.getAction());
+            }
+        }
+
         for (ActionType at : getAvailableActionTypes()) {
             if (at.equals(ActionType.DOORWAY)) {
                 for (Doorway dw : getCurrentRoom().getDoorways()) {
@@ -169,7 +178,7 @@ public class CommonBody {
                         }
                     }
                 }
-            } else if (at.equals(ActionType.GENERAL) || at.equals(ActionType.STEAL) || at.equals(ActionType.COMPEL) || at.equals(ActionType.RESIST_STEAL) || at.equals(ActionType.RESIST_COMPEL)) {
+            } else if (at.equals(ActionType.GENERAL) || at.equals(ActionType.STEAL) || at.equals(ActionType.COMPEL) || at.equals(ActionType.RESIST_STEAL) || at.equals(ActionType.RESIST_COMPEL) || at.equals(ActionType.INVOLUNTARY)) {
             } else {
                 System.out.println("Deal with " + at);
             }
@@ -316,5 +325,19 @@ public class CommonBody {
 
     public void removeClothes(Clothes c) {
         clothes.remove(c);
+    }
+
+    /**
+     * @return the customActions
+     */
+    public List<CustomAction> getCustomActions() {
+        return customActions;
+    }
+
+    /**
+     * @return the moodMap
+     */
+    public Map<Mood, Integer> getMoodMap() {
+        return moodMap;
     }
 }
