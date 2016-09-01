@@ -28,6 +28,7 @@ public abstract class Tool extends CommonObject {
                         holder.getCurrentFurniture().addTool(position, Tool.this);
                     }
                 });
+                a.setActionShortDescription("Put");
                 a.setCurrentFurniture(holder.getCurrentFurniture());
                 actions.add(a);
             }
@@ -46,6 +47,7 @@ public abstract class Tool extends CommonObject {
                             b.setCurrentToolCarry(b.getCurrentToolCarry() + getWeight());
                         }
                     });
+                    a.setActionShortDescription("Give");
                     actions.add(a);
 
                     if (!holder.getAvailableActionTypes().contains(ActionType.RESIST_STEAL)) {
@@ -59,10 +61,15 @@ public abstract class Tool extends CommonObject {
                                 b.setCurrentToolCarry(b.getCurrentToolCarry() + getWeight());
                             }
                         });
+                        a1.setActionShortDescription("Take");
                         b.addAction(a1);
                     }
                 }
             }
+        }
+
+        for (Action a : actions) {
+            a.setCurrentTool(this);
         }
 
         return actions;

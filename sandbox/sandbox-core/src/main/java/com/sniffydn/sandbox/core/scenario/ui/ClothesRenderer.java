@@ -1,7 +1,9 @@
 package com.sniffydn.sandbox.core.scenario.ui;
 
+import com.sniffydn.sandbox.core.scenario.Action;
 import com.sniffydn.sandbox.core.scenario.clothes.Clothes;
 import com.sniffydn.sandbox.core.scenario.furniture.FurniturePositions;
+import javax.swing.JButton;
 
 public class ClothesRenderer extends javax.swing.JPanel {
 
@@ -14,7 +16,6 @@ public class ClothesRenderer extends javax.swing.JPanel {
         this.clothes = clothes;
         initComponents();
 
-        
     }
 
     /**
@@ -27,7 +28,7 @@ public class ClothesRenderer extends javax.swing.JPanel {
     private void initComponents() {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        jPanel1 = new javax.swing.JPanel();
+        actionsPanel = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -35,8 +36,9 @@ public class ClothesRenderer extends javax.swing.JPanel {
         setOpaque(false);
         setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setOpaque(false);
-        add(jPanel1, java.awt.BorderLayout.CENTER);
+        actionsPanel.setOpaque(false);
+        actionsPanel.setLayout(new java.awt.GridLayout(0, 1));
+        add(actionsPanel, java.awt.BorderLayout.EAST);
 
         jPanel2.setOpaque(false);
 
@@ -48,15 +50,15 @@ public class ClothesRenderer extends javax.swing.JPanel {
         jPanel2.add(jTextField1);
         jPanel2.add(jLabel1);
 
-        add(jPanel2, java.awt.BorderLayout.NORTH);
+        add(jPanel2, java.awt.BorderLayout.CENTER);
 
         bindingGroup.bind();
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel actionsPanel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
@@ -71,6 +73,18 @@ public class ClothesRenderer extends javax.swing.JPanel {
 
     public void setPosition(FurniturePositions pos) {
         jLabel1.setText(pos.toString());
+    }
+
+    public void addAction(Action a) {
+        JButton button = new JButton(a.getActionDescription());
+
+        if(a.getActionShortDescription() != null) {
+            button.setText(a.getActionShortDescription());
+        }
+
+        button.setToolTipText(a.getActionDescription() + "  " + a.getActionType());
+        button.addActionListener(a.getActionListener());
+        actionsPanel.add(button);
     }
 
 }

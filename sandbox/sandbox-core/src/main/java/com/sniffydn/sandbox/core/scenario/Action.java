@@ -6,9 +6,11 @@ import com.sniffydn.sandbox.core.scenario.furniture.Furniture;
 public class Action {
     private ActionType actionType;
     private String actionDescription;
+    private String actionShortDescription;
     private ScenarioActionListener actionListener;
 
     private Furniture currentFurniture = null;
+    private Tool currentTool = null;
 
     public Action(ActionType actionType, String actionDescription, ScenarioActionListener actionListener) {
         this.actionType = actionType;
@@ -71,5 +73,33 @@ public class Action {
      */
     public void setCurrentFurniture(Furniture currentFurniture) {
         this.currentFurniture = currentFurniture;
+    }
+
+    /**
+     * @return the currentTool
+     */
+    public Tool getCurrentTool() {
+        return currentTool;
+    }
+
+    /**
+     * @param currentTool the currentTool to set
+     */
+    public void setCurrentTool(Tool currentTool) {
+        this.currentTool = currentTool;
+    }
+
+    /**
+     * @return the actionShortDescription
+     */
+    public String getActionShortDescription() {
+        return actionShortDescription;
+    }
+
+    /**
+     * @param actionShortDescription the actionShortDescription to set
+     */
+    public void setActionShortDescription(String actionShortDescription) {
+        this.actionShortDescription = actionShortDescription;
     }
 }

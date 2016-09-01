@@ -52,6 +52,8 @@ public class Furniture extends CommonObject {
                                             tools.remove(t);
                                         }
                                     });
+                            a.setActionShortDescription("Get");
+                            a.setCurrentTool(tool);
                             a.setCurrentFurniture(this);
                             actions.add(a);
                         }
@@ -66,6 +68,8 @@ public class Furniture extends CommonObject {
                                             tools.remove(c);
                                         }
                                     });
+                            a.setActionShortDescription("Put on");
+                            a.setCurrentTool(tool);
                             a.setCurrentFurniture(this);
                             actions.add(a);
                         }

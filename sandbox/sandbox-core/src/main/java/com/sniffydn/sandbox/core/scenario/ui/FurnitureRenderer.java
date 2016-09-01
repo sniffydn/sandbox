@@ -6,6 +6,7 @@ import com.sniffydn.sandbox.core.scenario.Tool;
 import com.sniffydn.sandbox.core.scenario.clothes.Clothes;
 import com.sniffydn.sandbox.core.scenario.furniture.Furniture;
 import com.sniffydn.sandbox.core.scenario.furniture.FurniturePositions;
+import java.awt.Component;
 import java.util.List;
 import javax.swing.JButton;
 
@@ -106,10 +107,38 @@ public class FurnitureRenderer extends javax.swing.JPanel {
 
     public void addAction(Action a) {
         if (a.getActionType().equals(ActionType.FURNITURE)) {
-            JButton button = new JButton(a.getActionDescription());
-            button.setToolTipText(a.getActionType().toString());
-            button.addActionListener(a.getActionListener());
-            actionsPanel.add(button);
+            boolean found = false;
+
+            for (Component c : clothesInPanel.getComponents()) {
+                if (c instanceof ClothesRenderer) {
+                    ClothesRenderer cr = (ClothesRenderer) c;
+                    if (cr.getClothes() == a.getCurrentTool()) {
+                        found = true;
+                        cr.addAction(a);
+                        break;
+                    }
+                }
+            }
+
+            if (!found) {
+                for (Component c : toolsInPanel.getComponents()) {
+                    if (c instanceof ToolRenderer) {
+                        ToolRenderer tr = (ToolRenderer) c;
+                        if (tr.getTool()== a.getCurrentTool()) {
+                            found = true;
+                            tr.addAction(a);
+                            break;
+                        }
+                    }
+                }
+
+                if (!found) {
+                    JButton button = new JButton(a.getActionDescription());
+                    button.setToolTipText(a.getActionType().toString());
+                    button.addActionListener(a.getActionListener());
+                    actionsPanel.add(button);
+                }
+            }
         } else {
             System.out.println(this.getClass().getSimpleName() + " deal with " + a);
         }
