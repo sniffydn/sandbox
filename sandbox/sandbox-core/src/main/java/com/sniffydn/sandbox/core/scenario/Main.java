@@ -39,13 +39,15 @@ public class Main {
         Tool tool2 = new CommonTool();
         tool2.setShortDescription("tool2");
         tool2.setLongDescription("tool2 description");
-        tool.getAvailableActionTypes().add(ActionType.COMPEL);
+        tool2.getAvailableActionTypes().add(ActionType.COMPEL);
 
         Clothes clothes = new Clothes();
         clothes.setBodyType(BodyType.F);
         clothes.setToolCapacity(1);
         clothes.setShortDescription("clothes");
         clothes.setLongDescription("clothes description");
+        clothes.getAvailableActionTypes().add(ActionType.RESIST_STEAL);
+        clothes.getAvailableActionTypes().add(ActionType.RESIST_COMPEL);
 
         Clothes clothes2 = new Clothes();
         clothes2.setBodyType(BodyType.F);

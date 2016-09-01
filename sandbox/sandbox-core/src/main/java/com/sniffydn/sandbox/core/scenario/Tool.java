@@ -48,17 +48,19 @@ public abstract class Tool extends CommonObject {
                     });
                     actions.add(a);
 
-                    Action a1 = new Action(ActionType.STEAL, "Take " + getShortDescription() + " from " + holder.getName(), new ScenarioActionListener() {
+                    if (!holder.getAvailableActionTypes().contains(ActionType.RESIST_STEAL)) {
+                        Action a1 = new Action(ActionType.STEAL, "Take " + getShortDescription() + " from " + holder.getName(), new ScenarioActionListener() {
 
-                        @Override
-                        protected void scenarioActionPerformed(ActionEvent e) {
-                            holder.removeTool(Tool.this);
-                            holder.setCurrentToolCarry(holder.getCurrentToolCarry() - getWeight());
-                            b.addTool(Tool.this);
-                            b.setCurrentToolCarry(b.getCurrentToolCarry() + getWeight());
-                        }
-                    });
-                    b.addAction(a1);
+                            @Override
+                            protected void scenarioActionPerformed(ActionEvent e) {
+                                holder.removeTool(Tool.this);
+                                holder.setCurrentToolCarry(holder.getCurrentToolCarry() - getWeight());
+                                b.addTool(Tool.this);
+                                b.setCurrentToolCarry(b.getCurrentToolCarry() + getWeight());
+                            }
+                        });
+                        b.addAction(a1);
+                    }
                 }
             }
         }

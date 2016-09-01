@@ -44,16 +44,29 @@ public class Clothes extends Tool {
             if (holder.getCurrentRoom().getBodies().size() > 1) {
                 for (final CommonBody b : holder.getCurrentRoom().getBodies()) {
                     if (b != holder && b.getCurrentFurniture() == holder.getCurrentFurniture() && b.getCurrentToolCarry() + weight <= b.getMaxToolCapacity()) {
-                        Action a1 = new Action(ActionType.STEAL, "Take " + getShortDescription() + " off of " + holder.getName(), new ScenarioActionListener() {
+                        if (!holder.getAvailableActionTypes().contains(ActionType.RESIST_STEAL)) {
+                            Action a1 = new Action(ActionType.STEAL, "Take " + getShortDescription() + " off of " + holder.getName(), new ScenarioActionListener() {
 
-                            @Override
-                            protected void scenarioActionPerformed(ActionEvent e) {
-                                holder.removeClothes(Clothes.this);
-                                b.addTool(Clothes.this);
-                            }
-                        });
-                        a1.setCurrentFurniture(holder.getCurrentFurniture());
-                        b.addAction(a1);
+                                @Override
+                                protected void scenarioActionPerformed(ActionEvent e) {
+                                    holder.removeClothes(Clothes.this);
+                                    b.addTool(Clothes.this);
+                                }
+                            });
+                            a1.setCurrentFurniture(holder.getCurrentFurniture());
+                            b.addAction(a1);
+                        }
+                        if (!holder.getAvailableActionTypes().contains(ActionType.RESIST_COMPEL)) {
+                            Action a1 = new Action(ActionType.COMPEL, "Make " + b.getName() + " take off " + getShortDescription(), new ScenarioActionListener() {
+
+                                @Override
+                                protected void scenarioActionPerformed(ActionEvent e) {
+                                    holder.removeClothes(Clothes.this);
+                                    holder.addTool(Clothes.this);
+                                }
+                            });
+                            b.addAction(a1);
+                        }
                     }
                 }
             }
@@ -75,15 +88,17 @@ public class Clothes extends Tool {
             if (holder.getCurrentRoom().getBodies().size() > 1) {
                 for (final CommonBody b : holder.getCurrentRoom().getBodies()) {
                     if (b != holder && b.canAdd(this) && b.getCurrentFurniture() == holder.getCurrentFurniture()) {
-                        Action a1 = new Action(ActionType.COMPEL, "Put " + getShortDescription() + " on " + b.getName(), new ScenarioActionListener() {
+                        if (!b.getAvailableActionTypes().contains(ActionType.RESIST_COMPEL)) {
+                            Action a1 = new Action(ActionType.COMPEL, "Put " + getShortDescription() + " on " + b.getName(), new ScenarioActionListener() {
 
-                            @Override
-                            protected void scenarioActionPerformed(ActionEvent e) {
-                                holder.removeTool(Clothes.this);
-                                b.addClothes(Clothes.this);
-                            }
-                        });
-                        holder.addAction(a1);
+                                @Override
+                                protected void scenarioActionPerformed(ActionEvent e) {
+                                    holder.removeTool(Clothes.this);
+                                    b.addClothes(Clothes.this);
+                                }
+                            });
+                            holder.addAction(a1);
+                        }
                     }
                 }
             }

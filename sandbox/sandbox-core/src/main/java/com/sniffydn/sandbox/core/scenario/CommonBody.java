@@ -110,14 +110,18 @@ public class CommonBody {
     }
 
     public void updateAvailableActionTypes() {
+        availableActionTypes.clear();
         availableActionTypes.addAll(initialActionTypes);
 
         for (Tool tool : tools) {
-            availableActionTypes.addAll(tool.getAvailableActionTypes());
+            if (!(tool instanceof Clothes)) {
+                availableActionTypes.addAll(tool.getAvailableActionTypes());
+            }
         }
 
-//        for (Clothes c : clothes) {
-//        }
+        for (Clothes c : clothes) {
+            availableActionTypes.addAll(c.getAvailableActionTypes());
+        }
     }
 
     public void updateAvailableActions() {
@@ -165,7 +169,7 @@ public class CommonBody {
                         }
                     }
                 }
-            } else if (at.equals(ActionType.GENERAL) || at.equals(ActionType.STEAL) || at.equals(ActionType.COMPEL)) {
+            } else if (at.equals(ActionType.GENERAL) || at.equals(ActionType.STEAL) || at.equals(ActionType.COMPEL) || at.equals(ActionType.RESIST_STEAL) || at.equals(ActionType.RESIST_COMPEL)) {
             } else {
                 System.out.println("Deal with " + at);
             }

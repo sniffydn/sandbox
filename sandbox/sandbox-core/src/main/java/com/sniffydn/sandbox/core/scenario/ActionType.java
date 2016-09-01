@@ -8,5 +8,7 @@ public enum ActionType {
     FURNITURE,
     TOOL, 
     STEAL,
-    COMPEL
+    RESIST_STEAL,
+    COMPEL,
+    RESIST_COMPEL
 }
