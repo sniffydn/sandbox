@@ -61,7 +61,7 @@ public class BodyRenderer extends javax.swing.JPanel {
             toolsPanel.add(new ToolRenderer(t));
         }
 
-        for(Clothes c: body.getClothes()) {
+        for (Clothes c : body.getClothes()) {
             wornPanel.add(new ClothesRenderer(c));
         }
 
@@ -73,6 +73,16 @@ public class BodyRenderer extends javax.swing.JPanel {
 
         toolCarryLabel.setText(body.getCurrentToolCarry() + "");
         toolCapLabel.setText(body.getMaxToolCapacity() + "");
+
+        StringBuilder sb = new StringBuilder("<html>");
+
+        for (ActionType at : body.getAvailableActionTypes()) {
+            sb.append(at);
+            sb.append("<br/>");
+        }
+        sb.append("</html>");
+
+        jTextField1.setToolTipText(sb.toString());
 
         SwingUtilities.invokeLater(new Runnable() {
 

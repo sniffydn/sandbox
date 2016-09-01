@@ -7,7 +7,7 @@ import java.util.List;
 
 public abstract class Tool extends CommonObject {
 
-    private int weight = 1;
+    protected int weight = 1;
     private int toolCapacity = 0;
 
     private List<ActionType> availableActionTypes = new ArrayList<>();

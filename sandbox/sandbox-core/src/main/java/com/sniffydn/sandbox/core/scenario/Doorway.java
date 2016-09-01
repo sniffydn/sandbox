@@ -173,6 +173,16 @@ public class Doorway {
                 };
                 getActions().add(new Action(ActionType.DOORWAY, actionText, al));
             }
+
+            String actionText = "Close " + getDoor() + " from " + room1.getShortDescription() + " to " + room2.getShortDescription();
+            ScenarioActionListener al = new ScenarioActionListener() {
+
+                @Override
+                protected void scenarioActionPerformed(ActionEvent e) {
+                    setDoorOpen(false);
+                }
+            };
+            getActions().add(new Action(ActionType.DOORWAY, actionText, al));
         } else {
             if (!doorLocked) {
                 if (forward) {

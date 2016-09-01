@@ -43,7 +43,7 @@ public class Clothes extends Tool {
 
             if (holder.getCurrentRoom().getBodies().size() > 1) {
                 for (final CommonBody b : holder.getCurrentRoom().getBodies()) {
-                    if (b != holder && b.getCurrentFurniture() == holder.getCurrentFurniture()) {
+                    if (b != holder && b.getCurrentFurniture() == holder.getCurrentFurniture() && b.getCurrentToolCarry() + weight <= b.getMaxToolCapacity()) {
                         Action a1 = new Action(ActionType.STEAL, "Take " + getShortDescription() + " off of " + holder.getName(), new ScenarioActionListener() {
 
                             @Override
