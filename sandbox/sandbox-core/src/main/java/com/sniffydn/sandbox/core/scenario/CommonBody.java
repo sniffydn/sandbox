@@ -1,5 +1,6 @@
 package com.sniffydn.sandbox.core.scenario;
 
+import com.sniffydn.sandbox.core.scenario.t.Tool;
 import com.sniffydn.sandbox.core.scenario.b.Body;
 import com.sniffydn.sandbox.core.scenario.clothes.Clothes;
 import com.sniffydn.sandbox.core.scenario.furniture.Furniture;

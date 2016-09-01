@@ -4,9 +4,10 @@ import com.sniffydn.sandbox.core.scenario.Action;
 import com.sniffydn.sandbox.core.scenario.ActionType;
 import com.sniffydn.sandbox.core.scenario.CommonBody;
 import com.sniffydn.sandbox.core.scenario.ScenarioActionListener;
-import com.sniffydn.sandbox.core.scenario.Tool;
 import com.sniffydn.sandbox.core.scenario.b.BodyPart;
 import com.sniffydn.sandbox.core.scenario.furniture.FurniturePositions;
+import com.sniffydn.sandbox.core.scenario.t.Attachment;
+import com.sniffydn.sandbox.core.scenario.t.Tool;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,8 @@ public class Clothes extends Tool {
 
     private List<BodyPart> covers = new ArrayList<>();
     private BodyType bodyType = BodyType.B;
+    private List<ClothesType> clothesTypes = new ArrayList<>();
+    private List<Attachment> attachments = new ArrayList<>();
 
     /**
      * @return the covers
@@ -60,7 +63,7 @@ public class Clothes extends Tool {
                             b.addAction(a1);
                         }
                         if (!holder.getAvailableActionTypes().contains(ActionType.RESIST_COMPEL)) {
-                            Action a1 = new Action(ActionType.COMPEL, "Make " + b.getName() + " take off " + getShortDescription(), new ScenarioActionListener() {
+                            Action a1 = new Action(ActionType.COMPEL, "Make " + holder.getName() + " take off " + getShortDescription(), new ScenarioActionListener() {
 
                                 @Override
                                 protected void scenarioActionPerformed(ActionEvent e) {
@@ -131,5 +134,19 @@ public class Clothes extends Tool {
      */
     public void setBodyType(BodyType bodyType) {
         this.bodyType = bodyType;
+    }
+
+    /**
+     * @return the clothesTypes
+     */
+    public List<ClothesType> getClothesTypes() {
+        return clothesTypes;
+    }
+
+    /**
+     * @return the attachments
+     */
+    public List<Attachment> getAttachments() {
+        return attachments;
     }
 }

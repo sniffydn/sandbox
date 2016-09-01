@@ -1,5 +1,11 @@
-package com.sniffydn.sandbox.core.scenario;
+package com.sniffydn.sandbox.core.scenario.t;
 
+import com.sniffydn.sandbox.core.scenario.Action;
+import com.sniffydn.sandbox.core.scenario.ActionType;
+import com.sniffydn.sandbox.core.scenario.CommonBody;
+import com.sniffydn.sandbox.core.scenario.CommonObject;
+import com.sniffydn.sandbox.core.scenario.CustomAction;
+import com.sniffydn.sandbox.core.scenario.ScenarioActionListener;
 import com.sniffydn.sandbox.core.scenario.furniture.FurniturePositions;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;

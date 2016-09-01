@@ -5,7 +5,7 @@ import com.sniffydn.sandbox.core.scenario.ActionType;
 import com.sniffydn.sandbox.core.scenario.CommonBody;
 import com.sniffydn.sandbox.core.scenario.CommonObject;
 import com.sniffydn.sandbox.core.scenario.ScenarioActionListener;
-import com.sniffydn.sandbox.core.scenario.Tool;
+import com.sniffydn.sandbox.core.scenario.t.Tool;
 import com.sniffydn.sandbox.core.scenario.clothes.Clothes;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;

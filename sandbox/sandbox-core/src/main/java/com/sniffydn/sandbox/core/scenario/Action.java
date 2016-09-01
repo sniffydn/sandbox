@@ -1,6 +1,7 @@
 
 package com.sniffydn.sandbox.core.scenario;
 
+import com.sniffydn.sandbox.core.scenario.t.Tool;
 import com.sniffydn.sandbox.core.scenario.furniture.Furniture;
 
 public class Action {

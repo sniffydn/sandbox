@@ -1,9 +1,13 @@
 package com.sniffydn.sandbox.core.scenario;
 
-import com.sniffydn.sandbox.core.scenario.clothes.BodyType;
 import com.sniffydn.sandbox.core.scenario.clothes.Clothes;
+import com.sniffydn.sandbox.core.scenario.clothes.ClothesColor;
+import com.sniffydn.sandbox.core.scenario.clothes.ClothesUtil;
 import com.sniffydn.sandbox.core.scenario.furniture.Furniture;
 import com.sniffydn.sandbox.core.scenario.furniture.FurniturePositions;
+import com.sniffydn.sandbox.core.scenario.t.DoorKey;
+import com.sniffydn.sandbox.core.scenario.t.Tool;
+import com.sniffydn.sandbox.core.scenario.t.ToolUtil;
 import com.sniffydn.sandbox.core.scenario.ui.Scenario;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,66 +23,13 @@ public class Main {
         closet.setLongDescription("large closet");
         closet.setShortDescription("closet");
 
-        DoorKey key = new DoorKey();
-        key.setShortDescription("room key");
-        key.setLongDescription("key to the room door");
+        DoorKey key = ToolUtil.getDoorKey("room");
+        DoorKey key2 = ToolUtil.getDoorKey("closet");
+        DoorKey key3 = ToolUtil.getDoorKey("room");
 
-        DoorKey key2 = new DoorKey();
-        key2.setShortDescription("closet key2");
-        key2.setLongDescription("key to the small closet door");
-
-        DoorKey key3 = new DoorKey();
-        key3.setShortDescription("room key3");
-        key3.setLongDescription("key to the room door");
-
-        final Tool tool = new CommonTool();
-        tool.setShortDescription("tool");
-        tool.setLongDescription("tool description");
-        tool.getAvailableActionTypes().add(ActionType.STEAL);
-        tool.getToolActions().add(new CustomAction(ActionType.TOOL, "Tool") {
-            MBody mBody;
-            @Override
-            protected boolean canPerformActionCheck(CommonBody holder) {
-                if (holder instanceof FBody && holder.getCurrentRoom().getBodies().size() > 1) {
-                    for (final CommonBody b : holder.getCurrentRoom().getBodies()) {
-                        if (b != holder && b instanceof MBody) {
-                            mBody = (MBody) b;
-                            getAction().setActionDescription("Perform Action on " + mBody.getName());
-                            getAction().setActionReciever(mBody);
-                            getAction().setActionTaker(holder);
-                            getAction().setActionShortDescription("On " + mBody.getName());
-                            getAction().setCurrentTool(tool);
-                            return true;
-                        }
-                    }
-                }
-                return false;
-            }
-
-            @Override
-            protected void performAction(CommonBody holder) {
-                mBody.getMoodMap().put(Mood.HAPPINESS, mBody.getMoodMap().get(Mood.HAPPINESS) + 1);
-            }
-        });
-
-        Tool tool2 = new CommonTool();
-        tool2.setShortDescription("tool2");
-        tool2.setLongDescription("tool2 description");
+        Tool tool2 = ToolUtil.getC();
+        tool2.getAvailableActionTypes().clear();
         tool2.getAvailableActionTypes().add(ActionType.COMPEL);
-
-        Clothes clothes = new Clothes();
-        clothes.setBodyType(BodyType.F);
-        clothes.setToolCapacity(1);
-        clothes.setShortDescription("clothes");
-        clothes.setLongDescription("clothes description");
-        clothes.getAvailableActionTypes().add(ActionType.RESIST_STEAL);
-        clothes.getAvailableActionTypes().add(ActionType.RESIST_COMPEL);
-
-        Clothes clothes2 = new Clothes();
-        clothes2.setBodyType(BodyType.F);
-        clothes2.setToolCapacity(1);
-        clothes2.setShortDescription("clothes2");
-        clothes2.setLongDescription("clothes2 description");
 
         Furniture dresser = new Furniture();
         dresser.setLongDescription("large dresser");
@@ -89,10 +40,10 @@ public class Main {
         dresser.addTool(FurniturePositions.IN, key);
         dresser.addTool(FurniturePositions.IN, key2);
         dresser.addTool(FurniturePositions.IN, key3);
-        dresser.addTool(FurniturePositions.ON, tool);
+        dresser.addTool(FurniturePositions.ON, ToolUtil.getC());
         dresser.addTool(FurniturePositions.ON, tool2);
-        dresser.addTool(FurniturePositions.BY, clothes);
-        dresser.addTool(FurniturePositions.IN, clothes2);
+        dresser.addTool(FurniturePositions.IN, ClothesUtil.getFHH(ClothesColor.WHITE, 5));
+        dresser.addTool(FurniturePositions.IN, ClothesUtil.getFMD(ClothesColor.WHITE));
 
         closet.getFurniture().add(dresser);
 
@@ -101,16 +52,9 @@ public class Main {
         bed.setShortDescription("bed");
         bed.getAvailablePositions().add(FurniturePositions.ON);
 
-        Clothes clothes3 = new Clothes();
-        clothes3.setBodyType(BodyType.M);
-        clothes3.setShortDescription("clothes3");
-        clothes3.setLongDescription("clothes3 description");
+        Clothes clothes3 = ClothesUtil.getMBC();
 
-        Clothes clothes4 = new Clothes();
-        clothes4.setBodyType(BodyType.M);
-        clothes4.setShortDescription("clothes4");
-        clothes4.setLongDescription("clothes4 description");
-
+        
         Furniture sdresser = new Furniture();
         sdresser.setLongDescription("small dresser");
         sdresser.setShortDescription("sdresser");
@@ -151,7 +95,7 @@ public class Main {
         mBody.setCurrentRoom(room);
         mBody.setCurrentFurniture(bed);
         mBody.setCurrentFurniturePosition(FurniturePositions.BY);
-        mBody.addClothes(clothes4);
+        mBody.addClothes(ClothesUtil.getMShorts(ClothesColor.WHITE));
 
         FBody fBody = new FBody();
         fBody.setName("fBody");
@@ -162,6 +106,8 @@ public class Main {
         FBody fBody2 = new FBody();
         fBody2.setName("fBody2");
         fBody2.setCurrentRoom(closet2);
+        fBody2.addClothes(ClothesUtil.getFHH(ClothesColor.BLACK, 5));
+        fBody2.addClothes(ClothesUtil.getFMD(ClothesColor.BLACK));
 
         List<CommonBody> bodies = new ArrayList<>();
         bodies.add(mBody);

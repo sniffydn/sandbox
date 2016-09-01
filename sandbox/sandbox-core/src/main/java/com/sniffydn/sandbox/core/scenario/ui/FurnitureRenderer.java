@@ -2,7 +2,7 @@ package com.sniffydn.sandbox.core.scenario.ui;
 
 import com.sniffydn.sandbox.core.scenario.Action;
 import com.sniffydn.sandbox.core.scenario.ActionType;
-import com.sniffydn.sandbox.core.scenario.Tool;
+import com.sniffydn.sandbox.core.scenario.t.Tool;
 import com.sniffydn.sandbox.core.scenario.clothes.Clothes;
 import com.sniffydn.sandbox.core.scenario.furniture.Furniture;
 import com.sniffydn.sandbox.core.scenario.furniture.FurniturePositions;
