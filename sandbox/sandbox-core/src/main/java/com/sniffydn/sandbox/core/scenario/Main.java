@@ -1,6 +1,5 @@
 package com.sniffydn.sandbox.core.scenario;
 
-import com.sniffydn.sandbox.core.scenario.clothes.Clothes;
 import com.sniffydn.sandbox.core.scenario.clothes.ClothesColor;
 import com.sniffydn.sandbox.core.scenario.clothes.ClothesUtil;
 import com.sniffydn.sandbox.core.scenario.furniture.Furniture;
@@ -52,16 +51,15 @@ public class Main {
         bed.setShortDescription("bed");
         bed.getAvailablePositions().add(FurniturePositions.ON);
 
-        Clothes clothes3 = ClothesUtil.getMBC();
-
-        
         Furniture sdresser = new Furniture();
         sdresser.setLongDescription("small dresser");
         sdresser.setShortDescription("sdresser");
         sdresser.getAvailableToolPositions().add(FurniturePositions.IN);
         sdresser.getAvailableToolPositions().add(FurniturePositions.ON);
 
-        sdresser.addTool(FurniturePositions.IN, clothes3);
+        sdresser.addTool(FurniturePositions.IN, ClothesUtil.getMBC());
+        sdresser.addTool(FurniturePositions.IN, ClothesUtil.getMLWCuff());
+        sdresser.addTool(FurniturePositions.IN, ClothesUtil.getMRWCuff());
 
         Room room = new Room();
         room.setLongDescription("large room");

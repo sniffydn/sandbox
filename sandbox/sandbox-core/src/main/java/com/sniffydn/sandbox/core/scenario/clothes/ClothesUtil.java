@@ -7,7 +7,9 @@ import com.sniffydn.sandbox.core.scenario.b.Foot;
 import com.sniffydn.sandbox.core.scenario.b.Groin;
 import com.sniffydn.sandbox.core.scenario.b.T;
 import com.sniffydn.sandbox.core.scenario.b.Torso;
+import com.sniffydn.sandbox.core.scenario.b.Wrist;
 import com.sniffydn.sandbox.core.scenario.t.Attachment;
+import com.sniffydn.sandbox.core.scenario.t.Tool;
 
 public class ClothesUtil {
     public static Clothes getFHH(ClothesColor color, int h) {
@@ -54,12 +56,43 @@ public class ClothesUtil {
 
     public static Clothes getMBC() {
         Clothes clothes = new Clothes();
+        clothes.setWeight(0);
         clothes.setBodyType(BodyType.M);
         clothes.getCovers().add(new T());
 
         clothes.getClothesTypes().add(ClothesType.UNDER_BOTTOM);
         clothes.setShortDescription(" bc");
         clothes.setLongDescription(" bc description with a ring attached");
+
+        clothes.getAttachments().add(Attachment.RING);
+
+        return clothes;
+    }
+
+    public static Tool getMLWCuff() {
+        Clothes clothes = new Clothes();
+        clothes.setWeight(0);
+        clothes.setBodyType(BodyType.M);
+        clothes.getCovers().add(new Wrist(Boolean.FALSE));
+
+        clothes.getClothesTypes().add(ClothesType.OTHER);
+        clothes.setShortDescription(" cuff");
+        clothes.setLongDescription(" cuff description with a ring attached");
+
+        clothes.getAttachments().add(Attachment.RING);
+
+        return clothes;
+    }
+
+    public static Tool getMRWCuff() {
+        Clothes clothes = new Clothes();
+        clothes.setWeight(0);
+        clothes.setBodyType(BodyType.M);
+        clothes.getCovers().add(new Wrist(Boolean.TRUE));
+
+        clothes.getClothesTypes().add(ClothesType.OTHER);
+        clothes.setShortDescription(" cuff");
+        clothes.setLongDescription(" cuff description with a ring attached");
 
         clothes.getAttachments().add(Attachment.RING);
 

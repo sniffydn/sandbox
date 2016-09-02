@@ -30,7 +30,7 @@ public abstract class Tool extends CommonObject {
             }
         }
 
-        if (holder.getCurrentFurniture() != null && holder.getCurrentFurniturePosition() == FurniturePositions.BY) {
+        if (holder.getCurrentFurniture() != null && holder.getCurrentFurniture().getAvailableToolPositions().contains(FurniturePositions.BY)) {
             for (final FurniturePositions position : holder.getCurrentFurniture().getAvailableToolPositions()) {
                 Action a = new Action(ActionType.TOOL, "Put " + getShortDescription() + " " + position + " " + holder.getCurrentFurniture().getShortDescription(), new ScenarioActionListener() {
 

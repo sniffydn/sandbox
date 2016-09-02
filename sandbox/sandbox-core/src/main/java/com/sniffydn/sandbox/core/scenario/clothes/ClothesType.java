@@ -10,5 +10,6 @@ public enum ClothesType {
     BOTTOM,
     COLLAR,
     OVER_TOP,
-    OVER_BOTTOM;
+    OVER_BOTTOM,
+    OTHER;
 }
