@@ -9,7 +9,7 @@ import java.util.List;
 public class CommonTool extends Tool {
 
     @Override
-    public List<Action> getAvailableActions(CommonBody holder) {
+    public List<Action> getAvailableActionsByHolder(CommonBody holder) {
         return getCommonActions(holder);
     }
 

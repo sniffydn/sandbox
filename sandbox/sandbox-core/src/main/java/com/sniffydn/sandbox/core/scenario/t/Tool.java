@@ -19,7 +19,7 @@ public abstract class Tool extends CommonObject {
     private List<ActionType> availableActionTypes = new ArrayList<>();
     private List<CustomAction> toolActions = new ArrayList<>();
 
-    public abstract List<Action> getAvailableActions(final CommonBody holder);
+    public abstract List<Action> getAvailableActionsByHolder(final CommonBody holder);
 
     protected List<Action> getCommonActions(final CommonBody holder) {
         List<Action> actions = new ArrayList<>();

@@ -162,7 +162,7 @@ public class CommonBody {
             } else if (at.equals(ActionType.TOOL)) {
                 if (tools.size() > 0) {
                     for (Tool tool : tools) {
-                        for (Action a : tool.getAvailableActions(this)) {
+                        for (Action a : tool.getAvailableActionsByHolder(this)) {
                             if (getAvailableActionTypes().contains(a.getActionType())) {
                                 getAvailableActions().add(a);
                             }
@@ -172,7 +172,7 @@ public class CommonBody {
                 }
                 if (clothes.size() > 0) {
                     for (Clothes c : clothes) {
-                        for (Action a : c.getAvailableActions(this)) {
+                        for (Action a : c.getAvailableActionsByHolder(this)) {
                             if (getAvailableActionTypes().contains(a.getActionType())) {
                                 getAvailableActions().add(a);
                             }

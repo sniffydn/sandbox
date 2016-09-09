@@ -26,7 +26,7 @@ public class Clothes extends Tool {
         return covers;
     }
 
-    public List<Action> getAvailableActions(final CommonBody holder) {
+    public List<Action> getAvailableActionsByHolder(final CommonBody holder) {
         List<Action> actions = new ArrayList<>();
         if (holder.hasClothes(this)) {
             if (holder.getCurrentFurniture() != null && holder.getCurrentFurniturePosition() == FurniturePositions.BY) {
