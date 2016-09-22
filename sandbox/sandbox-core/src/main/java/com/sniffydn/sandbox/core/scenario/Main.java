@@ -5,6 +5,7 @@ import com.sniffydn.sandbox.core.scenario.clothes.ClothesUtil;
 import com.sniffydn.sandbox.core.scenario.furniture.Furniture;
 import com.sniffydn.sandbox.core.scenario.furniture.FurniturePositions;
 import com.sniffydn.sandbox.core.scenario.t.DoorKey;
+import com.sniffydn.sandbox.core.scenario.t.Lock;
 import com.sniffydn.sandbox.core.scenario.t.Tool;
 import com.sniffydn.sandbox.core.scenario.t.ToolUtil;
 import com.sniffydn.sandbox.core.scenario.ui.Scenario;
@@ -36,7 +37,7 @@ public class Main {
         dresser.getAvailableToolPositions().add(FurniturePositions.IN);
         dresser.getAvailableToolPositions().add(FurniturePositions.ON);
 
-        dresser.addTool(FurniturePositions.IN, key);
+//        dresser.addTool(FurniturePositions.IN, key);
         dresser.addTool(FurniturePositions.IN, key2);
         dresser.addTool(FurniturePositions.IN, key3);
         dresser.addTool(FurniturePositions.ON, ToolUtil.getC());
@@ -50,6 +51,9 @@ public class Main {
         bed.setLongDescription("large bed");
         bed.setShortDescription("bed");
         bed.getAvailablePositions().add(FurniturePositions.ON);
+        
+        Lock lock = new Lock(key);
+        bed.addTool(FurniturePositions.BY, lock);
 
         Furniture sdresser = new Furniture();
         sdresser.setLongDescription("small dresser");
@@ -102,6 +106,7 @@ public class Main {
 
         FBody fBody3 = getFBody("FBody3", room, sdresser, FurniturePositions.BY);
         fBody3.addTool(ToolUtil.getC());
+        fBody3.addTool(key);
         bodies.add(fBody3);
 
 //        FBody fBody = new FBody();

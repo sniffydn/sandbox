@@ -50,27 +50,4 @@ public class ToolUtil {
 
         return tool;
     }
-
-    public static Tool getLock() {
-        final Tool tool = new CommonTool();
-        tool.setShortDescription("lock");
-        tool.setLongDescription("lock description");
-        tool.getAvailableActionTypes().add(ActionType.STEAL);
-        
-        tool.getToolActions().add(new CustomAction(ActionType.TOOL, "Lock") {
-            MBody mBody;
-            @Override
-            protected boolean canPerformActionCheck(CommonBody holder) {
-                
-                return false;
-            }
-
-            @Override
-            protected void performAction(CommonBody holder) {
-                
-            }
-        });
-
-        return tool;
-    }
 }

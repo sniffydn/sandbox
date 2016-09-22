@@ -20,6 +20,9 @@ public abstract class ScenarioActionListener implements ActionListener {
             l.eventFired();
         }
         for (ScenarioListener l : listeners) {
+            l.postEventFired();
+        }
+        for (ScenarioListener l : listeners) {
             l.eventFiredCleanup();
         }
     }

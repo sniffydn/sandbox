@@ -48,7 +48,7 @@ public class ClothesUtil {
         clothes.getCovers().add(new Groin());
 
         clothes.getClothesTypes().add(ClothesType.BOTTOM);
-        clothes.setShortDescription(clothesColor + " shorts");
+        clothes.setShortDescription("shorts");
         clothes.setLongDescription(clothesColor + " shorts description");
 
         return clothes;
@@ -65,6 +65,7 @@ public class ClothesUtil {
         clothes.setLongDescription(" bc description with a ring attached");
 
         clothes.getAttachments().add(Attachment.RING);
+        clothes.setAttachablePointCount(1);
 
         return clothes;
     }
@@ -80,6 +81,7 @@ public class ClothesUtil {
         clothes.setLongDescription(" cuff description with a ring attached");
 
         clothes.getAttachments().add(Attachment.RING);
+        clothes.setAttachablePointCount(1);
 
         return clothes;
     }
@@ -95,6 +97,7 @@ public class ClothesUtil {
         clothes.setLongDescription(" cuff description with a ring attached");
 
         clothes.getAttachments().add(Attachment.RING);
+        clothes.setAttachablePointCount(1);
 
         return clothes;
     }
