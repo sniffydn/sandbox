@@ -6,7 +6,6 @@ import com.sniffydn.sandbox.core.scenario.CommonBody;
 import com.sniffydn.sandbox.core.scenario.ScenarioActionListener;
 import com.sniffydn.sandbox.core.scenario.b.BodyPart;
 import com.sniffydn.sandbox.core.scenario.furniture.FurniturePositions;
-import com.sniffydn.sandbox.core.scenario.t.Attachment;
 import com.sniffydn.sandbox.core.scenario.t.Tool;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
@@ -17,7 +16,6 @@ public class Clothes extends Tool {
     private List<BodyPart> covers = new ArrayList<>();
     private BodyType bodyType = BodyType.B;
     private List<ClothesType> clothesTypes = new ArrayList<>();
-    private List<Attachment> attachments = new ArrayList<>();
 
     /**
      * @return the covers
@@ -141,12 +139,5 @@ public class Clothes extends Tool {
      */
     public List<ClothesType> getClothesTypes() {
         return clothesTypes;
-    }
-
-    /**
-     * @return the attachments
-     */
-    public List<Attachment> getAttachments() {
-        return attachments;
     }
 }

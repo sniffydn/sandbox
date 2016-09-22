@@ -51,7 +51,6 @@ public class Scenario extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Bodies:"));
         jPanel1.setLayout(new java.awt.GridLayout(1, 0));
 
-        bodiesPanel.setLayout(new javax.swing.BoxLayout(bodiesPanel, javax.swing.BoxLayout.LINE_AXIS));
         jScrollPane1.setViewportView(bodiesPanel);
 
         jPanel1.add(jScrollPane1);

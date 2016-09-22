@@ -52,7 +52,7 @@ public class JSONLogConverter {
         BufferedWriter bw = null;
         try {
             bw = new BufferedWriter(new FileWriter("C:\\TEMP\\gmi\\log.csv", true));
-            File f = new File("C:\\TEMP\\gmi\\" + "GMIS172-16-4-135-20151227214037" + ".log");
+            File f = new File("C:\\TEMP\\gmi\\TEMP\\" + "GMIS172-16-7-38-20160912001126" + ".log");
             fr = new FileReader(f);
             BufferedReader br = new BufferedReader(fr);
             // Process lines from file

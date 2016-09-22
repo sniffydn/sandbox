@@ -28,7 +28,7 @@ public class Main {
 
         Tool tool2 = ToolUtil.getC();
         tool2.getAvailableActionTypes().clear();
-        tool2.getAvailableActionTypes().add(ActionType.COMPEL);
+        tool2.getAvailableActionTypes().add(ActionType.STEAL);
 
         Furniture dresser = new Furniture();
         dresser.setLongDescription("large dresser");
@@ -94,33 +94,48 @@ public class Main {
         mBody.setCurrentFurniture(bed);
         mBody.setCurrentFurniturePosition(FurniturePositions.BY);
         mBody.addClothes(ClothesUtil.getMShorts(ClothesColor.WHITE));
-
-        FBody fBody = new FBody();
-        fBody.setName("fBody");
-        fBody.setCurrentRoom(closet);
-        fBody.setCurrentFurniture(dresser);
-        fBody.setCurrentFurniturePosition(FurniturePositions.BY);
-
-        FBody fBody2 = new FBody();
-        fBody2.setName("fBody2");
-        fBody2.setCurrentRoom(closet2);
-        fBody2.addClothes(ClothesUtil.getFHH(ClothesColor.BLACK, 5));
-        fBody2.addClothes(ClothesUtil.getFMD(ClothesColor.BLACK));
+        mBody.updateAvailableActionTypes();
+        mBody.updateAvailableActions();
 
         List<CommonBody> bodies = new ArrayList<>();
         bodies.add(mBody);
-        bodies.add(fBody);
-        bodies.add(fBody2);
 
-        mBody.updateAvailableActionTypes();
-        fBody.updateAvailableActionTypes();
-        fBody2.updateAvailableActionTypes();
+        FBody fBody3 = getFBody("FBody3", room, sdresser, FurniturePositions.BY);
+        fBody3.addTool(ToolUtil.getC());
+        bodies.add(fBody3);
 
-        mBody.updateAvailableActions();
-        fBody.updateAvailableActions();
-        fBody2.updateAvailableActions();
-
+//        FBody fBody = new FBody();
+//        fBody.setName("fBody");
+//        fBody.setCurrentRoom(closet);
+//        fBody.setCurrentFurniture(dresser);
+//        fBody.setCurrentFurniturePosition(FurniturePositions.BY);
+//        bodies.add(fBody);
+//        fBody.updateAvailableActionTypes();
+//        fBody.updateAvailableActions();
+//
+//        FBody fBody2 = new FBody();
+//        fBody2.setName("fBody2");
+//        fBody2.setCurrentRoom(closet2);
+//        fBody2.addClothes(ClothesUtil.getFHH(ClothesColor.BLACK, 5));
+//        fBody2.addClothes(ClothesUtil.getFMD(ClothesColor.BLACK));
+//        bodies.add(fBody2);
+//        fBody2.updateAvailableActionTypes();
+//        fBody2.updateAvailableActions();
         Scenario scenario = new Scenario();
         scenario.start(bodies);
+    }
+
+    private static FBody getFBody(String name, Room room, Furniture furn, FurniturePositions furnPos) {
+        FBody fBody = new FBody();
+        fBody.setName(name);
+        fBody.setCurrentRoom(room);
+        fBody.setCurrentFurniture(furn);
+        fBody.setCurrentFurniturePosition(furnPos);
+        fBody.addClothes(ClothesUtil.getFHH(ClothesColor.BLACK, 5));
+        fBody.addClothes(ClothesUtil.getFMD(ClothesColor.BLACK));
+        fBody.updateAvailableActionTypes();
+        fBody.updateAvailableActions();
+
+        return fBody;
     }
 }

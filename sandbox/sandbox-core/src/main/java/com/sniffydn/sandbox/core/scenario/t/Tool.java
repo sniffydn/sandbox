@@ -18,14 +18,18 @@ public abstract class Tool extends CommonObject {
 
     private List<ActionType> availableActionTypes = new ArrayList<>();
     private List<CustomAction> toolActions = new ArrayList<>();
+    private List<Tool> attachedTo = new ArrayList<>();
+    private List<Attachment> attachesTo = new ArrayList<>();
+    private List<Attachment> attachments = new ArrayList<>();
+    private int attachablePointCount = 0;
 
     public abstract List<Action> getAvailableActionsByHolder(final CommonBody holder);
 
     protected List<Action> getCommonActions(final CommonBody holder) {
         List<Action> actions = new ArrayList<>();
 
-        for(CustomAction ta: toolActions) {
-            if(ta.canPerformAction(holder)) {
+        for (CustomAction ta : toolActions) {
+            if (ta.canPerformAction(holder)) {
                 actions.add(ta.getAction());
             }
         }
@@ -127,4 +131,58 @@ public abstract class Tool extends CommonObject {
         return toolActions;
     }
 
+    /**
+     * @return the attachedTo
+     */
+    public List<Tool> getAttachedTo() {
+        return attachedTo;
+    }
+
+    /**
+     * @return the attachments
+     */
+    public List<Attachment> getAttachments() {
+        return attachments;
+    }
+
+    /**
+     * @return the attachesTo
+     */
+    public List<Attachment> getAttachesTo() {
+        return attachesTo;
+    }
+
+    public boolean canAttachTo(Tool otherTool) {
+        if (attachablePointCount > attachedTo.size()) {
+            if (otherTool.attachablePointCount > otherTool.attachedTo.size()) {
+                for (Attachment atTo : attachesTo) {
+                    for (Attachment at : attachments) {
+                        if(atTo.equals(at)) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    public void attachTo(Tool otherTool) {
+        attachedTo.add(otherTool);
+        otherTool.attachedTo.add(this);
+    }
+
+    /**
+     * @return the attachablePointCount
+     */
+    public int getAttachablePointCount() {
+        return attachablePointCount;
+    }
+
+    /**
+     * @param attachablePointCount the attachablePointCount to set
+     */
+    public void setAttachablePointCount(int attachablePointCount) {
+        this.attachablePointCount = attachablePointCount;
+    }
 }

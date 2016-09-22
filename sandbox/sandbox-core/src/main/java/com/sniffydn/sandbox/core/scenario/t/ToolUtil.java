@@ -21,7 +21,7 @@ public class ToolUtil {
         final Tool tool = new CommonTool();
         tool.setShortDescription("tool");
         tool.setLongDescription("tool description");
-        tool.getAvailableActionTypes().add(ActionType.STEAL);
+        tool.getAvailableActionTypes().add(ActionType.COMPEL);
         tool.getToolActions().add(new CustomAction(ActionType.TOOL, "Tool") {
             MBody mBody;
             @Override
@@ -45,6 +45,29 @@ public class ToolUtil {
             @Override
             protected void performAction(CommonBody holder) {
                 mBody.getMoodMap().put(Mood.HAPPINESS, mBody.getMoodMap().get(Mood.HAPPINESS) + 1);
+            }
+        });
+
+        return tool;
+    }
+
+    public static Tool getLock() {
+        final Tool tool = new CommonTool();
+        tool.setShortDescription("lock");
+        tool.setLongDescription("lock description");
+        tool.getAvailableActionTypes().add(ActionType.STEAL);
+        
+        tool.getToolActions().add(new CustomAction(ActionType.TOOL, "Lock") {
+            MBody mBody;
+            @Override
+            protected boolean canPerformActionCheck(CommonBody holder) {
+                
+                return false;
+            }
+
+            @Override
+            protected void performAction(CommonBody holder) {
+                
             }
         });
 
