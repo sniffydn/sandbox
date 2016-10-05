@@ -89,7 +89,7 @@ public class Doorway {
                 ScenarioActionListener al = new ScenarioActionListener() {
 
                     @Override
-                    protected void scenarioActionPerformed(ActionEvent e) {
+                    protected void scenarioActionPerformed() {
                         setDoorLocked(false);
                     }
                 };
@@ -103,7 +103,7 @@ public class Doorway {
                         ScenarioActionListener al1 = new ScenarioActionListener() {
 
                             @Override
-                            protected void scenarioActionPerformed(ActionEvent e) {
+                            protected void scenarioActionPerformed() {
                                 body.setCurrentRoom(room2);
                                 body.setCurrentFurniture(null);
                                 body.setCurrentFurniturePosition(null);
@@ -115,7 +115,7 @@ public class Doorway {
                         ScenarioActionListener al1 = new ScenarioActionListener() {
 
                             @Override
-                            protected void scenarioActionPerformed(ActionEvent e) {
+                            protected void scenarioActionPerformed() {
                                 body.setCurrentRoom(room1);
                                 body.setCurrentFurniture(null);
                                 body.setCurrentFurniturePosition(null);
@@ -134,7 +134,7 @@ public class Doorway {
                 ScenarioActionListener al = new ScenarioActionListener() {
 
                     @Override
-                    protected void scenarioActionPerformed(ActionEvent e) {
+                    protected void scenarioActionPerformed() {
                         setDoorLocked(true);
                     }
                 };
@@ -152,7 +152,7 @@ public class Doorway {
                 ScenarioActionListener al = new ScenarioActionListener() {
 
                     @Override
-                    protected void scenarioActionPerformed(ActionEvent e) {
+                    protected void scenarioActionPerformed() {
                         body.setCurrentRoom(room2);
                         body.setCurrentFurniture(null);
                         body.setCurrentFurniturePosition(null);
@@ -164,7 +164,7 @@ public class Doorway {
                 ScenarioActionListener al = new ScenarioActionListener() {
 
                     @Override
-                    protected void scenarioActionPerformed(ActionEvent e) {
+                    protected void scenarioActionPerformed() {
                         body.setCurrentRoom(room1);
                         body.setCurrentFurniture(null);
                         body.setCurrentFurniturePosition(null);
@@ -177,7 +177,7 @@ public class Doorway {
             ScenarioActionListener al = new ScenarioActionListener() {
 
                 @Override
-                protected void scenarioActionPerformed(ActionEvent e) {
+                protected void scenarioActionPerformed() {
                     setDoorOpen(false);
                 }
             };
@@ -189,7 +189,7 @@ public class Doorway {
                     ScenarioActionListener al = new ScenarioActionListener() {
 
                         @Override
-                        protected void scenarioActionPerformed(ActionEvent e) {
+                        protected void scenarioActionPerformed() {
                             setDoorOpen(true);
                         }
                     };
@@ -199,7 +199,7 @@ public class Doorway {
                     ScenarioActionListener al = new ScenarioActionListener() {
 
                         @Override
-                        protected void scenarioActionPerformed(ActionEvent e) {
+                        protected void scenarioActionPerformed() {
                             setDoorOpen(true);
                         }
                     };

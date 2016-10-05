@@ -46,7 +46,7 @@ public class Furniture extends CommonObject {
                                     new ScenarioActionListener() {
 
                                         @Override
-                                        protected void scenarioActionPerformed(ActionEvent e) {
+                                        protected void scenarioActionPerformed() {
                                             body.addTool(t);
                                             tools.remove(t);
                                         }
@@ -62,7 +62,7 @@ public class Furniture extends CommonObject {
                                     new ScenarioActionListener() {
 
                                         @Override
-                                        protected void scenarioActionPerformed(ActionEvent e) {
+                                        protected void scenarioActionPerformed() {
                                             body.addClothes(c);
                                             tools.remove(c);
                                         }

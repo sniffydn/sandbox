@@ -39,7 +39,7 @@ public abstract class Tool extends CommonObject {
                 Action a = new Action(ActionType.TOOL, "Put " + getShortDescription() + " " + position + " " + holder.getCurrentFurniture().getShortDescription(), new ScenarioActionListener() {
 
                     @Override
-                    protected void scenarioActionPerformed(ActionEvent e) {
+                    protected void scenarioActionPerformed() {
                         holder.removeTool(Tool.this);
                         holder.getCurrentFurniture().addTool(position, Tool.this);
                     }
@@ -56,7 +56,7 @@ public abstract class Tool extends CommonObject {
                     Action a = new Action(ActionType.TOOL, "Give " + getShortDescription() + " to " + b.getName(), new ScenarioActionListener() {
 
                         @Override
-                        protected void scenarioActionPerformed(ActionEvent e) {
+                        protected void scenarioActionPerformed() {
                             holder.removeTool(Tool.this);
                             b.addTool(Tool.this);
                         }
@@ -69,7 +69,7 @@ public abstract class Tool extends CommonObject {
                         Action a1 = new Action(ActionType.STEAL, "Take " + getShortDescription() + " from " + holder.getName(), new ScenarioActionListener() {
 
                             @Override
-                            protected void scenarioActionPerformed(ActionEvent e) {
+                            protected void scenarioActionPerformed() {
                                 holder.removeTool(Tool.this);
                                 b.addTool(Tool.this);
                             }

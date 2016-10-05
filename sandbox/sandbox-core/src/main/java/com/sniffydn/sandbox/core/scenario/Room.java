@@ -42,7 +42,7 @@ public class Room extends CommonObject {
                 Action a = new Action(ActionType.ROOM, "Move " + pos + " " + furn.getShortDescription(), new ScenarioActionListener() {
 
                     @Override
-                    protected void scenarioActionPerformed(ActionEvent e) {
+                    protected void scenarioActionPerformed() {
                         body.setRoomPosition(f, p);
                     }
                 });

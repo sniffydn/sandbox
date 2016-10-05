@@ -15,7 +15,11 @@ public abstract class ScenarioActionListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        scenarioActionPerformed(e);
+        actionPerformed();
+    }
+
+    public void actionPerformed() {
+        scenarioActionPerformed();
         for (ScenarioListener l : listeners) {
             l.eventFired();
         }
@@ -27,5 +31,5 @@ public abstract class ScenarioActionListener implements ActionListener {
         }
     }
 
-    protected abstract void scenarioActionPerformed(ActionEvent e);
+    protected abstract void scenarioActionPerformed();
 }

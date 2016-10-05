@@ -5,7 +5,6 @@ import com.sniffydn.sandbox.core.scenario.ActionType;
 import com.sniffydn.sandbox.core.scenario.CommonBody;
 import com.sniffydn.sandbox.core.scenario.ScenarioActionListener;
 import com.sniffydn.sandbox.core.scenario.clothes.Clothes;
-import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -84,8 +83,7 @@ public class Lock extends Tool {
                 Action a = new Action(ActionType.TOOL, "Lock " + t.getShortDescription(), new ScenarioActionListener() {
 
                     @Override
-                    protected void scenarioActionPerformed(ActionEvent e) {
-                        System.out.println(e);
+                    protected void scenarioActionPerformed() {
                         finalT.attachTo(Lock.this);
                     }
                 });

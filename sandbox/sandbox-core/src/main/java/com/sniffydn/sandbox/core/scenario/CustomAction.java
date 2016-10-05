@@ -11,7 +11,7 @@ public abstract class CustomAction {
         this.action = new Action(type, actionDescription, new ScenarioActionListener() {
 
             @Override
-            protected void scenarioActionPerformed(ActionEvent e) {
+            protected void scenarioActionPerformed() {
                 performAction(holder);
             }
         });

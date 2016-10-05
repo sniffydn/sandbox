@@ -5,15 +5,16 @@ import com.sniffydn.sandbox.core.scenario.ActionType;
 import com.sniffydn.sandbox.core.scenario.CommonBody;
 import com.sniffydn.sandbox.core.scenario.ScenarioActionListener;
 import com.sniffydn.sandbox.core.scenario.ScenarioListener;
-import com.sniffydn.sandbox.core.scenario.t.Tool;
 import com.sniffydn.sandbox.core.scenario.clothes.Clothes;
+import com.sniffydn.sandbox.core.scenario.t.Tool;
 import java.awt.Component;
-import javax.swing.JButton;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.SwingUtilities;
 
 public class BodyRenderer extends javax.swing.JPanel {
 
     private CommonBody body;
+    private DefaultComboBoxModel<Action> model = new DefaultComboBoxModel<>();
 
     /**
      * Creates new form BodyRenderer
@@ -21,6 +22,8 @@ public class BodyRenderer extends javax.swing.JPanel {
     public BodyRenderer(CommonBody body) {
         this.body = body;
         initComponents();
+        jComboBox1.setModel(model);
+        jComboBox1.setRenderer(new ActionListCellRenderer());
         updatePanel();
 
         ScenarioListener sl = new ScenarioListener() {
@@ -38,8 +41,10 @@ public class BodyRenderer extends javax.swing.JPanel {
     }
 
     private void updatePanel() {
+        performActionLabel.setVisible(false);
+        model.removeAllElements();
+
         roomPanel.removeAll();
-        actionsPanel.removeAll();
         toolsPanel.removeAll();
         wornPanel.removeAll();
         RoomRenderer roomRenderer = new RoomRenderer(body.getCurrentRoom());
@@ -81,7 +86,7 @@ public class BodyRenderer extends javax.swing.JPanel {
                     for (Component c : wornPanel.getComponents()) {
                         if (c instanceof ClothesRenderer) {
                             ClothesRenderer tr = (ClothesRenderer) c;
-                            if (tr.getClothes()== a.getCurrentTool()) {
+                            if (tr.getClothes() == a.getCurrentTool()) {
                                 found = true;
                                 tr.addAction(a);
                                 break;
@@ -89,17 +94,15 @@ public class BodyRenderer extends javax.swing.JPanel {
                         }
                     }
                     if (!found) {
-                        JButton button = new JButton(a.getActionDescription());
-                        button.setToolTipText(a.getActionType().toString());
-                        button.addActionListener(a.getActionListener());
-                        actionsPanel.add(button);
+                        model.addElement(a);
+                        performActionLabel.setVisible(true);
+                        jComboBox1.setSelectedItem(a);
                     }
                 }
             } else {
-                JButton button = new JButton(a.getActionDescription());
-                button.setToolTipText(a.getActionType().toString());
-                button.addActionListener(a.getActionListener());
-                actionsPanel.add(button);
+                model.addElement(a);
+                performActionLabel.setVisible(true);
+                jComboBox1.setSelectedItem(a);
             }
 
         }
@@ -136,7 +139,6 @@ public class BodyRenderer extends javax.swing.JPanel {
     private void initComponents() {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         rPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -151,9 +153,9 @@ public class BodyRenderer extends javax.swing.JPanel {
         toolCapLabel = new javax.swing.JLabel();
         wornPanel = new javax.swing.JPanel();
         toolsPanel = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        actionsPanel = new javax.swing.JPanel();
+        extraActionsPanel = new javax.swing.JPanel();
+        jComboBox1 = new javax.swing.JComboBox();
+        performActionLabel = new javax.swing.JLabel();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -202,38 +204,51 @@ public class BodyRenderer extends javax.swing.JPanel {
         toolsPanel.setLayout(new java.awt.GridLayout(0, 1));
         jPanel2.add(toolsPanel, java.awt.BorderLayout.CENTER);
 
+        extraActionsPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 2, 2));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        extraActionsPanel.add(jComboBox1);
+
+        performActionLabel.setText("<");
+        performActionLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                performActionLabelMousePressed(evt);
+            }
+        });
+        extraActionsPanel.add(performActionLabel);
+
+        jPanel2.add(extraActionsPanel, java.awt.BorderLayout.PAGE_END);
+
         jPanel1.add(jPanel2, java.awt.BorderLayout.NORTH);
 
-        jSplitPane1.setLeftComponent(jPanel1);
-
-        jPanel3.setLayout(new java.awt.GridLayout(1, 0));
-
-        actionsPanel.setLayout(new java.awt.GridLayout(0, 1));
-        jScrollPane2.setViewportView(actionsPanel);
-
-        jPanel3.add(jScrollPane2);
-
-        jSplitPane1.setRightComponent(jPanel3);
-
-        add(jSplitPane1, java.awt.BorderLayout.CENTER);
+        add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
         bindingGroup.bind();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void performActionLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_performActionLabelMousePressed
+        Action a = (Action) jComboBox1.getSelectedItem();
+        a.getActionListener().actionPerformed();
+        if (model.getSize() == 0) {
+            performActionLabel.setVisible(false);
+        } else {
+            jComboBox1.setSelectedIndex(0);
+        }
+    }//GEN-LAST:event_performActionLabelMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel actionsPanel;
+    private javax.swing.JPanel extraActionsPanel;
     private javax.swing.JLabel furnPosLabel;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel performActionLabel;
     private javax.swing.JPanel rPanel;
     private javax.swing.JPanel roomPanel;
     private javax.swing.JLabel toolCapLabel;

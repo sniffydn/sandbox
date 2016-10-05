@@ -32,7 +32,7 @@ public class Clothes extends Tool {
                     Action a = new Action(ActionType.TOOL, "Put " + getShortDescription() + " " + position + " " + holder.getCurrentFurniture().getShortDescription(), new ScenarioActionListener() {
 
                         @Override
-                        protected void scenarioActionPerformed(ActionEvent e) {
+                        protected void scenarioActionPerformed() {
                             holder.removeClothes(Clothes.this);
                             holder.getCurrentFurniture().addTool(position, Clothes.this);
                         }
@@ -50,7 +50,7 @@ public class Clothes extends Tool {
                             Action a1 = new Action(ActionType.STEAL, "Take " + getShortDescription() + " off of " + holder.getName(), new ScenarioActionListener() {
 
                                 @Override
-                                protected void scenarioActionPerformed(ActionEvent e) {
+                                protected void scenarioActionPerformed() {
                                     holder.removeClothes(Clothes.this);
                                     b.addTool(Clothes.this);
                                 }
@@ -64,7 +64,7 @@ public class Clothes extends Tool {
                             Action a1 = new Action(ActionType.COMPEL, "Make " + holder.getName() + " take off " + getShortDescription(), new ScenarioActionListener() {
 
                                 @Override
-                                protected void scenarioActionPerformed(ActionEvent e) {
+                                protected void scenarioActionPerformed() {
                                     holder.removeClothes(Clothes.this);
                                     holder.addTool(Clothes.this);
                                 }
@@ -82,7 +82,7 @@ public class Clothes extends Tool {
                 Action a1 = new Action(ActionType.TOOL, "Put " + getShortDescription() + " on", new ScenarioActionListener() {
 
                     @Override
-                    protected void scenarioActionPerformed(ActionEvent e) {
+                    protected void scenarioActionPerformed() {
                         holder.removeTool(Clothes.this);
                         holder.addClothes(Clothes.this);
                     }
@@ -99,7 +99,7 @@ public class Clothes extends Tool {
                             Action a1 = new Action(ActionType.COMPEL, "Put " + getShortDescription() + " on " + b.getName(), new ScenarioActionListener() {
 
                                 @Override
-                                protected void scenarioActionPerformed(ActionEvent e) {
+                                protected void scenarioActionPerformed() {
                                     holder.removeTool(Clothes.this);
                                     b.addClothes(Clothes.this);
                                 }

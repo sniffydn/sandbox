@@ -19,6 +19,8 @@ public class ToolRenderer extends javax.swing.JPanel {
 
         setBorder(javax.swing.BorderFactory.createTitledBorder(tool.getShortDescription()));
         jComboBox1.setModel(model);
+        jComboBox1.setRenderer(new ActionListCellRenderer());
+        performActionLabel.setVisible(false);
 
         for(Tool t: tool.getAttachedTo()) {
             attachedPanel.add(new ToolRenderer(t, true));
@@ -45,7 +47,7 @@ public class ToolRenderer extends javax.swing.JPanel {
         attachedPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jComboBox1 = new javax.swing.JComboBox();
-        jButton1 = new javax.swing.JButton();
+        performActionLabel = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder("Title"));
         setLayout(new java.awt.BorderLayout());
@@ -60,29 +62,28 @@ public class ToolRenderer extends javax.swing.JPanel {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel1.add(jComboBox1);
 
-        jButton1.setText("<");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        performActionLabel.setText("<");
+        performActionLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                performActionLabelMousePressed(evt);
             }
         });
-        jPanel1.add(jButton1);
+        jPanel1.add(performActionLabel);
 
         add(jPanel1, java.awt.BorderLayout.NORTH);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        System.out.println(jComboBox1.getSelectedItem());
+    private void performActionLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_performActionLabelMousePressed
         Action a = (Action) jComboBox1.getSelectedItem();
-        a.getActionListener().actionPerformed(evt);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        a.getActionListener().actionPerformed();
+    }//GEN-LAST:event_performActionLabelMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel attachedPanel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel performActionLabel;
     // End of variables declaration//GEN-END:variables
 
     /**
@@ -98,6 +99,7 @@ public class ToolRenderer extends javax.swing.JPanel {
 
     public void addAction(Action a) {
         model.addElement(a);
+        performActionLabel.setVisible(true);
 //
 //        JButton button = new JButton(a.getActionDescription());
 //
