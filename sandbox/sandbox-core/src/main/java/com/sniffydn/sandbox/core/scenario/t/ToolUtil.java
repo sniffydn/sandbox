@@ -9,8 +9,8 @@ import com.sniffydn.sandbox.core.scenario.MBody;
 import com.sniffydn.sandbox.core.scenario.Mood;
 
 public class ToolUtil {
-    public static DoorKey getDoorKey(String name) {
-        DoorKey key = new DoorKey();
+    public static Key getDoorKey(String name, String code) {
+        Key key = new Key(code);
         key.setShortDescription(name + " key");
         key.setWeight(0);
         key.setLongDescription("key to the " + name + " door");

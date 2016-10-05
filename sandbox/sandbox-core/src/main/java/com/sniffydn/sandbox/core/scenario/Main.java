@@ -4,7 +4,7 @@ import com.sniffydn.sandbox.core.scenario.clothes.ClothesColor;
 import com.sniffydn.sandbox.core.scenario.clothes.ClothesUtil;
 import com.sniffydn.sandbox.core.scenario.furniture.Furniture;
 import com.sniffydn.sandbox.core.scenario.furniture.FurniturePositions;
-import com.sniffydn.sandbox.core.scenario.t.DoorKey;
+import com.sniffydn.sandbox.core.scenario.t.Key;
 import com.sniffydn.sandbox.core.scenario.t.Lock;
 import com.sniffydn.sandbox.core.scenario.t.Tool;
 import com.sniffydn.sandbox.core.scenario.t.ToolUtil;
@@ -23,9 +23,10 @@ public class Main {
         closet.setLongDescription("large closet");
         closet.setShortDescription("closet");
 
-        DoorKey key = ToolUtil.getDoorKey("room");
-        DoorKey key2 = ToolUtil.getDoorKey("closet");
-        DoorKey key3 = ToolUtil.getDoorKey("room");
+        Key key = ToolUtil.getDoorKey("room", "room");
+        key.addKeyCode("closet");
+        Key key2 = ToolUtil.getDoorKey("room", "room");
+        key.addKeyCode("closet");
 
         Tool tool2 = ToolUtil.getC();
         tool2.getAvailableActionTypes().clear();
@@ -39,7 +40,6 @@ public class Main {
 
 //        dresser.addTool(FurniturePositions.IN, key);
         dresser.addTool(FurniturePositions.IN, key2);
-        dresser.addTool(FurniturePositions.IN, key3);
         dresser.addTool(FurniturePositions.ON, ToolUtil.getC());
         dresser.addTool(FurniturePositions.ON, tool2);
         dresser.addTool(FurniturePositions.IN, ClothesUtil.getFHH(ClothesColor.WHITE, 5));
@@ -51,8 +51,9 @@ public class Main {
         bed.setLongDescription("large bed");
         bed.setShortDescription("bed");
         bed.getAvailablePositions().add(FurniturePositions.ON);
-        
-        Lock lock = new Lock(key);
+
+        key.addKeyCode("lock");
+        Lock lock = new Lock("lock");
         bed.addTool(FurniturePositions.BY, lock);
 
         Furniture sdresser = new Furniture();
@@ -71,23 +72,20 @@ public class Main {
         room.getFurniture().add(bed);
         room.getFurniture().add(sdresser);
 
-        Doorway dw = new Doorway();
+        Doorway dw = new Doorway("room");
         dw.setRoom1(room);
         dw.setRoom2(closet);
         dw.setDoorLocked(true);
         dw.setDoorOpen(false);
-        dw.getDoorKeys().add(key);
-        dw.getDoorKeys().add(key3);
 
         room.getDoorways().add(dw);
         closet.getDoorways().add(dw);
 
-        Doorway dw2 = new Doorway();
+        Doorway dw2 = new Doorway("closet");
         dw2.setRoom1(closet2);
         dw2.setRoom2(closet);
         dw2.setDoorLocked(true);
         dw2.setDoorOpen(false);
-        dw2.getDoorKeys().add(key2);
 
         closet2.getDoorways().add(dw2);
         closet.getDoorways().add(dw2);

@@ -11,9 +11,9 @@ import java.util.List;
 
 public class Lock extends Tool {
 
-    private final DoorKey key;
+    private final String key;
 
-    public Lock(DoorKey key) {
+    public Lock(String key) {
         this.key = key;
         setShortDescription("Lock");
         setLongDescription("Lock");
@@ -59,7 +59,7 @@ public class Lock extends Tool {
     public List<Action> getAvailableActionsByHolder(CommonBody holder) {
         List<Action> actions = getCommonActions(holder);
 
-        if (holder.hasTool(key)) {
+        if (holder.hasCode(key)) {
             System.out.println("HOLDER HAS KEY");
             List<Tool> lockables = new ArrayList<>();
 

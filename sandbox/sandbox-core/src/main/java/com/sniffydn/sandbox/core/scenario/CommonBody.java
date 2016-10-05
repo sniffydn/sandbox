@@ -4,6 +4,7 @@ import com.sniffydn.sandbox.core.scenario.b.Body;
 import com.sniffydn.sandbox.core.scenario.clothes.Clothes;
 import com.sniffydn.sandbox.core.scenario.furniture.Furniture;
 import com.sniffydn.sandbox.core.scenario.furniture.FurniturePositions;
+import com.sniffydn.sandbox.core.scenario.t.Key;
 import com.sniffydn.sandbox.core.scenario.t.Tool;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -340,5 +341,16 @@ public class CommonBody {
      */
     public Map<Mood, Integer> getMoodMap() {
         return moodMap;
+    }
+
+    public boolean hasCode(String key) {
+        for(Tool t: getTools()) {
+            if(t instanceof Key) {
+                if(((Key)t).containsCode(key)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

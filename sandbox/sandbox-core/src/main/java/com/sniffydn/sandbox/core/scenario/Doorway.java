@@ -1,24 +1,22 @@
 package com.sniffydn.sandbox.core.scenario;
 
-import com.sniffydn.sandbox.core.scenario.t.DoorKey;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Doorway {
 
-    public static final DoorKey MASTER_KEY = new DoorKey();
     private Room room1;
     private Room room2;
     private boolean oneWayDoorway = false;
     private boolean doorOpen = true;
     private boolean doorLocked = false;
-    private List<DoorKey> doorKeys = new ArrayList<>();
+    private List<String> doorKeys = new ArrayList<>();
     private List<Action> actions = new ArrayList<>();
     private String door = "door";
 
-    public Doorway() {
-        doorKeys.add(MASTER_KEY);
+    public Doorway(String code) {
+        doorKeys.add(code);
     }
 
     /**
@@ -75,8 +73,8 @@ public class Doorway {
     private void checkLockedStateAndAddActions(final CommonBody body, boolean forward) {
 
         boolean hasKey = false;
-        for (DoorKey key : getDoorKeys()) {
-            if (body.hasTool(key)) {
+        for (String key : getDoorKeys()) {
+            if (body.hasCode(key)) {
                 hasKey = true;
                 break;
             }
@@ -215,7 +213,7 @@ public class Doorway {
     /**
      * @return the doorKeys
      */
-    public List<DoorKey> getDoorKeys() {
+    public List<String> getDoorKeys() {
         return doorKeys;
     }
 
