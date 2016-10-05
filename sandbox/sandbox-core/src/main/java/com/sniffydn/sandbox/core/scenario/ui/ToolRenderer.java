@@ -3,7 +3,9 @@ package com.sniffydn.sandbox.core.scenario.ui;
 import com.sniffydn.sandbox.core.scenario.Action;
 import com.sniffydn.sandbox.core.scenario.furniture.FurniturePositions;
 import com.sniffydn.sandbox.core.scenario.t.Tool;
+import java.awt.Dimension;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JLabel;
 
 public class ToolRenderer extends javax.swing.JPanel {
 
@@ -14,17 +16,7 @@ public class ToolRenderer extends javax.swing.JPanel {
      * Creates new form BodyRenderer
      */
     public ToolRenderer(Tool tool) {
-        this.tool = tool;
-        initComponents();
-
-        setBorder(javax.swing.BorderFactory.createTitledBorder(tool.getShortDescription()));
-        jComboBox1.setModel(model);
-        jComboBox1.setRenderer(new ActionListCellRenderer());
-        performActionLabel.setVisible(false);
-
-        for(Tool t: tool.getAttachedTo()) {
-            attachedPanel.add(new ToolRenderer(t, true));
-        }
+        this(tool, false);
     }
 
     private ToolRenderer(Tool tool, boolean dontAddAttachedTo) {
@@ -32,7 +24,19 @@ public class ToolRenderer extends javax.swing.JPanel {
         initComponents();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder(tool.getShortDescription()));
+
+        JLabel label = new JLabel(tool.getShortDescription());
+        filler1.setPreferredSize(new Dimension(label.getPreferredSize().width + 20, 0));
+
         jComboBox1.setModel(model);
+        jComboBox1.setRenderer(new ActionListCellRenderer());
+        performActionLabel.setVisible(false);
+
+        if (!dontAddAttachedTo) {
+            for (Tool t : tool.getAttachedTo()) {
+                attachedPanel.add(new ToolRenderer(t, true));
+            }
+        }
     }
 
     /**
@@ -48,6 +52,7 @@ public class ToolRenderer extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jComboBox1 = new javax.swing.JComboBox();
         performActionLabel = new javax.swing.JLabel();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
 
         setBorder(javax.swing.BorderFactory.createTitledBorder("Title"));
         setLayout(new java.awt.BorderLayout());
@@ -71,6 +76,7 @@ public class ToolRenderer extends javax.swing.JPanel {
         jPanel1.add(performActionLabel);
 
         add(jPanel1, java.awt.BorderLayout.NORTH);
+        add(filler1, java.awt.BorderLayout.PAGE_END);
     }// </editor-fold>//GEN-END:initComponents
 
     private void performActionLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_performActionLabelMousePressed
@@ -81,6 +87,7 @@ public class ToolRenderer extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel attachedPanel;
+    private javax.swing.Box.Filler filler1;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel performActionLabel;

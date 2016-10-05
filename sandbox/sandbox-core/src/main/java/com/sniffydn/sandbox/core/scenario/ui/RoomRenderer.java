@@ -9,6 +9,7 @@ import com.sniffydn.sandbox.core.scenario.ScenarioActionListener;
 import com.sniffydn.sandbox.core.scenario.ScenarioListener;
 import com.sniffydn.sandbox.core.scenario.furniture.Furniture;
 import java.awt.Component;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
@@ -16,6 +17,7 @@ import javax.swing.SwingUtilities;
 public class RoomRenderer extends javax.swing.JPanel {
 
     private Room room;
+    private DefaultComboBoxModel<Action> model = new DefaultComboBoxModel<>();
 
     /**
      * Creates new form BodyRenderer
@@ -45,6 +47,8 @@ public class RoomRenderer extends javax.swing.JPanel {
             ScenarioActionListener.addListener(sl);
         }
         jPanel5.setVisible(false);
+        jComboBox1.setModel(model);
+        jComboBox1.setRenderer(new ActionListCellRenderer());
     }
 
     private void updatePanel() {
@@ -113,8 +117,9 @@ public class RoomRenderer extends javax.swing.JPanel {
         jTextArea1 = new javax.swing.JTextArea();
         jPanel4 = new javax.swing.JPanel();
         doorwaysPanel = new javax.swing.JPanel();
-        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(60, 0), new java.awt.Dimension(80, 0), new java.awt.Dimension(60, 32767));
-        roomChangeActionsPanel = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jComboBox1 = new javax.swing.JComboBox();
+        performActionLabel = new javax.swing.JLabel();
         bodiesPanel = new javax.swing.JPanel();
         roomActionsPanel = new javax.swing.JPanel();
 
@@ -178,10 +183,21 @@ public class RoomRenderer extends javax.swing.JPanel {
         doorwaysPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Doorways:"));
         doorwaysPanel.setLayout(new java.awt.GridLayout(0, 1));
         jPanel4.add(doorwaysPanel, java.awt.BorderLayout.CENTER);
-        jPanel4.add(filler1, java.awt.BorderLayout.PAGE_START);
 
-        roomChangeActionsPanel.setLayout(new java.awt.GridLayout(0, 1));
-        jPanel4.add(roomChangeActionsPanel, java.awt.BorderLayout.PAGE_END);
+        jPanel6.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 2, 2));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel6.add(jComboBox1);
+
+        performActionLabel.setText("<");
+        performActionLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                performActionLabelMousePressed(evt);
+            }
+        });
+        jPanel6.add(performActionLabel);
+
+        jPanel4.add(jPanel6, java.awt.BorderLayout.SOUTH);
 
         jPanel2.add(jPanel4, java.awt.BorderLayout.EAST);
 
@@ -205,14 +221,24 @@ public class RoomRenderer extends javax.swing.JPanel {
         });
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void performActionLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_performActionLabelMousePressed
+        Action a = (Action) jComboBox1.getSelectedItem();
+        a.getActionListener().actionPerformed();
+        if (model.getSize() == 0) {
+            performActionLabel.setVisible(false);
+        } else {
+            jComboBox1.setSelectedIndex(0);
+        }
+    }//GEN-LAST:event_performActionLabelMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bodiesPanel;
     private javax.swing.JPanel doorwaysPanel;
-    private javax.swing.Box.Filler filler1;
     private javax.swing.JPanel furnPanel;
     private javax.swing.JPanel furniturePanel;
     private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
@@ -220,12 +246,13 @@ public class RoomRenderer extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel performActionLabel;
     private javax.swing.JPanel roomActionsPanel;
-    private javax.swing.JPanel roomChangeActionsPanel;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 
@@ -257,10 +284,8 @@ public class RoomRenderer extends javax.swing.JPanel {
                 roomActionsPanel.add(button);
             }
         } else if (a.getActionType().equals(ActionType.DOORWAY)) {
-            JButton button = new JButton(a.getActionDescription());
-            button.setToolTipText(a.getActionType().toString());
-            button.addActionListener(a.getActionListener());
-            roomChangeActionsPanel.add(button);
+            model.addElement(a);
+            jComboBox1.setSelectedItem(a);
         } else if (a.getActionType().equals(ActionType.FURNITURE)) {
             boolean found = false;
             for (Component c : furniturePanel.getComponents()) {

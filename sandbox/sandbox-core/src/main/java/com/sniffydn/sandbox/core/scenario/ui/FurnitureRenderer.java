@@ -2,10 +2,10 @@ package com.sniffydn.sandbox.core.scenario.ui;
 
 import com.sniffydn.sandbox.core.scenario.Action;
 import com.sniffydn.sandbox.core.scenario.ActionType;
-import com.sniffydn.sandbox.core.scenario.t.Tool;
 import com.sniffydn.sandbox.core.scenario.clothes.Clothes;
 import com.sniffydn.sandbox.core.scenario.furniture.Furniture;
 import com.sniffydn.sandbox.core.scenario.furniture.FurniturePositions;
+import com.sniffydn.sandbox.core.scenario.t.Tool;
 import java.awt.Component;
 import java.util.List;
 import javax.swing.JButton;
@@ -63,11 +63,11 @@ public class FurnitureRenderer extends javax.swing.JPanel {
         jPanel1.setLayout(new java.awt.BorderLayout());
 
         toolsInPanel.setBackground(new java.awt.Color(204, 204, 204));
-        toolsInPanel.setLayout(new java.awt.GridLayout(0, 1));
+        toolsInPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 2, 2));
         jPanel1.add(toolsInPanel, java.awt.BorderLayout.CENTER);
 
         clothesInPanel.setBackground(new java.awt.Color(102, 102, 102));
-        clothesInPanel.setLayout(new java.awt.GridLayout(0, 1));
+        clothesInPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 2, 2));
         jPanel1.add(clothesInPanel, java.awt.BorderLayout.SOUTH);
 
         add(jPanel1, java.awt.BorderLayout.CENTER);

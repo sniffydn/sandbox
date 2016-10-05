@@ -157,6 +157,7 @@ public class BodyRenderer extends javax.swing.JPanel {
         jComboBox1 = new javax.swing.JComboBox();
         performActionLabel = new javax.swing.JLabel();
 
+        setBorder(javax.swing.BorderFactory.createEtchedBorder());
         setLayout(new java.awt.BorderLayout());
 
         jPanel1.setLayout(new java.awt.BorderLayout());
@@ -171,7 +172,7 @@ public class BodyRenderer extends javax.swing.JPanel {
 
         jPanel2.setLayout(new java.awt.BorderLayout());
 
-        jPanel5.setLayout(new java.awt.GridLayout(0, 1));
+        jPanel5.setLayout(new java.awt.BorderLayout());
 
         jPanel4.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 2));
 
@@ -181,9 +182,9 @@ public class BodyRenderer extends javax.swing.JPanel {
         bindingGroup.addBinding(binding);
 
         jPanel4.add(jTextField1);
+        jPanel4.add(furnPosLabel);
 
-        jPanel5.add(jPanel4);
-        jPanel5.add(furnPosLabel);
+        jPanel5.add(jPanel4, java.awt.BorderLayout.NORTH);
 
         jPanel6.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
@@ -196,12 +197,12 @@ public class BodyRenderer extends javax.swing.JPanel {
         wornPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
         jPanel6.add(wornPanel);
 
-        jPanel5.add(jPanel6);
+        jPanel5.add(jPanel6, java.awt.BorderLayout.CENTER);
 
         jPanel2.add(jPanel5, java.awt.BorderLayout.NORTH);
 
         toolsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Tools:"));
-        toolsPanel.setLayout(new java.awt.GridLayout(0, 1));
+        toolsPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 2, 2));
         jPanel2.add(toolsPanel, java.awt.BorderLayout.CENTER);
 
         extraActionsPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 2, 2));
