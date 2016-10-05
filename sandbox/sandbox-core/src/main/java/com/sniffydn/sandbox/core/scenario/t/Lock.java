@@ -85,8 +85,8 @@ public class Lock extends Tool {
 
                     @Override
                     protected void scenarioActionPerformed(ActionEvent e) {
+                        System.out.println(e);
                         finalT.attachTo(Lock.this);
-                        Lock.this.attachTo(finalT);
                     }
                 });
                 actions.add(a);

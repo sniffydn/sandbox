@@ -1,13 +1,14 @@
 package com.sniffydn.sandbox.core.scenario.ui;
 
 import com.sniffydn.sandbox.core.scenario.Action;
-import com.sniffydn.sandbox.core.scenario.t.Tool;
 import com.sniffydn.sandbox.core.scenario.furniture.FurniturePositions;
-import javax.swing.JButton;
+import com.sniffydn.sandbox.core.scenario.t.Tool;
+import javax.swing.DefaultComboBoxModel;
 
 public class ToolRenderer extends javax.swing.JPanel {
 
     private Tool tool;
+    private DefaultComboBoxModel<Action> model = new DefaultComboBoxModel<>();
 
     /**
      * Creates new form BodyRenderer
@@ -17,6 +18,19 @@ public class ToolRenderer extends javax.swing.JPanel {
         initComponents();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder(tool.getShortDescription()));
+        jComboBox1.setModel(model);
+
+        for(Tool t: tool.getAttachedTo()) {
+            attachedPanel.add(new ToolRenderer(t, true));
+        }
+    }
+
+    private ToolRenderer(Tool tool, boolean dontAddAttachedTo) {
+        this.tool = tool;
+        initComponents();
+
+        setBorder(javax.swing.BorderFactory.createTitledBorder(tool.getShortDescription()));
+        jComboBox1.setModel(model);
     }
 
     /**
@@ -28,19 +42,47 @@ public class ToolRenderer extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        actionsPanel = new javax.swing.JPanel();
+        attachedPanel = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jComboBox1 = new javax.swing.JComboBox();
+        jButton1 = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder("Title"));
         setLayout(new java.awt.BorderLayout());
 
-        actionsPanel.setOpaque(false);
-        actionsPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
-        add(actionsPanel, java.awt.BorderLayout.CENTER);
+        attachedPanel.setOpaque(false);
+        attachedPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        add(attachedPanel, java.awt.BorderLayout.CENTER);
+
+        jPanel1.setOpaque(false);
+        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 2, 0));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox1);
+
+        jButton1.setText("<");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+
+        add(jPanel1, java.awt.BorderLayout.NORTH);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        System.out.println(jComboBox1.getSelectedItem());
+        Action a = (Action) jComboBox1.getSelectedItem();
+        a.getActionListener().actionPerformed(evt);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel actionsPanel;
+    private javax.swing.JPanel attachedPanel;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
     /**
@@ -55,15 +97,16 @@ public class ToolRenderer extends javax.swing.JPanel {
     }
 
     public void addAction(Action a) {
-        JButton button = new JButton(a.getActionDescription());
-
-        if(a.getActionShortDescription() != null) {
-            button.setText(a.getActionShortDescription());
-        }
-
-        button.setToolTipText(a.getActionDescription() + "  " + a.getActionType());
-        button.addActionListener(a.getActionListener());
-        actionsPanel.add(button);
+        model.addElement(a);
+//
+//        JButton button = new JButton(a.getActionDescription());
+//
+//        if(a.getActionShortDescription() != null) {
+//            button.setText(a.getActionShortDescription());
+//        }
+//
+//        button.setToolTipText(a.getActionDescription() + "  " + a.getActionType());
+//        button.addActionListener(a.getActionListener());
+//        actionsPanel.add(button);
     }
-
 }

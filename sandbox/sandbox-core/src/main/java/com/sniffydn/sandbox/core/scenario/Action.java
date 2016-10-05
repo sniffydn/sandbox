@@ -1,8 +1,8 @@
 
 package com.sniffydn.sandbox.core.scenario;
 
-import com.sniffydn.sandbox.core.scenario.t.Tool;
 import com.sniffydn.sandbox.core.scenario.furniture.Furniture;
+import com.sniffydn.sandbox.core.scenario.t.Tool;
 
 public class Action {
     private ActionType actionType;
@@ -106,9 +106,13 @@ public class Action {
         this.actionShortDescription = actionShortDescription;
     }
 
+    public String getVerbose() {
+        return getActionDescription() + " " + getActionType() + " " + getCurrentFurniture() + " " + getCurrentTool();
+    }
+
     @Override
     public String toString() {
-        return getActionDescription() + " " + getActionType() + " " + getCurrentFurniture() + " " + getCurrentTool();
+        return getActionShortDescription();
     }
 
     /**
