@@ -24,6 +24,7 @@ public abstract class Tool extends CommonObject {
     private List<String> keys = new ArrayList<String>();
 
     public abstract List<Action> getAvailableActionsByHolder(final CommonBody holder);
+    public abstract void updateAvailableActionTypes(final CommonBody holder);
 
     protected List<Action> getCommonActions(final CommonBody holder) {
         boolean hasCode = true;

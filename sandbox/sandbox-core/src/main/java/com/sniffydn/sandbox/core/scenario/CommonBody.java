@@ -126,6 +126,16 @@ public class CommonBody {
         for (Clothes c : clothes) {
             availableActionTypes.addAll(c.getAvailableActionTypes());
         }
+
+        for (Tool tool : tools) {
+            if (!(tool instanceof Clothes)) {
+                tool.updateAvailableActionTypes(this);
+            }
+        }
+
+        for (Clothes c : clothes) {
+            c.updateAvailableActionTypes(this);
+        }
     }
 
     public void updateAvailableActions() {

@@ -34,4 +34,9 @@ public class Key extends Tool {
         return keyCodes.contains(key);
     }
 
+    @Override
+    public void updateAvailableActionTypes(CommonBody holder) {
+        //do nothing
+    }
+
 }

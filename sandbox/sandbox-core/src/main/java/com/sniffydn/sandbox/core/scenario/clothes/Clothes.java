@@ -161,4 +161,16 @@ public class Clothes extends Tool {
     public List<ClothesType> getClothesTypes() {
         return clothesTypes;
     }
+
+    @Override
+    public void updateAvailableActionTypes(CommonBody holder) {
+        for(Tool t: getAttachedTo()) {
+            if(t instanceof Clothes) {
+                if(holder.getClothes().contains(t)) {
+                    holder.getAvailableActionTypes().clear();
+                    holder.getAvailableActionTypes().add(ActionType.INVOLUNTARY);
+                }
+            }
+        }
+    }
 }
