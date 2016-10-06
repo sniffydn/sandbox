@@ -5,7 +5,6 @@ import com.sniffydn.sandbox.core.scenario.clothes.ClothesUtil;
 import com.sniffydn.sandbox.core.scenario.furniture.Furniture;
 import com.sniffydn.sandbox.core.scenario.furniture.FurniturePositions;
 import com.sniffydn.sandbox.core.scenario.t.Key;
-import com.sniffydn.sandbox.core.scenario.t.Lock;
 import com.sniffydn.sandbox.core.scenario.t.Tool;
 import com.sniffydn.sandbox.core.scenario.t.ToolUtil;
 import com.sniffydn.sandbox.core.scenario.ui.Scenario;
@@ -25,6 +24,7 @@ public class Main {
 
         Key key = ToolUtil.getDoorKey("room", "room");
         key.addKeyCode("closet");
+        key.addKeyCode("cuff");
         Key key2 = ToolUtil.getDoorKey("room", "room");
         key.addKeyCode("closet");
 
@@ -52,19 +52,15 @@ public class Main {
         bed.setShortDescription("bed");
         bed.getAvailablePositions().add(FurniturePositions.ON);
 
-        key.addKeyCode("lock");
-        Lock lock = new Lock("lock");
-        bed.addTool(FurniturePositions.BY, lock);
-
         Furniture sdresser = new Furniture();
         sdresser.setLongDescription("small dresser");
         sdresser.setShortDescription("sdresser");
         sdresser.getAvailableToolPositions().add(FurniturePositions.IN);
         sdresser.getAvailableToolPositions().add(FurniturePositions.ON);
 
-        sdresser.addTool(FurniturePositions.IN, ClothesUtil.getMBC());
-        sdresser.addTool(FurniturePositions.IN, ClothesUtil.getMLWCuff());
-        sdresser.addTool(FurniturePositions.IN, ClothesUtil.getMRWCuff());
+        sdresser.addTool(FurniturePositions.IN, ClothesUtil.getMBC("cuff"));
+        sdresser.addTool(FurniturePositions.IN, ClothesUtil.getMLWCuff("cuff"));
+        sdresser.addTool(FurniturePositions.IN, ClothesUtil.getMRWCuff("cuff"));
 
         Room room = new Room();
         room.setLongDescription("large room");

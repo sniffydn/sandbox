@@ -54,12 +54,13 @@ public class ClothesUtil {
         return clothes;
     }
 
-    public static Clothes getMBC() {
+    public static Clothes getMBC(String key) {
         Clothes clothes = new Clothes();
         clothes.setWeight(0);
         clothes.setBodyType(BodyType.M);
         clothes.getCovers().add(new T());
 
+        clothes.addKey(key);
         clothes.getClothesTypes().add(ClothesType.UNDER_BOTTOM);
         clothes.setShortDescription(" bc");
         clothes.setLongDescription(" bc description with a ring attached");
@@ -70,33 +71,37 @@ public class ClothesUtil {
         return clothes;
     }
 
-    public static Tool getMLWCuff() {
+    public static Tool getMLWCuff(String key) {
         Clothes clothes = new Clothes();
         clothes.setWeight(0);
         clothes.setBodyType(BodyType.M);
         clothes.getCovers().add(new Wrist(Boolean.FALSE));
 
+        clothes.addKey(key);
         clothes.getClothesTypes().add(ClothesType.OTHER);
         clothes.setShortDescription(" cuff");
         clothes.setLongDescription(" cuff description with a ring attached");
 
         clothes.getAttachments().add(Attachment.RING);
+        clothes.getAttachesTo().add(Attachment.RING);
         clothes.setAttachablePointCount(1);
 
         return clothes;
     }
 
-    public static Tool getMRWCuff() {
+    public static Tool getMRWCuff(String key) {
         Clothes clothes = new Clothes();
         clothes.setWeight(0);
         clothes.setBodyType(BodyType.M);
         clothes.getCovers().add(new Wrist(Boolean.TRUE));
 
+        clothes.addKey(key);
         clothes.getClothesTypes().add(ClothesType.OTHER);
         clothes.setShortDescription(" cuff");
         clothes.setLongDescription(" cuff description with a ring attached");
 
         clothes.getAttachments().add(Attachment.RING);
+        clothes.getAttachesTo().add(Attachment.RING);
         clothes.setAttachablePointCount(1);
 
         return clothes;

@@ -7,7 +7,6 @@ import com.sniffydn.sandbox.core.scenario.CommonObject;
 import com.sniffydn.sandbox.core.scenario.CustomAction;
 import com.sniffydn.sandbox.core.scenario.ScenarioActionListener;
 import com.sniffydn.sandbox.core.scenario.furniture.FurniturePositions;
-import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,14 +21,26 @@ public abstract class Tool extends CommonObject {
     private List<Attachment> attachesTo = new ArrayList<>();
     private List<Attachment> attachments = new ArrayList<>();
     private int attachablePointCount = 0;
+    private List<String> keys = new ArrayList<String>();
 
     public abstract List<Action> getAvailableActionsByHolder(final CommonBody holder);
 
     protected List<Action> getCommonActions(final CommonBody holder) {
+        boolean hasCode = true;
+        if (keys.size() > 0) {
+            hasCode = false;
+            for (String key : keys) {
+                if (holder.hasCode(key)) {
+                    hasCode = true;
+                    break;
+                }
+            }
+        }
+
         List<Action> actions = new ArrayList<>();
 
         for (CustomAction ta : toolActions) {
-            if (ta.canPerformAction(holder)) {
+            if (hasCode && ta.canPerformAction(holder)) {
                 actions.add(ta.getAction());
             }
         }
@@ -157,7 +168,7 @@ public abstract class Tool extends CommonObject {
             if (otherTool.attachablePointCount > otherTool.attachedTo.size()) {
                 for (Attachment atTo : attachesTo) {
                     for (Attachment at : attachments) {
-                        if(atTo.equals(at)) {
+                        if (atTo.equals(at)) {
                             return true;
                         }
                     }
@@ -184,5 +195,19 @@ public abstract class Tool extends CommonObject {
      */
     public void setAttachablePointCount(int attachablePointCount) {
         this.attachablePointCount = attachablePointCount;
+    }
+
+    /**
+     * @return the keys
+     */
+    public List<String> getKeys() {
+        return keys;
+    }
+
+    /**
+     * @param keys the keys to set
+     */
+    public void addKey(String key) {
+        keys.add(key);
     }
 }

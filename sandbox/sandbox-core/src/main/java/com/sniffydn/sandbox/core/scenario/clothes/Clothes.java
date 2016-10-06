@@ -7,7 +7,6 @@ import com.sniffydn.sandbox.core.scenario.ScenarioActionListener;
 import com.sniffydn.sandbox.core.scenario.b.BodyPart;
 import com.sniffydn.sandbox.core.scenario.furniture.FurniturePositions;
 import com.sniffydn.sandbox.core.scenario.t.Tool;
-import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,9 +24,20 @@ public class Clothes extends Tool {
     }
 
     public List<Action> getAvailableActionsByHolder(final CommonBody holder) {
+        boolean hasCode = true;
+        if (getKeys().size() > 0) {
+            hasCode = false;
+            for (String key : getKeys()) {
+                if (holder.hasCode(key)) {
+                    hasCode = true;
+                    break;
+                }
+            }
+        }
+
         List<Action> actions = new ArrayList<>();
         if (holder.hasClothes(this)) {
-            if (holder.getCurrentFurniture() != null && holder.getCurrentFurniturePosition() == FurniturePositions.BY) {
+            if (hasCode && holder.getCurrentFurniture() != null && holder.getCurrentFurniturePosition() == FurniturePositions.BY) {
                 for (final FurniturePositions position : holder.getCurrentFurniture().getAvailableToolPositions()) {
                     Action a = new Action(ActionType.TOOL, "Put " + getShortDescription() + " " + position + " " + holder.getCurrentFurniture().getShortDescription(), new ScenarioActionListener() {
 
@@ -45,7 +55,17 @@ public class Clothes extends Tool {
 
             if (holder.getCurrentRoom().getBodies().size() > 1) {
                 for (final CommonBody b : holder.getCurrentRoom().getBodies()) {
-                    if (b != holder && b.getCurrentFurniture() == holder.getCurrentFurniture() && b.getCurrentToolCarry() + weight <= b.getMaxToolCapacity()) {
+                    boolean otherHasCode = true;
+                    if (getKeys().size() > 0) {
+                        otherHasCode = false;
+                        for (String key : getKeys()) {
+                            if (b.hasCode(key)) {
+                                otherHasCode = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (otherHasCode && b != holder && b.getCurrentFurniture() == holder.getCurrentFurniture() && b.getCurrentToolCarry() + weight <= b.getMaxToolCapacity()) {
                         if (!holder.getAvailableActionTypes().contains(ActionType.RESIST_STEAL)) {
                             Action a1 = new Action(ActionType.STEAL, "Take " + getShortDescription() + " off of " + holder.getName(), new ScenarioActionListener() {
 
@@ -60,7 +80,7 @@ public class Clothes extends Tool {
                             a1.setCurrentFurniture(holder.getCurrentFurniture());
                             b.addAction(a1);
                         }
-                        if (!holder.getAvailableActionTypes().contains(ActionType.RESIST_COMPEL)) {
+                        if (hasCode && !holder.getAvailableActionTypes().contains(ActionType.RESIST_COMPEL)) {
                             Action a1 = new Action(ActionType.COMPEL, "Make " + holder.getName() + " take off " + getShortDescription(), new ScenarioActionListener() {
 
                                 @Override
@@ -78,7 +98,7 @@ public class Clothes extends Tool {
         } else {
             actions = getCommonActions(holder);
 
-            if (holder.canAdd(this)) {
+            if (hasCode && holder.canAdd(this)) {
                 Action a1 = new Action(ActionType.TOOL, "Put " + getShortDescription() + " on", new ScenarioActionListener() {
 
                     @Override
@@ -94,7 +114,7 @@ public class Clothes extends Tool {
 
             if (holder.getCurrentRoom().getBodies().size() > 1) {
                 for (final CommonBody b : holder.getCurrentRoom().getBodies()) {
-                    if (b != holder && b.canAdd(this) && b.getCurrentFurniture() == holder.getCurrentFurniture()) {
+                    if (hasCode && b != holder && b.canAdd(this) && b.getCurrentFurniture() == holder.getCurrentFurniture()) {
                         if (!b.getAvailableActionTypes().contains(ActionType.RESIST_COMPEL)) {
                             Action a1 = new Action(ActionType.COMPEL, "Put " + getShortDescription() + " on " + b.getName(), new ScenarioActionListener() {
 
