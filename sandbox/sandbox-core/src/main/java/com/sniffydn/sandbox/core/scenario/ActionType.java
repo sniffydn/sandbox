@@ -11,5 +11,6 @@ public enum ActionType {
     STEAL,
     RESIST_STEAL,
     COMPEL,
-    RESIST_COMPEL
+    RESIST_COMPEL,
+    ATTACH
 }

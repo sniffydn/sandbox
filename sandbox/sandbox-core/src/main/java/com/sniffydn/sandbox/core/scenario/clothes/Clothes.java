@@ -37,6 +37,7 @@ public class Clothes extends Tool {
 
         List<Action> actions = new ArrayList<>();
         if (holder.hasClothes(this)) {
+            actions = getAttachmentActions(holder);
             if (hasCode && holder.getCurrentFurniture() != null && holder.getCurrentFurniturePosition() == FurniturePositions.BY) {
                 for (final FurniturePositions position : holder.getCurrentFurniture().getAvailableToolPositions()) {
                     Action a = new Action(ActionType.TOOL, "Put " + getShortDescription() + " " + position + " " + holder.getCurrentFurniture().getShortDescription(), new ScenarioActionListener() {

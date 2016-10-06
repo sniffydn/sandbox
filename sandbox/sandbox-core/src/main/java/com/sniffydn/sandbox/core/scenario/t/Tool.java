@@ -45,6 +45,8 @@ public abstract class Tool extends CommonObject {
             }
         }
 
+        actions.addAll(getAttachmentActions(holder));
+
         if (holder.getCurrentFurniture() != null && holder.getCurrentFurniture().getAvailableToolPositions().contains(FurniturePositions.BY)) {
             for (final FurniturePositions position : holder.getCurrentFurniture().getAvailableToolPositions()) {
                 Action a = new Action(ActionType.TOOL, "Put " + getShortDescription() + " " + position + " " + holder.getCurrentFurniture().getShortDescription(), new ScenarioActionListener() {
@@ -210,4 +212,81 @@ public abstract class Tool extends CommonObject {
     public void addKey(String key) {
         keys.add(key);
     }
+
+    private void attachTools(Attachment to, CommonBody holder, boolean hasCode, List<Action> actions) {
+        for (final Tool t : holder.getTools()) {
+            if (t != this) {
+                parseAttachments(t, to, hasCode, actions, holder);
+            }
+        }
+    }
+
+    private void attachClothes(Attachment to, CommonBody holder, boolean hasCode, List<Action> actions) {
+        for (final Tool t : holder.getClothes()) {
+            if (t != this) {
+                parseAttachments(t, to, hasCode, actions, holder);
+            }
+        }
+    }
+
+    private void parseAttachments(final Tool t, Attachment to, boolean hasCode, List<Action> actions, CommonBody holder) {
+        for (Attachment tat : t.getAttachments()) {
+            if (tat.equals(to)) {
+                Action a = new Action(ActionType.GENERAL, "Attach " + getShortDescription() + " to " + t.getShortDescription(), new ScenarioActionListener() {
+
+                    @Override
+                    protected void scenarioActionPerformed() {
+                        attachTo(t);
+                    }
+                });
+                a.setActionShortDescription(getShortDescription() + " to " + t.getShortDescription());
+                if (hasCode) {
+                    actions.add(a);
+                }
+
+                for (final CommonBody b : holder.getCurrentRoom().getBodies()) {
+                    boolean otherHasCode = true;
+                    if (getKeys().size() > 0) {
+                        otherHasCode = false;
+                        for (String key : getKeys()) {
+                            if (b.hasCode(key)) {
+                                otherHasCode = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (b != holder
+                            && otherHasCode
+                            && b.getAvailableActionTypes().contains(ActionType.COMPEL)
+                            && !holder.getAvailableActionTypes().contains(ActionType.RESIST_COMPEL)) {
+                        b.addAction(a);
+                    }
+                }
+            }
+        }
+    }
+
+    public List<Action> getAttachmentActions(CommonBody holder) {
+        List<Action> actions = new ArrayList<>();
+        boolean hasCode = true;
+        if (keys.size() > 0) {
+            hasCode = false;
+            for (String key : keys) {
+                if (holder.hasCode(key)) {
+                    hasCode = true;
+                    break;
+                }
+            }
+        }
+        if (attachablePointCount > attachedTo.size()) {
+            for (Attachment to : attachesTo) {
+                attachTools(to, holder, hasCode, actions);
+                attachClothes(to, holder, hasCode, actions);
+//                System.out.println("Deal with " + holder.getCurrentFurniture());
+            }
+        }
+
+        return actions;
+    }
+
 }
