@@ -2,6 +2,8 @@
 package com.sniffydn.sandbox.core.sn.ui;
 
 import com.sniffydn.sandbox.core.sn.Step;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -54,10 +56,59 @@ public class SnMain extends javax.swing.JFrame {
 //            }
 //        });
 
+        List<Step> allSteps = new ArrayList<>();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         Step parentStep = new Step();
 
         Step subStep1 = new Step();
         subStep1.setPrefixText("");
+        subStep1.setSuffixText("");
+        allSteps.add(subStep1);
+
+        Step subStep2 = new Step();
+        subStep2.setPrefixText("");
+        subStep2.setSuffixText("");
+        allSteps.add(subStep2);
+
+        Step subStep3 = new Step();
+        subStep3.setPrefixText("");
+        subStep3.setSuffixText("");
+        allSteps.add(subStep3);
+
+        Step subStep4 = new Step();
+        subStep4.setPrefixText("");
+        subStep4.setSuffixText("");
+        allSteps.add(subStep4);
+
+        Step subStep5 = new Step();
+        subStep4.setPrefixText("");
+        subStep4.setSuffixText("");
+        allSteps.add(subStep5);
+
+
+//        subStep4.print();
 //        Tool tool1 = new Tool();
 //        tool1.setLongDescription("Tool Long Description");
 //        tool1.setShortDescription("Short Description");
