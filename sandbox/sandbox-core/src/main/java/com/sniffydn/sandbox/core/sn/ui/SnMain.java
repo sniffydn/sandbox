@@ -30,17 +30,6 @@ public class SnMain extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -50,11 +39,13 @@ public class SnMain extends javax.swing.JFrame {
     public static void main(String args[]) {
        
         /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new SnMain().setVisible(true);
-//            }
-//        });
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new SnMain().setVisible(true);
+            }
+        });
+
+
 
         List<Step> allSteps = new ArrayList<>();
 
@@ -123,6 +114,7 @@ public class SnMain extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void postInitComponents() {
-       
+       add(new StepPanel());
+       pack();
     }
 }
