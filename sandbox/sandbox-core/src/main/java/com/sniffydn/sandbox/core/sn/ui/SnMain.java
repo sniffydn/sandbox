@@ -1,7 +1,18 @@
-
 package com.sniffydn.sandbox.core.sn.ui;
 
 import com.sniffydn.sandbox.core.sn.Step;
+import com.sniffydn.sandbox.core.sn.Util;
+import com.sniffydn.sandbox.core.sn.clts.Shoes;
+import com.sniffydn.sandbox.core.sn.impl.Her;
+import com.sniffydn.sandbox.core.sn.impl.HerOutfit;
+import com.sniffydn.sandbox.core.sn.impl.Me;
+import com.sniffydn.sandbox.core.sn.impl.MeOutfit;
+import com.sniffydn.sandbox.core.sn.impl.Scene;
+import com.sniffydn.sandbox.core.sn.impl.meout.MeOutfit1;
+import com.sniffydn.sandbox.core.sn.impl.sh.S1;
+import com.sniffydn.sandbox.core.sn.impl.sh.S2;
+import com.sniffydn.sandbox.core.sn.impl.sn.Scene1;
+import com.sniffydn.sandbox.core.sn.impl.tp.D1;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,39 +48,14 @@ public class SnMain extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-       
+
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new SnMain().setVisible(true);
-            }
-        });
-
-
-
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new SnMain().setVisible(true);
+//            }
+//        });
         List<Step> allSteps = new ArrayList<>();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         Step parentStep = new Step();
 
@@ -98,23 +84,45 @@ public class SnMain extends javax.swing.JFrame {
         subStep4.setSuffixText("");
         allSteps.add(subStep5);
 
-
 //        subStep4.print();
 //        Tool tool1 = new Tool();
 //        tool1.setLongDescription("Tool Long Description");
 //        tool1.setShortDescription("Short Description");
 //
 //        Document doc = new Document();
-
-
         parentStep.print();
+        general();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
-
     private void postInitComponents() {
-       add(new StepPanel());
-       pack();
+        add(new StepPanel());
+        pack();
+    }
+
+    private static void general() {
+
+        List<Shoes> allShoes = new ArrayList<>();
+        allShoes.add(new S1());
+        allShoes.add(new S2());
+        HerOutfit outfit = new HerOutfit();
+        outfit.setShoes(allShoes.get(Util.getRandom(allShoes.size())));
+        outfit.setTop(new D1());
+
+        Her her = new Her();
+        her.setOutfit(outfit);
+
+
+        MeOutfit mof = new MeOutfit1();
+
+        Me me = new Me();
+        me.setOutfit(mof);
+
+        Scene scene = new Scene1();
+        scene.setHer(her);
+        scene.setMe(me);
+
+        System.out.println(scene.print());
     }
 }

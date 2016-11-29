@@ -1,6 +1,14 @@
 
 package com.sniffydn.sandbox.core.sn.clts;
 
-class Top {
+public class Top extends CltsItem {
 
+    protected TopType type = TopType.SHRT;
+
+    /**
+     * @return the type
+     */
+    public TopType getType() {
+        return type;
+    }
 }

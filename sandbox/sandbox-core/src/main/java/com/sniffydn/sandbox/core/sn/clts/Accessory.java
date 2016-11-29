@@ -1,6 +1,5 @@
-
 package com.sniffydn.sandbox.core.sn.clts;
 
-class Accessory {
+public class Accessory extends CltsItem {
 
 }

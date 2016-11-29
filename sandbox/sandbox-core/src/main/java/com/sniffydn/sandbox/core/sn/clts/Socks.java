@@ -1,6 +1,5 @@
-
 package com.sniffydn.sandbox.core.sn.clts;
 
-class Socks {
+public class Socks extends CltsItem {
 
 }

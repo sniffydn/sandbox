@@ -1,6 +1,6 @@
 
 package com.sniffydn.sandbox.core.sn.clts;
 
-class Under {
+public class Under extends CltsItem {
 
 }
