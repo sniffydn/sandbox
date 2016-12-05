@@ -1,20 +1,29 @@
-
 package com.sniffydn.sandbox.core.sn.impl;
 
-import com.sniffydn.sandbox.core.sn.Persons;
+import com.sniffydn.sandbox.core.sn.Util;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Me {
-    public static Persons person = Persons.SECOND_PERSON;
 
-    public static String getHe() {
-        return person.getPersonMap().get("he").get(0);
+    private static final Map<String, List<String>> COMMON_VERBS = new HashMap<>();
+
+    static {
+        for (String key : Util.COMMON_VERBS.keySet()) {
+            List<String> tempList = new ArrayList<>(Util.COMMON_VERBS.get(key));
+            getCOMMON_VERBS().put(key, tempList);
+        }
     }
 
-    public static String getHimself() {
-        return person.getPersonMap().get("himself").get(0);
+    /**
+     * @return the COMMON_VERBS
+     */
+    public static Map<String, List<String>> getCOMMON_VERBS() {
+        return COMMON_VERBS;
     }
     private MeOutfit outfit;
-
 
     public void print() {
         System.out.print("He is wearing ");

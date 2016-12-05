@@ -26,9 +26,11 @@ public class Scene extends Item {
     }
 
     public String print() {
-        String temp = scene.replaceAll(Pattern.quote("$herWearing#"), Matcher.quoteReplacement(getHer().printOutfit()));
+        String temp = scene.replaceAll(Pattern.quote("$herWearing#"), Matcher.quoteReplacement(getHer().printOutfit(getMe())));
         temp = temp.replaceAll(Pattern.quote("$meWearing#"), Matcher.quoteReplacement(getMe().printOutfit()));
 
+        temp = temp.replaceAll(Pattern.quote("$meUd#"), Matcher.quoteReplacement(getMe().getOutfit().ud()));
+        temp = temp.replaceAll(Pattern.quote("$meHud#"), Matcher.quoteReplacement(getMe().getOutfit().hud()));
         temp = temp.replace(Pattern.quote("$scene#"), Matcher.quoteReplacement(getDescription()));
         if (temp.contains("$scene#")) {
             temp = temp.replaceAll(Pattern.quote("$scene#"), Matcher.quoteReplacement(getDescription()));
@@ -51,5 +53,13 @@ public class Scene extends Item {
      */
     public void setMe(Me me) {
         this.me = me;
+    }
+
+    public static String me(String text) {
+        return Util.me(text);
+    }
+
+    public static String her(String text) {
+        return Util.her(text);
     }
 }

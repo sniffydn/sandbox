@@ -10,7 +10,6 @@ import com.sniffydn.sandbox.core.sn.impl.MeOutfit;
 import com.sniffydn.sandbox.core.sn.impl.Scene;
 import com.sniffydn.sandbox.core.sn.impl.meout.MeOutfit1;
 import com.sniffydn.sandbox.core.sn.impl.sh.S1;
-import com.sniffydn.sandbox.core.sn.impl.sh.S2;
 import com.sniffydn.sandbox.core.sn.impl.sn.Scene1;
 import com.sniffydn.sandbox.core.sn.impl.tp.D1;
 import java.util.ArrayList;
@@ -105,7 +104,7 @@ public class SnMain extends javax.swing.JFrame {
 
         List<Shoes> allShoes = new ArrayList<>();
         allShoes.add(new S1());
-        allShoes.add(new S2());
+//        allShoes.add(new S2());
         HerOutfit outfit = new HerOutfit();
         outfit.setShoes(allShoes.get(Util.getRandom(allShoes.size())));
         outfit.setTop(new D1());

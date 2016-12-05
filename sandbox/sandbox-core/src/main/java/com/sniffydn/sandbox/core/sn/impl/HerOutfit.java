@@ -28,6 +28,10 @@ public class HerOutfit {
      * @param shoes the shoes to set
      */
     public void setShoes(Shoes shoes) {
+        if(this.shoes != null) {
+            this.shoes.updateMapRemove(null, null);
+        }
+        shoes.updateMapAdd(null, null);
         this.shoes = shoes;
     }
 
@@ -115,7 +119,9 @@ public class HerOutfit {
         this.acc2 = acc2;
     }
 
-    public String print() {
+    public String print(Her her, Me me) {
+        updateMap(her, me);
+
         boolean first = true;
         StringBuilder sb = new StringBuilder();
 
@@ -187,5 +193,29 @@ public class HerOutfit {
         }
 
         return sb.toString();
+    }
+
+    private void updateMap(Her her, Me me) {
+        if (shoes != null) {
+            shoes.updateMapAdd(her, me);
+        }
+        if (socks != null) {
+            socks.updateMapAdd(her, me);
+        }
+        if (bottoms != null) {
+            bottoms.updateMapAdd(her, me);
+        }
+        if (under != null) {
+            under.updateMapAdd(her, me);
+        }
+        if (top != null) {
+            top.updateMapAdd(her, me);
+        }
+        if (acc1 != null) {
+            acc1.updateMapAdd(her, me);
+        }
+        if (acc2 != null) {
+            acc2.updateMapAdd(her, me);
+        }
     }
 }
