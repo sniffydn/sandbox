@@ -155,12 +155,19 @@ public class Sentence {
 //
 //        System.out.println(s4);
 //
+//        Sentence s6 = new Sentence(n1, v2);
+//        s6.setDirectObject(new DirectObject(n3));
+//
+//        System.out.println(s6);
+//
+//
 //        Sentence s5 = new Sentence(n4, v5);
 //        Preposition p3 = new Preposition("to");
 //        p3.setNoun(n5);
 //        s5.setPreposition(p3);
 //
 //        System.out.println(s5);
+
 
     }
 

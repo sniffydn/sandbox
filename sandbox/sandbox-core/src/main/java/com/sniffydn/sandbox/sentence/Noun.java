@@ -1,9 +1,13 @@
 package com.sniffydn.sandbox.sentence;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Noun {
+
+    private static Map<Person, Noun> ANTECEDENT = new HashMap<Person, Noun>();
 
     private Person person = Person.THIRD_SINGULAR_NEUTRAL;
     private boolean singular = true;
@@ -65,31 +69,30 @@ public class Noun {
         return adjective;
     }
 
-    int toStringCount = -1;
-
     /**
      * @return the pronoun
      */
     public String getSubject() {
-        toStringCount++;
-        if (toStringCount % 4 != 0 || getPerson().equals(Person.FIRST_SINGULAR) || getPerson().equals(Person.SECOND_SINGULAR)) {
+        if (this.equals(ANTECEDENT.get(person)) || getPerson().equals(Person.FIRST_SINGULAR) || getPerson().equals(Person.SECOND_SINGULAR)) {
+            ANTECEDENT.put(person, this);
             return getPerson().getSubject();
         }
 
         StringBuilder sb = new StringBuilder();
-        if (toStringCount == 0) {
+        if (!this.equals(ANTECEDENT.get(person))) {
             for (String a : adjective) {
                 sb.append(a);
                 sb.append(" ");
             }
         }
         sb.append(noun);
+        ANTECEDENT.put(person, this);
         return sb.toString();
     }
 
     public String getObjectPronoun() {
-        toStringCount++;
-        if (toStringCount % 4 != 0 || getPerson().equals(Person.FIRST_SINGULAR) || getPerson().equals(Person.SECOND_SINGULAR)) {
+        if (this.equals(ANTECEDENT.get(person)) || getPerson().equals(Person.FIRST_SINGULAR) || getPerson().equals(Person.SECOND_SINGULAR)) {
+        ANTECEDENT.put(person, this);
             return getPerson().getObject();
         }
 
@@ -101,7 +104,7 @@ public class Noun {
             sb.append(posseser.getPossessive());
             sb.append(" ");
         }
-        if (toStringCount == 0) {
+        if (!this.equals(ANTECEDENT.get(person))) {
             for (String a : adjective) {
                 sb.append(a);
                 sb.append(" ");
@@ -109,6 +112,7 @@ public class Noun {
         }
 
         sb.append(noun);
+        ANTECEDENT.put(person, this);
         return sb.toString();
     }
 
@@ -134,20 +138,22 @@ public class Noun {
     }
 
     private String getPossessivePronoun() {
-        toStringCount++;
-        if (toStringCount % 4 != 0 || getPerson().equals(Person.FIRST_SINGULAR) || getPerson().equals(Person.SECOND_SINGULAR)) {
+        if (this.equals(ANTECEDENT.get(person)) || getPerson().equals(Person.FIRST_SINGULAR) || getPerson().equals(Person.SECOND_SINGULAR)) {
+        ANTECEDENT.put(person, this);
             return getPerson().getPossessivePronoun();
         }
-        
+
+        ANTECEDENT.put(person, this);
         return noun + "'s";
     }
     
     private String getPossessive() {
-        toStringCount++;
-        if (toStringCount % 4 != 0 || getPerson().equals(Person.FIRST_SINGULAR) || getPerson().equals(Person.SECOND_SINGULAR)) {
+        if (this.equals(ANTECEDENT.get(person)) || getPerson().equals(Person.FIRST_SINGULAR) || getPerson().equals(Person.SECOND_SINGULAR)) {
+        ANTECEDENT.put(person, this);
             return getPerson().getPossessive();
         }
-        
+
+        ANTECEDENT.put(person, this);
         return noun + "'s";
     }
 
