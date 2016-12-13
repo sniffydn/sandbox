@@ -10,9 +10,8 @@ public class Noun {
     private static Map<Person, Noun> ANTECEDENT = new HashMap<Person, Noun>();
 
     private Person person = Person.THIRD_SINGULAR_NEUTRAL;
-    private boolean singular = true;
     private String noun;
-    private String definiteArticle = "the";
+    private String definiteArticle = "";
     private List<String> adjective = new ArrayList<>();
     private Noun posseser;
 
@@ -20,18 +19,9 @@ public class Noun {
         this.noun = noun;
     }
 
-    /**
-     * @return the singular
-     */
-    public boolean isSingular() {
-        return singular;
-    }
-
-    /**
-     * @param singular the singular to set
-     */
-    public void setSingular(boolean singular) {
-        this.singular = singular;
+    public Noun(String adj, String noun) {
+         this.noun = noun;
+         adjective.add(adj);
     }
 
     /**
@@ -92,14 +82,16 @@ public class Noun {
 
     public String getObjectPronoun() {
         if (this.equals(ANTECEDENT.get(person)) || getPerson().equals(Person.FIRST_SINGULAR) || getPerson().equals(Person.SECOND_SINGULAR)) {
-        ANTECEDENT.put(person, this);
+            ANTECEDENT.put(person, this);
             return getPerson().getObject();
         }
 
         StringBuilder sb = new StringBuilder();
-        if(posseser == null) {
+        if (posseser == null) {
             sb.append(definiteArticle);
-            sb.append(" ");
+            if (definiteArticle.length() > 0) {
+                sb.append(" ");
+            }
         } else {
             sb.append(posseser.getPossessive());
             sb.append(" ");
@@ -139,22 +131,26 @@ public class Noun {
 
     private String getPossessivePronoun() {
         if (this.equals(ANTECEDENT.get(person)) || getPerson().equals(Person.FIRST_SINGULAR) || getPerson().equals(Person.SECOND_SINGULAR)) {
-        ANTECEDENT.put(person, this);
+            ANTECEDENT.put(person, this);
             return getPerson().getPossessivePronoun();
         }
 
         ANTECEDENT.put(person, this);
         return noun + "'s";
     }
-    
+
     private String getPossessive() {
         if (this.equals(ANTECEDENT.get(person)) || getPerson().equals(Person.FIRST_SINGULAR) || getPerson().equals(Person.SECOND_SINGULAR)) {
-        ANTECEDENT.put(person, this);
+            ANTECEDENT.put(person, this);
             return getPerson().getPossessive();
         }
 
         ANTECEDENT.put(person, this);
         return noun + "'s";
+    }
+
+    public String getReflexivePronoun() {
+        return getPerson().getReflexive();
     }
 
     /**

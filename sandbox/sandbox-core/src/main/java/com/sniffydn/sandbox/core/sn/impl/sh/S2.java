@@ -2,6 +2,7 @@ package com.sniffydn.sandbox.core.sn.impl.sh;
 
 import com.sniffydn.sandbox.core.sn.Util;
 import com.sniffydn.sandbox.core.sn.clts.Shoes;
+import com.sniffydn.sandbox.sentence.Noun;
 
 public class S2 extends Shoes {
 
@@ -10,8 +11,11 @@ public class S2 extends Shoes {
         if (height < 5) {
             height = 5;
         }
-        this.description = "$hh#";
-        this.longDescripion = "$primaryColor# " + height + "' $hhp# mjs";
+        noun = new Noun("$hh#");
+        noun.getAdjective().add("$primaryColor#");
+        noun.getAdjective().add(height + "'");
+        noun.getAdjective().add("$pl#");
+        noun.getAdjective().add("mj");
     }
 
 }

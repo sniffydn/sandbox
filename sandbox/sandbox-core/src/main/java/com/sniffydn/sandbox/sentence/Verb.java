@@ -5,12 +5,31 @@ import java.util.List;
 
 public class Verb {
 
+    public static Verb IS = new Verb("am", "are", "is", "are");
+
     private String verb;
     private List<String> adverb = new ArrayList<>();
     private Noun subject;
+    private String presentFirstSingular;
+    private String presentSecondSingular;
+    private String presentThirdSingular;
+    private String presentPlural;
+    private Verb subVerb;
 
     public Verb(String verb) {
         this.verb = verb;
+    }
+
+    public Verb(Verb v, String verb) {
+        subVerb = v;
+        this.verb = verb;
+    }
+
+    private Verb(String presentFirstSingular, String presentSecondSingular, String presentThirdSingular, String presentPlural) {
+        this.presentFirstSingular = presentFirstSingular;
+        this.presentSecondSingular = presentSecondSingular;
+        this.presentThirdSingular = presentThirdSingular;
+        this.presentPlural = presentPlural;
     }
 
     /**
@@ -41,12 +60,45 @@ public class Verb {
             sb.append(a);
             sb.append(" ");
         }
-
-        sb.append(subject.getPerson().parseVerb(this));
+        if(subVerb == null) {
+            sb.append(subject.getPerson().parseVerb(this));
+        } else {
+            sb.append(subject.getPerson().parseVerb(subVerb));
+            sb.append(" ");
+            sb.append(verb);
+        }
         return sb.toString();
     }
 
     void setSubject(Noun subject) {
         this.subject = subject;
+    }
+
+    /**
+     * @return the presentFirstSingular
+     */
+    public String getPresentFirstSingular() {
+        return presentFirstSingular;
+    }
+
+    /**
+     * @return the presentSecondSingular
+     */
+    public String getPresentSecondSingular() {
+        return presentSecondSingular;
+    }
+
+    /**
+     * @return the presentThirdSingular
+     */
+    public String getPresentThirdSingular() {
+        return presentThirdSingular;
+    }
+
+    /**
+     * @return the presentPlural
+     */
+    public String getPresentPlural() {
+        return presentPlural;
     }
 }

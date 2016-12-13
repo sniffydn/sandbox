@@ -1,34 +1,15 @@
-
 package com.sniffydn.sandbox.core.sn;
 
-import com.sniffydn.sandbox.core.sn.impl.Her;
-import com.sniffydn.sandbox.core.sn.impl.Me;
+import com.sniffydn.sandbox.sentence.Noun;
 
 public class Item {
-    protected String description;
-    protected String longDescripion;
 
-    private boolean first = true;
+    protected Noun noun;
+
     /**
-     * @return the description
+     * @return the noun
      */
-    public String getDescription() {
-        if(first) {
-            first = false;
-            return longDescripion;
-        }
-        return description;
-    }
-
-    public String print() {
-        return getDescription();
-    }
-
-    public void updateMapAdd(Her her, Me me) {
-        
-    }
-
-    public void updateMapRemove(Her her, Me me) {
-        
+    public Noun getNoun() {
+        return noun;
     }
 }

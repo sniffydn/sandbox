@@ -57,7 +57,6 @@ public class Sentence {
 
     public String toString() {
 
-
         StringBuilder sb = new StringBuilder(subject.getSubject());
         build(sb);
         sb.append(".");
@@ -65,7 +64,6 @@ public class Sentence {
     }
 
     public String directObjectToString() {
-
 
         StringBuilder sb = new StringBuilder(subject.getObjectPronoun());
         return build(sb);
@@ -81,7 +79,11 @@ public class Sentence {
         }
         if (directObject != null) {
             sb.append(" ");
-            sb.append(directObject);
+            if (subject.equals(directObject.getNoun())) {
+                sb.append(subject.getReflexivePronoun());
+            } else {
+                sb.append(directObject);
+            }
         }
         if (preposition != null) {
             sb.append(" ");
@@ -105,7 +107,7 @@ public class Sentence {
         this.verb = verb;
     }
 
-    public static void main(String [] args) {
+    public static void main(String[] args) {
 
 //        Noun n1 = new Noun("Kristen");
 //        n1.setPronoun(Person.FIRST_SINGULAR);
@@ -167,8 +169,6 @@ public class Sentence {
 //        s5.setPreposition(p3);
 //
 //        System.out.println(s5);
-
-
     }
 
     /**

@@ -1,12 +1,17 @@
 
 package com.sniffydn.sandbox.sentence;
 
-class Preposition {
+public class Preposition {
     private Noun noun;
     private String preposition;
 
     public Preposition(String preposition) {
         this.preposition = preposition;
+    }
+
+    public Preposition(String preposition, Noun noun) {
+        this.preposition = preposition;
+        this.noun = noun;
     }
 
     /**

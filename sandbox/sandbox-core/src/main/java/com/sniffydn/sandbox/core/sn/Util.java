@@ -19,7 +19,7 @@ public class Util {
         COLORS.add("blue");
 
         GLOBAL_REPLACE.put("$hh#", "hh");
-        GLOBAL_REPLACE.put("$hhp#", "hhp");
+        GLOBAL_REPLACE.put("$pl#", "pl");
         GLOBAL_REPLACE.put("$md#", "md");
         GLOBAL_REPLACE.put("$uw#", "uw");
         GLOBAL_REPLACE.put("$primaryColor#", COLORS.get(Util.getRandom(COLORS.size())));

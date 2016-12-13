@@ -1,13 +1,20 @@
 package com.sniffydn.sandbox.core.sn.impl;
 
+import com.sniffydn.sandbox.core.sn.Util;
 import com.sniffydn.sandbox.core.sn.clts.Accessory;
 import com.sniffydn.sandbox.core.sn.clts.Bottoms;
 import com.sniffydn.sandbox.core.sn.clts.Shoes;
 import com.sniffydn.sandbox.core.sn.clts.Socks;
 import com.sniffydn.sandbox.core.sn.clts.Top;
 import com.sniffydn.sandbox.core.sn.clts.Under;
+import com.sniffydn.sandbox.core.sn.impl.sh.S1;
+import com.sniffydn.sandbox.core.sn.impl.tp.D1;
+import com.sniffydn.sandbox.sentence.DirectObject;
+import com.sniffydn.sandbox.sentence.Noun;
+import java.util.ArrayList;
+import java.util.List;
 
-public class HerOutfit {
+public class KristenOutfit {
 
     private Shoes shoes;
     private Socks socks;
@@ -16,6 +23,14 @@ public class HerOutfit {
     private Top top;
     private Accessory acc1;
     private Accessory acc2;
+
+    public KristenOutfit() {
+        List<Shoes> allShoes = new ArrayList<>();
+        allShoes.add(new S1());
+//        allShoes.add(new S2());
+        setShoes(allShoes.get(Util.getRandom(allShoes.size())));
+        setTop(new D1());
+    }
 
     /**
      * @return the shoes
@@ -28,10 +43,6 @@ public class HerOutfit {
      * @param shoes the shoes to set
      */
     public void setShoes(Shoes shoes) {
-        if(this.shoes != null) {
-            this.shoes.updateMapRemove(null, null);
-        }
-        shoes.updateMapAdd(null, null);
         this.shoes = shoes;
     }
 
@@ -119,11 +130,9 @@ public class HerOutfit {
         this.acc2 = acc2;
     }
 
-    public String print(Her her, Me me) {
-        updateMap(her, me);
-
-        boolean first = true;
+    public DirectObject getDirectObject() {
         StringBuilder sb = new StringBuilder();
+        boolean first = true;
 
         if (top != null) {
             if (!first) {
@@ -132,7 +141,7 @@ public class HerOutfit {
                 sb.append("a ");
                 first = false;
             }
-            sb.append(top.print());
+            sb.append(top.getNoun().getSubject());
         }
         if (bottoms != null) {
             if (!first) {
@@ -141,7 +150,7 @@ public class HerOutfit {
                 sb.append("a ");
                 first = false;
             }
-            sb.append(bottoms.print());
+            sb.append(bottoms.getNoun().getSubject());
         }
 
         if (shoes != null) {
@@ -151,7 +160,7 @@ public class HerOutfit {
                 sb.append(" with ");
             }
             sb.append("a pair of ");
-            sb.append(shoes.print());
+            sb.append(shoes.getNoun().getSubject());
         }
         if (socks != null) {
             if (!first) {
@@ -159,7 +168,7 @@ public class HerOutfit {
             } else {
                 sb.append(" nothing but a pair of ");
             }
-            sb.append(socks.print());
+            sb.append(socks.getNoun().getSubject());
         }
         if (acc1 != null) {
             if (!first) {
@@ -167,7 +176,7 @@ public class HerOutfit {
             } else {
                 sb.append("a ");
             }
-            sb.append(acc1.print());
+            sb.append(acc1.getNoun().getSubject());
         }
         if (acc2 != null) {
             if (!first) {
@@ -175,7 +184,7 @@ public class HerOutfit {
             } else {
                 sb.append("a ");
             }
-            sb.append(acc2.print());
+            sb.append(acc2.getNoun().getSubject());
         }
         if (under != null) {
             if (!first) {
@@ -183,7 +192,7 @@ public class HerOutfit {
             } else {
                 sb.append(" nothing but a ");
             }
-            sb.append(under.print());
+            sb.append(under.getNoun().getSubject());
             if (!first) {
                 sb.append(" underneath");
             }
@@ -192,30 +201,6 @@ public class HerOutfit {
             sb.append("nothing");
         }
 
-        return sb.toString();
-    }
-
-    private void updateMap(Her her, Me me) {
-        if (shoes != null) {
-            shoes.updateMapAdd(her, me);
-        }
-        if (socks != null) {
-            socks.updateMapAdd(her, me);
-        }
-        if (bottoms != null) {
-            bottoms.updateMapAdd(her, me);
-        }
-        if (under != null) {
-            under.updateMapAdd(her, me);
-        }
-        if (top != null) {
-            top.updateMapAdd(her, me);
-        }
-        if (acc1 != null) {
-            acc1.updateMapAdd(her, me);
-        }
-        if (acc2 != null) {
-            acc2.updateMapAdd(her, me);
-        }
+        return new DirectObject(new Noun(sb.toString()));
     }
 }

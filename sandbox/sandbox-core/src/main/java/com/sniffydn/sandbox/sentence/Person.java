@@ -94,10 +94,24 @@ public enum Person {
     }
 
     public String parseVerb(Verb verb) {
-        if((this.equals(FIRST_SINGULAR) || this.equals(SECOND_SINGULAR) || this.equals(THIRD_PLURAL_NEUTRAL)) && verb.getVerb().endsWith("s")) {
-            return verb.getVerb().substring(0, verb.getVerb().length() -1);
-        }
+        if (verb.getVerb() == null) {
+            if(this.equals(FIRST_SINGULAR)) {
+                return verb.getPresentFirstSingular();
+            } else if(this.equals(SECOND_SINGULAR)) {
+                return verb.getPresentSecondSingular();
+            } else if(this.equals(THIRD_SINGULAR_NEUTRAL)) {
+                return verb.getPresentThirdSingular();
+            } else if(this.equals(THIRD_PLURAL_NEUTRAL)) {
+                return verb.getPresentPlural();
+            } else {
+                return "Verb not defined";
+            }
+        } else {
+            if ((this.equals(FIRST_SINGULAR) || this.equals(SECOND_SINGULAR) || this.equals(THIRD_PLURAL_NEUTRAL)) && verb.getVerb().endsWith("s")) {
+                return verb.getVerb().substring(0, verb.getVerb().length() - 1);
+            }
 
-        return verb.getVerb();
+            return verb.getVerb();
+        }
     }
 }

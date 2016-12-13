@@ -90,29 +90,7 @@ public class SnMain extends javax.swing.JFrame {
     }
 
     private static void general() {
-
-//        List<Shoes> allShoes = new ArrayList<>();
-//        allShoes.add(new S1());
-////        allShoes.add(new S2());
-//        HerOutfit outfit = new HerOutfit();
-//        outfit.setShoes(allShoes.get(Util.getRandom(allShoes.size())));
-//        outfit.setTop(new D1());
-//
-//        Her her = new Her();
-//        her.setOutfit(outfit);
-//
-//
-//        MeOutfit mof = new MeOutfit1();
-//
-//        Me me = new Me();
-//        me.setOutfit(mof);
-//
 //        Scene scene = new Scene1();
-//        scene.setHer(her);
-//        scene.setMe(me);
-//
 //        System.out.println(scene.print());
-
-
     }
 }
