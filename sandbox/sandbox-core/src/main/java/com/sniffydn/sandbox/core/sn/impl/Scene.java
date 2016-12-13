@@ -54,12 +54,4 @@ public class Scene extends Item {
     public void setMe(Me me) {
         this.me = me;
     }
-
-    public static String me(String text) {
-        return Util.me(text);
-    }
-
-    public static String her(String text) {
-        return Util.her(text);
-    }
 }
