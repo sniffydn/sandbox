@@ -16,33 +16,34 @@ public class Paragraph {
 
     @Override
     public String toString() {
+        List<Sentence> newSentences = new ArrayList<>();
         Sentence previousSentence = null;
-        StringBuilder sb = new StringBuilder();
         for (Sentence s : sentences) {
             if (previousSentence != null
-                    && !(previousSentence instanceof CompoundSentence)
                     && previousSentence.getSubject() == s.getSubject()
-                    && s.getInterjection() == null) {
-                sb.replace(sb.lastIndexOf("."), sb.length(), " ");
+                    && s.getInterjection() == null
+                    && !(s instanceof CompoundSentence)) {
 
-                if (s.getVerb().getSubVerb() == Verb.IS && s.getVerb().getVerb().endsWith("ing")) {
-                    sb.append(s.getVerb().getVerb());
-                } else {
-                    sb.append("and ");
-                    s.getVerb().setSubject(s.getSubject());
-                    sb.append(s.getVerb().toString());
-                }
-
-                sb.append(s.toConjoined());
-                sb.append("  ");
+                CompoundSentence cs = new CompoundSentence(previousSentence, Conjunction.AND);
+                cs.setCompound(s);
+                newSentences.remove(previousSentence);
+                newSentences.add(cs);
                 previousSentence = null;
             } else {
-                sb.append(s.toString());
-                sb.append("  ");
+                newSentences.add(s);
                 previousSentence = s;
             }
+
+            if (s instanceof CompoundSentence) {
+                previousSentence = null;
+            }
         }
-        sb.append("\n");
-        return sb.toString();
+
+        StringBuilder sb = new StringBuilder();
+        for (Sentence s : newSentences) {
+            sb.append(s.toString());
+        }
+
+        return sb.toString().trim() + "\n";
     }
 }

@@ -1,8 +1,11 @@
 
 package com.sniffydn.sandbox.sentence;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Preposition {
-    private Noun noun;
+    private List<Noun> noun = new ArrayList<Noun>();
     private String preposition;
 
     public Preposition(String preposition) {
@@ -11,7 +14,7 @@ public class Preposition {
 
     public Preposition(String preposition, Noun noun) {
         this.preposition = preposition;
-        this.noun = noun;
+        this.noun.add(noun);
     }
 
     /**
@@ -31,9 +34,15 @@ public class Preposition {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder(preposition);
-        if(getNoun()!= null) {
+        boolean first= true;
+        for(Noun n: noun) {
+            if(first) {
+                first = false;
+            } else {
+                sb.append(" and");
+            }
             sb.append(" ");
-            sb.append(getNoun().getObjectPronoun());
+            sb.append(n.getObjectPronoun());
         }
         return sb.toString();
     }
@@ -41,14 +50,7 @@ public class Preposition {
     /**
      * @return the noun
      */
-    public Noun getNoun() {
+    public List<Noun> getNoun() {
         return noun;
-    }
-
-    /**
-     * @param noun the noun to set
-     */
-    public void setNoun(Noun noun) {
-        this.noun = noun;
     }
 }

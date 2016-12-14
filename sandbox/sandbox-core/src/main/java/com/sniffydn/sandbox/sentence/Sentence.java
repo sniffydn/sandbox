@@ -2,12 +2,12 @@ package com.sniffydn.sandbox.sentence;
 
 public class Sentence {
 
-    private Noun subject;
-    private Verb verb;
-    private DirectObject directObject;
-    private Noun indirectObject;
-    private Preposition preposition;
-    private String interjection;
+    protected Noun subject;
+    protected Verb verb;
+    protected DirectObject directObject;
+    protected Noun indirectObject;
+    protected Preposition preposition;
+    protected String interjection;
 
     public Sentence(Noun subject, Verb verb) {
         this.subject = subject;
@@ -57,7 +57,11 @@ public class Sentence {
     }
 
     public String toString() {
+        String sb = toStringNoUpperCase();
+        return sb.substring(0, 1).toUpperCase() + sb.substring(1);
+    }
 
+    String toStringNoUpperCase() {
         StringBuilder sb = new StringBuilder();
         if (interjection != null) {
             sb.append(interjection);
@@ -69,7 +73,7 @@ public class Sentence {
         sb.append(verb.toString());
         build(sb);
         sb.append(".");
-        return sb.substring(0, 1).toUpperCase() + sb.substring(1);
+        return sb.toString();
     }
 
     public String toConjoined() {

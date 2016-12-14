@@ -20,8 +20,8 @@ public class Noun {
     }
 
     public Noun(String adj, String noun) {
-         this.noun = noun;
-         adjective.add(adj);
+        this.noun = noun;
+        adjective.add(adj);
     }
 
     /**
@@ -140,13 +140,19 @@ public class Noun {
     }
 
     private String getPossessive() {
-        if (this.equals(ANTECEDENT.get(person)) || getPerson().equals(Person.FIRST_SINGULAR) || getPerson().equals(Person.SECOND_SINGULAR)) {
+        StringBuilder sb = new StringBuilder();
+        if (getPosseser() != null) {
+            sb.append(getPosseser().getPossessive());
+            sb.append(" ");
+        } else if (this.equals(ANTECEDENT.get(person)) || getPerson().equals(Person.FIRST_SINGULAR) || getPerson().equals(Person.SECOND_SINGULAR)) {
             ANTECEDENT.put(person, this);
-            return getPerson().getPossessive();
+            sb.append(getPerson().getPossessive());
+            return sb.toString();
         }
 
         ANTECEDENT.put(person, this);
-        return noun + "'s";
+        sb.append(noun + "'s");
+        return sb.toString();
     }
 
     public String getReflexivePronoun() {

@@ -6,6 +6,7 @@ import java.util.List;
 public class Verb {
 
     public static Verb IS = new Verb("am", "are", "is", "are");
+    public static Verb WALKS = new Verb("walks");
 
     private String verb;
     private List<String> adverb = new ArrayList<>();
