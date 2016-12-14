@@ -20,6 +20,11 @@ public class Verb {
         this.verb = verb;
     }
 
+    public Verb(String adverb, String verb) {
+        this.verb = verb;
+        this.adverb.add(adverb);
+    }
+
     public Verb(Verb v, String verb) {
         subVerb = v;
         this.verb = verb;
@@ -60,10 +65,10 @@ public class Verb {
             sb.append(a);
             sb.append(" ");
         }
-        if(subVerb == null) {
+        if(getSubVerb() == null) {
             sb.append(subject.getPerson().parseVerb(this));
         } else {
-            sb.append(subject.getPerson().parseVerb(subVerb));
+            sb.append(subject.getPerson().parseVerb(getSubVerb()));
             sb.append(" ");
             sb.append(verb);
         }
@@ -100,5 +105,12 @@ public class Verb {
      */
     public String getPresentPlural() {
         return presentPlural;
+    }
+
+    /**
+     * @return the subVerb
+     */
+    public Verb getSubVerb() {
+        return subVerb;
     }
 }

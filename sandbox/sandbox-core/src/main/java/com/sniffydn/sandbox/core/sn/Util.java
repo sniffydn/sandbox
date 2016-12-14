@@ -22,6 +22,9 @@ public class Util {
         GLOBAL_REPLACE.put("$pl#", "pl");
         GLOBAL_REPLACE.put("$md#", "md");
         GLOBAL_REPLACE.put("$uw#", "uw");
+        GLOBAL_REPLACE.put(" ,", ",");
+        GLOBAL_REPLACE.put("  ", " ");
+        GLOBAL_REPLACE.put(". ", ".  ");
         GLOBAL_REPLACE.put("$primaryColor#", COLORS.get(Util.getRandom(COLORS.size())));
         GLOBAL_REPLACE.put("$secondaryColor#", COLORS.get(Util.getRandom(COLORS.size())));
         GLOBAL_REPLACE.put("$tertiaryColor#", COLORS.get(Util.getRandom(COLORS.size())));

@@ -7,6 +7,7 @@ public class Sentence {
     private DirectObject directObject;
     private Noun indirectObject;
     private Preposition preposition;
+    private String interjection;
 
     public Sentence(Noun subject, Verb verb) {
         this.subject = subject;
@@ -57,7 +58,23 @@ public class Sentence {
 
     public String toString() {
 
-        StringBuilder sb = new StringBuilder(subject.getSubject());
+        StringBuilder sb = new StringBuilder();
+        if (interjection != null) {
+            sb.append(interjection);
+            sb.append(" ");
+        }
+        sb.append(subject.getSubject());
+        sb.append(" ");
+        verb.setSubject(subject);
+        sb.append(verb.toString());
+        build(sb);
+        sb.append(".");
+        return sb.substring(0, 1).toUpperCase() + sb.substring(1);
+    }
+
+    public String toConjoined() {
+        StringBuilder sb = new StringBuilder();
+
         build(sb);
         sb.append(".");
         return sb.substring(0, 1).toUpperCase() + sb.substring(1);
@@ -70,9 +87,7 @@ public class Sentence {
     }
 
     private String build(StringBuilder sb) {
-        sb.append(" ");
-        verb.setSubject(subject);
-        sb.append(verb.toString());
+
         if (indirectObject != null) {
             sb.append(" ");
             sb.append(indirectObject.getObjectPronoun());
@@ -183,5 +198,19 @@ public class Sentence {
      */
     public void setPreposition(Preposition preposition) {
         this.preposition = preposition;
+    }
+
+    /**
+     * @return the interjection
+     */
+    public String getInterjection() {
+        return interjection;
+    }
+
+    /**
+     * @param interjection the interjection to set
+     */
+    public void setInterjection(String interjection) {
+        this.interjection = interjection;
     }
 }
