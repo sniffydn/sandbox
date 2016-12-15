@@ -2,6 +2,7 @@ package com.sniffydn.sandbox.core.sn.impl.meout;
 
 import com.sniffydn.sandbox.core.sn.impl.DustinOutfit;
 import com.sniffydn.sandbox.core.sn.impl.general.HP;
+import com.sniffydn.sandbox.core.sn.impl.general.MP;
 import com.sniffydn.sandbox.sentence.CompoundSentence;
 import com.sniffydn.sandbox.sentence.Conjunction;
 import com.sniffydn.sandbox.sentence.DirectObject;
@@ -55,7 +56,7 @@ public class MeOutfit1 extends DustinOutfit {
             Participle ing = new Participle(new Verb("carefully", "inspects"), dBody);
             s.setParticiple(ing);
             paragraph.getSentences().add(cs);
-            
+
             cs = new CompoundSentence(kristen, new Verb("gets"), new Conjunction(","));
             cs.setInterjection("when");
             Noun front = new Noun("front");
@@ -92,14 +93,25 @@ public class MeOutfit1 extends DustinOutfit {
             Noun kBody = new Noun("body");
             kBody.setPosseser(kristen);
             infinitive.setDirectObject(new DirectObject(kBody));
-            
+            paragraph.getSentences().add(s);
+
             p = new Preposition("against", dBody);
             infinitive.setPreposition(p);
             s.setInfinitive(new Infinitive(infinitive));
 
+            Noun face = new Noun("face");
+            face.setPosseser(kristen);
+            s = new Sentence(face, new Verb("ends"));
+            Noun b = new Noun("$c#");
+            b.setPosseser(dustin);
+            p = new Preposition("up right next to", b);
+            s.setPreposition(p);
             paragraph.getSentences().add(s);
 
-
+            subParagraph = MP.tease(kristen, dustin);
+            for (Sentence sentence : subParagraph.getSentences()) {
+                paragraph.getSentences().add(sentence);
+            }
 
 
 //            paragraph.getSentences().add(cs);
