@@ -1,5 +1,8 @@
 package com.sniffydn.sandbox.sentence;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Sentence {
 
     protected Noun subject;
@@ -9,7 +12,7 @@ public class Sentence {
     protected Preposition preposition;
     protected String interjection;
     protected Infinitive infinitive;
-    protected Participle participle;
+    protected List<Participle> participle = new ArrayList<>();
 
     public Sentence(Noun subject, Verb verb) {
         this.subject = subject;
@@ -121,9 +124,9 @@ public class Sentence {
             sb.append(infinitive);
         }
 
-        if (participle != null) {
+        for(Participle p: participle) {
             sb.append(" ");
-            sb.append(participle.toString());
+            sb.append(p.toString());
         }
 
         return sb.toString();
@@ -252,14 +255,11 @@ public class Sentence {
     /**
      * @return the participle
      */
-    public Participle getParticiple() {
+    public List<Participle> getParticiple() {
         return participle;
     }
 
-    /**
-     * @param participle the participle to set
-     */
-    public void setParticiple(Participle participle) {
-        this.participle = participle;
+    public void addParticiple(Participle p) {
+        participle.add(p);
     }
 }

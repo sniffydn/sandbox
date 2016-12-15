@@ -1,6 +1,8 @@
 package com.sniffydn.sandbox.core.sn.ui;
 
 import com.sniffydn.sandbox.core.sn.Step;
+import com.sniffydn.sandbox.core.sn.impl.Scene;
+import com.sniffydn.sandbox.core.sn.impl.sn.Scene1;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -90,7 +92,11 @@ public class SnMain extends javax.swing.JFrame {
     }
 
     private static void general() {
-//        Scene scene = new Scene1();
-//        System.out.println(scene.print());
+        Scene scene;
+
+        for (int i = 0; i < 10; i++) {
+            scene = new Scene1();
+            System.out.println(scene.print());
+        }
     }
 }

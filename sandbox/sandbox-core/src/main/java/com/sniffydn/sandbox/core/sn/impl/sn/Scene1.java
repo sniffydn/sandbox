@@ -82,6 +82,11 @@ public class Scene1 extends Scene {
 
         paragraph.getSentences().add(s);
 
+        Paragraph subParagraph = getMe().getOutfit().tease(kristen, dustin);
+        for (Sentence sentence : subParagraph.getSentences()) {
+            paragraph.getSentences().add(sentence);
+        }
+
         return paragraph;
     }
 }

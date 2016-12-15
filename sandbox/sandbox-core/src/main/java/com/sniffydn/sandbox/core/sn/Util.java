@@ -18,14 +18,16 @@ public class Util {
         COLORS.add("red");
         COLORS.add("blue");
 
-        GLOBAL_REPLACE.put("$hh#", "hh");
-        GLOBAL_REPLACE.put("$pl#", "pl");
-        GLOBAL_REPLACE.put("$md#", "md");
-        GLOBAL_REPLACE.put("$uw#", "uw");
+        GLOBAL_REPLACE.put("$a#", "a");
         GLOBAL_REPLACE.put("$b#", "b");
         GLOBAL_REPLACE.put("$c#", "c");
         GLOBAL_REPLACE.put("$cr#", "cr");
+        GLOBAL_REPLACE.put("$hh#", "hh");
+        GLOBAL_REPLACE.put("$l#", "l");
+        GLOBAL_REPLACE.put("$md#", "md");
         GLOBAL_REPLACE.put("$p#", "p");
+        GLOBAL_REPLACE.put("$pl#", "pl");
+        GLOBAL_REPLACE.put("$uw#", "uw");
         GLOBAL_REPLACE.put(" ,", ",");
         GLOBAL_REPLACE.put("  ", " ");
         GLOBAL_REPLACE.put(".", ".  ");

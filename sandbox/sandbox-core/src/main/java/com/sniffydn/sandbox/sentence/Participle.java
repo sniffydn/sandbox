@@ -4,6 +4,7 @@ public class Participle {
 
     private Verb participle;
     private Noun object;
+    private Preposition preposition;
 
     public Participle(Verb participle) {
         this.participle = participle;
@@ -54,6 +55,25 @@ public class Participle {
             sb.append(" ");
             sb.append(object.getObjectPronoun());
         }
+
+        if(preposition != null) {
+            sb.append(" ");
+            sb.append(preposition.toString());
+        }
         return sb.toString();
+    }
+
+    /**
+     * @return the preposition
+     */
+    public Preposition getPreposition() {
+        return preposition;
+    }
+
+    /**
+     * @param preposition the preposition to set
+     */
+    public void setPreposition(Preposition preposition) {
+        this.preposition = preposition;
     }
 }

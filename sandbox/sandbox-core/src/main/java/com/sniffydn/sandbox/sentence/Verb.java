@@ -118,7 +118,9 @@ public class Verb {
     }
 
     public String getParticiple() {
-        if(participle == null && verb.endsWith("s")) {
+        if(participle == null && verb.endsWith("es")) {
+            return verb.substring(0, verb.length() - 2) + "ing";
+        } else if(participle == null && verb.endsWith("s")) {
             return verb.substring(0, verb.length() - 1) + "ing";
         }
         return participle;

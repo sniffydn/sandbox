@@ -7,7 +7,9 @@ import java.util.Map;
 
 public class Noun {
 
-    private static Map<Person, Noun> ANTECEDENT = new HashMap<Person, Noun>();
+    private static Map<Person, Noun> ANTECEDENT = new HashMap<>();
+    private static List<Noun> ANTECEDENT_LIST = new ArrayList<>();
+    private static final int ANT_SIZE = 2;
 
     private Person person = Person.THIRD_SINGULAR_NEUTRAL;
     private String noun;
@@ -63,32 +65,32 @@ public class Noun {
      * @return the pronoun
      */
     public String getSubject() {
-        if (this.equals(ANTECEDENT.get(person)) || getPerson().equals(Person.FIRST_SINGULAR) || getPerson().equals(Person.SECOND_SINGULAR)) {
-            ANTECEDENT.put(person, this);
+        if (this.equals(getAntecedent(person)) || getPerson().equals(Person.FIRST_SINGULAR) || getPerson().equals(Person.SECOND_SINGULAR)) {
+            cutList(person, this);
             return getPerson().getSubject();
         }
 
         StringBuilder sb = new StringBuilder();
 
-        if(posseser != null) {
+        if (posseser != null) {
             sb.append(posseser.getPossessive());
             sb.append(" ");
         }
 
-        if (!this.equals(ANTECEDENT.get(person))) {
+        if (!this.equals(getAntecedent(person))) {
             for (String a : adjective) {
                 sb.append(a);
                 sb.append(" ");
             }
         }
         sb.append(noun);
-        ANTECEDENT.put(person, this);
+        cutList(person, this);
         return sb.toString();
     }
 
     public String getObjectPronoun() {
-        if (this.equals(ANTECEDENT.get(person)) || getPerson().equals(Person.FIRST_SINGULAR) || getPerson().equals(Person.SECOND_SINGULAR)) {
-            ANTECEDENT.put(person, this);
+        if (this.equals(getAntecedent(person)) || getPerson().equals(Person.FIRST_SINGULAR) || getPerson().equals(Person.SECOND_SINGULAR)) {
+            cutList(person, this);
             return getPerson().getObject();
         }
 
@@ -99,9 +101,9 @@ public class Noun {
                 sb.append(" ");
             }
         } else {
-            if (ANTECEDENT.get(person) != null) {
-                Noun ant = ANTECEDENT.get(person);
-                if(ant.getNoun().equals(this.getNoun())) {
+            if (getAntecedent(person) != null) {
+                Noun ant = getAntecedent(person);
+                if (ant.getNoun().equals(this.getNoun()) && ant != this) {
                     sb.append(posseser.getPossessivePronoun());
                     return sb.toString();
                 }
@@ -110,7 +112,7 @@ public class Noun {
             sb.append(posseser.getPossessive());
             sb.append(" ");
         }
-        if (!this.equals(ANTECEDENT.get(person))) {
+        if (!this.equals(getAntecedent(person))) {
             for (String a : adjective) {
                 sb.append(a);
                 sb.append(" ");
@@ -118,7 +120,7 @@ public class Noun {
         }
 
         sb.append(noun);
-        ANTECEDENT.put(person, this);
+        cutList(person, this);
         return sb.toString();
     }
 
@@ -144,12 +146,12 @@ public class Noun {
     }
 
     private String getPossessivePronoun() {
-        if (this.equals(ANTECEDENT.get(person)) || getPerson().equals(Person.FIRST_SINGULAR) || getPerson().equals(Person.SECOND_SINGULAR)) {
-            ANTECEDENT.put(person, this);
+        if (this.equals(getAntecedent(person)) || getPerson().equals(Person.FIRST_SINGULAR) || getPerson().equals(Person.SECOND_SINGULAR)) {
+            cutList(person, this);
             return getPerson().getPossessivePronoun();
         }
 
-        ANTECEDENT.put(person, this);
+        cutList(person, this);
         return noun + "'s";
     }
 
@@ -158,15 +160,24 @@ public class Noun {
         if (getPosseser() != null) {
             sb.append(getPosseser().getPossessive());
             sb.append(" ");
-        } else if (this.equals(ANTECEDENT.get(person)) || getPerson().equals(Person.FIRST_SINGULAR) || getPerson().equals(Person.SECOND_SINGULAR)) {
-            ANTECEDENT.put(person, this);
+        } else if (this.equals(getAntecedent(person)) || getPerson().equals(Person.FIRST_SINGULAR) || getPerson().equals(Person.SECOND_SINGULAR)) {
+            cutList(person, this);
             sb.append(getPerson().getPossessive());
             return sb.toString();
         }
 
-        ANTECEDENT.put(person, this);
+        cutList(person, this);
+
         sb.append(noun + "'s");
         return sb.toString();
+    }
+
+    private static void cutList(Person person, Noun noun) {
+        ANTECEDENT.put(person, noun);
+        ANTECEDENT_LIST.add(0, noun);
+        while (ANTECEDENT_LIST.size() > ANT_SIZE) {
+            ANTECEDENT_LIST.remove(ANTECEDENT_LIST.size() - 1);
+        }
     }
 
     public String getReflexivePronoun() {
@@ -185,5 +196,13 @@ public class Noun {
      */
     public void setPerson(Person person) {
         this.person = person;
+    }
+
+    private Noun getAntecedent(Person person) {
+        Noun ant = ANTECEDENT.get(person);
+        if(ant != null && ANTECEDENT_LIST.contains(ant)) {
+            return ant;
+        }
+        return null;
     }
 }
