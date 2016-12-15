@@ -22,6 +22,8 @@ public class Util {
         GLOBAL_REPLACE.put("$pl#", "pl");
         GLOBAL_REPLACE.put("$md#", "md");
         GLOBAL_REPLACE.put("$uw#", "uw");
+        GLOBAL_REPLACE.put("$b#", "b");
+        GLOBAL_REPLACE.put("$c#", "c");
         GLOBAL_REPLACE.put(" ,", ",");
         GLOBAL_REPLACE.put("  ", " ");
         GLOBAL_REPLACE.put(".", ".  ");

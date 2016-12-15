@@ -69,6 +69,12 @@ public class Noun {
         }
 
         StringBuilder sb = new StringBuilder();
+
+        if(posseser != null) {
+            sb.append(posseser.getPossessive());
+            sb.append(" ");
+        }
+
         if (!this.equals(ANTECEDENT.get(person))) {
             for (String a : adjective) {
                 sb.append(a);
@@ -93,6 +99,14 @@ public class Noun {
                 sb.append(" ");
             }
         } else {
+            if (ANTECEDENT.get(person) != null) {
+                Noun ant = ANTECEDENT.get(person);
+                if(ant.getNoun().equals(this.getNoun())) {
+                    sb.append(posseser.getPossessivePronoun());
+                    return sb.toString();
+                }
+            }
+
             sb.append(posseser.getPossessive());
             sb.append(" ");
         }

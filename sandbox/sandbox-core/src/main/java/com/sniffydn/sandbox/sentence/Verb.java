@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Verb {
 
-    public static Verb IS = new Verb("am", "are", "is", "are");
+    public static Verb IS = new Verb("am", "are", "is", "are", "being");
     public static Verb WALKS = new Verb("walks");
 
     private String verb;
@@ -16,6 +16,7 @@ public class Verb {
     private String presentThirdSingular;
     private String presentPlural;
     private Verb subVerb;
+    private String participle;
 
     public Verb(String verb) {
         this.verb = verb;
@@ -31,11 +32,12 @@ public class Verb {
         this.verb = verb;
     }
 
-    private Verb(String presentFirstSingular, String presentSecondSingular, String presentThirdSingular, String presentPlural) {
+    private Verb(String presentFirstSingular, String presentSecondSingular, String presentThirdSingular, String presentPlural, String participle) {
         this.presentFirstSingular = presentFirstSingular;
         this.presentSecondSingular = presentSecondSingular;
         this.presentThirdSingular = presentThirdSingular;
         this.presentPlural = presentPlural;
+        this.participle = participle;
     }
 
     /**
@@ -113,5 +115,12 @@ public class Verb {
      */
     public Verb getSubVerb() {
         return subVerb;
+    }
+
+    public String getParticiple() {
+        if(participle == null && verb.endsWith("s")) {
+            return verb.substring(0, verb.length() - 1) + "ing";
+        }
+        return participle;
     }
 }

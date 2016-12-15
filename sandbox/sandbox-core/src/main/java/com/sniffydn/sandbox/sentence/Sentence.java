@@ -8,6 +8,8 @@ public class Sentence {
     protected Noun indirectObject;
     protected Preposition preposition;
     protected String interjection;
+    protected Infinitive infinitive;
+    protected Participle participle;
 
     public Sentence(Noun subject, Verb verb) {
         this.subject = subject;
@@ -69,6 +71,12 @@ public class Sentence {
         }
         sb.append(subject.getSubject());
         sb.append(" ");
+        sb.append(toStringNoSubject());
+        return sb.toString();
+    }
+
+    String toStringNoSubject() {
+        StringBuilder sb = new StringBuilder();
         verb.setSubject(subject);
         sb.append(verb.toString());
         build(sb);
@@ -91,7 +99,6 @@ public class Sentence {
     }
 
     private String build(StringBuilder sb) {
-
         if (indirectObject != null) {
             sb.append(" ");
             sb.append(indirectObject.getObjectPronoun());
@@ -107,6 +114,16 @@ public class Sentence {
         if (preposition != null) {
             sb.append(" ");
             sb.append(preposition.toString());
+        }
+
+        if (infinitive != null) {
+            sb.append(" ");
+            sb.append(infinitive);
+        }
+
+        if (participle != null) {
+            sb.append(" ");
+            sb.append(participle.toString());
         }
 
         return sb.toString();
@@ -216,5 +233,33 @@ public class Sentence {
      */
     public void setInterjection(String interjection) {
         this.interjection = interjection;
+    }
+
+    /**
+     * @return the infinitive
+     */
+    public Infinitive getInfinitive() {
+        return infinitive;
+    }
+
+    /**
+     * @param infinitive the infinitive to set
+     */
+    public void setInfinitive(Infinitive infinitive) {
+        this.infinitive = infinitive;
+    }
+
+    /**
+     * @return the participle
+     */
+    public Participle getParticiple() {
+        return participle;
+    }
+
+    /**
+     * @param participle the participle to set
+     */
+    public void setParticiple(Participle participle) {
+        this.participle = participle;
     }
 }
