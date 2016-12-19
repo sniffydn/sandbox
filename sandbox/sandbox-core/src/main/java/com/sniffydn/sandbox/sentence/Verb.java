@@ -6,7 +6,7 @@ import java.util.List;
 public class Verb {
 
     public static Verb IS = new Verb("am", "are", "is", "are", "being");
-    public static Verb TAKES =  new Verb("take", "take", "takes", "take", "taking");
+    public static Verb ATTACHES = new Verb("attach", "attach", "attaches", "attach", "attaching");
 
     protected String verb;
     private List<String> adverb = new ArrayList<>();

@@ -6,8 +6,8 @@ import com.sniffydn.sandbox.sentence.Paragraph;
 
 public abstract class DustinOutfit extends Item {
 
-    public abstract Paragraph ud(Noun subject, Noun dirObj);
-    public abstract Paragraph tease(Noun subject, Noun dirObj);
+    public abstract Paragraph ud(Noun subject, Dustin dustin);
+    public abstract Paragraph tease(Noun subject, Dustin dustin);
 
     @Override
     public Noun getNoun() {

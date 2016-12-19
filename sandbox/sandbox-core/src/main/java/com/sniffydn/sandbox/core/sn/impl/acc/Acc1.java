@@ -48,7 +48,7 @@ public class Acc1 extends Accessory implements Attachable, Anchorable {
         Noun back = new Noun("back");
         back.setPosseser(dustin);
 
-        Sentence s = new Sentence(kristen, Verb.TAKES);
+        Sentence s = new Sentence(kristen, new Verb("takes"));
         Noun hands = new Noun("hands");
         hands.setPosseser(dustin);
         hands.setPerson(Person.THIRD_PLURAL_NEUTRAL);
@@ -95,8 +95,11 @@ public class Acc1 extends Accessory implements Attachable, Anchorable {
         Noun hands = new Noun("hands");
         hands.setPosseser(dustin);
         hands.setPerson(Person.THIRD_PLURAL_NEUTRAL);
+        Noun arms = new Noun("arms");
+        arms.setPosseser(dustin);
+        arms.setPerson(Person.THIRD_PLURAL_NEUTRAL);
 
-        Sentence s = new Sentence(kristen, new Verb("attaches"));
+        Sentence s = new Sentence(kristen, Verb.ATTACHES);
         s.setDirectObject(new DirectObject(noun));
         Preposition p = new Preposition("to", a.getNoun());
         s.setPreposition(p);
@@ -107,7 +110,7 @@ public class Acc1 extends Accessory implements Attachable, Anchorable {
                 Noun back = new Noun("back");
                 back.setPosseser(dustin);
                 CompoundSentence cs = new CompoundSentence(hands, new Verb(Verb.IS, "restrained"), new Conjunction("and"));
-                s = new Sentence(hands, new Verb(Verb.IS, "stretched"));
+                s = new Sentence(arms, new Verb(Verb.IS, "stretched"));
                 p = new Preposition("up behind", back);
                 s.setPreposition(p);
                 cs.setCompound(s);

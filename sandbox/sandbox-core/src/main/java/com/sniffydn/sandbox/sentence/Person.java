@@ -108,9 +108,6 @@ public enum Person {
             }
         } else {
             if ((this.equals(FIRST_SINGULAR) || this.equals(SECOND_SINGULAR) || this.equals(THIRD_PLURAL_NEUTRAL))) {
-                if( verb.getVerb().endsWith("es")) {
-                    return verb.getVerb().substring(0, verb.getVerb().length() - 2);
-                }
                 if( verb.getVerb().endsWith("s")) {
                     return verb.getVerb().substring(0, verb.getVerb().length() - 1);
                 }

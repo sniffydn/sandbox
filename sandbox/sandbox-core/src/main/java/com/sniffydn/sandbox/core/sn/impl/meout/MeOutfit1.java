@@ -1,6 +1,7 @@
 package com.sniffydn.sandbox.core.sn.impl.meout;
 
 import com.sniffydn.sandbox.core.sn.Util;
+import com.sniffydn.sandbox.core.sn.impl.Dustin;
 import com.sniffydn.sandbox.core.sn.impl.DustinOutfit;
 import com.sniffydn.sandbox.core.sn.impl.general.HP;
 import com.sniffydn.sandbox.core.sn.impl.general.MP;
@@ -25,7 +26,8 @@ public class MeOutfit1 extends DustinOutfit {
     }
 
     @Override
-    public Paragraph ud(Noun subject, Noun dustin) {
+    public Paragraph ud(Noun subject, Dustin d) {
+        Noun dustin = d.getNoun();
         if (subject.equals(dustin)) {
             throw new RuntimeException("Not yet implemented");
         } else {
@@ -152,7 +154,8 @@ public class MeOutfit1 extends DustinOutfit {
     }
 
     @Override
-    public Paragraph tease(Noun subject, Noun dustin) {
+    public Paragraph tease(Noun subject, Dustin d) {
+        Noun dustin = d.getNoun();
         Noun kristen = subject;
         Paragraph paragraph = new Paragraph();
 

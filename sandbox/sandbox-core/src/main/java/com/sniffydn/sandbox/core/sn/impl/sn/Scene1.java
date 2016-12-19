@@ -100,7 +100,7 @@ public class Scene1 extends Scene {
         paragraph = sceneBeforeUd();
         scene.add(paragraph);
 
-        paragraph = getMe().getOutfit().ud(kristen, dustin);
+        paragraph = getMe().getOutfit().ud(kristen, getMe());
         scene.add(paragraph);
 
     }
@@ -135,7 +135,7 @@ public class Scene1 extends Scene {
             }
         }
 
-        Paragraph subParagraph = getMe().getOutfit().tease(kristen, dustin);
+        Paragraph subParagraph = getMe().getOutfit().tease(kristen, getMe());
         for (Sentence sentence : subParagraph.getSentences()) {
             paragraph.getSentences().add(sentence);
         }
