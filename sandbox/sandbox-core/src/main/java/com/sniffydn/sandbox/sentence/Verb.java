@@ -6,17 +6,17 @@ import java.util.List;
 public class Verb {
 
     public static Verb IS = new Verb("am", "are", "is", "are", "being");
-    public static Verb WALKS = new Verb("walks");
+    public static Verb TAKES =  new Verb("take", "take", "takes", "take", "taking");
 
-    private String verb;
+    protected String verb;
     private List<String> adverb = new ArrayList<>();
-    private Noun subject;
+    protected Noun subject;
     private String presentFirstSingular;
     private String presentSecondSingular;
     private String presentThirdSingular;
     private String presentPlural;
     private Verb subVerb;
-    private String participle;
+    protected String participle;
 
     public Verb(String verb) {
         this.verb = verb;
@@ -78,7 +78,7 @@ public class Verb {
         return sb.toString();
     }
 
-    void setSubject(Noun subject) {
+    protected void setSubject(Noun subject) {
         this.subject = subject;
     }
 

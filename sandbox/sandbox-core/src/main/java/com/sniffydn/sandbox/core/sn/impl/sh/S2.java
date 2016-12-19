@@ -7,7 +7,9 @@ import com.sniffydn.sandbox.sentence.Noun;
 public class S2 extends Shoes {
 
     int height = Util.getRandom(8);
-    public S2() {
+    public S2(Noun wearer) {
+        super(wearer);
+        
         if (height < 5) {
             height = 5;
         }

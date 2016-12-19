@@ -16,6 +16,7 @@ public class Noun {
     private String definiteArticle = "";
     private List<String> adjective = new ArrayList<>();
     private Noun posseser;
+    private String descriptor;
 
     public Noun(String noun) {
         this.noun = noun;
@@ -84,6 +85,11 @@ public class Noun {
             }
         }
         sb.append(noun);
+        if(descriptor != null) {
+            sb.append(" ");
+            sb.append(descriptor);
+            descriptor = null;
+        }
         cutList(person, this);
         return sb.toString();
     }
@@ -120,6 +126,12 @@ public class Noun {
         }
 
         sb.append(noun);
+
+        if(descriptor != null) {
+            sb.append(" ");
+            sb.append(descriptor);
+            descriptor = null;
+        }
         cutList(person, this);
         return sb.toString();
     }
@@ -204,5 +216,19 @@ public class Noun {
             return ant;
         }
         return null;
+    }
+
+    /**
+     * @return the descriptor
+     */
+    public String getDescriptor() {
+        return descriptor;
+    }
+
+    /**
+     * @param descriptor the descriptor to set
+     */
+    public void setDescriptor(String descriptor) {
+        this.descriptor = descriptor;
     }
 }

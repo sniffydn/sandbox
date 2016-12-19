@@ -5,8 +5,9 @@ import com.sniffydn.sandbox.sentence.Person;
 
 public class Kristen {
 
-    private Noun noun = new Noun("Kristen");
-    private KristenOutfit outfit = new KristenOutfit();
+    private Noun noun = new ProperNoun("Kristen");
+    private KristenOutfit outfit = new KristenOutfit(noun);
+
 
     public Kristen() {
         noun.setPerson(Person.FIRST_SINGULAR);

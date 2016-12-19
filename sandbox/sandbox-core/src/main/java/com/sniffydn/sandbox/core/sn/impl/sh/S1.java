@@ -2,6 +2,7 @@ package com.sniffydn.sandbox.core.sn.impl.sh;
 
 import com.sniffydn.sandbox.core.sn.Util;
 import com.sniffydn.sandbox.core.sn.clts.Shoes;
+import com.sniffydn.sandbox.core.sn.impl.ProperNoun;
 import com.sniffydn.sandbox.sentence.Noun;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,12 @@ public class S1 extends Shoes {
         walksList.add("strut");
     }
 
-    public S1() {
+    public S1(Noun wearer) {
+        super(wearer);
+        if(wearer instanceof ProperNoun) {
+            ((ProperNoun)wearer).getVerbReplacementList().put(Util.WALKS, walksList);
+        }
+
         if (height < 5) {
             height = 5;
         }

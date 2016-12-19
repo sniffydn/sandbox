@@ -7,7 +7,8 @@ import com.sniffydn.sandbox.sentence.Noun;
 
 public class D1 extends Top {
 
-    public D1() {
+    public D1(Noun wearer) {
+        super(wearer);
         type = TopType.DRS_SHORT;
         noun = new Noun("$md#");
         noun.getAdjective().add("$secondaryColor#");

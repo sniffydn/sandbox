@@ -7,6 +7,7 @@ import com.sniffydn.sandbox.core.sn.clts.Shoes;
 import com.sniffydn.sandbox.core.sn.clts.Socks;
 import com.sniffydn.sandbox.core.sn.clts.Top;
 import com.sniffydn.sandbox.core.sn.clts.Under;
+import com.sniffydn.sandbox.core.sn.impl.acc.Acc1;
 import com.sniffydn.sandbox.core.sn.impl.sh.S1;
 import com.sniffydn.sandbox.core.sn.impl.tp.D1;
 import com.sniffydn.sandbox.sentence.DirectObject;
@@ -21,15 +22,17 @@ public class KristenOutfit {
     private Bottoms bottoms;
     private Under under;
     private Top top;
-    private Accessory acc1;
-    private Accessory acc2;
+    private List<Accessory> accessories = new ArrayList<>();
+    protected Noun wearer;
 
-    public KristenOutfit() {
+    public KristenOutfit(Noun wearer) {
+        this.wearer = wearer;
         List<Shoes> allShoes = new ArrayList<>();
-        allShoes.add(new S1());
+        allShoes.add(new S1(wearer));
 //        allShoes.add(new S2());
         setShoes(allShoes.get(Util.getRandom(allShoes.size())));
-        setTop(new D1());
+        setTop(new D1(wearer));
+        accessories.add(new Acc1(wearer));
     }
 
     /**
@@ -102,34 +105,6 @@ public class KristenOutfit {
         this.top = top;
     }
 
-    /**
-     * @return the acc1
-     */
-    public Accessory getAcc1() {
-        return acc1;
-    }
-
-    /**
-     * @param acc1 the acc1 to set
-     */
-    public void setAcc1(Accessory acc1) {
-        this.acc1 = acc1;
-    }
-
-    /**
-     * @return the acc2
-     */
-    public Accessory getAcc2() {
-        return acc2;
-    }
-
-    /**
-     * @param acc2 the acc2 to set
-     */
-    public void setAcc2(Accessory acc2) {
-        this.acc2 = acc2;
-    }
-
     public DirectObject getDirectObject() {
         StringBuilder sb = new StringBuilder();
         boolean first = true;
@@ -158,6 +133,7 @@ public class KristenOutfit {
                 sb.append(" nothing but ");
             } else {
                 sb.append(" with ");
+                first = false;
             }
             sb.append("a pair of ");
             sb.append(shoes.getNoun().getSubject());
@@ -167,24 +143,9 @@ public class KristenOutfit {
                 sb.append(", ");
             } else {
                 sb.append(" nothing but a pair of ");
+                first = false;
             }
             sb.append(socks.getNoun().getSubject());
-        }
-        if (acc1 != null) {
-            if (!first) {
-                sb.append(", ");
-            } else {
-                sb.append("a ");
-            }
-            sb.append(acc1.getNoun().getSubject());
-        }
-        if (acc2 != null) {
-            if (!first) {
-                sb.append(", ");
-            } else {
-                sb.append("a ");
-            }
-            sb.append(acc2.getNoun().getSubject());
         }
         if (under != null) {
             if (!first) {
@@ -199,6 +160,34 @@ public class KristenOutfit {
         }
         if (first) {
             sb.append("nothing");
+        }
+
+        return new DirectObject(new Noun(sb.toString()));
+    }
+
+    /**
+     * @return the accessories
+     */
+    public List<Accessory> getAccessories() {
+        return accessories;
+    }
+
+    public DirectObject getAccessoriesDirectObject() {
+        StringBuilder sb = new StringBuilder();
+        boolean first = true;
+
+        for (Accessory acc : accessories) {
+            if (first) {
+                sb.append(" a ");
+            } else {
+                sb.append(", a ");
+            }
+            sb.append(acc.getNoun().getSubject());
+            acc.getNoun().getAdjective().clear();
+        }
+
+        if (sb.indexOf(", a") != -1) {
+            sb.replace(sb.lastIndexOf(", a"), 3, " and a ");
         }
 
         return new DirectObject(new Noun(sb.toString()));

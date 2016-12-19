@@ -1,5 +1,6 @@
 package com.sniffydn.sandbox.core.sn;
 
+import com.sniffydn.sandbox.core.sn.impl.ProperVerb;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,6 +12,7 @@ public class Util {
 
     public static final Map<String, String> GLOBAL_REPLACE = new HashMap<>();
     public static final List<String> COLORS = new ArrayList<>();
+    public static ProperVerb WALKS = new ProperVerb("walks");
 
     static {
         COLORS.add("black");
@@ -22,6 +24,7 @@ public class Util {
         GLOBAL_REPLACE.put("$b#", "b");
         GLOBAL_REPLACE.put("$c#", "c");
         GLOBAL_REPLACE.put("$cr#", "cr");
+        GLOBAL_REPLACE.put("$hc#", "hcs");
         GLOBAL_REPLACE.put("$hh#", "hh");
         GLOBAL_REPLACE.put("$l#", "l");
         GLOBAL_REPLACE.put("$md#", "md");

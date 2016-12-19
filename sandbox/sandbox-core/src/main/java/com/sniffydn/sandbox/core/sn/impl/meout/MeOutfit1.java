@@ -1,5 +1,6 @@
 package com.sniffydn.sandbox.core.sn.impl.meout;
 
+import com.sniffydn.sandbox.core.sn.Util;
 import com.sniffydn.sandbox.core.sn.impl.DustinOutfit;
 import com.sniffydn.sandbox.core.sn.impl.general.HP;
 import com.sniffydn.sandbox.core.sn.impl.general.MP;
@@ -110,7 +111,7 @@ public class MeOutfit1 extends DustinOutfit {
                 cs.setCompound(s);
                 paragraph.getSentences().add(cs);
             } else {
-                Sentence s = new Sentence(kristen, Verb.WALKS);
+                Sentence s = new Sentence(kristen, Util.WALKS);
                 Preposition p = new Preposition("around behind", dustin);
                 s.setPreposition(p);
                 paragraph.getSentences().add(s);
@@ -167,7 +168,7 @@ public class MeOutfit1 extends DustinOutfit {
         compound.setPreposition(p);
         paragraph.getSentences().add(compound);
 
-        Sentence cs = new Sentence(kristen, Verb.WALKS);
+        Sentence cs = new Sentence(kristen, Util.WALKS);
         p = new Preposition("around", dustin);
         cs.setPreposition(p);
         Participle ing = new Participle(new Verb("slides"), finger);
