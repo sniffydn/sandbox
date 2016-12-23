@@ -21,12 +21,7 @@ public class MP {
         s.setPreposition(p);
         paragraph.getSentences().add(s);
 
-        Noun c = new Noun("$p#");
-        c.setPosseser(dustin);
-        Sentence s1 = new Sentence(c, new Verb("throbs"));
-        p = new Preposition("with", new Noun("involuntary", "excitement"));
-        s1.setPreposition(p);
-        paragraph.getSentences().add(s1);
+        paragraph.getSentences().add(HP.getNextAr(dustin));
 
         return paragraph;
     }

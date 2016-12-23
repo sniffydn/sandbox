@@ -103,6 +103,9 @@ public class Scene1 extends Scene {
         paragraph = getMe().getOutfit().ud(kristen, getMe());
         scene.add(paragraph);
 
+        paragraph = sceneAfterUd();
+        scene.add(paragraph);
+
     }
 
     private Paragraph sceneBeforeUd() {
@@ -138,6 +141,22 @@ public class Scene1 extends Scene {
         Paragraph subParagraph = getMe().getOutfit().tease(kristen, getMe());
         for (Sentence sentence : subParagraph.getSentences()) {
             paragraph.getSentences().add(sentence);
+        }
+
+        return paragraph;
+    }
+
+    private Paragraph sceneAfterUd() {
+        Noun dustin = getMe().getNoun();
+        Noun kristen = getHer().getNoun();
+
+        Paragraph paragraph = new Paragraph();
+
+        if (accessories.size() > 0) {
+            Paragraph para = accessories.get(Util.getRandom(accessories.size())).getAction(getHer(), getMe());
+            for (Sentence sentence : para.getSentences()) {
+                paragraph.getSentences().add(sentence);
+            }
         }
 
         return paragraph;
