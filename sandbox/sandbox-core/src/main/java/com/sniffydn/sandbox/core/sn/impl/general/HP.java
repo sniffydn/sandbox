@@ -1,5 +1,6 @@
 package com.sniffydn.sandbox.core.sn.impl.general;
 
+import com.sniffydn.sandbox.core.sn.impl.Dustin;
 import com.sniffydn.sandbox.sentence.CompoundSentence;
 import com.sniffydn.sandbox.sentence.Conjunction;
 import com.sniffydn.sandbox.sentence.DirectObject;
@@ -15,9 +16,12 @@ import java.util.List;
 
 public class HP {
 
-    public static Paragraph oneHand(Noun subject, Noun dustin) {
+    private static List<Verb> verbs = new ArrayList<Verb>();
+
+    public static Paragraph oneHand(Noun subject, Dustin dustin) {
         Paragraph paragraph = new Paragraph();
         Noun kristen = subject;
+        Noun d = dustin.getNoun();
 
         if (Math.random() < .5) {
             Verb g = new Verb("grabs");
@@ -25,7 +29,7 @@ public class HP {
 
             Sentence s = new Sentence(kristen, g);
             Noun b = new Noun("$b#");
-            b.setPosseser(dustin);
+            b.setPosseser(d);
             b.setPerson(Person.THIRD_PLURAL_NEUTRAL);
             s.setDirectObject(new DirectObject(b));
             paragraph.getSentences().add(s);
@@ -33,7 +37,7 @@ public class HP {
             paragraph.getSentences().add(getNextAr(dustin));
         } else {
             Noun c = new Noun("$p#");
-            c.setPosseser(dustin);
+            c.setPosseser(d);
             Verb g = new Verb("grabs");
             g.getAdverb().add("gently but firmly");
 
@@ -46,9 +50,10 @@ public class HP {
         return paragraph;
     }
 
-    public static Paragraph twoHand(Noun subject, Noun dustin) {
+    public static Paragraph twoHand(Noun subject, Dustin dustin) {
         Paragraph paragraph = new Paragraph();
         Noun kristen = subject;
+        Noun d = dustin.getNoun();
 
         if (Math.random() < .5) {
             Verb g = new Verb("grabs");
@@ -56,7 +61,7 @@ public class HP {
 
             Sentence s = new Sentence(kristen, g);
             Noun b = new Noun("$b#");
-            b.setPosseser(dustin);
+            b.setPosseser(d);
             b.setPerson(Person.THIRD_PLURAL_NEUTRAL);
             s.setDirectObject(new DirectObject(b));
             Preposition p = new Preposition("with both hands.");
@@ -66,7 +71,7 @@ public class HP {
             paragraph.getSentences().add(getNextAr(dustin));
         } else {
             Noun c = new Noun("$p#");
-            c.setPosseser(dustin);
+            c.setPosseser(d);
             Verb g = new Verb("grabs");
             g.getAdverb().add("gently but firmly");
 
@@ -84,10 +89,10 @@ public class HP {
     private static List<Sentence> ar = new ArrayList<>();
     private static int arIndex = 0;
 
-    public static Sentence getNextAr(Noun dustin) {
+    public static Sentence getNextAr(Dustin dustin) {
         if (ar.size() == 0) {
             Noun c = new Noun("$p#");
-            c.setPosseser(dustin);
+            c.setPosseser(dustin.getNoun());
             Participle ing = new Participle(new Verb("grows"));
             Sentence s1 = new Sentence(c, new Verb("starts"));
             s1.addParticiple(ing);

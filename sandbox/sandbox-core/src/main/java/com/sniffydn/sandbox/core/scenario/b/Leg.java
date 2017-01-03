@@ -1,5 +1,7 @@
 package com.sniffydn.sandbox.core.scenario.b;
 
+import com.sniffydn.sandbox.sentence.Noun;
+
 public class Leg extends BodyPart {
 
     public Leg(Boolean right) {
@@ -47,6 +49,18 @@ public class Leg extends BodyPart {
 
         foot.getUp().add(ankle);
         ankle.getDown().add(foot);
+        if (right) {
+            n.getAdjective().add("right");
+        } else {
+            n.getAdjective().add("left");
+        }
+    }
+
+    Noun n = new Noun(this.getClass().getSimpleName());
+
+    @Override
+    public Noun getNoun() {
+        return n;
     }
 
 }

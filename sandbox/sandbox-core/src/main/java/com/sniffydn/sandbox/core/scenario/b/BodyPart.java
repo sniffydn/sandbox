@@ -1,9 +1,10 @@
 package com.sniffydn.sandbox.core.scenario.b;
 
+import com.sniffydn.sandbox.sentence.Noun;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BodyPart {
+public abstract class BodyPart {
 
     private List<BodyPart> down = new ArrayList<>();
     private List<BodyPart> up = new ArrayList<>();
@@ -28,6 +29,8 @@ public class BodyPart {
         sb.append(getClass().getSimpleName());
         return sb.toString();
     }
+
+    public abstract Noun getNoun();
 
     /**
      * @return the rightSide

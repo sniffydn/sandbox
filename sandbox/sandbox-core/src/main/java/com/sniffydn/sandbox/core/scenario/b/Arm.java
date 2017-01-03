@@ -1,5 +1,7 @@
 package com.sniffydn.sandbox.core.scenario.b;
 
+import com.sniffydn.sandbox.sentence.Noun;
+
 class Arm extends BodyPart {
 
     public Arm(Boolean right) {
@@ -49,5 +51,17 @@ class Arm extends BodyPart {
 
         wrist.getDown().add(hand);
         hand.getUp().add(wrist);
+        if (right) {
+            n.getAdjective().add("right");
+        } else {
+            n.getAdjective().add("left");
+        }
+    }
+
+    Noun n = new Noun(this.getClass().getSimpleName());
+
+    @Override
+    public Noun getNoun() {
+        return n;
     }
 }

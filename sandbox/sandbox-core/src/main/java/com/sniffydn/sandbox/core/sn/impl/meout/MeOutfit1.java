@@ -55,7 +55,7 @@ public class MeOutfit1 extends DustinOutfit {
                 sub.setCompound(s);
                 paragraph.getSentences().add(cs);
 
-                Paragraph subParagraph = HP.oneHand(kristen, dustin);
+                Paragraph subParagraph = HP.oneHand(kristen, d);
                 for (Sentence sentence : subParagraph.getSentences()) {
                     paragraph.getSentences().add(sentence);
                 }
@@ -88,7 +88,7 @@ public class MeOutfit1 extends DustinOutfit {
                 cs.setCompound(s);
                 paragraph.getSentences().add(cs);
 
-                subParagraph = MP.tease(kristen, dustin);
+                subParagraph = MP.tease(kristen, d);
                 for (Sentence sentence : subParagraph.getSentences()) {
                     paragraph.getSentences().add(sentence);
                 }

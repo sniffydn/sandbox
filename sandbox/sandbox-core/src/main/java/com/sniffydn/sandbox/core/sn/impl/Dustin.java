@@ -1,5 +1,6 @@
 package com.sniffydn.sandbox.core.sn.impl;
 
+import com.sniffydn.sandbox.core.scenario.MBody;
 import com.sniffydn.sandbox.core.sn.impl.acc.Attachable;
 import com.sniffydn.sandbox.core.sn.impl.meout.MeOutfit1;
 import com.sniffydn.sandbox.sentence.Noun;
@@ -13,6 +14,7 @@ public class Dustin {
     private DustinOutfit outfit = new MeOutfit1();
     private List<Attachable> attachments = new ArrayList<>();
     private DBodyPos bodyPos = DBodyPos.STANDING;
+    private MBody bod = new MBody();
 
     public Dustin() {
         noun.setPerson(Person.SECOND_SINGULAR);
@@ -58,6 +60,13 @@ public class Dustin {
      */
     public void setBodyPos(DBodyPos bodyPos) {
         this.bodyPos = bodyPos;
+    }
+
+    /**
+     * @return the bod
+     */
+    public MBody getBod() {
+        return bod;
     }
 
 }

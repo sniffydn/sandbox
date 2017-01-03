@@ -1,5 +1,6 @@
-
 package com.sniffydn.sandbox.core.scenario.b;
+
+import com.sniffydn.sandbox.sentence.Noun;
 
 public class Body extends BodyPart {
 
@@ -27,7 +28,14 @@ public class Body extends BodyPart {
 
         legs.getUp().add(torso);
         torso.getDown().add(legs);
-        
+
+    }
+
+    Noun n = new Noun(this.getClass().getSimpleName());
+
+    @Override
+    public Noun getNoun() {
+        return n;
     }
 
 }

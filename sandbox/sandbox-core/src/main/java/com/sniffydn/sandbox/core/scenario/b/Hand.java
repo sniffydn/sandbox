@@ -1,7 +1,8 @@
-
 package com.sniffydn.sandbox.core.scenario.b;
 
-public class Hand extends BodyPart{
+import com.sniffydn.sandbox.sentence.Noun;
+
+public class Hand extends BodyPart {
 
     public Hand(Boolean right) {
         setRightSide(right);
@@ -29,6 +30,18 @@ public class Hand extends BodyPart{
 
         knuckles.getDown().add(fingers);
         fingers.getUp().add(knuckles);
+        if (right) {
+            n.getAdjective().add("right");
+        } else {
+            n.getAdjective().add("left");
+        }
+    }
+
+    Noun n = new Noun(this.getClass().getSimpleName());
+
+    @Override
+    public Noun getNoun() {
+        return n;
     }
 
 }
