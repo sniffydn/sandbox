@@ -5,6 +5,8 @@
  */
 package com.sniffydn.sandbox.core;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -44,10 +46,13 @@ public class RegexTester {
 //        System.out.println(response);
         System.out.println("\n\n\n\n\n\n\n");
 
-        response = decodeEmailAddresses(response);
-
-        addCarraigeReturns(response);
-
+//        response = decodeEmailAddresses(response);
+//
+//        addCarraigeReturns(response);
+        List<String> addresses = findEmailAddresses(response);
+        for(String address:addresses) {
+            System.out.println(address);
+        }
     }
 
     private static void addCarraigeReturns(String response) {
@@ -75,6 +80,28 @@ public class RegexTester {
 //            endMatcher = endPattern.matcher(searchString);
         }
         System.out.println(sb);
+    }
+
+    private static List<String> findEmailAddresses(String response) {
+        List<String> emails = new ArrayList<>();
+        String searchString = response;
+        String regex = "<a href=\"mailto:[&#0123456789]+\">";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(searchString);
+        while (matcher.find()) {
+            int start = matcher.start();
+            int end = matcher.end();
+            if (start == end) {
+                break;
+            }
+            int quoteStart = searchString.indexOf("\"", matcher.start()) + 8;
+            int quoteEnd = searchString.indexOf("\"", quoteStart + 1);
+            emails.add(decodeEmailAddress(searchString.substring(quoteStart, quoteEnd)));
+            searchString = searchString.substring(quoteEnd);
+            matcher = pattern.matcher(searchString);
+        }
+
+        return emails;
     }
 
     private static String decodeEmailAddresses(String response) {
