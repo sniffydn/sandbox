@@ -53,19 +53,95 @@ public class AgentDirectoryParser {
 //
 //        System.out.println(response);
 
-        realtorCaSearch();
+        String s = "https://api2.realtor.ca/individual.svc/" + "IndividualSearch?City=Toronto&ProvinceIds=2&RecordsPerPage=9&Specialties=2&Page=1&SortBy=3&SortOrder=A&CurrentPage=1&CultureId=1&ApplicationId=1&Token=D6TmfZprLI9DXo9uooFJ+j1ea50Ia57XP6s8RLa2qKs=&GUID=191badff-a44b-4cda-8f8c-e535ecef9f97&_=1484943083660";
+
+        System.out.println(s);
+        String regex = "RecordsPerPage=[0123456789]+&";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(s);
+        if (matcher.find()) {
+            int start = matcher.start();
+            int end = matcher.end();
+            if (start != end) {
+                s = s.substring(0, start) + "RecordsPerPage=50&" + s.substring(end);
+
+            }
+        }
+
+        int page = 2;
+
+        regex = "&Page=[0123456789]+&";
+        pattern = Pattern.compile(regex);
+        matcher = pattern.matcher(s);
+        if (matcher.find()) {
+            int start = matcher.start();
+            int end = matcher.end();
+            if (start != end) {
+                s = s.substring(0, start) + "&Page=" + page + "&" + s.substring(end);
+
+            }
+        }
+
+        regex = "&CurrentPage=[0123456789]+&";
+        pattern = Pattern.compile(regex);
+        matcher = pattern.matcher(s);
+        if (matcher.find()) {
+            int start = matcher.start();
+            int end = matcher.end();
+            if (start != end) {
+                s = s.substring(0, start) + "&CurrentPage=" + page + "&" + s.substring(end);
+
+            }
+        }
+
+        System.out.println(s);
+
+//        realtorCaSearch();
     }
 
     private static void realtorCaSearch() {
-
         String s = "https://api2.realtor.ca/individual.svc/" + "IndividualSearch?City=Toronto&ProvinceIds=2&RecordsPerPage=9&Specialties=2&Page=1&SortBy=3&SortOrder=A&CurrentPage=1&CultureId=1&ApplicationId=1&Token=D6TmfZprLI9DXo9uooFJ+j1ea50Ia57XP6s8RLa2qKs=&GUID=191badff-a44b-4cda-8f8c-e535ecef9f97&_=1484943083660";
+        String regex = "RecordsPerPage=[0123456789]+&";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(s);
+        if (matcher.find()) {
+            int start = matcher.start();
+            int end = matcher.end();
+            if (start != end) {
+                s = s.substring(0, start) + "RecordsPerPage=50&" + s.substring(end);
+
+            }
+        }
 
         try {
             for (int page = 1; page < 51; page++) {
+
+                regex = "&Page=[0123456789]+&";
+                pattern = Pattern.compile(regex);
+                matcher = pattern.matcher(s);
+                if (matcher.find()) {
+                    int start = matcher.start();
+                    int end = matcher.end();
+                    if (start != end) {
+                        s = s.substring(0, start) + "&Page=" + page + "&" + s.substring(end);
+
+                    }
+                }
+
+                regex = "&CurrentPage=[0123456789]+&";
+                pattern = Pattern.compile(regex);
+                matcher = pattern.matcher(s);
+                if (matcher.find()) {
+                    int start = matcher.start();
+                    int end = matcher.end();
+                    if (start != end) {
+                        s = s.substring(0, start) + "&CurrentPage=" + page + "&" + s.substring(end);
+
+                    }
+                }
+                
                 List<Principal> principals = new ArrayList<>();
-                URL url = new URL("https://api2.realtor.ca/individual.svc/IndividualSearch?RecordsPerPage=50&Page="
-                        + page + "&SortBy=3&SortOrder=A&CurrentPage=" + page +
-                        "&CultureId=1&ApplicationId=1&Token=D6TmfZprLI9DXo9uooFJ+t99MOlYqORJRe2Eqz7F4Vg=&GUID=191badff-a44b-4cda-8f8c-e535ecef9f97&_=1484920571884");
+                URL url = new URL(s);
                 String response = readUrl(url);
 
 //            File f = new File("C:\\Users\\dnyffeler\\Documents\\NetBeansProjects\\sandbox\\sandbox\\sandbox-core\\src\\main\\java\\com\\sniffydn\\sandbox\\core\\temp.json");
@@ -140,7 +216,7 @@ public class AgentDirectoryParser {
                 } else {
                     Thread.sleep(1500);
 
-                    System.out.println("\n\n\n\n\npage = " + page + "\n"+ json.toString(2));
+                    System.out.println("\n\n\n\n\npage = " + page + "\n" + json.toString(2));
                     break;
                 }
 
