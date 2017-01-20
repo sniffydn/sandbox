@@ -58,6 +58,8 @@ public class AgentDirectoryParser {
 
     private static void realtorCaSearch() {
 
+        String s = "https://api2.realtor.ca/individual.svc/" + "IndividualSearch?City=Toronto&ProvinceIds=2&RecordsPerPage=9&Specialties=2&Page=1&SortBy=3&SortOrder=A&CurrentPage=1&CultureId=1&ApplicationId=1&Token=D6TmfZprLI9DXo9uooFJ+j1ea50Ia57XP6s8RLa2qKs=&GUID=191badff-a44b-4cda-8f8c-e535ecef9f97&_=1484943083660";
+
         try {
             for (int page = 1; page < 51; page++) {
                 List<Principal> principals = new ArrayList<>();
