@@ -59,7 +59,7 @@ public class AgentDirectoryParser {
     private static void realtorCaSearch() {
 
         try {
-            for (int page = 51; page < 2488; page++) {
+            for (int page = 1; page < 51; page++) {
                 List<Principal> principals = new ArrayList<>();
                 URL url = new URL("https://api2.realtor.ca/individual.svc/IndividualSearch?RecordsPerPage=50&Page="
                         + page + "&SortBy=3&SortOrder=A&CurrentPage=" + page +
