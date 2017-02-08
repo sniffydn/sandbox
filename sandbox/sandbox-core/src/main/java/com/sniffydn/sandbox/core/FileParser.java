@@ -37,6 +37,7 @@ public class FileParser {
             String line;
             Address address = new Address();
             while ((line = br.readLine()) != null) {
+                line = line.replaceAll(Pattern.quote("\""), "");
                 line = line.trim();
                 if (line.length() == 0) {
                     continue;
