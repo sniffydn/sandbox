@@ -11,5 +11,6 @@
     <name>sandbox</name>
     <modules>
         <module>sandbox-core</module>
+        <module>multicast-core</module>
     </modules>
 </project>
