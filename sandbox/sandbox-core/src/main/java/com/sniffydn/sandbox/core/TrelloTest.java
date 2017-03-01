@@ -26,6 +26,7 @@ public class TrelloTest {
     private static String idBoard = "53c541f4f7ebdbbc498a5043";//board id
     private static String idList = "53c541f4f7ebdbbc498a5045";//list on the board
 
+    private static String labelId = "5465521e74d650d5670cce77";
 
     /**
      * @param args the command line arguments
@@ -34,6 +35,7 @@ public class TrelloTest {
         JSONObject card = createCard();
         JSONObject checklist = addChecklist(card);
         addChecklistItem(card, checklist, "Item Text");
+        addLabel(card, labelId);
     }
 
     public static JSONObject createCard() {
@@ -130,6 +132,28 @@ public class TrelloTest {
 
             } else {
                 System.out.println("addChecklistItem Url: " + url + " Status:" + response.getStatus());
+                System.out.println("     " + response.getBody());
+            }
+        } catch (UnirestException ex) {
+            System.out.println(ex.getMessage() + " " + url);
+        }
+    }
+
+    private static void addLabel(JSONObject card, String labelId) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("key", key);
+        params.put("token", token);
+        params.put("value", labelId);
+
+        String url = trelloUrlPrefix + "/cards/" + card.getString("id") + "/idLabels";
+        try {
+            HttpRequestWithBody request = Unirest.post(url);
+            request.fields(params);
+            HttpResponse<String> response = request.asString();
+            if (200 == response.getStatus()) {
+                System.out.println(response.getBody());
+            } else {
+                System.out.println("addChecklist Url: " + url + " Status:" + response.getStatus());
                 System.out.println("     " + response.getBody());
             }
         } catch (UnirestException ex) {
