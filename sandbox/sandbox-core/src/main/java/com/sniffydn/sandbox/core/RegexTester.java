@@ -57,8 +57,17 @@ public class RegexTester {
         s = "24270 NE 131st Terrace\n";
 
         regex = ".*";
+//        System.out.println(Pattern.matches(regex, s));
+
+
+        regex = ".*[0-9]{7}.*";
+        s = "E2134556A";
+
         System.out.println(Pattern.matches(regex, s));
 
+        s = "E213556A";
+
+        System.out.println(Pattern.matches(regex, s));
     }
 
     private static void addCarraigeReturns(String response) {
