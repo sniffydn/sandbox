@@ -3,6 +3,7 @@ package com.sniffydn.sandbox.core;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.StringTokenizer;
 import java.util.regex.Pattern;
 import org.json.JSONObject;
 
@@ -48,8 +49,29 @@ public class JSONTester {
             JSONObject convertedChild = new JSONObject();
             convertedChild.put("user", temp.getString("user"));
             convertedChild.put("viewing", temp.getString("viewing"));
-            converted.put(temp.getString("bdoId"), convertedChild);
-            obj.append(temp.getString("bdoClass"), converted);
+
+            if (obj.has(temp.getString("bdoClass"))) {
+                converted = obj.getJSONObject(temp.getString("bdoClass"));
+                if(temp.getString("bdoId").contains(",")) {
+                    StringTokenizer tok = new StringTokenizer(temp.getString("bdoId"), ",");
+                    while(tok.hasMoreTokens()) {
+                        converted.append(tok.nextToken(), convertedChild);
+                    }
+                } else {
+                    converted.append(temp.getString("bdoId"), convertedChild);
+                }
+            } else {
+                if(temp.getString("bdoId").contains(",")) {
+                    StringTokenizer tok = new StringTokenizer(temp.getString("bdoId"), ",");
+                    while(tok.hasMoreTokens()) {
+                        converted.append(tok.nextToken(), convertedChild);
+                    }
+                } else {
+                    converted.append(temp.getString("bdoId"), convertedChild);
+                }
+                obj.put(temp.getString("bdoClass"), converted);
+            }
+
         }
         System.out.println("\n\n\n\n" + obj.toString(2));
 
