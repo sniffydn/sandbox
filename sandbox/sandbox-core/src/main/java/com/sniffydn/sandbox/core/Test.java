@@ -7,8 +7,7 @@
 package com.sniffydn.sandbox.core;
 
 import java.awt.event.ActionEvent;
-import java.text.SimpleDateFormat;
-
+import java.io.File;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JFrame;
@@ -60,6 +59,16 @@ public class Test extends JFrame {
 //        Test test = new Test();
 //        test.setSize(800, 600);
 //        test.setVisible(true);
-        
+
+        File logFileFolder = new File("C:\\temp\\lynx-messaging-services\\Logs\\");
+                        if (logFileFolder.isDirectory()) {
+                            for (File log : logFileFolder.listFiles()) {
+//                                System.out.println(log.getName());
+                                if(log.getName().endsWith(".log") && log.lastModified() < System.currentTimeMillis() - 7 * 86400000) {
+//                                    System.out.println("    delete");
+                                    log.delete();
+                                }
+                            }
+                        }
     }
 }
