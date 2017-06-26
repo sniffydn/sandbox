@@ -12,5 +12,6 @@
     <modules>
         <module>sandbox-core</module>
         <module>multicast-core</module>
+        <module>rpg</module>
     </modules>
 </project>
