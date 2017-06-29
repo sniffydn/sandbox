@@ -1,12 +1,19 @@
 package com.sniffydn.rpg;
 
 public class Character {
+    private String name = "";
     private int hp = 10;
+    private int maxHp = 10;
     private int attack = 2;
     private int defense = 1;
     private int mgAttack = 10;
     private int mgDefense = 5;
-    private int speed = 1;
+    private int speed = 1000;
+    private int speedCurrentCounter = 0;
+
+    public Character(String name) {
+        this.name = name;
+    }
 
     /**
      * @return the hp
@@ -19,6 +26,9 @@ public class Character {
      * @param hp the hp to set
      */
     public void setHp(int hp) {
+        if(hp < 0) {
+            hp = 0;
+        }
         this.hp = hp;
     }
 
@@ -90,6 +100,48 @@ public class Character {
      */
     public void setSpeed(int speed) {
         this.speed = speed;
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @return the maxHp
+     */
+    public int getMaxHp() {
+        return maxHp;
+    }
+
+    /**
+     * @param maxHp the maxHp to set
+     */
+    public void setMaxHp(int maxHp) {
+        this.maxHp = maxHp;
+    }
+
+    /**
+     * @return the speedCurrentCounter
+     */
+    public int getSpeedCurrentCounter() {
+        return speedCurrentCounter;
+    }
+
+    /**
+     * @param speedCurrentCounter the speedCurrentCounter to set
+     */
+    public void setSpeedCurrentCounter(int speedCurrentCounter) {
+        this.speedCurrentCounter = speedCurrentCounter;
     }
 
 
