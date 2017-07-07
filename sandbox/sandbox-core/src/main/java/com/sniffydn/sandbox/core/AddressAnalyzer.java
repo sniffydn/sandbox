@@ -407,10 +407,9 @@ public class AddressAnalyzer {
         return address;
     }
 
-    private static List<String> DIGITS = new ArrayList<>();
-    private static List<String> TEENS = new ArrayList<>();
-    private static List<String> TENS = new ArrayList<>();
-    private static List<String> MAGNITUDE = new ArrayList<>();
+    private static final List<String> DIGITS = new ArrayList<>();
+    private static final List<String> TENS = new ArrayList<>();
+    private static final List<String> MAGNITUDE = new ArrayList<>();
 
     static {
         DIGITS.add("ONE");
@@ -467,11 +466,6 @@ public class AddressAnalyzer {
             regexBuilder.append(DIGITS.get(i));
         }
 
-        for (int i = 0; i < TEENS.size(); i++) {
-            regexBuilder.append("|");
-            regexBuilder.append(TEENS.get(i));
-        }
-
         for (int i = 0; i < MAGNITUDE.size(); i++) {
             regexBuilder.append("|");
             regexBuilder.append(MAGNITUDE.get(i));
@@ -522,7 +516,6 @@ public class AddressAnalyzer {
             int index = conversion.indexOf(TENS.get(i));
             while (index != -1) {
                 conversion = conversion.replaceFirst("\\b" + TENS.get(i) + "\\b", "" + (i + 2));
-
                 try {
                     int checkChar = conversion.charAt(index + 2);
 
@@ -547,11 +540,11 @@ public class AddressAnalyzer {
                 String sub = conversion.substring(index);
                 String subReplace = sub;
                 System.out.println("    sub:" + sub);
-                while(subReplace.length() < 2) {
+                while (subReplace.length() < 2) {
                     subReplace = 0 + subReplace;
                 }
                 conversion = conversion.substring(0, index) + subReplace + conversion.substring(index + sub.length());
-                
+
             } catch (Exception e) {
                 conversion += "00";
             }
@@ -565,8 +558,7 @@ public class AddressAnalyzer {
                 conversion = conversion.replaceFirst(Pattern.quote("THOUSAND"), "");
                 String sub = conversion.substring(index);
                 String subReplace = sub;
-                System.out.println("    sub:" + sub);
-                while(subReplace.length() < 3) {
+                while (subReplace.length() < 3) {
                     subReplace = 0 + subReplace;
                 }
                 conversion = conversion.substring(0, index) + subReplace + conversion.substring(index + sub.length());
@@ -578,10 +570,10 @@ public class AddressAnalyzer {
             index = conversion.indexOf("THOUSAND");
         }
 
-        if(wordsThatAreNumbers.charAt(wordsThatAreNumbers.length() - 1) == ' ') {
+        if (wordsThatAreNumbers.charAt(wordsThatAreNumbers.length() - 1) == ' ') {
             conversion = conversion + " ";
         }
-        if(wordsThatAreNumbers.charAt(0) == ' ') {
+        if (wordsThatAreNumbers.charAt(0) == ' ') {
             conversion = " " + conversion;
         }
 
