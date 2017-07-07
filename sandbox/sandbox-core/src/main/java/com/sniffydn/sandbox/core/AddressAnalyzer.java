@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -382,13 +383,119 @@ public class AddressAnalyzer {
     }
 
     private static int analyzeAddress1(String address, String address2) {
-        address = normalizeAddress1(address);
-        address2 = normalizeAddress1(address2);
+        address = normalizeAddress1(address).trim();
+        address2 = normalizeAddress1(address2).trim();
+
+        System.out.println(characterComparisonRatio(address, address2));
+        System.out.println(tokenComparisonRatio(address, address2));
+        System.out.println(characterOrderComparisonRatio(address, address2));
 
         if (address.equals(address2)) {
             return 5;
         }
         return 0;
+    }
+
+    private static int characterComparisonRatio(String first, String second) {
+        if (first.length() < second.length()) {
+            String temp = first;
+            first = second;
+            second = temp;
+        }
+
+        List<Character> firstList = new ArrayList<>();
+        for (int i = 0; i < first.length(); i++) {
+            firstList.add(first.charAt(i));
+        }
+
+        List<Character> secondList = new ArrayList<>();
+        for (int i = 0; i < second.length(); i++) {
+            Character characterAtIndex = second.charAt(i);
+            if (firstList.contains(characterAtIndex)) {
+                firstList.remove(characterAtIndex);
+            } else {
+                secondList.add(characterAtIndex);
+            }
+        }
+
+        double firstRatio = 1.0 - (firstList.size() * 1.0 / first.length());
+        double secondRatio = 1.0 - (secondList.size() * 1.0 / second.length());
+
+//        System.out.println("       score: " + Math.round(100.0 * (firstRatio + secondRatio) / 2) + "   ~" + first + "  " + firstList.size() + " " + firstRatio + "    ~" + second + "  " + secondList.size() + " " + secondRatio);
+        return (int) Math.round(100.0 * (firstRatio + secondRatio) / 2);
+    }
+
+    private static int tokenComparisonRatio(String first, String second) {
+        StringTokenizer tokFirst = new StringTokenizer(first.replaceAll(".,", " "));
+        StringTokenizer tokSecond = new StringTokenizer(second.replaceAll(".,", " "));
+
+        if (tokFirst.countTokens() < tokSecond.countTokens()) {
+            StringTokenizer temp = tokFirst;
+            tokFirst = tokSecond;
+            tokSecond = temp;
+        }
+
+        int firstTokens = tokFirst.countTokens();
+        int secondTokens = tokSecond.countTokens();
+
+        List<String> firstList = new ArrayList<>();
+        while (tokFirst.hasMoreTokens()) {
+            firstList.add(tokFirst.nextToken());
+        }
+
+        List<String> secondList = new ArrayList<>();
+        while (tokSecond.hasMoreTokens()) {
+            String token = tokSecond.nextToken();
+            if (firstList.contains(token)) {
+                firstList.remove(token);
+            } else {
+                secondList.add(token);
+            }
+        }
+
+        double firstRatio = 1.0 - (firstList.size() * 1.0 / firstTokens);
+        double secondRatio = 1.0 - (secondList.size() * 1.0 / secondTokens);
+
+//        System.out.println("       score: " + Math.round(100.0 * (firstRatio + secondRatio) / 2) + "   ~" + firstTokens + " " + firstList.size() + " " + firstRatio + "    ~" + secondTokens + " " + secondList.size() + " " + secondRatio);
+        return (int) Math.round(100.0 * (firstRatio + secondRatio) / 2);
+    }
+
+    private static int characterOrderComparisonRatio(String first, String second) {
+        first = first.replaceAll("[.|,| ]", "");
+        second = second.replaceAll("[.|,| ]", "");
+        if (first.length() < second.length()) {
+            String temp = first;
+            first = second;
+            second = temp;
+        }
+        System.out.println("        replaced:" + first + " : " + second);
+
+        List<Character> firstList = new ArrayList<>();
+        for (int i = 0; i < first.length(); i++) {
+            firstList.add(first.charAt(i));
+        }
+
+        List<Character> secondList = new ArrayList<>();
+        int j = 0;
+        for (int i = 0; i < second.length(); i++) {
+            Character characterAtIndex = second.charAt(i);
+
+            if (firstList.contains(characterAtIndex)) {
+                while (!firstList.get(j).equals(characterAtIndex)) {
+
+                    j++;
+                }
+                firstList.remove(j);
+            } else {
+                secondList.add(characterAtIndex);
+            }
+        }
+
+        double firstRatio = 1.0 - (firstList.size() * 1.0 / first.length());
+        double secondRatio = 1.0 - (secondList.size() * 1.0 / second.length());
+
+        System.out.println("       score: " + Math.round(100.0 * (firstRatio + secondRatio) / 2) + "   ~" + first + "  " + firstList.size() + " " + firstRatio + "    ~" + second + "  " + secondList.size() + " " + secondRatio);
+        return (int) Math.round(100.0 * (firstRatio + secondRatio) / 2);
     }
 
     private static String normalizeAddress1(String address) {
