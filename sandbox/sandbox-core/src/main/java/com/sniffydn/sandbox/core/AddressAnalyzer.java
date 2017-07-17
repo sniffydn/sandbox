@@ -50,6 +50,7 @@ public class AddressAnalyzer {
         addressRecord3.setAddressFirst("Kristen");
         addressRecord3.setAddressLast("Nyffeler");
         addressRecord3.setAddress1("7967 High land Drive");
+        addressRecord3.setAddress2("Apt 2");
         addressRecord3.setAddressCity("Lino Lakes");
         addressRecord3.setAddressState("MN");
         addressRecord3.setAddressZip("55014");
@@ -77,8 +78,6 @@ public class AddressAnalyzer {
     }
 
     private static final Map<String, String> STANDARDIZATION_MAP = new HashMap<>();
-    private static final Map<String, String> NUMBER_STANDARDIZATION_MAP = new HashMap<>();
-    private static final Map<String, String> BASE_DIGIT_NUMBER_STANDARDIZATION_MAP = new HashMap<>();
 
     static {
         STANDARDIZATION_MAP.put("ALLEY", "ALY");
@@ -332,15 +331,26 @@ public class AddressAnalyzer {
     }
 
     private static void analyzeAddresses(AddressRecord first, AddressRecord second) {
+        System.out.println(first + "   " + second);
         int similarScore = 0;
 
         similarScore += analyzeState(first.getAddressState(), second.getAddressState());
         similarScore += analyzeZip(first.getAddressZip(), second.getAddressZip());
         similarScore += analyzeCity(first.getAddressCity(), second.getAddressCity());
 
-        if (similarScore > 15) {
-            similarScore += analyzeAddress1(first.getAddress1(), second.getAddress1());
+        if (similarScore > 200) {
+            String address1 = first.getAddress1();
+            if(first.getAddress2() != null) {
+                address1 = address1 + " " + first.getAddress2();
+            }
+            String otherAddress1 = second.getAddress1();
+            if(second.getAddress2() != null) {
+                otherAddress1 = otherAddress1 + " " + second.getAddress2();
+            }
+            similarScore += analyzeAddress1(address1, otherAddress1);
         }
+
+        similarScore = similarScore / 4;
 
         if (first.getSimilarScore() < similarScore) {
             first.setSimilarScore(similarScore);
@@ -355,45 +365,48 @@ public class AddressAnalyzer {
 
     private static int analyzeState(String state, String state2) {
         if (state.equals(state2)) {
-            return 10;
+            return 100;
         }
         return 0;
     }
 
     private static int analyzeZip(String zip, String zip2) {
-        int similarScore = 0;
-        zip = zip.trim().toUpperCase().replaceAll(Pattern.quote(" "), "");
-        zip2 = zip2.trim().toUpperCase().replaceAll(Pattern.quote(" "), "");
+        zip = zip.trim().toUpperCase().replaceAll("[.|,| |-]", "");
+        zip2 = zip2.trim().replaceAll("[.|,| |-]", "");
 
-        try {
-            while (zip.charAt(similarScore) == zip2.charAt(similarScore)) {
-                similarScore++;
-            }
-        } catch (Exception e) {
+        if(zip.length() != zip2.length() && zip.length() >= 5 && zip2.length() >= 5) {
+            zip= zip.substring(0, 5);
+            zip2 = zip2.substring(0, 5);
         }
 
-        return similarScore;
+        int scoreTotal = 0;
+        scoreTotal += characterComparisonRatio(zip, zip2);
+        scoreTotal += characterOrderComparisonRatio(zip, zip2);
+
+        return scoreTotal / 2;
     }
 
     private static int analyzeCity(String city, String city2) {
-        if (city.equals(city2)) {
-            return 5;
-        }
-        return 0;
+         city = city.trim().toUpperCase().replaceAll("[.|,| |-]", "");
+        city2 = city2.trim().replaceAll("[.|,| |-]", "");
+
+        int scoreTotal = 0;
+        scoreTotal += characterComparisonRatio(city, city2);
+        scoreTotal += characterOrderComparisonRatio(city, city2);
+
+        return scoreTotal / 2;
     }
 
     private static int analyzeAddress1(String address, String address2) {
         address = normalizeAddress1(address).trim();
         address2 = normalizeAddress1(address2).trim();
 
-        System.out.println(characterComparisonRatio(address, address2));
-        System.out.println(tokenComparisonRatio(address, address2));
-        System.out.println(characterOrderComparisonRatio(address, address2));
+        int totalScore = 0;
+        totalScore += characterComparisonRatio(address, address2);
+        totalScore += tokenComparisonRatio(address, address2);
+        totalScore += characterOrderComparisonRatio(address, address2);
 
-        if (address.equals(address2)) {
-            return 5;
-        }
-        return 0;
+        return totalScore / 3;
     }
 
     private static int characterComparisonRatio(String first, String second) {
@@ -461,14 +474,14 @@ public class AddressAnalyzer {
     }
 
     private static int characterOrderComparisonRatio(String first, String second) {
-        first = first.replaceAll("[.|,| ]", "");
-        second = second.replaceAll("[.|,| ]", "");
+        first = first.replaceAll("[.|,| |-]", "");
+        second = second.replaceAll("[.|,| |-]", "");
         if (first.length() < second.length()) {
             String temp = first;
             first = second;
             second = temp;
         }
-        System.out.println("        replaced:" + first + " : " + second);
+//        System.out.println("        replaced:" + first + " : " + second);
 
         List<Character> firstList = new ArrayList<>();
         for (int i = 0; i < first.length(); i++) {
@@ -476,16 +489,11 @@ public class AddressAnalyzer {
         }
 
         List<Character> secondList = new ArrayList<>();
-        int j = 0;
         for (int i = 0; i < second.length(); i++) {
             Character characterAtIndex = second.charAt(i);
 
             if (firstList.contains(characterAtIndex)) {
-                while (!firstList.get(j).equals(characterAtIndex)) {
-
-                    j++;
-                }
-                firstList.remove(j);
+                firstList.remove(characterAtIndex);
             } else {
                 secondList.add(characterAtIndex);
             }
@@ -494,14 +502,15 @@ public class AddressAnalyzer {
         double firstRatio = 1.0 - (firstList.size() * 1.0 / first.length());
         double secondRatio = 1.0 - (secondList.size() * 1.0 / second.length());
 
-        System.out.println("       score: " + Math.round(100.0 * (firstRatio + secondRatio) / 2) + "   ~" + first + "  " + firstList.size() + " " + firstRatio + "    ~" + second + "  " + secondList.size() + " " + secondRatio);
+//        System.out.println("       score: " + Math.round(100.0 * (firstRatio + secondRatio) / 2) + "   ~" + first + "  " + firstList.size() + " " + firstRatio + "    ~" + second + "  " + secondList.size() + " " + secondRatio);
         return (int) Math.round(100.0 * (firstRatio + secondRatio) / 2);
     }
 
     private static String normalizeAddress1(String address) {
+        System.out.println(address);
         address = address.trim().toUpperCase().replaceAll(Pattern.quote("  "), " ");
 
-        System.out.println(address);
+//        System.out.println(address);
         address = findAndConvertWordsToNumbers(address);
 
         for (String key : STANDARDIZATION_MAP.keySet()) {
@@ -510,7 +519,7 @@ public class AddressAnalyzer {
             }
         }
 
-        System.out.println("  -" + address);
+//        System.out.println("  -" + address);
         return address;
     }
 
@@ -604,10 +613,10 @@ public class AddressAnalyzer {
         }
 
         for (String match : matches) {
-            System.out.println("        " + match);
+//            System.out.println("        " + match);
             String conversion = convertWordsToNumbers(match);
             s = s.replaceAll(Pattern.quote(match), conversion);
-            System.out.println("        s:" + s);
+//            System.out.println("        s:" + s);
         }
 
         return s;
@@ -646,7 +655,7 @@ public class AddressAnalyzer {
                 conversion = conversion.replaceFirst(Pattern.quote("HUNDRED"), "");
                 String sub = conversion.substring(index);
                 String subReplace = sub;
-                System.out.println("    sub:" + sub);
+//                System.out.println("    sub:" + sub);
                 while (subReplace.length() < 2) {
                     subReplace = 0 + subReplace;
                 }
