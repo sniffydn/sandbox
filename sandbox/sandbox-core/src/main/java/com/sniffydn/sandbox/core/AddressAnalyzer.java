@@ -700,9 +700,6 @@ public class AddressAnalyzer {
 
 class AddressRecord {
 
-    private Integer similarScore = 0;
-    private Integer similarToAddressId = -1;
-
     private Integer addressId;
     private Integer customerId;
     private String addressFirst;
@@ -979,6 +976,9 @@ class AddressRecord {
         return addressFirst + " " + addressLast + " " + addressCompany + " " + address1 + " " + address2 + " " + addressCity + " " + addressState + " " + addressZip;
     }
 
+
+
+    private Integer similarScore = 0;
     /**
      * @return the similarScore
      */
@@ -992,6 +992,9 @@ class AddressRecord {
     public void setSimilarScore(Integer similarScore) {
         this.similarScore = similarScore;
     }
+
+
+    private Integer similarToAddressId = -1;
 
     /**
      * @return the similarToAddressId
