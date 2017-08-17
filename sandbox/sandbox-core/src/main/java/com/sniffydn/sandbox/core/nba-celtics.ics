@@ -1,0 +1,1659 @@
+BEGIN:VCALENDAR
+NAME:Celtics
+X-WR-CALNAME:Celtics
+VERSION:2.0
+PRODID:-//Stanza //Stanza Calendar v1.0//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:66th NBA All-Star Game
+END:VALARM
+DTSTART:20170220T010000Z
+DTEND:20170220T040000Z
+UID:twhur9Ti3MgsAhMs8teujBq5@stanza.co
+SUMMARY:66th NBA All-Star Game
+DESCRIPTION:66th NBA All-Star Game\n\nWatch the game live on TNT or stream here: https://stza.co/+p7xq-v\n\nBuy NBA All-Star Gear: https://stza.co/+p7xq-22\n\nSubscribe to NBA Top Game of the Day: https://stza.co/+p7xq-30\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:Watch the game live on TNT or stream here: http://bit.ly/2diHlgQ
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics vs. Bulls
+END:VALARM
+DTSTART:20170416T223000Z
+DTEND:20170417T010000Z
+UID:ZHzCFtxwxS5b622wvRne3glc@stanza.co
+SUMMARY:Celtics vs. Bulls
+DESCRIPTION:Celtics vs. Bulls\n\nBuy tickets here: https://stza.co/~pN6Z\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:TD Garden\, Boston\, MA
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Bulls at Celtics
+END:VALARM
+DTSTART:20170427T003000Z
+DTEND:20170427T030000Z
+UID:Bmtq9rEKja3IX6EaOk6Bapaz@stanza.co
+SUMMARY:Bulls at Celtics
+DESCRIPTION:Bulls at Celtics\n\nBuy tickets here: https://stza.co/~pN73\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:TD Garden\, Boston\, MA
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Bulls
+END:VALARM
+DTSTART:20170429T000000Z
+DTEND:20170429T023000Z
+UID:MqoRnMMdEBO4EVb_zV861Knh@stanza.co
+SUMMARY:Celtics at Bulls
+DESCRIPTION:Celtics at Bulls\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:United Center\, Chicago\, IL
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Cavaliers at Celtics
+END:VALARM
+DTSTART:20170518T003000Z
+DTEND:20170518T030000Z
+UID:Lb_fhDqU6uZQdn8suhMRKYMz@stanza.co
+SUMMARY:Cavaliers at Celtics
+DESCRIPTION:Cavaliers at Celtics\n\nBuy tickets here: https://stza.co/~qi$e\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:TD Garden\, Boston\, MA
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Cavaliers at Celtics
+END:VALARM
+DTSTART:20170520T003000Z
+DTEND:20170520T030000Z
+UID:B67HuXCEySTl4wNN6sbBi5rY@stanza.co
+SUMMARY:Cavaliers at Celtics
+DESCRIPTION:Cavaliers at Celtics\n\nBuy tickets here: https://stza.co/~qi$g\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:TD Garden\, Boston\, MA
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Cavaliers
+END:VALARM
+DTSTART:20170522T003000Z
+DTEND:20170522T030000Z
+UID:Lshm9ea9AhSR-5KEO4RUhW0g@stanza.co
+SUMMARY:Celtics at Cavaliers
+DESCRIPTION:Celtics at Cavaliers\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:Quicken Loans Arena\, Cleveland\, OH
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Cavaliers
+END:VALARM
+DTSTART:20170524T003000Z
+DTEND:20170524T030000Z
+UID:ugKW3jP3AH3KO3D9z1HGcoWf@stanza.co
+SUMMARY:Celtics at Cavaliers
+DESCRIPTION:Celtics at Cavaliers\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:Quicken Loans Arena\, Cleveland\, OH
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Cavaliers at Celtics
+END:VALARM
+DTSTART:20170526T003000Z
+DTEND:20170526T030000Z
+UID:bNDfXMs_yV07GKqfedsn4GR-@stanza.co
+SUMMARY:Cavaliers at Celtics
+DESCRIPTION:Cavaliers at Celtics\n\nBuy tickets here: https://stza.co/~qi$k\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:TD Garden\, Boston\, MA
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20170622T230000Z
+DTEND:20170623T010000Z
+UID:ZLqVl8VdUdZJ4ImkwpmvLHNp@stanza.co
+SUMMARY:2017 NBA Draft
+DESCRIPTION:Watch on ESPN\n\nMore Info: https://stza.co/+rgup-1\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:Barclays Center\, Brooklyn\, New York
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Cavaliers
+END:VALARM
+DTSTART:20171018T000000Z
+DTEND:20171018T023000Z
+UID:P4_gKZOFAKFIIIDXd_d0fFLt@stanza.co
+SUMMARY:Celtics at Cavaliers
+DESCRIPTION:Celtics at Cavaliers\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:1 Center Ct\, Cleveland\, OH 44115
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Bucks at Celtics
+END:VALARM
+DTSTART:20171018T233000Z
+DTEND:20171019T020000Z
+UID:yBRizI7eEgiAxZBHl-ERoanG@stanza.co
+SUMMARY:Bucks at Celtics
+DESCRIPTION:Bucks at Celtics\n\nBuy tickets here: https://stza.co/~swjg\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at 76ers
+END:VALARM
+DTSTART:20171020T230000Z
+DTEND:20171021T013000Z
+UID:zbbBh060RMnUdZujg2JhXVHr@stanza.co
+SUMMARY:Celtics at 76ers
+DESCRIPTION:Celtics at 76ers\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:3601 S Broad St\, Philadelphia\, PA 19148
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Knicks at Celtics
+END:VALARM
+DTSTART:20171024T233000Z
+DTEND:20171025T020000Z
+UID:trYnToVRLpf7urrhWnXAy22S@stanza.co
+SUMMARY:Knicks at Celtics
+DESCRIPTION:Knicks at Celtics\n\nBuy tickets here: https://stza.co/~swjk\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Bucks
+END:VALARM
+DTSTART:20171027T000000Z
+DTEND:20171027T023000Z
+UID:qP2wZKlxSHrwXLfzetyUSWGS@stanza.co
+SUMMARY:Celtics at Bucks
+DESCRIPTION:Celtics at Bucks\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:Bradley Center\, 1001 North 4th\, Milwaukee\, WI 53203
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Heat
+END:VALARM
+DTSTART:20171029T000000Z
+DTEND:20171029T023000Z
+UID:EJep0LGYMGk44Q23WsLLmsJA@stanza.co
+SUMMARY:Celtics at Heat
+DESCRIPTION:Celtics at Heat\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:601 Biscayne Blvd\, Miami\, FL 33132
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Spurs at Celtics
+END:VALARM
+DTSTART:20171030T233000Z
+DTEND:20171031T020000Z
+UID:eG9XinKeVvVt_4QlpotV56O9@stanza.co
+SUMMARY:Spurs at Celtics
+DESCRIPTION:Spurs at Celtics\n\nBuy tickets here: https://stza.co/~swjt\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Kings at Celtics
+END:VALARM
+DTSTART:20171101T233000Z
+DTEND:20171102T020000Z
+UID:2tN5j6MlosNvfHloswhhmWG-@stanza.co
+SUMMARY:Kings at Celtics
+DESCRIPTION:Kings at Celtics\n\nBuy tickets here: https://stza.co/~swjx\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Thunder
+END:VALARM
+DTSTART:20171104T013000Z
+DTEND:20171104T040000Z
+UID:pj4qSYt4USbSY01vF-j_fWol@stanza.co
+SUMMARY:Celtics at Thunder
+DESCRIPTION:Celtics at Thunder\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 W Reno Ave\, Oklahoma City\, OK 73102
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Magic
+END:VALARM
+DTSTART:20171105T230000Z
+DTEND:20171106T013000Z
+UID:0pjC4SwjmXtccyK4_BoE9ucv@stanza.co
+SUMMARY:Celtics at Magic
+DESCRIPTION:Celtics at Magic\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:400 W Church St #200\, Orlando\, FL 32801
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Hawks
+END:VALARM
+DTSTART:20171107T003000Z
+DTEND:20171107T030000Z
+UID:In5ls_v4UZWMFa5J93RD0Rs4@stanza.co
+SUMMARY:Celtics at Hawks
+DESCRIPTION:Celtics at Hawks\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:1 Philips Dr\, Atlanta\, GA 30303
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Lakers at Celtics
+END:VALARM
+DTSTART:20171109T010000Z
+DTEND:20171109T033000Z
+UID:w_OzW834ry6R2WRJAXvdhveX@stanza.co
+SUMMARY:Lakers at Celtics
+DESCRIPTION:Lakers at Celtics\n\nBuy tickets here: https://stza.co/~swjJ\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Hornets at Celtics
+END:VALARM
+DTSTART:20171111T003000Z
+DTEND:20171111T030000Z
+UID:q3NTzGhfQ6fj1RsGLfr99YHv@stanza.co
+SUMMARY:Hornets at Celtics
+DESCRIPTION:Hornets at Celtics\n\nBuy tickets here: https://stza.co/~swjP\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Raptors at Celtics
+END:VALARM
+DTSTART:20171112T203000Z
+DTEND:20171112T230000Z
+UID:Lpg90bUql2DZq2TGSuRtvx-d@stanza.co
+SUMMARY:Raptors at Celtics
+DESCRIPTION:Raptors at Celtics\n\nBuy tickets here: https://stza.co/~swjR\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Nets
+END:VALARM
+DTSTART:20171115T003000Z
+DTEND:20171115T030000Z
+UID:EXwpJZZoez1cQOZmqiOTed2G@stanza.co
+SUMMARY:Celtics at Nets
+DESCRIPTION:Celtics at Nets\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:620 Atlantic Ave\, Brooklyn\, NY 11217
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Warriors at Celtics
+END:VALARM
+DTSTART:20171117T010000Z
+DTEND:20171117T033000Z
+UID:1lKTSvtmhVHAu5mYweCDsblZ@stanza.co
+SUMMARY:Warriors at Celtics
+DESCRIPTION:Warriors at Celtics\n\nBuy tickets here: https://stza.co/~swjX\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Hawks
+END:VALARM
+DTSTART:20171119T003000Z
+DTEND:20171119T030000Z
+UID:W_EvYP9olIFr4xqZUVgIvC2Y@stanza.co
+SUMMARY:Celtics at Hawks
+DESCRIPTION:Celtics at Hawks\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:1 Philips Dr\, Atlanta\, GA 30303
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Mavericks
+END:VALARM
+DTSTART:20171121T013000Z
+DTEND:20171121T040000Z
+UID:C_uTcNOnIgiWe1gD4qjJ18t4@stanza.co
+SUMMARY:Celtics at Mavericks
+DESCRIPTION:Celtics at Mavericks\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:2500 Victory Ave\, Dallas\, TX 75219
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Heat
+END:VALARM
+DTSTART:20171123T003000Z
+DTEND:20171123T030000Z
+UID:j939nVjmXXb3au7KwS7Px_dd@stanza.co
+SUMMARY:Celtics at Heat
+DESCRIPTION:Celtics at Heat\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:601 Biscayne Blvd\, Miami\, FL 33132
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Magic at Celtics
+END:VALARM
+DTSTART:20171125T003000Z
+DTEND:20171125T030000Z
+UID:uikOB9BxOVoHZVoR7BSwxV2r@stanza.co
+SUMMARY:Magic at Celtics
+DESCRIPTION:Magic at Celtics\n\nBuy tickets here: https://stza.co/~swk4\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Pacers
+END:VALARM
+DTSTART:20171126T010000Z
+DTEND:20171126T033000Z
+UID:JisJA-nSiz4MhOeM0xL498TJ@stanza.co
+SUMMARY:Celtics at Pacers
+DESCRIPTION:Celtics at Pacers\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:125 S Pennsylvania St\, Indianapolis\, IN 46204
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Pistons at Celtics
+END:VALARM
+DTSTART:20171128T003000Z
+DTEND:20171128T030000Z
+UID:XEzApXln1Z5acwpUcScPpYDI@stanza.co
+SUMMARY:Pistons at Celtics
+DESCRIPTION:Pistons at Celtics\n\nBuy tickets here: https://stza.co/~swk8\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:76ers at Celtics
+END:VALARM
+DTSTART:20171201T003000Z
+DTEND:20171201T030000Z
+UID:s_06J_fUfora-4upkbPmSbIz@stanza.co
+SUMMARY:76ers at Celtics
+DESCRIPTION:76ers at Celtics\n\nBuy tickets here: https://stza.co/~swka\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Suns at Celtics
+END:VALARM
+DTSTART:20171202T180000Z
+DTEND:20171202T203000Z
+UID:C4WNReTOgcUhti170b5l9ajJ@stanza.co
+SUMMARY:Suns at Celtics
+DESCRIPTION:Suns at Celtics\n\nBuy tickets here: https://stza.co/~swkc\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Bucks at Celtics
+END:VALARM
+DTSTART:20171205T003000Z
+DTEND:20171205T030000Z
+UID:vGU-7SLJdXxgvreyY9bII_d3@stanza.co
+SUMMARY:Bucks at Celtics
+DESCRIPTION:Bucks at Celtics\n\nBuy tickets here: https://stza.co/~swkf\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Mavericks at Celtics
+END:VALARM
+DTSTART:20171207T003000Z
+DTEND:20171207T030000Z
+UID:lrVBCj4lRJTnEx0Fy-L_Pkjw@stanza.co
+SUMMARY:Mavericks at Celtics
+DESCRIPTION:Mavericks at Celtics\n\nBuy tickets here: https://stza.co/~swkh\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Spurs
+END:VALARM
+DTSTART:20171209T023000Z
+DTEND:20171209T050000Z
+UID:P2YRJ9UfjnmnZFCMaEVskDBe@stanza.co
+SUMMARY:Celtics at Spurs
+DESCRIPTION:Celtics at Spurs\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:1 AT&T Center Parkway\, San Antonio\, TX 78219
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Pistons
+END:VALARM
+DTSTART:20171210T210000Z
+DTEND:20171210T233000Z
+UID:1D8brDCE_wl6GY0t3EmF2A4P@stanza.co
+SUMMARY:Celtics at Pistons
+DESCRIPTION:Celtics at Pistons\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:2645 Woodward Avenue\, Detroit\, MI 48201
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Bulls
+END:VALARM
+DTSTART:20171212T010000Z
+DTEND:20171212T033000Z
+UID:WxSOlG2FeORQslCzkvFixSU6@stanza.co
+SUMMARY:Celtics at Bulls
+DESCRIPTION:Celtics at Bulls\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:1901 W Madison St\, Chicago\, IL 60612
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Nuggets at Celtics
+END:VALARM
+DTSTART:20171214T003000Z
+DTEND:20171214T030000Z
+UID:As7oU09OF2utyPWB4tNNKKMi@stanza.co
+SUMMARY:Nuggets at Celtics
+DESCRIPTION:Nuggets at Celtics\n\nBuy tickets here: https://stza.co/~swkl\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Jazz at Celtics
+END:VALARM
+DTSTART:20171216T003000Z
+DTEND:20171216T030000Z
+UID:NNJPw4DuGlvgb6vif-qib7Kl@stanza.co
+SUMMARY:Jazz at Celtics
+DESCRIPTION:Jazz at Celtics\n\nBuy tickets here: https://stza.co/~swkn\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Grizzlies
+END:VALARM
+DTSTART:20171217T020000Z
+DTEND:20171217T043000Z
+UID:-cLxTEijZ-w69prXdaNz4y8l@stanza.co
+SUMMARY:Celtics at Grizzlies
+DESCRIPTION:Celtics at Grizzlies\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:191 Beale St\, Memphis\, TN 38103
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Pacers
+END:VALARM
+DTSTART:20171219T000000Z
+DTEND:20171219T023000Z
+UID:RtE83C8B5XYudgfRcSlSPtZv@stanza.co
+SUMMARY:Celtics at Pacers
+DESCRIPTION:Celtics at Pacers\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:125 S Pennsylvania St\, Indianapolis\, IN 46204
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Heat at Celtics
+END:VALARM
+DTSTART:20171221T003000Z
+DTEND:20171221T030000Z
+UID:M9VxyePrqLBwDIgPEdWiG5zX@stanza.co
+SUMMARY:Heat at Celtics
+DESCRIPTION:Heat at Celtics\n\nBuy tickets here: https://stza.co/~swkr\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Knicks
+END:VALARM
+DTSTART:20171222T010000Z
+DTEND:20171222T033000Z
+UID:Zt3-A4DzIwE_y6nq_MXFNfE1@stanza.co
+SUMMARY:Celtics at Knicks
+DESCRIPTION:Celtics at Knicks\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:4 Pennsylvania Plaza\, New York\, NY 10001
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Bulls at Celtics
+END:VALARM
+DTSTART:20171224T003000Z
+DTEND:20171224T030000Z
+UID:jngH-pWiSvPJARk_cmMjuK9h@stanza.co
+SUMMARY:Bulls at Celtics
+DESCRIPTION:Bulls at Celtics\n\nBuy tickets here: https://stza.co/~swku\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Wizards at Celtics
+END:VALARM
+DTSTART:20171225T223000Z
+DTEND:20171226T010000Z
+UID:eTBKcbzasKeDpLn74KYg31Iz@stanza.co
+SUMMARY:Wizards at Celtics
+DESCRIPTION:Wizards at Celtics\n\nBuy tickets here: https://stza.co/~swkz\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Hornets
+END:VALARM
+DTSTART:20171228T000000Z
+DTEND:20171228T023000Z
+UID:hhWmpamnnj6Y6WQZGAvegLWb@stanza.co
+SUMMARY:Celtics at Hornets
+DESCRIPTION:Celtics at Hornets\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:333 E Trade St\, Charlotte\, NC 28202
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Rockets at Celtics
+END:VALARM
+DTSTART:20171229T010000Z
+DTEND:20171229T033000Z
+UID:G4VuF6bgMc-cIvBfoXO0QawC@stanza.co
+SUMMARY:Rockets at Celtics
+DESCRIPTION:Rockets at Celtics\n\nBuy tickets here: https://stza.co/~swkE\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Nets at Celtics
+END:VALARM
+DTSTART:20171231T223000Z
+DTEND:20180101T010000Z
+UID:ISJmsh3DnJmL_P3XmhfkzPDM@stanza.co
+SUMMARY:Nets at Celtics
+DESCRIPTION:Nets at Celtics\n\nBuy tickets here: https://stza.co/~swkI\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Cavaliers at Celtics
+END:VALARM
+DTSTART:20180104T010000Z
+DTEND:20180104T033000Z
+UID:Ynh4zBeaXvxhQez_nYzkGrfy@stanza.co
+SUMMARY:Cavaliers at Celtics
+DESCRIPTION:Cavaliers at Celtics\n\nBuy tickets here: https://stza.co/~swkL\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Timberwolves at Celtics
+END:VALARM
+DTSTART:20180106T003000Z
+DTEND:20180106T030000Z
+UID:g1con-XwqE0kHevGuzFF-hqh@stanza.co
+SUMMARY:Timberwolves at Celtics
+DESCRIPTION:Timberwolves at Celtics\n\nBuy tickets here: https://stza.co/~swkN\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Nets
+END:VALARM
+DTSTART:20180106T230000Z
+DTEND:20180107T013000Z
+UID:n_3qFQuprOkWB2u2LwGNMmHe@stanza.co
+SUMMARY:Celtics at Nets
+DESCRIPTION:Celtics at Nets\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:620 Atlantic Ave\, Brooklyn\, NY 11217
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at 76ers
+END:VALARM
+DTSTART:20180111T200000Z
+DTEND:20180111T223000Z
+UID:G30sdbKp_EvNSJCEFOmeOlHf@stanza.co
+SUMMARY:Celtics at 76ers
+DESCRIPTION:Celtics at 76ers\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:3601 S Broad St\, Philadelphia\, PA 19148
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Pelicans at Celtics
+END:VALARM
+DTSTART:20180117T003000Z
+DTEND:20180117T030000Z
+UID:QEJjmiCGmjCyEk2ZdH2FjfS0@stanza.co
+SUMMARY:Pelicans at Celtics
+DESCRIPTION:Pelicans at Celtics\n\nBuy tickets here: https://stza.co/~swkT\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:76ers at Celtics
+END:VALARM
+DTSTART:20180119T000000Z
+DTEND:20180119T023000Z
+UID:A61oFsqBvlFniW1YtwBHqs8-@stanza.co
+SUMMARY:76ers at Celtics
+DESCRIPTION:76ers at Celtics\n\nBuy tickets here: https://stza.co/~swkZ\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Magic at Celtics
+END:VALARM
+DTSTART:20180121T180000Z
+DTEND:20180121T203000Z
+UID:dPC_TMxAbYPQW6K-6QQVtnWH@stanza.co
+SUMMARY:Magic at Celtics
+DESCRIPTION:Magic at Celtics\n\nBuy tickets here: https://stza.co/~swk$\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Lakers
+END:VALARM
+DTSTART:20180124T033000Z
+DTEND:20180124T060000Z
+UID:I8gTXp1_nBm98Bwm9Bz4Sj5D@stanza.co
+SUMMARY:Celtics at Lakers
+DESCRIPTION:Celtics at Lakers\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:1111 S Figueroa St\, Los Angeles\, CA 90015
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Clippers
+END:VALARM
+DTSTART:20180125T033000Z
+DTEND:20180125T060000Z
+UID:d7dDjN8xuXkVayra0fRADoL_@stanza.co
+SUMMARY:Celtics at Clippers
+DESCRIPTION:Celtics at Clippers\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:1111 S Figueroa St\, Los Angeles\, CA 90015
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Warriors
+END:VALARM
+DTSTART:20180128T013000Z
+DTEND:20180128T040000Z
+UID:LOTAMgdoKnTjFiwdrmn7QvYy@stanza.co
+SUMMARY:Celtics at Warriors
+DESCRIPTION:Celtics at Warriors\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:7000 Coliseum Way\, Oakland\, CA 94621
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Nuggets
+END:VALARM
+DTSTART:20180130T020000Z
+DTEND:20180130T043000Z
+UID:iMLtVnKAAOx8jQR_xAJBIDoL@stanza.co
+SUMMARY:Celtics at Nuggets
+DESCRIPTION:Celtics at Nuggets\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:1000 Chopper Cir\, Denver\, CO 80204
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Knicks at Celtics
+END:VALARM
+DTSTART:20180201T010000Z
+DTEND:20180201T033000Z
+UID:kb4n_6hNg0wbf2ed4Quc23RT@stanza.co
+SUMMARY:Knicks at Celtics
+DESCRIPTION:Knicks at Celtics\n\nBuy tickets here: https://stza.co/~swld\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Hawks at Celtics
+END:VALARM
+DTSTART:20180203T003000Z
+DTEND:20180203T030000Z
+UID:zZI3XWW6_bE1ix8bYPvGzPc9@stanza.co
+SUMMARY:Hawks at Celtics
+DESCRIPTION:Hawks at Celtics\n\nBuy tickets here: https://stza.co/~swlg\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Trail Blazers at Celtics
+END:VALARM
+DTSTART:20180204T170000Z
+DTEND:20180204T193000Z
+UID:aTfkfa38Rjr5qFvhHyIDfYM4@stanza.co
+SUMMARY:Trail Blazers at Celtics
+DESCRIPTION:Trail Blazers at Celtics\n\nBuy tickets here: https://stza.co/~swlk\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Raptors
+END:VALARM
+DTSTART:20180207T003000Z
+DTEND:20180207T030000Z
+UID:MAJJ_Ss6Ij-kV03_odXy4rlb@stanza.co
+SUMMARY:Celtics at Raptors
+DESCRIPTION:Celtics at Raptors\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:40 Bay St\, Toronto\, ON M5J 2X2\, Canada
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Wizards
+END:VALARM
+DTSTART:20180209T010000Z
+DTEND:20180209T033000Z
+UID:LmCLvlwTfdLEfxDbgHQKjbJY@stanza.co
+SUMMARY:Celtics at Wizards
+DESCRIPTION:Celtics at Wizards\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:601 F St NW\, Washington\, DC 20004
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Pacers at Celtics
+END:VALARM
+DTSTART:20180210T003000Z
+DTEND:20180210T030000Z
+UID:lqJnksjrkBi0w30G0mIu_MnU@stanza.co
+SUMMARY:Pacers at Celtics
+DESCRIPTION:Pacers at Celtics\n\nBuy tickets here: https://stza.co/~swlp\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Cavaliers at Celtics
+END:VALARM
+DTSTART:20180211T203000Z
+DTEND:20180211T230000Z
+UID:u8Qfaa2xRaO7RjpBbBYFLBZS@stanza.co
+SUMMARY:Cavaliers at Celtics
+DESCRIPTION:Cavaliers at Celtics\n\nBuy tickets here: https://stza.co/~swlv\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Clippers at Celtics
+END:VALARM
+DTSTART:20180215T010000Z
+DTEND:20180215T033000Z
+UID:H85bA6XjR_S9wirCKeWUjB9U@stanza.co
+SUMMARY:Clippers at Celtics
+DESCRIPTION:Clippers at Celtics\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Pistons
+END:VALARM
+DTSTART:20180224T000000Z
+DTEND:20180224T023000Z
+UID:o5oiBpj8mhoC6XcClmu_B-Q1@stanza.co
+SUMMARY:Celtics at Pistons
+DESCRIPTION:Celtics at Pistons\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:2645 Woodward Avenue\, Detroit\, MI 48201
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Knicks
+END:VALARM
+DTSTART:20180225T003000Z
+DTEND:20180225T030000Z
+UID:9p_sKP_5PRi0Mg0z6zUPmy6Y@stanza.co
+SUMMARY:Celtics at Knicks
+DESCRIPTION:Celtics at Knicks\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:4 Pennsylvania Plaza\, New York\, NY 10001
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Grizzlies at Celtics
+END:VALARM
+DTSTART:20180227T003000Z
+DTEND:20180227T030000Z
+UID:8TM6fJ5IzHMEaHl8IqPn40c5@stanza.co
+SUMMARY:Grizzlies at Celtics
+DESCRIPTION:Grizzlies at Celtics\n\nBuy tickets here: https://stza.co/~swlF\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Hornets at Celtics
+END:VALARM
+DTSTART:20180301T003000Z
+DTEND:20180301T030000Z
+UID:ClOHxas8TLunoIh_PEwkEaNH@stanza.co
+SUMMARY:Hornets at Celtics
+DESCRIPTION:Hornets at Celtics\n\nBuy tickets here: https://stza.co/~swlH\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Rockets
+END:VALARM
+DTSTART:20180304T013000Z
+DTEND:20180304T040000Z
+UID:3bYb19eNUHnXHp2mnEJzXPuC@stanza.co
+SUMMARY:Celtics at Rockets
+DESCRIPTION:Celtics at Rockets\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:1510 Polk St\, Houston\, TX 77002
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Bulls
+END:VALARM
+DTSTART:20180306T010000Z
+DTEND:20180306T033000Z
+UID:uvQXpM_MxdwUM6CU5zJoVi-h@stanza.co
+SUMMARY:Celtics at Bulls
+DESCRIPTION:Celtics at Bulls\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:1901 W Madison St\, Chicago\, IL 60612
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Timberwolves
+END:VALARM
+DTSTART:20180309T010000Z
+DTEND:20180309T033000Z
+UID:z9E3j4GLH4Grt8eI-3s-zND0@stanza.co
+SUMMARY:Celtics at Timberwolves
+DESCRIPTION:Celtics at Timberwolves\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:600 N 1st Ave\, Minneapolis\, MN 55403
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Pacers at Celtics
+END:VALARM
+DTSTART:20180311T233000Z
+DTEND:20180312T020000Z
+UID:VzJrEEbwWy2mNxSf-q_9olYw@stanza.co
+SUMMARY:Pacers at Celtics
+DESCRIPTION:Pacers at Celtics\n\nBuy tickets here: https://stza.co/~swlT\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Wizards at Celtics
+END:VALARM
+DTSTART:20180315T000000Z
+DTEND:20180315T023000Z
+UID:GDXEVHNTBWGh0syLURe706lv@stanza.co
+SUMMARY:Wizards at Celtics
+DESCRIPTION:Wizards at Celtics\n\nBuy tickets here: https://stza.co/~swlX\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Magic
+END:VALARM
+DTSTART:20180316T230000Z
+DTEND:20180317T013000Z
+UID:9j3i7MEiyq5XQHiFCZD8uYP_@stanza.co
+SUMMARY:Celtics at Magic
+DESCRIPTION:Celtics at Magic\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:400 W Church St #200\, Orlando\, FL 32801
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Pelicans
+END:VALARM
+DTSTART:20180318T220000Z
+DTEND:20180319T003000Z
+UID:TwW1kt_tI8SM3QssHX0Py7Fx@stanza.co
+SUMMARY:Celtics at Pelicans
+DESCRIPTION:Celtics at Pelicans\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:1501 Dave Dixon Dr\, New Orleans\, LA 70113
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Thunder at Celtics
+END:VALARM
+DTSTART:20180321T000000Z
+DTEND:20180321T023000Z
+UID:UVzd01mnkvEY6UJx1FuSTgDc@stanza.co
+SUMMARY:Thunder at Celtics
+DESCRIPTION:Thunder at Celtics\n\nBuy tickets here: https://stza.co/~swm2\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Trail Blazers
+END:VALARM
+DTSTART:20180324T020000Z
+DTEND:20180324T043000Z
+UID:P-_csMLEb5uJgvYWqjo10ith@stanza.co
+SUMMARY:Celtics at Trail Blazers
+DESCRIPTION:Celtics at Trail Blazers\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:1 N Center Ct St\, Portland\, OR 97227
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Kings
+END:VALARM
+DTSTART:20180325T220000Z
+DTEND:20180326T003000Z
+UID:GAbXmDNHeofV08WXloplrbMz@stanza.co
+SUMMARY:Celtics at Kings
+DESCRIPTION:Celtics at Kings\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:500 David J Stern Walk\, Sacramento\, CA 95814
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Suns
+END:VALARM
+DTSTART:20180327T020000Z
+DTEND:20180327T043000Z
+UID:IlNfPGTyXP1KSdraepYc6-OK@stanza.co
+SUMMARY:Celtics at Suns
+DESCRIPTION:Celtics at Suns\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:201 E Jefferson St\, Phoenix\, AZ 85004
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Jazz
+END:VALARM
+DTSTART:20180329T013000Z
+DTEND:20180329T040000Z
+UID:eGcPVM7iCZ2QRC8qxOAV0p_3@stanza.co
+SUMMARY:Celtics at Jazz
+DESCRIPTION:Celtics at Jazz\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:301 S Temple\, Salt Lake City\, UT 84101
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Raptors at Celtics
+END:VALARM
+DTSTART:20180331T233000Z
+DTEND:20180401T020000Z
+UID:VHxO5Z0wlDLXJfG_Ra9EZGX1@stanza.co
+SUMMARY:Raptors at Celtics
+DESCRIPTION:Raptors at Celtics\n\nBuy tickets here: https://stza.co/~swmi\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Bucks
+END:VALARM
+DTSTART:20180404T000000Z
+DTEND:20180404T023000Z
+UID:dru9FnOIvBd6CLpJXt9WpR8F@stanza.co
+SUMMARY:Celtics at Bucks
+DESCRIPTION:Celtics at Bucks\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:Bradley Center\, 1001 North 4th\, Milwaukee\, WI 53203
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Raptors
+END:VALARM
+DTSTART:20180404T230000Z
+DTEND:20180405T013000Z
+UID:JyxJtiQ6QZWouyr516kNPnZY@stanza.co
+SUMMARY:Celtics at Raptors
+DESCRIPTION:Celtics at Raptors\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:40 Bay St\, Toronto\, ON M5J 2X2\, Canada
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Bulls at Celtics
+END:VALARM
+DTSTART:20180406T233000Z
+DTEND:20180407T020000Z
+UID:unEIbFrI-5SqYz4BquD9yc5O@stanza.co
+SUMMARY:Bulls at Celtics
+DESCRIPTION:Bulls at Celtics\n\nBuy tickets here: https://stza.co/~swmn\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Hawks at Celtics
+END:VALARM
+DTSTART:20180408T233000Z
+DTEND:20180409T020000Z
+UID:giUlf1ZNvTWH1YlXMT_g5FNU@stanza.co
+SUMMARY:Hawks at Celtics
+DESCRIPTION:Hawks at Celtics\n\nBuy tickets here: https://stza.co/~swmv\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Celtics at Wizards
+END:VALARM
+DTSTART:20180411T000000Z
+DTEND:20180411T023000Z
+UID:otgit9k0ZaXWV0C4r4cLMltJ@stanza.co
+SUMMARY:Celtics at Wizards
+DESCRIPTION:Celtics at Wizards\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:601 F St NW\, Washington\, DC 20004
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Nets at Celtics
+END:VALARM
+DTSTART:20180412T000000Z
+DTEND:20180412T023000Z
+UID:nJ4wHV14TNGSIQhUC9QOLK1E@stanza.co
+SUMMARY:Nets at Celtics
+DESCRIPTION:Nets at Celtics\n\nBuy tickets here: https://stza.co/~swmB\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out Stanza’s FAQs page: https://stanza.co/faqs
+LOCATION:100 Legends Way\, Boston\, MA 02114
+STATUS:CONFIRMED
+DTSTAMP:20170816T182512Z
+CREATED:20170816T182512Z
+LAST-MODIFIED:20170816T182512Z
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR
