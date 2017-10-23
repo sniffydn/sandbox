@@ -4,9 +4,17 @@
         <servlet-name>Results</servlet-name>
         <servlet-class>quiz.Results</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CattleBreedResults</servlet-name>
+        <servlet-class>quiz.CattleBreedResults</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Results</servlet-name>
         <url-pattern>/Results</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CattleBreedResults</servlet-name>
+        <url-pattern>/CattleBreedResults</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
