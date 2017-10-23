@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class FileParser {
+public class EdwardJonesFileParser {
 
     public static void main(String[] args) {
         String cityStateZipRegex = "(^.+[,]{1}.*[a-zA-Z]{2}.*[ ]{1}.+$)";
@@ -30,7 +30,7 @@ public class FileParser {
         FileReader fr = null;
         BufferedWriter bw = null;
         try {
-            File f = new File("C:\\TEMP\\chick-fil-a-locations.txt");
+            File f = new File("C:\\TEMP\\edwardJones.csv");
             fr = new FileReader(f);
             BufferedReader br = new BufferedReader(fr);
             // Process lines from file
@@ -42,6 +42,16 @@ public class FileParser {
                 if (line.length() == 0) {
                     continue;
                 }
+                if (line.endsWith(" miles")) {
+                    continue;
+                }
+                if(line.equals("Contact MeVisit Site")) {
+                    continue;
+                }
+                if(line.contains("®")) {
+                    continue;
+                }
+
                 cityStateZipMatcher = cityStateZipPattern.matcher(line);
                 phoneMatcher = phonePattern.matcher(line);
                 System.out.println(line);
@@ -49,8 +59,6 @@ public class FileParser {
                 boolean phoneFound = phoneMatcher.find();
                 if (phoneFound) {
                     address.phone = line;
-                    addresses.add(address);
-                    address = new Address();
                 } else {
                     if (address.name == null) {
                         address.name = line;
@@ -68,16 +76,21 @@ public class FileParser {
                         address.cityStateZip = "\"" + line + "\"";
                     }
                 }
+
+                if(cityStateZipFound) {
+                    addresses.add(address);
+                    address = new Address();
+                }
             }
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(FileParser.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EdwardJonesFileParser.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(FileParser.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EdwardJonesFileParser.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 fr.close();
             } catch (IOException ex) {
-                Logger.getLogger(FileParser.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(EdwardJonesFileParser.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 
@@ -115,5 +128,3 @@ public class FileParser {
         }
     }
 }
-
-
