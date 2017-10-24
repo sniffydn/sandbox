@@ -30,13 +30,16 @@ public class EdwardJonesFileParser {
         FileReader fr = null;
         BufferedWriter bw = null;
         try {
-            File f = new File("C:\\TEMP\\edwardJones.csv");
+            File f = new File("C:\\TEMP\\start.csv");
             fr = new FileReader(f);
             BufferedReader br = new BufferedReader(fr);
             // Process lines from file
             String line;
             Address address = new Address();
             while ((line = br.readLine()) != null) {
+                address.region = line.substring(0, line.indexOf(","));
+                line = line.substring(line.indexOf(",") + 1);
+
                 line = line.replaceAll(Pattern.quote("\""), "");
                 line = line.trim();
                 if (line.length() == 0) {
@@ -49,6 +52,9 @@ public class EdwardJonesFileParser {
                     continue;
                 }
                 if(line.contains("®")) {
+                    continue;
+                }
+                if(line.contains("?")) {
                     continue;
                 }
 
@@ -96,6 +102,9 @@ public class EdwardJonesFileParser {
 
         for (Address address : addresses) {
             StringBuilder sb = new StringBuilder();
+            sb.append(address.region).append(",");
+
+
             if (address.name == null) {
                 sb.append(",");
             } else {

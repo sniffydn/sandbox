@@ -8,4 +8,5 @@ public class Address {
     public String address2;
     public String cityStateZip;
     public String phone;
+    public String region;
 }
