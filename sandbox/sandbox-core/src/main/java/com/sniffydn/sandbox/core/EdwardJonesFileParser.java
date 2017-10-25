@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 public class EdwardJonesFileParser {
 
     public static void main(String[] args) {
-        String cityStateZipRegex = "(^.+[,]{1}.*[a-zA-Z]{2}.*[ ]{1}.+$)";
+        String cityStateZipRegex = "(^.+[,]{1}.*[a-zA-Z]{2}.*[ ]{1}.+[0-9]{4}$)";
         Pattern cityStateZipPattern = Pattern.compile(cityStateZipRegex);
         Matcher cityStateZipMatcher;
 
@@ -51,6 +51,9 @@ public class EdwardJonesFileParser {
                 if(line.equals("Contact MeVisit Site")) {
                     continue;
                 }
+                if(line.equals("Contact Me Visit Site")) {
+                    continue;
+                }
                 if(line.contains("®")) {
                     continue;
                 }
@@ -60,23 +63,23 @@ public class EdwardJonesFileParser {
 
                 cityStateZipMatcher = cityStateZipPattern.matcher(line);
                 phoneMatcher = phonePattern.matcher(line);
-                System.out.println(line);
+//                System.out.println(line);
                 boolean cityStateZipFound = cityStateZipMatcher.find();
                 boolean phoneFound = phoneMatcher.find();
                 if (phoneFound) {
                     address.phone = line;
                 } else {
                     if (address.name == null) {
-                        address.name = line;
+                        address.name = line.replaceAll(Pattern.quote(","), "");
                     } else if (address.address1 == null) {
-                        address.address1 = line;
+                        address.address1 = line.replaceAll(Pattern.quote(","), "");
                     } else if (address.address2 == null) {
                         if (cityStateZipFound) {
-                            System.out.println("CSZ: " + line);
+//                            System.out.println("CSZ: " + line);
                             address.cityStateZip = "\"" + line + "\"";
                         } else {
-                            System.out.println("AD2: " + line);
-                            address.address2 = line;
+//                            System.out.println("AD2: " + line);
+                            address.address2 = line.replaceAll(Pattern.quote(","), "");;
                         }
                     } else if (cityStateZipFound) {
                         address.cityStateZip = "\"" + line + "\"";
@@ -84,6 +87,12 @@ public class EdwardJonesFileParser {
                 }
 
                 if(cityStateZipFound) {
+                    if(address.address1 == null) {
+                        address.address1 = "";
+                    }
+                    if(address.address2 == null) {
+                        address.address2 = "";
+                    }
                     addresses.add(address);
                     address = new Address();
                 }
