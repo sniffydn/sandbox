@@ -16,7 +16,8 @@ import java.util.regex.Pattern;
 public class EdwardJonesFileParser {
 
     public static void main(String[] args) {
-        String cityStateZipRegex = "(^.+[,]{1}.*[a-zA-Z]{2}.*[ ]{1}.+[0-9]{4}$)";
+//        String cityStateZipRegex = "(^.+[,]{1}.*[a-zA-Z]{2}.*[ ]{1}.+[0-9]{4}$)";
+        String cityStateZipRegex = "(^.+[,]{1}.*[a-zA-Z]{2}.*[ ]{1}.{3}[ ]{1}.{3}$)";
         Pattern cityStateZipPattern = Pattern.compile(cityStateZipRegex);
         Matcher cityStateZipMatcher;
 
@@ -58,6 +59,9 @@ public class EdwardJonesFileParser {
                     continue;
                 }
                 if(line.contains("?")) {
+                    continue;
+                }
+                if(line.contains("kilometers")) {
                     continue;
                 }
 
