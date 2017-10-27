@@ -16,5 +16,6 @@
 
         <a href="CattleBreedQuiz.jsp">Cattle Breeds</a><br/>
         <a href="AirportCodesQuiz.jsp">Airport Codes</a><br/>
+        <a href="GemStoneCutsQuiz.jsp">Gemstone Cuts</a>
     </body>
 </html>

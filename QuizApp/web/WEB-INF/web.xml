@@ -12,6 +12,10 @@
         <servlet-name>AirportCodesResults</servlet-name>
         <servlet-class>quiz.AirportCodesResults</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GemStoneCutsQuiz</servlet-name>
+        <servlet-class>quiz.GemStoneCutsQuiz</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Results</servlet-name>
         <url-pattern>/Results</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>AirportCodesResults</servlet-name>
         <url-pattern>/AirportCodesResults</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GemStoneCutsQuiz</servlet-name>
+        <url-pattern>/GemStoneCutsQuiz</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

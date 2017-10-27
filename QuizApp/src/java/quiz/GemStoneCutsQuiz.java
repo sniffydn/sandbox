@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package quiz;
 
 import java.io.IOException;
@@ -18,7 +13,24 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author dnyffeler
  */
-public class CattleBreedResults extends HttpServlet {
+public class GemStoneCutsQuiz extends HttpServlet {
+
+    public static Map<String, String> key = new HashMap<>();
+
+    static {
+        key.put("Round", "1");
+        key.put("Octagon", "2");
+        key.put("Oval", "3");
+        key.put("Princess", "12");
+        key.put("Triangle", "5");
+        key.put("Cushion", "4");
+        key.put("Baguette", "11");
+        key.put("Radiant", "7");
+        key.put("Heart", "9");
+        key.put("Pear", "10");
+        key.put("Trillion", "8");
+        key.put("Marquise", "6");
+    }
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,31 +41,9 @@ public class CattleBreedResults extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    public static Map<String, String> key = new HashMap<>();
-
-    static {
-        key.put("Watusi", "14");
-        key.put("Texas Longhorn", "16");
-        key.put("Angus", "2");
-        key.put("Red Angus", "10");
-        key.put("Piedmontese", "6");
-        key.put("Shorthorn", "13");
-        key.put("Holstein", "11");
-        key.put("Simmental", "15");
-        key.put("Scottish Highland", "12");
-        key.put("Gelbvieh", "8");
-        key.put("Limousin", "1");
-        key.put("Hereford", "9");
-        key.put("Brahman", "4");
-        key.put("Dexter", "7");
-        key.put("Charolais", "5");
-        key.put("Belted Galloway", "3");
-    }
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
         try (PrintWriter out = response.getWriter()) {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -84,9 +74,9 @@ public class CattleBreedResults extends HttpServlet {
             }
 
             out.println("</table>");
-            
+
             out.println("<h1>" + count + " right.</h1>");
-            out.println("<img src=\"sources/cattleBreeds.jpg\" alt=\"\"/>");
+            out.println("<img src=\"sources/gemstoneCuts.jpg\" alt=\"\"/>");
             out.println("</body>");
             out.println("</html>");
         }
