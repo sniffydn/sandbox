@@ -29,31 +29,32 @@ public class CattleBreedResults extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    Map<String, String> key = new HashMap<>();
+    public static Map<String, String> key = new HashMap<>();
+
+    static {
+        key.put("Watusi", "14");
+        key.put("Texas Longhorn", "16");
+        key.put("Angus", "2");
+        key.put("Red Angus", "10");
+        key.put("Piedmontese", "6");
+        key.put("Shorthorn", "13");
+        key.put("Holstein", "11");
+        key.put("Simmental", "15");
+        key.put("Scottish Highland", "12");
+        key.put("Gelbvieh", "8");
+        key.put("Limousin", "1");
+        key.put("Hereford", "9");
+        key.put("Brahman", "4");
+        key.put("Dexter", "7");
+        key.put("Charolais", "5");
+        key.put("Belted Galloway", "3");
+    }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        key.put("14", "Watusi");
-        key.put("16", "Texas Longhorn");
-        key.put("2", "Angus");
-        key.put("10", "Red Angus");
-        key.put("6", "Piedmontese");
-        key.put("13", "Shorthorn");
-        key.put("11", "Holstein");
-        key.put("15", "Simmental");
-        key.put("12", "Scottish Highland");
-        key.put("8", "Gelbvieh");
-        key.put("1", "Limousin");
-        key.put("9", "Hereford");
-        key.put("4", "Brahman");
-        key.put("7", "Dexter");
-        key.put("5", "Charolais");
-        key.put("3", "Belted Galloway");
-
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -61,16 +62,30 @@ public class CattleBreedResults extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Results</h1>");
-            for(String k: key.keySet()) {
-                String correct = request.getParameter(key.get(k));
-                if(correct.equals(k)) {
-                    correct = "";
+            out.println("<table>");
+            out.println("<tr><th></th><th>Your Answer</th><th>Correct Answer</th></tr>");
+            int count = 0;
+            for (String k : key.keySet()) {
+                out.println("<tr><td>");
+                String answer = request.getParameter(k);
+                if (answer.equals(key.get(k))) {
+                    answer = "<b>" + answer + "</b>";
+                    count++;
                 } else {
-                    correct = "<b>" + correct + "</b>";
+                    answer = "<font color=red>" + answer + "</font>";
                 }
-                out.println(k + " " + key.get(k) + " " + correct + "</br>");
+                out.println(k);
+                out.println("</td><td>");
+                out.println(answer);
+                out.println("</td><td>");
+                out.println(key.get(k));
 
+                out.println("</td></tr>");
             }
+
+            out.println("</table>");
+            
+            out.println("<h1>" + count + " right.</h1>");
             out.println("<img src=\"sources/cattleBreeds.jpg\" alt=\"\"/>");
             out.println("</body>");
             out.println("</html>");
