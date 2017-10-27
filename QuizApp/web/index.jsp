@@ -12,6 +12,9 @@
         <title>Quiz Time!!!</title>
     </head>
     <body>
-        <a href="CattleBreedQuiz.jsp">Cattle Breeds</a>
+                <!--http://c1315.magnetstreet.net:8080/QuizApp/-->
+
+        <a href="CattleBreedQuiz.jsp">Cattle Breeds</a><br/>
+        <a href="AirportCodesQuiz.jsp">Airport Codes</a><br/>
     </body>
 </html>
