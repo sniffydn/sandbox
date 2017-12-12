@@ -29,7 +29,6 @@ public class FontComparison {
                     compareImages(fileA, fileB, resultFile);
                 }
             }
-
         }
 
 //        File resultFile = new File("C:\\TEMP\\Font\\3Results\\AachenStd-Bold\\Akron\\65.png");
@@ -128,7 +127,7 @@ public class FontComparison {
 
         int percentage = (int) (100 * ((double) onPixelCount / (onPixelCount + offPixelCount)));
 
-        if (percentage > 30) {
+        if (percentage > 75) {
             String path = resultFile.getPath();
             path = path.replaceFirst(Pattern.quote(".png"), "_" + percentage + ".png");
 
