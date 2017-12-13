@@ -2827,7 +2827,7 @@ ignoreFonts.add("jsMath-cmti10");
             if (!ignoreFonts.contains(fontName)) {
                 System.out.println("ignoreFonts.add(\"" + fontName + "\");");
 
-//            String text = "The quick brown fox jumps over the lazy dog";
+//            String text = "The quick brown fox, jumps over the lazy dog.";
 //            createImage(fontName, text, "fox");
 
                 for (int i = 'A'; i <= 'Z'; i++) {
@@ -2837,6 +2837,14 @@ ignoreFonts.add("jsMath-cmti10");
                 for (int i = 'a'; i <= 'z'; i++) {
                     createImage(fontName, "" + (char) i, "" + i);
                 }
+
+                for (int i = 0; i <= 9; i++) {
+                    createImage(fontName, "" + i, "" + i);
+                }
+
+                createImage(fontName, "-", "dash");
+                createImage(fontName, "&", "amp");
+
 //                if (count > 150) {
 //                    break;
 //                }

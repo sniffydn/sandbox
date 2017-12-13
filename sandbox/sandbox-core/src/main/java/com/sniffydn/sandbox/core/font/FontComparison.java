@@ -6,6 +6,8 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 import javax.imageio.ImageIO;
 
@@ -15,19 +17,176 @@ import javax.imageio.ImageIO;
  */
 public class FontComparison {
 
+    private static List<String> fontList = new ArrayList<String>();
+    static {
+        fontList.add("AGaramondPro-Regular");
+fontList.add("AGaramondPro-Italic");
+fontList.add("AGaramondPro-Semibold");
+fontList.add("AGaramondPro-SemiboldItalic");
+fontList.add("AGaramondPro-Bold");
+fontList.add("AGaramondPro-BoldItalic");
+fontList.add("AmericanaStd-Italic");
+fontList.add("AmericanaStd-Bold");
+fontList.add("AmericanaStd-ExtraBold");
+fontList.add("BernhardModernStd-Roman");
+fontList.add("BernhardModernStd-Italic");
+fontList.add("BodoniStd");
+fontList.add("BodoniStd-Italic");
+fontList.add("BodoniStd-Bold");
+fontList.add("BodoniStd-BoldItalic");
+fontList.add("BookmanOldStyleStd");
+fontList.add("BookmanOldStyleStd-Italic");
+fontList.add("BookmanOldStyleStd-BoldIt");
+fontList.add("ClarendonLTStd-Light");
+fontList.add("ClarendonLTStd");
+fontList.add("Clarendon Com Bold Expanded");
+fontList.add("GoudyOlSt BT Roman");
+fontList.add("GoudyOlSt BT Italic");
+fontList.add("GoudyOlSt BT Bold");
+fontList.add("HorleyOldStyleMTStd-Light");
+fontList.add("HorleyOldStyleMTStd-LightIt");
+fontList.add("HorleyOldStyleMTStd-Italic");
+fontList.add("HorleyOldStyleMTStd");
+fontList.add("HorleyOldStyleMTStd-Bold");
+fontList.add("HorleyOldStyleMTStd-BoldIt");
+fontList.add("ItaliaStd-Medium");
+fontList.add("NewBaskervilleStd-Roman");
+fontList.add("NewBaskervilleStd-Italic");
+fontList.add("NewBaskervilleStd-Bold");
+fontList.add("NewBaskervilleStd-BoldIt");
+fontList.add("PerpetuaMTStd");
+fontList.add("AnnaITCStd");
+fontList.add("BauhausStd-Medium");
+fontList.add("Biographer");
+fontList.add("BrunoJBStd");
+fontList.add("CafeBrasil");
+fontList.add("CassandraEF-Light");
+fontList.add("CharcuterieDeco");
+fontList.add("CharcuterieEngraved");
+fontList.add("CharcuterieEtched");
+fontList.add("CharcuterieSerif");
+fontList.add("CloisterStd-OpenFace");
+fontList.add("EccentricStd");
+fontList.add("Frosted");
+fontList.add("GalliaMTStd");
+fontList.add("GillSansShadowMTStd");
+fontList.add("Helvetica Neue LT Com 75 Bold Outline");
+fontList.add("HoneyBee");
+fontList.add("MachineStd");
+fontList.add("MonaLisaStd-Recut");
+fontList.add("MonaLisaStd-Solid");
+fontList.add("TiffanyStd-Heavy");
+fontList.add("TiffanyStd-HeavyItalic");
+fontList.add("KG Love You Through It");
+fontList.add("KG Second Chances Sketch");
+fontList.add("LadyRene");
+fontList.add("Lemonade ICG");
+fontList.add("Markerfield-Regular");
+fontList.add("Nexa Rust Sans Black 03");
+fontList.add("Nexa Rust Script R 02");
+fontList.add("OldEnglishTextMTStd");
+fontList.add("ParisianStd");
+fontList.add("RosewoodStd-Fill");
+fontList.add("SackersSolidAntiqueStd");
+fontList.add("SchmutzPro-Cleaned");
+fontList.add("Sketchley BT");
+fontList.add("SmaragdLTStd");
+fontList.add("Stencil BT");
+fontList.add("TouchToneLight");
+fontList.add("VivaStd-Bold");
+fontList.add("Zebrawood Std - Regular ");//not found
+fontList.add("Futura Com Extra Bold");
+fontList.add("FuturaStd-Light");
+fontList.add("FuturaStd-Book");
+fontList.add("FuturaStd-Bold");
+fontList.add("GillSansMTStd-Light");
+fontList.add("GillSansMTStd-LightItalic");
+fontList.add("GillSansMTStd-Medium");
+fontList.add("GillSansMTStd-MediumItalic");
+fontList.add("GillSansMTStd-Bold");
+fontList.add("HarmoniaSansStd-Light");
+fontList.add("HarmoniaSansStd-LightItalic");
+fontList.add("Helvetica Neue LT Com 77 Bold Condensed");
+fontList.add("HelveticaNeueLTStd-ThCn");
+fontList.add("HelveticaNeueLTStd-Cn");
+fontList.add("HelveticaNeueLTStd-CnO");
+fontList.add("HelveticaNeueLTStd-XBlkCn");
+fontList.add("HelveticaNeueLTStd-Th");
+fontList.add("HelveticaNeueLTStd-Roman");
+fontList.add("HelveticaNeueLTStd-It");
+fontList.add("HelveticaNeueLTStd-Bd");
+fontList.add("HelveticaNeueLTStd-BdIt");
+fontList.add("HelveticaNeueLTStd-ThEx");
+fontList.add("HelveticaNeueLTStd-ExO");
+fontList.add("HelveticaNeueLTStd-BdEx");
+fontList.add("ITCAvantGardeStd-XLt");
+fontList.add("ITCAvantGardeStd-XLtCn");
+fontList.add("ITCAvantGardeStd-Md");
+fontList.add("ITCAvantGardeStd-MdObl");
+fontList.add("ITCAvantGardeStd-Bold");
+fontList.add("ITCKabelStd-Book");
+fontList.add("ITCKabelStd-Medium");
+fontList.add("ITCKabelStd-Demi");
+fontList.add("KahloLightPro");
+fontList.add("KahloLightPro-Italic");
+fontList.add("MyriadPro-Regular");
+fontList.add("MyriadPro-It");
+fontList.add("MyriadPro-Bold");
+fontList.add("OceanSansStd-Book");
+fontList.add("OceanSansStd-BookIta");
+fontList.add("OptimaLTStd-Medium");
+fontList.add("OptimaLTStd-Italic");
+fontList.add("OptimaLTStd-Black");
+fontList.add("UniversLTStd-LightCn");
+fontList.add("UniversLTStd-Cn");
+fontList.add("UniversLTStd-CnObl");
+fontList.add("UniversLTStd-UltraCn");
+fontList.add("UniversLTStd-BoldCn");
+fontList.add("UniversLTStd-BoldCnObl");
+fontList.add("BelovedSans");
+fontList.add("CopperplateGothicStd-31BC");
+fontList.add("Engravers MT - Regular");//not found
+fontList.add("HandleOldstyleStd");
+fontList.add("LifeEF-RegularSC");
+fontList.add("SackersRomanStd-Light");
+fontList.add("SerlioLTStd");
+fontList.add("TrajanPro-Bold");
+fontList.add("CaeciliaLTStd-Light");
+fontList.add("CaeciliaLTStd-LightItalic");
+fontList.add("CaeciliaLTStd-Roman");
+fontList.add("CaeciliaLTStd-Italic");
+fontList.add("CaeciliaLTStd-Heavy");
+fontList.add("CaeciliaLTStd-HeavyItalic");
+fontList.add("MemphisLTStd-Light");
+fontList.add("MemphisLTStd-Medium");
+fontList.add("MemphisLTStd-MediumItalic");
+fontList.add("MemphisLTStd-Bold");
+fontList.add("MemphisLTStd-ExtraBold");
+fontList.add("AmericanTypewriterStd-Light");
+fontList.add("AmericanTypewriterStd-LtCnd");
+fontList.add("AmericanTypewriterStd-Med");
+fontList.add("AmericanTypewriterStd-Bold");
+fontList.add("PrestigeEliteStd");
+fontList.add("PrestigeEliteStd-Slanted");
+
+    }
+
     public static void main(String[] args) {
         File mono = new File("C:\\TEMP\\Font\\1MonoType");
         File repCandidates = new File("C:\\TEMP\\Font\\2ReplacementCandidates");
         File resultPath = new File("C:\\TEMP\\Font\\3Results");
 
         int count = 0;
-        int min = 201;  //still need 251 to 312
-        int max = 250;
+        int min = 210;   //210 - 312
+        int max = 312;
 
+        System.out.println("Min: " + min + "  Max: " + max);
+        long time = System.currentTimeMillis();
         for (File m : mono.listFiles()) {
 
             count++;
-            if (count > min && count < max) {
+
+            if (count > min && count < max && fontList.contains(m.getName())) {
                 for (File n : m.listFiles()) {
                     for (File r : repCandidates.listFiles()) {
                         File fileA = n;
@@ -37,14 +196,12 @@ public class FontComparison {
                             compareImages(fileA, fileB, resultFile);
                         }
                     }
+                    System.out.println("      " + n.getName() + ", Elapsed Time: " + (System.currentTimeMillis() - time));
                 }
+                System.out.println("Finished (" + count +") " + m.getName() + ", Elapsed Time: " + (System.currentTimeMillis() - time));
+                time = System.currentTimeMillis();
             }
         }
-
-//        File resultFile = new File("C:\\TEMP\\Font\\3Results\\AachenStd-Bold\\Akron\\65.png");
-//        File fileA = new File("C:\\TEMP\\Font\\1MonoType\\AachenStd-Bold\\65.png");
-//        File fileB = new File("C:\\TEMP\\Font\\2ReplacementCandidates\\Akron\\65.png");
-//        compareImages(fileA, fileB, resultFile);
     }
 
     private static void compareImages(File fileA, File fileB, File resultFile) {
@@ -114,32 +271,12 @@ public class FontComparison {
                             onPixelCount++;
                         }
                     }
-
-//                int rgbA = imgA.getRGB(x, y);
-//                int rgbB = imgB.getRGB(x, y);
-//
-//
-//                int redA = (rgbA >> 16) & 0xff;
-//                int greenA = (rgbA >> 8) & 0xff;
-//                int blueA = (rgbA) & 0xff;
-//                int redB = (rgbB >> 16) & 0xff;
-//                int greenB = (rgbB >> 8) & 0xff;
-//                int blueB = (rgbB) & 0xff;
-//                System.out.println(redA + " " + redB + "   " + greenA + " " + greenB + "   " + blueA + " " + blueB);
-//                if (rgbA != rgbB) {
-//                    resultGraphics.setColor(new Color(255, greenB, blueB, 128));
-//                    resultGraphics.fillRect(x, y, 1, 1);
-//                }
                 }
             }
 
             int percentage = (int) (100 * ((double) onPixelCount / (onPixelCount + offPixelCount)));
 
             if (percentage > 40) {
-
-//                System.out.println(resultFile);
-//                System.out.println("    " + percentage);
-//                System.out.println("    " + offPercentage);
                 String path = resultFile.getPath();
                 path = path.replaceFirst(Pattern.quote(".png"), "_" + percentage + ".png");
 
@@ -154,24 +291,6 @@ public class FontComparison {
                     ex.printStackTrace();
                 }
             }
-//            // Total number of red pixels = width * height
-//        // Total number of blue pixels = width * height
-//        // Total number of green pixels = width * height
-//        // So total number of pixels = width * height * 3
-//        double total_pixels = width1 * height1 * 3;
-//
-//            // Normalizing the value of different pixels
-//        // for accuracy(average pixels per color
-//        // component)
-//        double avg_different_pixels = difference
-//                / total_pixels;
-//
-//        // There are 255 values of pixels in total
-//        double percentage = (avg_different_pixels
-//                / 255) * 100;
-//
-//        System.out.println("Difference Percentage-->"
-//                + percentage);
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("   " + fileA + ", " + fileB + ", " + resultFile);
