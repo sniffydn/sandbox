@@ -2,6 +2,7 @@ package quiz;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.ServletException;
@@ -44,6 +45,15 @@ public class GemStoneCutsQuiz extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+
+        System.out.println("header");
+        Enumeration<String> names = request.getHeaderNames();
+        while(names.hasMoreElements()) {
+            String name = names.nextElement();
+            System.out.println(name);
+            System.out.println("      " + request.getHeader(name) + "\n");
+        }
+
         try (PrintWriter out = response.getWriter()) {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
